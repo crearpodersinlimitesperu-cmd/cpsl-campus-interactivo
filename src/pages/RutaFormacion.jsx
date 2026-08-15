@@ -32,6 +32,34 @@ export default function RutaFormacion() {
       descripcion: 'Arquitectura de entrenamiento de 6 semanas y protocolos de mitigación de desvíos.',
       estado: 'disponible',
       duracion: '3 horas'
+    },
+    {
+      id: 'modulo5',
+      titulo: 'Módulo 5: Fundamentos Filosóficos del Ser',
+      descripcion: 'Raíces existenciales (Heidegger, Sartre, Kierkegaard) aplicadas al Liderazgo Auténtico.',
+      estado: 'disponible',
+      duracion: '3 Semanas'
+    },
+    {
+      id: 'modulo6',
+      titulo: 'Módulo 6: Ontología del Lenguaje y Realidad',
+      descripcion: 'El lenguaje como creador. Ontología, Logoterapia y la Búsqueda de Sentido.',
+      estado: 'disponible',
+      duracion: '2 Semanas'
+    },
+    {
+      id: 'modulo7',
+      titulo: 'Módulo 7: Liderazgo de Transformación Cuántica',
+      descripcion: 'Salto cuántico del líder, quiebres ontológicos y el mapa de enrolamiento.',
+      estado: 'disponible',
+      duracion: '6 Semanas'
+    },
+    {
+      id: 'modulo8',
+      titulo: 'Módulo 8: Integración y Legado Existencial',
+      descripcion: 'El Manifiesto del Líder Cuántico-Existencial y el Plan de Expansión.',
+      estado: 'disponible',
+      duracion: '1 Semana'
     }
   ];
 
