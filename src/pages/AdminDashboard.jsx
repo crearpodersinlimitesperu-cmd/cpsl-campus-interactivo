@@ -200,9 +200,10 @@ export default function AdminDashboard() {
                 <h3 className="text-gold" style={{ marginTop: 0, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   🤖 Diagnóstico de IA
                 </h3>
-                <div style={{ color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
-                  {aiReport}
-                </div>
+                <div 
+                  style={{ color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}
+                  dangerouslySetInnerHTML={{ __html: aiReport.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--crear-gold);">$1</strong>') }}
+                />
               </div>
             )}
 
