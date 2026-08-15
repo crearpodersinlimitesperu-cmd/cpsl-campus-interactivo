@@ -158,9 +158,14 @@ export default function EvaluacionContainer() {
       </div>
 
       {isAnswered && (
-        <div className="glass-panel p-6" style={{borderLeft: '4px solid var(--crear-gold)', marginBottom: '2rem'}}>
-          <h3 style={{color: 'var(--crear-gold)', marginBottom: '0.5rem', fontSize: '1.1rem'}}>Retroalimentación</h3>
-          <p>{currentQuestion.feedback}</p>
+        <div className="glass-panel p-6" style={{borderLeft: `4px solid ${selectedOption === currentQuestion.correctAnswer ? '#34A853' : '#EA4335'}`, marginBottom: '2rem'}}>
+          <h3 style={{color: selectedOption === currentQuestion.correctAnswer ? '#34A853' : '#EA4335', marginBottom: '0.5rem', fontSize: '1.1rem'}}>
+            {selectedOption === currentQuestion.correctAnswer ? '✅ ¡Correcto!' : '❌ Incorrecto'}
+          </h3>
+          {selectedOption !== currentQuestion.correctAnswer && (
+            <p style={{marginBottom: '0.5rem'}}>La respuesta correcta era: <strong>{currentQuestion.options[currentQuestion.correctAnswer]}</strong></p>
+          )}
+          <p className="text-muted">{currentQuestion.feedback}</p>
         </div>
       )}
 

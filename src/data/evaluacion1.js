@@ -13,7 +13,7 @@ export const evaluacion1 = {
         'Enseñar física cuántica teórica a directivos.'
       ],
       correctAnswer: 1,
-      feedback: 'Correcto. A diferencia de las terapias tradicionales, el Alto Rendimiento se orienta a la maximización del potencial y la asunción de responsabilidad radical, no a la patología.'
+      feedback: 'A diferencia de las terapias tradicionales, el Alto Rendimiento se orienta a la maximización del potencial y la asunción de responsabilidad radical, no a la patología.'
     },
     {
       id: 'q2',
@@ -25,7 +25,7 @@ export const evaluacion1 = {
         'Se pierde el control sobre la propia vida.'
       ],
       correctAnswer: 0,
-      feedback: 'Exacto. Modificar el paradigma de observación "colapsa" nuevas posibilidades de acción, transformando la experiencia fenoménica.'
+      feedback: 'Modificar el paradigma de observación "colapsa" nuevas posibilidades de acción, transformando la experiencia fenoménica.'
     },
     {
       id: 'q3',
@@ -37,7 +37,7 @@ export const evaluacion1 = {
         'Debe inducir un estado de trance profundo.'
       ],
       correctAnswer: 2,
-      feedback: 'Correcto. El Grounding es una intervención psico-fisiológica breve y accesible diseñada para modular la reactividad del sistema nervioso de forma autónoma.'
+      feedback: 'El Grounding es una intervención psico-fisiológica breve y accesible diseñada para modular la reactividad del sistema nervioso de forma autónoma.'
     },
     {
       id: 'q4',
@@ -49,7 +49,7 @@ export const evaluacion1 = {
         'Aislamiento reflexivo constante.'
       ],
       correctAnswer: 3,
-      feedback: 'Perfecto. El "aislamiento reflexivo" no es un pilar. Los pilares exigen enrolamiento, trabajo en equipo e integridad inquebrantable.'
+      feedback: 'El "aislamiento reflexivo" no es un pilar. Los pilares exigen enrolamiento, trabajo en equipo e integridad inquebrantable.'
     }
   ]
 };
