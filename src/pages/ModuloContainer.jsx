@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useUI } from '../context/UIContext';
-import { modulo1 } from '../data/modulo1';
+import { modulesRegistry } from '../data/modulesRegistry';
 import { updateLastVisited, markLessonCompleted, getUserProgress } from '../services/db';
 
 export default function ModuloContainer() {
@@ -25,7 +25,8 @@ export default function ModuloContainer() {
     }
   }, [user, id]);
 
-  const currentLesson = modulo1[currentLessonIndex];
+  const currentModuleData = modulesRegistry[id] || modulesRegistry['modulo1'];
+  const currentLesson = currentModuleData[currentLessonIndex];
 
   const handleNext = async () => {
     if (user) {
@@ -40,7 +41,7 @@ export default function ModuloContainer() {
       }
     }
     
-    if (currentLessonIndex < modulo1.length - 1) {
+    if (currentLessonIndex < currentModuleData.length - 1) {
       setCurrentLessonIndex(currentLessonIndex + 1);
       window.scrollTo(0, 0);
     } else {
@@ -60,7 +61,9 @@ export default function ModuloContainer() {
     <div className="module-container" style={{maxWidth: '800px', margin: '0 auto', paddingBottom: '4rem'}}>
       <header style={{marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <p className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '0', fontWeight: 'bold'}}>Módulo 01 • Lección {currentLessonIndex + 1} de {modulo1.length}</p>
+          <p className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '0', fontWeight: 'bold'}}>
+            Módulo {id.replace('modulo', '')} • Lección {currentLessonIndex + 1} de {currentModuleData.length}
+          </p>
           
           {!isFocusMode && (
             <button 
@@ -79,7 +82,7 @@ export default function ModuloContainer() {
         <h1 style={{fontSize: '2.5rem', margin: 0}}>{currentLesson.title}</h1>
         
         <div className="progress-bar-container" style={{height: '4px', marginTop: '0.5rem'}}>
-          <div className="progress-bar-fill" style={{width: `${((currentLessonIndex) / modulo1.length) * 100}%`}}></div>
+          <div className="progress-bar-fill" style={{width: `${((currentLessonIndex) / currentModuleData.length) * 100}%`}}></div>
         </div>
       </header>
 
@@ -99,7 +102,7 @@ export default function ModuloContainer() {
           className="btn-primary" 
           onClick={handleNext}
         >
-          {currentLessonIndex === modulo1.length - 1 ? 'Ir a la Evaluación' : 'Completar y Siguiente'}
+          {currentLessonIndex === currentModuleData.length - 1 ? 'Ir a la Evaluación' : 'Completar y Siguiente'}
         </button>
       </footer>
     </div>

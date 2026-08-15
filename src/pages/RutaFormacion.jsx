@@ -6,25 +6,32 @@ export default function RutaFormacion() {
   
   const modulos = [
     {
-      id: 'fundamentos',
-      titulo: 'Módulo 1: Fundamentos y Acuerdos',
-      descripcion: 'Bases conceptuales del entrenamiento CREAR, historia y acuerdos terapéuticos.',
-      estado: 'disponible', // disponible, completado, bloqueado
+      id: 'modulo1',
+      titulo: 'Módulo 1: Fundamentos Teóricos',
+      descripcion: 'Bases conceptuales del Coaching de Alto Rendimiento y Transformación Cuántica.',
+      estado: 'disponible',
       duracion: '2 horas'
     },
     {
       id: 'modulo2',
-      titulo: 'Módulo 2: Intervención en Crisis',
-      descripcion: 'Protocolos de contención emocional y primeros auxilios psicológicos.',
-      estado: 'bloqueado',
+      titulo: 'Módulo 2: Arquitectura de Intervención Clínica',
+      descripcion: 'Estructura estándar de sesión y repertorio de técnicas conversacionales.',
+      estado: 'disponible',
       duracion: '3 horas'
     },
     {
       id: 'modulo3',
-      titulo: 'Módulo 3: Herramientas Avanzadas',
-      descripcion: 'Técnicas de reestructuración cognitiva y manejo de trauma.',
-      estado: 'bloqueado',
-      duracion: '4 horas'
+      titulo: 'Módulo 3: Maestría en Groundings',
+      descripcion: 'Metodología para el diseño y aplicación de protocolos somáticos.',
+      estado: 'disponible',
+      duracion: '2 horas'
+    },
+    {
+      id: 'modulo4',
+      titulo: 'Módulo 4: Diseño de Programas y Prevención',
+      descripcion: 'Arquitectura de entrenamiento de 6 semanas y protocolos de mitigación de desvíos.',
+      estado: 'disponible',
+      duracion: '3 horas'
     }
   ];
 
