@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { getAllUsers, getUserSessions } from '../services/db';
+import { generarDiagnosticoAlumno } from '../services/ai';
 
 export default function AdminDashboard() {
   const { user } = useAuth();
@@ -9,6 +10,8 @@ export default function AdminDashboard() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [userSessions, setUserSessions] = useState([]);
   const [loadingSessions, setLoadingSessions] = useState(false);
+  const [aiReport, setAiReport] = useState(null);
+  const [generatingAi, setGeneratingAi] = useState(false);
 
   // Helper para mostrar nombres reales en lugar de URLs
   const formatModuleName = (route) => {
@@ -51,6 +54,15 @@ export default function AdminDashboard() {
   const closeHistory = () => {
     setSelectedUser(null);
     setUserSessions([]);
+    setAiReport(null);
+  };
+
+  const handleGenerarDiagnostico = async () => {
+    setGeneratingAi(true);
+    const userMetrics = users.find(u => u.uid === selectedUser.uid)?.progress || {};
+    const report = await generarDiagnosticoAlumno(selectedUser.name, userMetrics, userSessions);
+    setAiReport(report);
+    setGeneratingAi(false);
   };
 
   if (loading) {
@@ -147,7 +159,29 @@ export default function AdminDashboard() {
               &times;
             </button>
             <h2 className="text-gold" style={{ marginTop: 0, marginBottom: '0.5rem' }}>Libro de Auditoría</h2>
-            <p className="text-muted" style={{ marginBottom: '2rem' }}>Historial de Conexiones de: <strong>{selectedUser.name}</strong></p>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+              <p className="text-muted" style={{ margin: 0 }}>Historial de Conexiones de: <strong>{selectedUser.name}</strong></p>
+              <button 
+                onClick={handleGenerarDiagnostico} 
+                disabled={generatingAi || loadingSessions}
+                className="btn-primary" 
+                style={{ background: 'var(--crear-blue)', borderColor: 'var(--crear-blue)', display: 'flex', gap: '8px', alignItems: 'center', opacity: (generatingAi || loadingSessions) ? 0.5 : 1 }}
+              >
+                {generatingAi ? '⏳ Procesando...' : '🧠 Generar Diagnóstico Cuántico'}
+              </button>
+            </div>
+
+            {aiReport && (
+              <div className="glass-panel animate-fade-in" style={{ padding: '1.5rem', marginBottom: '2rem', borderLeft: '4px solid var(--crear-gold)' }}>
+                <h3 className="text-gold" style={{ marginTop: 0, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  🤖 Diagnóstico de IA
+                </h3>
+                <div style={{ color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
+                  {aiReport}
+                </div>
+              </div>
+            )}
 
             {loadingSessions ? (
               <div className="text-center text-gold" style={{ padding: '2rem' }}>Cargando bitácora...</div>
