@@ -180,17 +180,19 @@ export default function ProgramaEntrenamiento() {
           <div key={s.semana} className="glass-panel" style={{ overflow: 'hidden' }}>
             <button 
               onClick={() => setSemanaActiva(semanaActiva === s.semana ? null : s.semana)}
+              aria-expanded={semanaActiva === s.semana}
+              aria-controls={`semana-panel-${s.semana}`}
               style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', background: semanaActiva === s.semana ? 'rgba(1, 180, 228, 0.1)' : 'transparent', border: 'none', color: 'var(--text-main)', cursor: 'pointer', textAlign: 'left' }}
             >
               <div>
                 <h3 style={{ margin: 0, fontSize: '1.2rem', marginBottom: '0.3rem' }}>Semana {s.semana}: <span className="text-gold">{s.titulo}</span></h3>
                 <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--crear-blue)' }}>Herramientas: {s.herramientasClave}</p>
               </div>
-              <span style={{ fontSize: '1.5rem', transition: 'transform 0.3s', transform: semanaActiva === s.semana ? 'rotate(180deg)' : 'none' }}>▼</span>
+              <span aria-hidden="true" style={{ fontSize: '1.5rem', transition: 'transform 0.3s', transform: semanaActiva === s.semana ? 'rotate(180deg)' : 'none' }}>▼</span>
             </button>
             
             {semanaActiva === s.semana && (
-              <div style={{ padding: '0 1.5rem 1.5rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+              <div id={`semana-panel-${s.semana}`} style={{ padding: '0 1.5rem 1.5rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 <div style={{ background: 'rgba(212, 175, 55, 0.1)', border: '1px solid var(--crear-gold)', padding: '1rem', borderRadius: '8px', marginTop: '1.5rem', textAlign: 'center' }}>
                   <strong className="text-gold">Compromiso de Acción Semanal:</strong> {s.compromiso}
                 </div>

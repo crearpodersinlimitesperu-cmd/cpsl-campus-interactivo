@@ -18,32 +18,32 @@ export default function Dashboard() {
 
   return (
     <>
-      <header className="dashboard-header">
+      <header className="dashboard-header" aria-label="Cabecera del Dashboard">
         <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
-          {user?.photoURL && <img src={user.photoURL} alt="Profile" style={{width: '60px', height: '60px', borderRadius: '50%', border: '2px solid var(--crear-gold)'}} />}
+          {user?.photoURL && <img src={user.photoURL} alt="Foto de perfil del estudiante" style={{width: '60px', height: '60px', borderRadius: '50%', border: '2px solid var(--crear-gold)'}} />}
           <div>
-            <h1 style={{fontSize: '2.5rem'}}>Hola, <span className="text-gold">{user?.displayName ? user.displayName.split(' ')[0] : 'Estudiante'}</span></h1>
+            <h2 style={{fontSize: '2.5rem'}}>Hola, <span className="text-gold">{user?.displayName ? user.displayName.split(' ')[0] : 'Estudiante'}</span></h2>
             <p className="text-muted" style={{fontSize: '1.25rem'}}>Continúa tu entrenamiento.</p>
           </div>
         </div>
-        <button className="btn-secondary" onClick={logout}>Cerrar sesión</button>
+        <button className="btn-secondary" onClick={logout} aria-label="Cerrar sesión de tu cuenta">Cerrar sesión</button>
       </header>
 
-      <section className="dashboard-grid">
-        <div className="glass-panel p-6">
+      <section className="dashboard-grid" aria-label="Resumen de Progreso">
+        <article className="glass-panel p-6">
           <h3 className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '1rem'}}>Progreso Global</h3>
-          <div className="progress-bar-container">
+          <div className="progress-bar-container" aria-label={`Progreso global al ${progress?.globalPercentage || 0} por ciento`}>
             <div className="progress-bar-fill" style={{width: `${progress?.globalPercentage || 0}%`}}></div>
           </div>
           <p className="text-muted" style={{marginTop: '0.5rem', fontSize: '0.9rem'}}>{progress?.globalPercentage || 0}% completado</p>
-        </div>
+        </article>
 
-        <div className="glass-panel p-6" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+        <article className="glass-panel p-6" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <div>
             <h3 className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '1rem'}}>Última Actividad</h3>
-            <h2>{progress?.lastVisitedModule === '/modulo/fundamentos' ? 'Fundamentos Teóricos' : 
+            <h4 style={{fontSize: '1.5rem', margin: '0 0 0.5rem 0'}}>{progress?.lastVisitedModule === '/modulo/fundamentos' ? 'Fundamentos Teóricos' : 
                  progress?.lastVisitedModule?.includes('evaluacion') ? 'Evaluación Completada' : 
-                 'Módulos Avanzados'}</h2>
+                 'Módulos Avanzados'}</h4>
             <p className="text-muted" style={{marginBottom: '1.5rem'}}>
               {progress?.lastVisitedModule?.includes('evaluacion') 
                 ? 'Elige tu siguiente paso en la Ruta de Formación.' 
@@ -52,10 +52,10 @@ export default function Dashboard() {
           </div>
           <button 
             className="btn-primary"
+            aria-label="Continuar donde dejaste el entrenamiento"
             onClick={() => {
               const route = progress?.lastVisitedModule;
               if (route && route.includes('evaluacion')) {
-                // Si lo último que hizo fue una evaluación, mejor lo enviamos a la Ruta para que vea los siguientes módulos
                 navigate('/ruta');
               } else {
                 navigate(route && route !== '/dashboard' ? route : '/modulo/fundamentos');
@@ -64,7 +64,7 @@ export default function Dashboard() {
           >
             Continuar donde lo dejé
           </button>
-        </div>
+        </article>
       </section>
     </>
   )

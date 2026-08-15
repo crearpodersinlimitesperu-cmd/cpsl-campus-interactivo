@@ -4,6 +4,16 @@ import { dimensionesAutoevaluacion, checklistCoach } from '../data/autoevaluacio
 export default function AutoevaluacionCoach() {
   const [dimensionActiva, setDimensionActiva] = useState(null);
   const [tabActivo, setTabActivo] = useState('dimensiones'); // 'dimensiones' | 'checklists'
+  const [checkedDiario, setCheckedDiario] = useState({});
+  const [respuestasSemanal, setRespuestasSemanal] = useState({});
+
+  const handleCheck = (index) => {
+    setCheckedDiario(prev => ({...prev, [index]: !prev[index]}));
+  };
+
+  const handleInputChange = (index, value) => {
+    setRespuestasSemanal(prev => ({...prev, [index]: value}));
+  };
 
   const renderDimensiones = () => (
     <div className="animate-fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
@@ -72,9 +82,15 @@ export default function AutoevaluacionCoach() {
         <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1.5rem' }}>Responde esto inmediatamente después de cada sesión de coaching.</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
           {checklistCoach.diario.map((item, i) => (
-            <label key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.8rem', cursor: 'pointer' }}>
-              <input type="checkbox" style={{ marginTop: '0.2rem', accentColor: 'var(--crear-gold)' }} />
-              <span className="text-main" style={{ fontSize: '0.95rem' }}>{item}</span>
+            <label htmlFor={`diario-${i}`} key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.8rem', cursor: 'pointer', opacity: checkedDiario[i] ? 0.6 : 1, transition: 'opacity 0.2s' }}>
+              <input 
+                id={`diario-${i}`}
+                type="checkbox" 
+                checked={checkedDiario[i] || false}
+                onChange={() => handleCheck(i)}
+                style={{ marginTop: '0.2rem', accentColor: 'var(--crear-gold)' }} 
+              />
+              <span className="text-main" style={{ fontSize: '0.95rem', textDecoration: checkedDiario[i] ? 'line-through' : 'none' }}>{item}</span>
             </label>
           ))}
         </div>
@@ -86,8 +102,15 @@ export default function AutoevaluacionCoach() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {checklistCoach.semanal.map((item, i) => (
             <div key={i}>
-              <label className="text-main" style={{ display: 'block', fontSize: '0.9rem', marginBottom: '0.3rem' }}>{item}</label>
-              <input type="text" placeholder="Reflexiona aquí..." style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px' }} />
+              <label htmlFor={`semanal-${i}`} className="text-main" style={{ display: 'block', fontSize: '0.9rem', marginBottom: '0.3rem' }}>{item}</label>
+              <input 
+                id={`semanal-${i}`}
+                type="text" 
+                value={respuestasSemanal[i] || ''}
+                onChange={(e) => handleInputChange(i, e.target.value)}
+                placeholder="Reflexiona aquí..." 
+                style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px' }} 
+              />
             </div>
           ))}
         </div>

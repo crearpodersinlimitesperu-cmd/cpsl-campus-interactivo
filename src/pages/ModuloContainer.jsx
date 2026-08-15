@@ -69,9 +69,10 @@ export default function ModuloContainer() {
             <button 
               onClick={toggleFocusMode}
               className="btn-secondary"
+              aria-label="Activar Modo Enfoque para lectura sin distracciones"
               style={{fontSize: '0.8rem', padding: '6px 12px', display: 'flex', alignItems: 'center', gap: '6px'}}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
               </svg>
               Modo Enfoque
@@ -94,6 +95,8 @@ export default function ModuloContainer() {
           className="btn-secondary" 
           onClick={handlePrevious}
           disabled={currentLessonIndex === 0}
+          aria-disabled={currentLessonIndex === 0 ? "true" : "false"}
+          aria-label="Ir a la lección anterior"
           style={{opacity: currentLessonIndex === 0 ? 0.5 : 1}}
         >
           Anterior
@@ -101,6 +104,7 @@ export default function ModuloContainer() {
         <button 
           className="btn-primary" 
           onClick={handleNext}
+          aria-label={currentLessonIndex === currentModuleData.length - 1 ? 'Ir a la Evaluación del módulo' : 'Completar esta lección y continuar a la siguiente'}
         >
           {currentLessonIndex === currentModuleData.length - 1 ? 'Ir a la Evaluación' : 'Completar y Siguiente'}
         </button>
