@@ -58,11 +58,17 @@ export default function AdminDashboard() {
   };
 
   const handleGenerarDiagnostico = async () => {
-    setGeneratingAi(true);
-    const userMetrics = users.find(u => u.uid === selectedUser.uid)?.progress || {};
-    const report = await generarDiagnosticoAlumno(selectedUser.name, userMetrics, userSessions);
-    setAiReport(report);
-    setGeneratingAi(false);
+    try {
+      setGeneratingAi(true);
+      const userMetrics = users.find(u => u.uid === selectedUser.uid)?.progress || {};
+      const report = await generarDiagnosticoAlumno(selectedUser.name, userMetrics, userSessions);
+      setAiReport(report);
+    } catch (error) {
+      console.error(error);
+      setAiReport("⚠️ Error al conectar con la IA: " + error.message + "\n\nSi acabas de añadir la clave en .env.local, intenta detener y reiniciar la consola ejecutando 'npm run dev' nuevamente.");
+    } finally {
+      setGeneratingAi(false);
+    }
   };
 
   if (loading) {
