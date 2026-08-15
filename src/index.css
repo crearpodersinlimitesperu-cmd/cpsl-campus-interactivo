@@ -109,11 +109,28 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
-}
-
+} 
+  
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* High-contrast logout button */
+.btn-logout {
+  background: var(--crear-gold);
+  color: #000000;
+  border: none;
+  border-radius: var(--radius-xl);
+  padding: 12px 28px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-logout:hover {
+  background: var(--crear-gold-hover);
 }
 
 /* App Layout */

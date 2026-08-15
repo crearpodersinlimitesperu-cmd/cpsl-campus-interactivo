@@ -26,7 +26,7 @@ export default function Dashboard() {
             <p className="text-muted" style={{fontSize: '1.25rem'}}>Continúa tu entrenamiento.</p>
           </div>
         </div>
-        <button className="btn-secondary" onClick={logout} aria-label="Cerrar sesión de tu cuenta">Cerrar sesión</button>
+        <button className="btn-logout" onClick={logout} aria-label="Cerrar sesión de tu cuenta">Cerrar sesión</button>
       </header>
 
       <section aria-label="Grounding de Preparación" style={{ marginBottom: '2rem' }}>
