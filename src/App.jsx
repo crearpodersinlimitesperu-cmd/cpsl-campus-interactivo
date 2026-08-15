@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 import Sidebar from './components/Sidebar'
@@ -22,6 +22,10 @@ import { updateTimeSpent } from './services/db'
 function App() {
   const { user, loginWithGoogle } = useAuth();
   const { isFocusMode, toggleFocusMode } = useUI();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   // Rastreador de tiempo silencioso (se ejecuta cada minuto si hay un usuario logueado)
   useEffect(() => {
@@ -61,7 +65,24 @@ function App() {
 
   return (
     <div className={`app-layout ${isFocusMode ? 'focus-mode-active' : ''}`}>
-      {!isFocusMode && <Sidebar />}
+      {!isFocusMode && (
+        <>
+          <div className="mobile-header glass-panel">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+              <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" style={{ width: '32px', height: '32px', borderRadius: '8px', border: '1px solid var(--crear-gold)' }} />
+              <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPCIÓN</h2>
+            </div>
+            <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <Sidebar isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
+        </>
+      )}
 
       <main className="main-content animate-fade-in">
         {isFocusMode && (
