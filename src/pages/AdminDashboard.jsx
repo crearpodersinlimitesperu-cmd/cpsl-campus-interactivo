@@ -7,6 +7,21 @@ export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Helper para mostrar nombres reales en lugar de URLs
+  const formatModuleName = (route) => {
+    if (!route) return 'Sin actividad';
+    if (route.includes('fundamentos')) return 'Módulo 1: Fundamentos';
+    if (route.includes('m1_eval')) return 'Evaluación Módulo 1';
+    if (route.includes('groundings')) return 'Groundings';
+    if (route.includes('dinamicas')) return 'Máquina de Dinámicas';
+    if (route.includes('quiebres')) return 'Máquina de Quiebres';
+    if (route.includes('entrenamiento')) return 'Programa 6 Semanas';
+    if (route.includes('autoevaluacion')) return 'Autoevaluación Coach';
+    if (route.includes('dashboard')) return 'Dashboard Principal';
+    if (route.includes('ruta')) return 'Ruta de Formación';
+    return route;
+  };
+
   // Hardcoded check using Env Var or direct fallback
   const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'crearglobalcom@gmail.com';
   const isAdmin = user && user.email === adminEmail;
@@ -76,7 +91,9 @@ export default function AdminDashboard() {
                 <td style={{ padding: '1rem' }}>{u.progress?.completedLessons?.length || 0}</td>
                 <td style={{ padding: '1rem', fontSize: '0.9rem' }} className="text-muted">
                   {new Date(u.lastLogin).toLocaleString()}<br/>
-                  <span style={{ color: 'var(--crear-gold)', fontSize: '0.8rem' }}>{u.progress?.lastVisitedModule}</span>
+                  <span style={{ color: 'var(--crear-gold)', fontSize: '0.8rem', fontWeight: 'bold' }}>
+                    {formatModuleName(u.progress?.lastVisitedModule)}
+                  </span>
                 </td>
                 <td style={{ padding: '1rem' }}>
                   {u.progress?.totalTimeSpent ? `${u.progress.totalTimeSpent} min` : 'N/A'}
