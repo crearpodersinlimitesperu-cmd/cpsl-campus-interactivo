@@ -48,12 +48,13 @@ export const modulo1 = [
     id: "m1_l3",
     title: "1.3 Transformación Cuántica Aplicada al Coaching",
     content: `
-      <h3>1.3.1 Concepto y Fundamentos Teóricos</h3>
-      <p>El modelo de <strong>"Coaching Cuántico"</strong> es un marco heurístico innovador que transpone, de manera analógica y metafórica, los principios de la mecánica cuántica (como la superposición de estados y el efecto del observador) al campo del desarrollo humano y la ontología del lenguaje.</p>
-      <p>Se fundamenta en la premisa epistemológica de que la "realidad" experimentada por el sujeto es una construcción mediada por sus marcos interpretativos y de creencias. Por consiguiente, la modificación deliberada de los paradigmas de observación y los patrones conversacionales <span class="highlight-blue">colapsa nuevas posibilidades de acción</span>, transformando directamente la experiencia fenoménica y sus resultados empíricos.</p>
-      
       <div class="alert-info">
-        <p><strong>Definición Operativa:</strong> Consiste en un proceso sistémico de expansión perceptual que utiliza la metáfora cuántica, la reestructuración del lenguaje, el diseño de promesas y la habituación estratégica para catalizar saltos cualitativos en el desarrollo personal.</p>
+        <p><strong>Uso metafórico:</strong> En este programa usamos "cuántico" como metáfora de cambio discontinuo, posibilidad y revisión de perspectivas. Nos inspiramos en ciertas ideas de la física cuántica como analogías, no como demostración científica de que el pensamiento crea la realidad física. No se trata de aplicar mecánica cuántica a la psicología, sino de usar estas imágenes para ampliar el repertorio de lectura del liderazgo.</p>
+      </div>
+      <p>El modelo de <strong>"Coaching Cuántico"</strong> es un marco heurístico innovador que transpone, de manera analógica y metafórica, algunas ideas al campo del desarrollo humano y la ontología del lenguaje.</p>
+      <div class="glass-panel" style="padding: 1.5rem; margin-top: 1.5rem;">
+        <p><strong>El observador y el contexto:</strong> Nuestras preguntas, categorías y decisiones influyen en la experiencia que tenemos de los sistemas humanos y en las posibilidades de acción que percibimos. (Inspirado analógicamente en el Efecto Observador).</p>
+        <p><strong>Definición Operativa:</strong> Consiste en un proceso sistémico de expansión perceptual que utiliza la metáfora de cambio no lineal, la reestructuración del lenguaje, el diseño de promesas y la habituación estratégica para catalizar saltos cualitativos en el desarrollo personal.</p>
       </div>
       
       <h3>1.3.2 Principios de la Transformación Cuántica</h3>

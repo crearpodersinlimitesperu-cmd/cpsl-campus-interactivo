@@ -51,34 +51,28 @@ export const modulo4 = [
         <table class="crear-table">
           <thead>
             <tr>
-              <th>El Desvío</th>
-              <th>El Efecto Negativo</th>
-              <th>Protocolo de Mitigación</th>
+              <th>Indicador</th>
+              <th>Descripción</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong class="text-gold">1. Convalidación del relato de víctima</strong></td>
-              <td>Permitir la justificación externa del coachee sin intervención directiva. Consolida la impotencia.</td>
-              <td><span class="highlight-text">Indagar sobre el dominio de responsabilidad personal</span> ("¿Cuál es tu rol exacto en este escenario?").</td>
+              <td><strong class="text-gold">Métricas de Proceso</strong></td>
+              <td>% de asistencia, tareas completadas, puntualidad.</td>
             </tr>
             <tr>
-              <td><strong class="text-gold">2. Sustitución de conciencia por consultoría</strong></td>
-              <td>Entregar consejos técnicos en lugar de formular preguntas directas. Transfiere el locus de control al coach.</td>
-              <td><span class="highlight-text">Forzar el uso exclusivo de indagación ontológica</span>. Tú preguntas, el otro resuelve.</td>
+              <td><strong class="text-blue">Métricas de Resultado</strong></td>
+              <td>% de coachees que cumplen compromisos (Meta operativa: 70%+), % de quiebres reportados.</td>
             </tr>
             <tr>
-              <td><strong class="text-gold">3. Omisión de brechas de congruencia</strong></td>
-              <td>No confrontar incoherencias manifiestas (dice A, pero hace B) por temor a ofender al cliente.</td>
-              <td><span class="highlight-text">Señalar la discrepancia de forma objetiva e higiénica</span>, actuando como un espejo impecable y neutral.</td>
-            </tr>
-            <tr>
-              <td><strong class="text-gold">4. Validación del esfuerzo vs. resultado</strong></td>
-              <td>Priorizar la narrativa del intento ("es que lo intenté mucho") en menoscabo del resultado ("pero no lo logré").</td>
-              <td><span class="highlight-text">Enfocar la conversación implacablemente en los indicadores</span> concretos y tangibles logrados.</td>
+              <td><strong class="text-gold">Métricas de Impacto</strong></td>
+              <td>Crecimiento en ventas, reducción de rotación, evaluaciones 360.</td>
             </tr>
           </tbody>
         </table>
+        <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem;">
+          * Nota: Los porcentajes indicados son metas operativas iniciales de este programa, sujetas a revisión según contexto, nivel de madurez organizacional y población.
+        </p>
       </div>
     `
   },
@@ -96,11 +90,11 @@ export const modulo4 = [
       </ul>
       
       <div class="alert-info" style="margin-top: 3rem; text-align: center; padding: 2rem;">
-        <h2 style="color: var(--crear-gold); margin-top: 0; font-size: 2rem;">💎 Misión Cumplida</h2>
-        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">
-          Has completado la asimilación del <strong>Manual Académico de Formación en Coaching de Alto Rendimiento, Transformación Cuántica y Regulación Emocional</strong>.<br/><br/>
-          Posees ahora la arquitectura conceptual, las herramientas conversacionales y los protocolos de regulación neurológica para intervenir sistemas humanos con precisión quirúrgica.<br/><br/>
-          <em>"Lo que es posible para el observador, determina los límites de su mundo".</em>
+        <h4 style="margin-top: 0; color: var(--crear-gold);">Misión Cumplida</h4>
+        <p>
+          Has completado la asimilación del Manual Académico. A partir del siguiente módulo pasaremos a la práctica.
+          Posees ahora la arquitectura conceptual y las herramientas conversacionales para acompañar sistemas humanos con mayor claridad y rigor.<br/><br/>
+          Sin embargo, recuerda que ninguna herramienta garantiza resultados por sí sola. La implementación y los resultados dependen del contexto y el esfuerzo del cliente.
         </p>
       </div>
     `

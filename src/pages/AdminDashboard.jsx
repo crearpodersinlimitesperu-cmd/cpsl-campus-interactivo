@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { getAllUsers, getUserSessions } from '../services/db';
 import { generarDiagnosticoAlumno } from '../services/ai';
+import DOMPurify from 'dompurify';
 
 export default function AdminDashboard() {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -28,9 +29,7 @@ export default function AdminDashboard() {
     return route;
   };
 
-  // Hardcoded check using Env Var or direct fallback
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'jose.sanchez@crearpsl.net';
-  const isAdmin = user && user.email === adminEmail;
+  // isAdmin ya viene de AuthContext, que valida por Custom Claim y un fallback configurado
 
   useEffect(() => {
     if (isAdmin) {
@@ -202,7 +201,7 @@ export default function AdminDashboard() {
                 </h3>
                 <div 
                   style={{ color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}
-                  dangerouslySetInnerHTML={{ __html: aiReport.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--crear-gold);">$1</strong>') }}
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(aiReport.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--crear-gold);">$1</strong>')) }}
                 />
               </div>
             )}

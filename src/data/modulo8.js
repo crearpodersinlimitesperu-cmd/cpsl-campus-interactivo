@@ -25,8 +25,8 @@ export const modulo8 = [
       <div class="alert-warning" style="margin-top: 3rem; text-align: center; padding: 2rem;">
         <h2 style="color: var(--crear-gold); margin-top: 0; font-size: 2rem;">🎓 Cierre de Certificación</h2>
         <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">
-          Para obtener la <strong>Certificación de Distinción</strong>, debes haber completado al 100% tus foros semanales, tu Manifiesto y presentar evidencia real de haber enrolado a 3 personas en sus futuros imposibles.<br/><br/>
-          <em>El líder que no expande a otros, solo es un espectador ilustrado. ¡Sal al mundo y CREA!</em>
+          Para obtener la <strong>Certificación de Distinción</strong>, debes haber completado al 100% tus foros semanales, tu Manifiesto y presentar evidencia de claridad en tu visión y acciones concretas realizadas alineadas a la misma.<br/><br/>
+          <em>El líder que no expande a otros se estanca. ¡Sal al mundo y CREA!</em>
         </p>
       </div>
     `

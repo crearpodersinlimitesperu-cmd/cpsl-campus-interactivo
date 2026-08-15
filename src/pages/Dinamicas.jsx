@@ -39,8 +39,12 @@ export default function Dinamicas() {
         </div>
         <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', marginTop: 0 }}>Máquina de Dinámicas</h1>
         <p className="text-muted" style={{ fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
-          Un sistema estructurado para generar quiebres en equipos atrapados en conversaciones limitantes, moviéndolos hacia la responsabilidad y la acción.
+          Intervenciones diseñadas para quebrar patrones limitantes. No es lo que dices, es el espacio que creas.
         </p>
+        
+        <div className="alert-warning" style={{ marginTop: '2rem', maxWidth: '800px', margin: '2rem auto 0 auto', textAlign: 'left' }}>
+          <strong>⚠️ Disclaimer de Seguridad:</strong> Participar en dinámicas emocionales o de quiebre debe ser voluntario. Cada intervención debe incluir la opción de detenerse o no participar. Asegúrate de ofrecer una alternativa silenciosa. Estas prácticas NO sustituyen atención médica o psicológica; no utilices dinámicas intensas con personas en crisis activa o trauma reciente.
+        </div>
       </header>
 
       {/* Buscador / Filtro */}
@@ -56,6 +60,7 @@ export default function Dinamicas() {
                 setFiltro(esc);
                 setDinamicaActiva(null);
               }}
+              aria-pressed={filtro === esc}
               style={{
                 background: filtro === esc ? 'var(--crear-gold)' : 'rgba(255,255,255,0.05)',
                 color: filtro === esc ? '#000' : 'var(--text-main)',

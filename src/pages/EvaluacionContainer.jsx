@@ -5,6 +5,9 @@ import { useUI } from '../context/UIContext';
 import { evaluacionesRegistry } from '../data/evaluacionesRegistry';
 import { saveEvaluationResult, updateLastVisited, logUserAction } from '../services/db';
 import { evaluarRespuestaAlumno } from '../services/ai';
+import DOMPurify from 'dompurify';
+import { curriculum } from '../data/curriculum';
+import { getUserProgress } from '../services/db';
 
 export default function EvaluacionContainer() {
   const { id } = useParams();
@@ -23,8 +26,23 @@ export default function EvaluacionContainer() {
   useEffect(() => {
     if (user) {
       updateLastVisited(user.uid, `/evaluacion/${id}`);
+      
+      getUserProgress(user.uid).then(progress => {
+        const prog = progress || {};
+        const moduleIndex = curriculum.findIndex(m => m.id === id);
+        if (moduleIndex > 0) {
+          const prevMod = curriculum[moduleIndex - 1];
+          const isPrevCompleted = prevMod.tieneEvaluacion 
+            ? prog.evaluationsPassed?.includes(prevMod.id)
+            : prevMod.lecciones?.every(l => prog.completedLessons?.includes(l.id));
+            
+          if (!isPrevCompleted) {
+            navigate('/ruta');
+          }
+        }
+      });
     }
-  }, [user, id]);
+  }, [user, id, navigate]);
 
   if (!evalData) {
     return (
@@ -62,16 +80,16 @@ export default function EvaluacionContainer() {
     }
   };
 
-  const formatAiText = (text) => {
-    if (!text) return { __html: '' };
-    return { __html: text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--crear-gold);">$1</strong>') };
+  const formatFeedback = (text) => {
+    if (!text) return '';
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--crear-gold);">$1</strong>');
   };
 
   if (isFinished) {
     return (
       <div className="module-container animate-fade-in" style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
-        <div className="glass-panel p-6" style={{marginTop: '4rem', borderLeft: `4px solid ${passed ? '#34A853' : '#EA4335'}`}}>
-          <h1 style={{fontSize: '3rem', color: passed ? '#34A853' : '#EA4335'}}>
+        <div className="glass-panel p-6" style={{marginTop: '4rem', borderLeft: `4px solid ${passed ? 'var(--color-success)' : 'var(--color-error)'}`}}>
+          <h1 style={{fontSize: '3rem', color: passed ? 'var(--color-success)' : 'var(--color-error)'}}>
             {passed ? '¡Aprobado por el Master Coach!' : 'Requiere Refinamiento'}
           </h1>
           
@@ -81,8 +99,12 @@ export default function EvaluacionContainer() {
             </h3>
             <div 
               style={{ color: 'var(--text-main)', fontSize: '1.1rem', lineHeight: '1.8', whiteSpace: 'pre-wrap' }}
-              dangerouslySetInnerHTML={formatAiText(aiFeedback)}
+              dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(formatFeedback(aiFeedback))}}
             />
+          </div>
+
+          <div className="alert-info" style={{marginTop: '2rem', marginBottom: '2rem', padding: '1rem', background: 'rgba(255,215,0,0.1)', border: '1px solid rgba(255,215,0,0.3)', borderRadius: '8px', fontSize: '0.9rem', color: 'var(--text-muted)'}}>
+            <strong>Nota sobre la IA:</strong> El feedback de nuestro Master Coach IA tiene un propósito estrictamente formativo preliminar. La IA evaluará tu capacidad para identificar el problema central, tu no-directividad y la claridad de tu intervención práctica. Las decisiones de certificación importantes están sujetas a revisión humana.
           </div>
 
           <p className="text-muted" style={{marginTop: '2rem', marginBottom: '3rem'}}>
@@ -132,6 +154,16 @@ export default function EvaluacionContainer() {
       <div className="glass-panel p-6" style={{marginBottom: '2rem', borderLeft: '4px solid var(--crear-gold)'}}>
         <h3 className="text-gold" style={{ marginTop: 0, marginBottom: '1rem' }}>Caso de Estudio</h3>
         <p style={{fontSize: '1.25rem', lineHeight: '1.8', whiteSpace: 'pre-wrap'}}>{evalData.caseStudy}</p>
+      </div>
+
+      <div className="glass-panel p-6" style={{marginBottom: '2rem', borderLeft: '4px solid var(--crear-blue)', background: 'rgba(52, 168, 83, 0.05)'}}>
+        <h4 className="text-blue" style={{ marginTop: 0, marginBottom: '1rem' }}>📋 Rúbrica de Evaluación IA</h4>
+        <ul className="icon-list blue-bullets" style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+          <li><strong>Identificación del problema:</strong> ¿Reconoces el desvío central (ej. parálisis por análisis, victimización)?</li>
+          <li><strong>Calidad de Intervención:</strong> ¿Tu propuesta es coherente con el modelo (grounding, reencuadre, confrontación compasiva)?</li>
+          <li><strong>No-directividad:</strong> ¿Usas preguntas e indagación en lugar de dar consejos técnicos?</li>
+          <li><strong>Acción y Límites:</strong> ¿Llevas al cliente a una acción concreta y verificable, respetando los límites profesionales?</li>
+        </ul>
       </div>
 
       <div className="glass-panel p-6" style={{marginBottom: '2rem'}}>

@@ -29,8 +29,12 @@ export default function MaquinaQuiebres() {
         </div>
         <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', marginTop: 0 }}>Máquina de Quiebres ⚡</h1>
         <p className="text-muted" style={{ fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
-          Sistema integrado que combina <strong>groundings, dinámicas y conversaciones</strong> para generar desplazamientos profundos en equipos atrapados en patrones limitantes.
+          Genera intervenciones quirúrgicas para romper patrones limitantes en tiempo real.
         </p>
+
+        <div className="alert-warning" style={{ marginTop: '2rem', maxWidth: '800px', margin: '2rem auto 0 auto', textAlign: 'left' }}>
+          <strong>⚠️ Disclaimer de Seguridad:</strong> Participar en intervenciones de quiebre debe ser voluntario. Cada intervención debe incluir la opción de detenerse o no participar. Asegúrate de ofrecer una alternativa silenciosa. Estas prácticas NO sustituyen atención médica o psicológica; no utilices intervenciones intensas con personas en crisis activa o trauma reciente.
+        </div>
       </header>
 
       {/* Arquitectura Teórica */}
@@ -71,6 +75,7 @@ export default function MaquinaQuiebres() {
                 logUserAction(user.uid, sessionId, 'Diseñó Quiebre', mq.patron);
               }
             }}
+            aria-pressed={patronActivo === mq.id}
             style={{
               background: patronActivo === mq.id ? 'var(--crear-blue)' : 'rgba(255,255,255,0.03)',
               color: patronActivo === mq.id ? '#fff' : 'var(--text-main)',
@@ -100,6 +105,7 @@ export default function MaquinaQuiebres() {
                 <h2 className="text-gold" style={{ margin: 0 }}>Receta: {mq.patron}</h2>
                 <button 
                   onClick={() => setPatronActivo(null)}
+                  aria-label="Cerrar receta"
                   style={{ background: 'transparent', color: 'var(--text-muted)', border: 'none', cursor: 'pointer', fontSize: '1.5rem' }}
                 >
                   &times;
@@ -120,7 +126,7 @@ export default function MaquinaQuiebres() {
                     background: 'rgba(0,0,0,0.2)', 
                     padding: '1rem', 
                     borderRadius: '8px',
-                    borderLeft: `4px solid ${idx === 0 ? '#ff5252' : idx === 1 ? '#ffb703' : idx === 2 ? '#01b4e4' : '#4caf50'}` 
+                    borderLeft: `4px solid ${idx === 0 ? 'var(--color-error)' : idx === 1 ? '#ffb703' : idx === 2 ? '#01b4e4' : 'var(--color-success)'}` 
                   }}>
                     <div style={{ fontWeight: 'bold', color: 'var(--text-main)', fontSize: '0.9rem' }}>{paso.fase}</div>
                     <div>

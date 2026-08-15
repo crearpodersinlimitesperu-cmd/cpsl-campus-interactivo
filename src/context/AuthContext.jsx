@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../lib/firebase';
-import { signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { googleProvider } from '../lib/firebase';
 import { initializeUser, startSession } from '../services/db';
 
@@ -10,26 +10,49 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [sessionId, setSessionId] = useState(null);
+  const [authError, setAuthError] = useState(null);
+
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser) {
-        try {
-          // Inicializar usuario en la base de datos si es la primera vez
-          await initializeUser(currentUser);
-          
-          // Iniciar rastreo de auditoría de sesión
-          const sid = await startSession(currentUser.uid);
-          setSessionId(sid);
-        } catch (error) {
-          console.error("Error al inicializar Firestore:", error);
-          alert(`⚠️ Error técnico al conectar la Base de Datos.\n\nMensaje del sistema: ${error.message}\n\nSi ves un error de 'offline', desactiva tu bloqueador de anuncios (AdBlock/Brave) y recarga la página.`);
-        }
-      } else {
+      setLoading(true);
+      setAuthError(null);
+
+      if (!currentUser) {
+        setUser(null);
         setSessionId(null);
+        setLoading(false);
+        return;
       }
-      setUser(currentUser);
-      setLoading(false);
+
+      try {
+        // Obtenemos el token para verificar roles (Custom Claims)
+        const tokenResult = await currentUser.getIdTokenResult();
+        const hasAdminClaim = !!tokenResult.claims.admin;
+        
+        // Mantenemos el fallback por email temporalmente mientras se configuran los custom claims
+        const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'jose.sanchez@crearpsl.net';
+        const isEmailAdmin = currentUser.email === adminEmail;
+        
+        setIsAdmin(hasAdminClaim || isEmailAdmin);
+
+        await initializeUser(currentUser);
+        const sid = await startSession(currentUser.uid);
+        
+        setSessionId(sid);
+        setUser(currentUser);
+      } catch (error) {
+        console.error("Error de inicialización:", error);
+        setAuthError({
+          code: error.code || 'unknown',
+          message: error.message || "No pudimos preparar tu sesión. Intenta nuevamente."
+        });
+        setUser(null);
+        setSessionId(null);
+      } finally {
+        setLoading(false);
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -54,13 +77,19 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, sessionId, loginWithGoogle, logout, loading }}>
+    <AuthContext.Provider value={{ user, sessionId, loginWithGoogle, logout, loading, isAdmin, authError }}>
       {loading ? (
         <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: '#0a1128', color: '#ffb703'}}>
           <div style={{width: '50px', height: '50px', border: '5px solid rgba(255,183,3,0.3)', borderTop: '5px solid #ffb703', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '1rem'}}></div>
           <h2>Conectando con el servidor...</h2>
           <p style={{color: '#adb5bd'}}>Por favor espera unos segundos.</p>
           <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+        </div>
+      ) : authError ? (
+        <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: '#0a1128', color: 'var(--color-error)', padding: '2rem', textAlign: 'center'}}>
+          <h2>Error de Autenticación</h2>
+          <p style={{color: '#fff', marginBottom: '2rem', maxWidth: '500px'}}>{authError.message}</p>
+          <button className="btn-primary" onClick={() => window.location.reload()}>Reintentar Conexión</button>
         </div>
       ) : (
         children

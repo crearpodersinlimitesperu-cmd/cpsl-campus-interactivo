@@ -15,36 +15,56 @@ import MaquinaQuiebres from './pages/MaquinaQuiebres'
 import ProgramaEntrenamiento from './pages/ProgramaEntrenamiento'
 import AutoevaluacionCoach from './pages/AutoevaluacionCoach'
 import AdminDashboard from './pages/AdminDashboard'
+import NotFound from './pages/NotFound'
+import Glosario from './pages/Glosario'
+import AdminRoute from './components/AdminRoute'
 import { useAuth } from './context/AuthContext'
 import { useUI } from './context/UIContext'
-import { updateTimeSpent, updateSessionHeartbeat, logSessionRoute } from './services/db'
+import { updateSessionHeartbeat, logSessionRoute } from './services/db'
 
 function App() {
-  const { user, sessionId, loginWithGoogle } = useAuth();
+  const { user, sessionId, loginWithGoogle, loading } = useAuth();
   const { isFocusMode, toggleFocusMode } = useUI();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [consentStatus, setConsentStatus] = useState(localStorage.getItem('analyticsConsent') || 'pending');
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  // Registro de Rutas (Spy Mode)
+  // Registro de Rutas Consciente (Reemplazo de Spy Mode)
   useEffect(() => {
-    if (user && sessionId) {
-      logSessionRoute(user.uid, sessionId, location.pathname);
+    if (user && sessionId && consentStatus === 'granted') {
+      // Uso de clave idempotente para evitar duplicados en StrictMode
+      const routeKey = `${sessionId}:${location.pathname}`;
+      const lastRoute = sessionStorage.getItem('lastRouteRecorded');
+      if (lastRoute !== routeKey) {
+        logSessionRoute(user.uid, sessionId, location.pathname);
+        sessionStorage.setItem('lastRouteRecorded', routeKey);
+      }
     }
-  }, [user, sessionId, location.pathname]);
+  }, [user, sessionId, location.pathname, consentStatus]);
 
-  // Rastreador de tiempo silencioso (Latido cada minuto)
+  // Rastreador de tiempo basado en visibilidad (Heartbeat)
   useEffect(() => {
-    let interval;
-    if (user && sessionId) {
-      interval = setInterval(() => {
+    if (!user || !sessionId || consentStatus !== 'granted') return;
+
+    const sendHeartbeat = () => {
+      if (document.visibilityState === 'visible') {
         updateSessionHeartbeat(user.uid, sessionId);
-      }, 60000); // 1 minuto
-    }
-    return () => clearInterval(interval);
-  }, [user, sessionId]);
+      }
+    };
+
+    const intervalId = window.setInterval(sendHeartbeat, 5 * 60 * 1000); // 5 minutos
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [user, sessionId, consentStatus]);
+
+  if (loading) {
+    return null; // El AuthProvider ya está mostrando la pantalla de carga principal
+  }
 
   if (!user) {
     return (
@@ -80,7 +100,14 @@ function App() {
               <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '45px', height: '45px' }} />
               <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPTION</h2>
             </div>
-            <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+            <button 
+              type="button"
+              className="mobile-menu-btn" 
+              onClick={toggleMobileMenu}
+              aria-label="Abrir menú principal"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="main-navigation"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -106,6 +133,30 @@ function App() {
           </button>
         )}
         
+        {consentStatus === 'pending' && (
+          <div className="glass-panel" style={{ position: 'fixed', bottom: '20px', right: '20px', left: '20px', zIndex: 9999, padding: '1.5rem', borderLeft: '4px solid var(--crear-blue)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+            <div style={{flex: 1, minWidth: '300px'}}>
+              <h4 style={{margin: '0 0 0.5rem 0', color: 'var(--text-main)'}}>Registro de Progreso</h4>
+              <p style={{margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)'}}>
+                Registramos tu avance, rutas visitadas y tiempo aproximado para mejorar tu experiencia de aprendizaje. No registramos el contenido privado de tus reflexiones en herramientas.
+              </p>
+            </div>
+            <div style={{display: 'flex', gap: '1rem'}}>
+              <button className="btn-secondary" onClick={() => {
+                localStorage.setItem('analyticsConsent', 'denied');
+                setConsentStatus('denied');
+              }}>
+                Rechazar
+              </button>
+              <button className="btn-primary" onClick={() => {
+                localStorage.setItem('analyticsConsent', 'granted');
+                setConsentStatus('granted');
+              }}>
+                Aceptar
+              </button>
+            </div>
+          </div>
+        )}
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
@@ -117,8 +168,10 @@ function App() {
           <Route path="/quiebres" element={<ProtectedRoute><MaquinaQuiebres /></ProtectedRoute>} />
           <Route path="/entrenamiento" element={<ProtectedRoute><ProgramaEntrenamiento /></ProtectedRoute>} />
           <Route path="/autoevaluacion" element={<ProtectedRoute><AutoevaluacionCoach /></ProtectedRoute>} />
+          <Route path="/glosario" element={<ProtectedRoute><Glosario /></ProtectedRoute>} />
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
-          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+          <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

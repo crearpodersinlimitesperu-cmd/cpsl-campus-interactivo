@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Función auxiliar para verificar si el usuario es admin basado en Custom Claims
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    // Reglas para la colección 'users'
+    match /users/{userId} {
+      // Un usuario puede leer/escribir su propio documento
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Un admin puede leer todos los usuarios
+      allow read: if isAdmin();
+      
+      // Colección anidada: progreso ('progress')
+      match /progress/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if isAdmin();
+      }
+
+      // Colección anidada: historial de sesiones ('sessions')
+      match /sessions/{sessionId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if isAdmin();
+      }
+    }
+
+    // Reglas globales seguras (denegar todo por defecto)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

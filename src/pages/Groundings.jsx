@@ -8,7 +8,7 @@ export default function Groundings() {
   const [isActive, setIsActive] = useState(false);
   const [phase, setPhase] = useState('Inhala'); // Inhala, Mantén, Exhala
   const [timeLeft, setTimeLeft] = useState(4);
-  const [cycle, setCycle] = useState(0);
+
 
   const [filtro, setFiltro] = useState('Todos');
   const [groundingActivo, setGroundingActivo] = useState(null);
@@ -36,7 +36,6 @@ export default function Groundings() {
               return 8;
             } else {
               setPhase('Inhala');
-              setCycle(c => c + 1);
               return 4;
             }
           }
@@ -47,7 +46,6 @@ export default function Groundings() {
       clearInterval(interval);
       setPhase('Inhala');
       setTimeLeft(4);
-      setCycle(0);
     }
     return () => clearInterval(interval);
   }, [isActive, phase]);
@@ -137,6 +135,7 @@ export default function Groundings() {
                 setFiltro(esc);
                 setGroundingActivo(null);
               }}
+              aria-pressed={filtro === esc}
               style={{
                 background: filtro === esc ? 'var(--crear-gold)' : 'rgba(255,255,255,0.05)',
                 color: filtro === esc ? '#000' : 'var(--text-main)',

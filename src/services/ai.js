@@ -1,9 +1,8 @@
-const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
+import { auth } from '../lib/firebase';
 
 export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHistory) => {
-  if (!GROQ_API_KEY) {
-    throw new Error("No se encontró la llave de API de Groq en las variables de entorno.");
-  }
+  const user = auth.currentUser;
+  const token = user ? await user.getIdToken() : '';
 
   // Preprocesar el historial para que la IA lo entienda fácilmente sin tokens innecesarios
   const historialResumido = sessionsHistory.map(s => {
@@ -32,10 +31,10 @@ ${historialResumido || 'No hay conexiones detalladas en el radar.'}
 `;
 
   try {
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const response = await fetch('/api/evaluator', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -64,9 +63,8 @@ ${historialResumido || 'No hay conexiones detalladas en el radar.'}
 };
 
 export const evaluarRespuestaAlumno = async (moduleTitle, question, studentAnswer) => {
-  if (!GROQ_API_KEY) {
-    throw new Error("No se encontró la llave de API de Groq en las variables de entorno.");
-  }
+  const user = auth.currentUser;
+  const token = user ? await user.getIdToken() : '';
 
   const systemPrompt = `Eres un Master Coach Evaluador. Tu tarea es evaluar la respuesta de un alumno a un caso práctico.
 El módulo evaluado es: ${moduleTitle}.
@@ -89,11 +87,11 @@ Responde ÚNICAMENTE con un objeto JSON (sin texto adicional, sin bloques de có
 Genera el JSON de evaluación:`;
 
   try {
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const response = await fetch('/api/evaluator', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",

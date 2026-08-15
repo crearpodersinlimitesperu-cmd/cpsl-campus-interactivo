@@ -4,8 +4,12 @@ export const modulo7 = [
     title: "M7: Liderazgo de Transformación Cuántica",
     content: `
       <div class="alert-info" style="margin-bottom: 2rem;">
-        <h3 style="margin-top: 0; color: var(--crear-gold);">Semanas 6 y 7: Física Cuántica en el Liderazgo</h3>
-        <p>Inspirados en Niels Bohr y Werner Heisenberg, aplicamos los principios de Complementariedad e Incertidumbre a la dinámica organizacional.</p>
+        <h3 style="margin-top: 0; color: var(--crear-gold);">El Salto Discontinuo</h3>
+        <p>En el liderazgo, a menudo se asume que el crecimiento debe ser estrictamente secuencial y acumulativo. Usamos la analogía del "salto" para referirnos a avances que alteran radicalmente la trayectoria actual sin seguir una progresión lineal predecible.</p>
+      </div>
+
+      <div class="alert-info">
+        <p><strong>Uso metafórico:</strong> En este programa usamos "cuántico" como metáfora de cambio discontinuo, posibilidad y revisión de perspectivas. Nos inspiramos en ciertas ideas como analogías, no como demostración científica. No se trata de aplicar mecánica cuántica a la dinámica organizacional, sino de usar estas imágenes para ampliar el repertorio de lectura del liderazgo.</p>
       </div>
 
       <h3>El Observador Crea la Realidad</h3>
@@ -113,7 +117,7 @@ export const modulo7 = [
 
 <h4 class="text-blue" style="margin-top: 2rem;">3. Los 7 Niveles del Enrolador</h4>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
-  <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid #ff5252;">
+  <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--color-error);">
     <h5 style="margin-top: 0;">Nivel 1: El Vendedor</h5><p><strong>Enfoque:</strong> "Tienes que sumarte."</p><p><strong>Herramienta:</strong> Argumentos.</p><p><strong>Limitación:</strong> Genera resistencia.</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid #ff9100;">
@@ -132,7 +136,7 @@ export const modulo7 = [
     <h5 style="margin-top: 0;">Nivel 6: Ser Enrolamiento</h5><p><strong>Enfoque:</strong> "Soy enrolamiento."</p><p><strong>Herramienta:</strong> Presencia congruente.</p><p><strong>Limitación:</strong> Distinción sutil "yo/tú".</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-gold);">
-    <h5 style="margin-top: 0; color: var(--crear-gold);">Nivel 7: Maestro Enrolador</h5><p><strong>Enfoque:</strong> "No hay yo ni tú. Hay expansión."</p><p><strong>Herramienta:</strong> Ninguna. ES la herramienta.</p><p><strong>Sin limitación:</strong> Unidad en la expansión.</p>
+    <h5 style="margin-top: 0; color: var(--crear-gold);">Nivel 7: Maestro Enrolador</h5><p><strong>Enfoque:</strong> El foco pasa de 'yo enrolo' a 'nos expandimos mutuamente'.</p><p><strong>Herramienta:</strong> La congruencia entre lo que se dice y cómo se vive.</p><p><strong>Impacto:</strong> Contribuye a que otros desarrollen su propio liderazgo.</p>
   </div>
 </div>
 
@@ -218,7 +222,7 @@ export const modulo7 = [
       <p style="margin-top: 0;"><strong>Fase 1: Aprender Técnicas (Mes 1-3)</strong><br/><span style="color:var(--text-muted); font-size:0.9rem;">Limitación: Mecánico, se nota el "hacer".</span></p>
       <p><strong>Fase 2: Desarrollar Presencia (Mes 4-6)</strong><br/><span style="color:var(--text-muted); font-size:0.9rem;">Limitación: Aún hay un "yo" que enrola.</span></p>
       <p><strong>Fase 3: Ser Enrolamiento (Mes 7-12)</strong><br/><span style="color:var(--text-muted); font-size:0.9rem;">Limitación: Distinción sutil "yo/tú".</span></p>
-      <p style="margin-bottom: 0;"><strong>Fase 4: Maestro Enrolador (Año 2+)</strong><br/><span style="color:var(--crear-gold); font-size:0.9rem;">Sin limitación. Unidad. El otro se transforma por resonancia.</span></p>
+      <p style="margin-bottom: 0;"><strong>Fase 4: Maestro Enrolador (Año 2+)</strong><br/><span style="color:var(--crear-gold); font-size:0.9rem;">Efecto multiplicador. El otro se transforma y asume su propio liderazgo.</span></p>
     </div>
   </div>
 </div>
@@ -233,7 +237,7 @@ export const modulo7 = [
   <p><strong>5. Congruencia (Semanal):</strong> Revisa tus compromisos. Ajusta.</p>
   
   <h4 style="margin-top: 2rem; color: var(--crear-blue);">El Legado</h4>
-  <p style="font-size: 1.1rem; color: var(--text-muted); font-style: italic;">"Un Maestro Enrolador no se mide por cuántas personas enroló o dinero ganó. Se mide por cuántas personas se expandieron y se convirtieron a su vez en Maestros Enroladores creando generaciones infinitas."</p>
+  <p style="font-size: 1.1rem; color: var(--text-muted); font-style: italic;">"Un Maestro Enrolador se caracteriza por su efecto multiplicador: facilita que otras personas se expandan y contribuyan, a su vez, al desarrollo de liderazgo en sus propios entornos."</p>
 </div>
 `
   }

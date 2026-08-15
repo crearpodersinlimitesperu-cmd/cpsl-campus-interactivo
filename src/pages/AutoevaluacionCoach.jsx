@@ -49,8 +49,8 @@ export default function AutoevaluacionCoach() {
                     {dim.senales_positivas.map((s, i) => <li key={i}>{s}</li>)}
                   </ul>
                 </div>
-                <div style={{ flex: 1, background: 'rgba(255, 82, 82, 0.1)', borderLeft: '2px solid #ff5252', padding: '0.8rem', borderRadius: '4px' }}>
-                  <strong style={{ color: '#ff5252', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem' }}>SEÑALES DE AUSENCIA</strong>
+                <div style={{ flex: 1, background: 'rgba(255, 82, 82, 0.1)', borderLeft: '2px solid var(--color-error)', padding: '0.8rem', borderRadius: '4px' }}>
+                  <strong style={{ color: 'var(--color-error)', display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem' }}>SEÑALES DE AUSENCIA</strong>
                   <ul style={{ paddingLeft: '1rem', margin: 0, color: 'var(--text-main)', fontSize: '0.8rem' }}>
                     {dim.senales_negativas.map((s, i) => <li key={i}>{s}</li>)}
                   </ul>

@@ -15,6 +15,10 @@
   --text-main: #f8f9fa;
   --text-muted: #9ca3af;
   
+  --color-success: #34A853;
+  --color-error: #ff5252;
+  --color-warning: #FBBC05;
+  
   /* Typography */
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Inter', 'Roboto', sans-serif;
@@ -363,5 +367,16 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 183, 3, 0.1);
   color: var(--crear-gold);
   border-color: var(--crear-gold);
-  transform: scale(1.05);
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -36,8 +36,9 @@ export const groundings = [
     formato: "Virtual o presencial",
     duracion: "1-2 minutos",
     instrucciones: [
-      "Interrupción: 'Cierra los ojos. Inhala profundamente por la nariz contando hasta 4.'",
-      "Anclaje: 'Sostén el aire 4 segundos. Exhala por la boca con fuerza, como si soplaras una vela, contando hasta 4.'",
+      "Inhalación: 'Toma aire profundamente durante 4 segundos.'",
+      "Retención: 'Si te resulta cómodo, pausa suavemente un instante.'",
+      "Exhalación Fuerte: 'Exhala con fuerza por la boca, como si apagaras una vela a 2 metros de distancia.'",
       "Expansión: 'Repite 3 veces. En la última exhala, imagina que estás expulsando TODAS las excusas, TODAS las justificaciones.'",
       "Declaración: 'Tu respiración es tuya. Nadie más la controla. ¿Qué más está bajo tu control?'",
       "Acción: 'En las próximas 24 horas, actuarás desde lo que SÍ controlas. ¿Qué acción tomarás?'"
@@ -51,7 +52,7 @@ export const groundings = [
     formato: "Virtual (cámara) o presencial (espejo/pareja)",
     duracion: "3 minutos",
     instrucciones: [
-      "Interrupción: 'Mírate a los ojos. Si estás en virtual, mírate en tu propia imagen en la pantalla. Si estás en presencial, usa un espejo o mira a los ojos de un compañero.'",
+      "Contacto visual: 'Mírense a los ojos en silencio (o miren un punto fijo si les resulta incómodo). No hay nada de qué defenderse.'",
       "Anclaje: 'Mantén la mirada. No la bajes. Quédate con la incomodidad.'",
       "Expansión: 'Pregúntate en silencio: ¿Qué estoy evitando ver de mí mismo? ¿Qué historia me estoy contando?'",
       "Declaración: 'La verdad que evitas ver es la puerta a tu libertad. ¿Estás dispuesto a verla?'",
@@ -69,7 +70,7 @@ export const groundings = [
       "Interrupción: 'Pon una mano en tu pecho y otra en tu estómago. Cierra los ojos.'",
       "Anclaje: 'Siente tu latido. Siente tu respiración. ¿Dónde hay tensión en tu cuerpo ahora?'",
       "Expansión: 'Tu cuerpo te habla todo el tiempo. ¿Qué te está diciendo ahora? ¿Qué emoción hay debajo de esa tensión?'",
-      "Declaración: 'Tu cuerpo sabe lo que necesitas hacer. ¿Qué te está pidiendo?'",
+      "Reconexión: 'Observa qué sensaciones aparecen. Puedes tomarlas como una fuente de información.'",
       "Acción: 'En las próximas 24 horas, escucharás a tu cuerpo y actuarás según lo que te pida. ¿Qué harás?'"
     ],
     pregunta_cierre: "¿Qué te pide tu cuerpo y qué harás al respecto?"

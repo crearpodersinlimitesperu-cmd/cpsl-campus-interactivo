@@ -4,6 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import { useUI } from '../context/UIContext';
 import { modulesRegistry } from '../data/modulesRegistry';
 import { updateLastVisited, markLessonCompleted, getUserProgress } from '../services/db';
+import DOMPurify from 'dompurify';
+import { curriculum } from '../data/curriculum';
 
 export default function ModuloContainer() {
   const { id } = useParams();
@@ -15,15 +17,28 @@ export default function ModuloContainer() {
   const [completedLessons, setCompletedLessons] = useState([]);
 
   useEffect(() => {
+    setCurrentLessonIndex(0);
     if (user) {
       updateLastVisited(user.uid, `/modulo/${id}`);
       getUserProgress(user.uid).then(progress => {
-        if (progress && progress.completedLessons) {
-          setCompletedLessons(progress.completedLessons);
+        const prog = progress || {};
+        setCompletedLessons(prog.completedLessons || []);
+        
+        // Verificación de bloqueo secuencial
+        const moduleIndex = curriculum.findIndex(m => m.id === id);
+        if (moduleIndex > 0) {
+          const prevMod = curriculum[moduleIndex - 1];
+          const isPrevCompleted = prevMod.tieneEvaluacion 
+            ? prog.evaluationsPassed?.includes(prevMod.id)
+            : prevMod.lecciones?.every(l => prog.completedLessons?.includes(l.id));
+            
+          if (!isPrevCompleted) {
+            navigate('/ruta');
+          }
         }
       });
     }
-  }, [user, id]);
+  }, [user, id, navigate]);
 
   const currentModuleData = modulesRegistry[id] || modulesRegistry['modulo1'];
   const currentLesson = currentModuleData[currentLessonIndex];
@@ -45,8 +60,13 @@ export default function ModuloContainer() {
       setCurrentLessonIndex(currentLessonIndex + 1);
       window.scrollTo(0, 0);
     } else {
-      // Modulo terminado, ir a evaluación
-      navigate(`/evaluacion/${id}`);
+      // Modulo terminado, ir a evaluación o ruta
+      const currentModInfo = curriculum.find(m => m.id === id);
+      if (currentModInfo && !currentModInfo.tieneEvaluacion) {
+        navigate('/ruta');
+      } else {
+        navigate(`/evaluacion/${id}`);
+      }
     }
   };
 
@@ -87,7 +107,7 @@ export default function ModuloContainer() {
         </div>
       </header>
 
-      <article className="glass-panel p-6 content-reader" style={{lineHeight: '1.8', fontSize: '1.1rem'}} dangerouslySetInnerHTML={{__html: currentLesson.content}}>
+      <article className="glass-panel p-6 content-reader" style={{lineHeight: '1.8', fontSize: '1.1rem'}} dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(currentLesson.content)}}>
       </article>
 
       <footer style={{display: 'flex', justifyContent: 'space-between', marginTop: '2rem'}}>

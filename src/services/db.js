@@ -1,5 +1,6 @@
 import { db } from '../lib/firebase';
 import { doc, getDoc, setDoc, updateDoc, collection, getDocs, increment, arrayUnion, query, orderBy } from 'firebase/firestore';
+import { getTotalLessonsCount, getTotalEvaluationsCount } from '../data/curriculum';
 
 export const initializeUser = async (user) => {
   if (!user) return;
@@ -17,7 +18,7 @@ export const initializeUser = async (user) => {
       role: 'student',
       progress: {
         globalPercentage: 0,
-        lastVisitedModule: '/modulo/fundamentos',
+        lastVisitedModule: '/modulo/modulo1',
         completedModules: [],
         completedLessons: [],
         evaluationsPassed: []
@@ -73,32 +74,16 @@ export const updateLastVisited = async (uid, route) => {
 };
 
 const calculateGlobalPercentage = (completedLessons, evaluationsPassed) => {
-  // Para el Campus actual, tenemos 4 lecciones en el Módulo 1 y 2 Evaluaciones.
-  // Total hitos = 6.
-  const totalMilestones = 6; 
+  const totalMilestones = getTotalLessonsCount() + getTotalEvaluationsCount(); 
   const currentMilestones = (completedLessons?.length || 0) + (evaluationsPassed?.length || 0);
   let globalPercentage = Math.round((currentMilestones / totalMilestones) * 100);
   return globalPercentage > 100 ? 100 : globalPercentage;
 };
 
 export const markLessonCompleted = async (uid, lessonId) => {
-  let completedLessons = [];
-  let evaluationsPassed = [];
-  
-  try {
-    const userRef = doc(db, 'users', uid);
-    const snap = await getDoc(userRef);
-    if (snap.exists()) {
-      const data = snap.data();
-      completedLessons = data.progress.completedLessons || [];
-      evaluationsPassed = data.progress.evaluationsPassed || [];
-    }
-  } catch (error) {
-    console.warn("Firebase falló al leer progreso, usando local", error);
-    const localData = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
-    completedLessons = localData.completedLessons || [];
-    evaluationsPassed = localData.evaluationsPassed || [];
-  }
+  const progress = await getUserProgress(uid) || {};
+  let completedLessons = progress.completedLessons || [];
+  let evaluationsPassed = progress.evaluationsPassed || [];
   
   if (completedLessons.includes(lessonId)) return;
   completedLessons.push(lessonId);
@@ -123,24 +108,10 @@ export const markLessonCompleted = async (uid, lessonId) => {
 };
 
 export const saveEvaluationResult = async (uid, moduleId, score, passed) => {
-  let evaluationsPassed = [];
-  let completedLessons = [];
+  const progress = await getUserProgress(uid) || {};
+  let evaluationsPassed = progress.evaluationsPassed || [];
+  let completedLessons = progress.completedLessons || [];
 
-  try {
-    const userRef = doc(db, 'users', uid);
-    const snap = await getDoc(userRef);
-    if (snap.exists()) {
-      const data = snap.data();
-      evaluationsPassed = data.progress.evaluationsPassed || [];
-      completedLessons = data.progress.completedLessons || [];
-    }
-  } catch (error) {
-    console.warn("Firebase falló al leer evaluaciones, usando local", error);
-    const localData = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
-    evaluationsPassed = localData.evaluationsPassed || [];
-    completedLessons = localData.completedLessons || [];
-  }
-  
   if (passed && !evaluationsPassed.includes(moduleId)) {
     evaluationsPassed.push(moduleId);
   }
@@ -251,13 +222,13 @@ export const updateSessionHeartbeat = async (uid, sessionId) => {
     
     await updateDoc(sessionRef, {
       lastActiveAt: now,
-      durationMinutes: increment(1)
+      durationMinutes: increment(5)
     });
     
     // Mantenemos el acumulado global funcionando
     const userRef = doc(db, 'users', uid);
     await updateDoc(userRef, {
-      'progress.totalTimeSpent': increment(1)
+      'progress.totalTimeSpent': increment(5)
     });
   } catch (error) {
     console.warn("Error actualizando latido de sesión", error);
