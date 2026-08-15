@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar glass-panel">
-      <h2 className="text-gold" style={{fontSize: '1.5rem', marginBottom: '2rem'}}>CREAR</h2>
+      <h2 className="text-gold" style={{fontSize: '1.5rem', marginBottom: '2rem'}}>INTERRUPCIÓN</h2>
       <nav>
         <ul>
           <li>
