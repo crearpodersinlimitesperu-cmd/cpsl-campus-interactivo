@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import './App.css'
 
 import Sidebar from './components/Sidebar'
@@ -13,12 +14,25 @@ import Dinamicas from './pages/Dinamicas'
 import MaquinaQuiebres from './pages/MaquinaQuiebres'
 import ProgramaEntrenamiento from './pages/ProgramaEntrenamiento'
 import AutoevaluacionCoach from './pages/AutoevaluacionCoach'
+import AdminDashboard from './pages/AdminDashboard'
 import { useAuth } from './context/AuthContext'
 import { useUI } from './context/UIContext'
+import { updateTimeSpent } from './services/db'
 
 function App() {
   const { user, loginWithGoogle } = useAuth();
   const { isFocusMode, toggleFocusMode } = useUI();
+
+  // Rastreador de tiempo silencioso (se ejecuta cada minuto si hay un usuario logueado)
+  useEffect(() => {
+    let interval;
+    if (user) {
+      interval = setInterval(() => {
+        updateTimeSpent(user.uid, 1);
+      }, 60000); // 1 minuto
+    }
+    return () => clearInterval(interval);
+  }, [user]);
 
   if (!user) {
     return (
@@ -72,6 +86,7 @@ function App() {
           <Route path="/entrenamiento" element={<ProtectedRoute><ProgramaEntrenamiento /></ProtectedRoute>} />
           <Route path="/autoevaluacion" element={<ProtectedRoute><AutoevaluacionCoach /></ProtectedRoute>} />
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
+          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
         </Routes>
       </main>
     </div>

@@ -1,5 +1,5 @@
 import { db } from '../lib/firebase';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, collection, getDocs, increment } from 'firebase/firestore';
 
 export const initializeUser = async (user) => {
   if (!user) return;
@@ -162,4 +162,29 @@ export const saveEvaluationResult = async (uid, moduleId, score, passed) => {
   const newProgress = { completedLessons, evaluationsPassed, globalPercentage };
   const existingLocal = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
   localStorage.setItem(`progress_${uid}`, JSON.stringify({ ...existingLocal, ...newProgress }));
+};
+
+export const getAllUsers = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    const users = [];
+    querySnapshot.forEach((doc) => {
+      users.push(doc.data());
+    });
+    return users;
+  } catch (error) {
+    console.error("Error fetching all users:", error);
+    return [];
+  }
+};
+
+export const updateTimeSpent = async (uid, additionalMinutes) => {
+  try {
+    const userRef = doc(db, 'users', uid);
+    await updateDoc(userRef, {
+      'progress.totalTimeSpent': increment(additionalMinutes)
+    });
+  } catch (error) {
+    console.warn("Firebase falló al actualizar tiempo de sesión", error);
+  }
 };
