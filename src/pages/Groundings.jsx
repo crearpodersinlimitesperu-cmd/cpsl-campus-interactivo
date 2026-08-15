@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { groundings, groundingEmergencia } from '../data/groundings';
+import { useUI } from '../context/UIContext';
 
 export default function Groundings() {
   const [isActive, setIsActive] = useState(false);
@@ -9,6 +10,8 @@ export default function Groundings() {
 
   const [filtro, setFiltro] = useState('Todos');
   const [groundingActivo, setGroundingActivo] = useState(null);
+  
+  const { isFocusMode, toggleFocusMode } = useUI();
 
   // Obtener escenarios para el filtro
   const escenarios = ['Todos', ...new Set(groundings.map(g => g.escenario))];
@@ -56,8 +59,23 @@ export default function Groundings() {
 
   return (
     <div className="dinamicas-container animate-fade-in" style={{ paddingBottom: '2rem' }}>
-      <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Herramienta Maestra: Groundings</h1>
+      <header style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'center' }}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <div></div>
+          {!isFocusMode && (
+            <button 
+              onClick={toggleFocusMode}
+              className="btn-secondary"
+              style={{fontSize: '0.8rem', padding: '6px 12px', display: 'flex', alignItems: 'center', gap: '6px', margin: '0 auto'}}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </svg>
+              Modo Enfoque
+            </button>
+          )}
+        </div>
+        <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', marginTop: 0 }}>Herramienta Maestra: Groundings</h1>
         <p className="text-muted" style={{ fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
           Un <strong>grounding</strong> NO es meditación ni relajación. Es una intervención breve diseñada para generar un <strong>quiebre</strong> y prepararte para la acción.
         </p>

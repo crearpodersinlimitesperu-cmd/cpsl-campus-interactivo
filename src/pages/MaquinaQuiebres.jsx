@@ -1,13 +1,30 @@
 import { useState } from 'react';
 import { maquinaQuiebres } from '../data/maquinaQuiebres';
+import { useUI } from '../context/UIContext';
 
 export default function MaquinaQuiebres() {
   const [patronActivo, setPatronActivo] = useState(null);
+  const { isFocusMode, toggleFocusMode } = useUI();
 
   return (
     <div className="dinamicas-container animate-fade-in" style={{ paddingBottom: '3rem' }}>
-      <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Máquina de Quiebres ⚡</h1>
+      <header style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'center' }}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <div></div>
+          {!isFocusMode && (
+            <button 
+              onClick={toggleFocusMode}
+              className="btn-secondary"
+              style={{fontSize: '0.8rem', padding: '6px 12px', display: 'flex', alignItems: 'center', gap: '6px', margin: '0 auto'}}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </svg>
+              Modo Enfoque
+            </button>
+          )}
+        </div>
+        <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', marginTop: 0 }}>Máquina de Quiebres ⚡</h1>
         <p className="text-muted" style={{ fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
           Sistema integrado que combina <strong>groundings, dinámicas y conversaciones</strong> para generar desplazamientos profundos en equipos atrapados en patrones limitantes.
         </p>

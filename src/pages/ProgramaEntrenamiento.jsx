@@ -120,7 +120,7 @@ export default function ProgramaEntrenamiento() {
 
   const renderRecursos = () => (
     <div className="animate-fade-in">
-      <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Dinámicas Diarias</h3>
+      <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Rituales de Contexto</h3>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
         {programaRecursos.dinamicas.map((d, i) => (
           <div key={i} className="glass-panel" style={{ padding: '1.5rem' }}>
@@ -195,7 +195,7 @@ export default function ProgramaEntrenamiento() {
           { id: 'fundamentos', label: 'Fundamentos' },
           { id: 'herramientas', label: 'Herramientas' },
           { id: 'semanas', label: 'El Viaje (6 Semanas)' },
-          { id: 'recursos', label: 'Recursos & Dinámicas' }
+          { id: 'recursos', label: 'Recursos & Rituales' }
         ].map(tab => (
           <button
             key={tab.id}
