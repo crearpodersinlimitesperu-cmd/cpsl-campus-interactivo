@@ -1,0 +1,165 @@
+import { db } from '../lib/firebase';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+
+export const initializeUser = async (user) => {
+  if (!user) return;
+  const userRef = doc(db, 'users', user.uid);
+  const snap = await getDoc(userRef);
+
+  if (!snap.exists()) {
+    await setDoc(userRef, {
+      uid: user.uid,
+      displayName: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      createdAt: new Date().toISOString(),
+      lastLogin: new Date().toISOString(),
+      role: 'student',
+      progress: {
+        globalPercentage: 0,
+        lastVisitedModule: '/dashboard',
+        completedModules: [],
+        completedLessons: [],
+        evaluationsPassed: []
+      }
+    });
+  } else {
+    // Update last login
+    await updateDoc(userRef, {
+      lastLogin: new Date().toISOString()
+    });
+  }
+};
+
+export const getUserProgress = async (uid) => {
+  let progress = null;
+  try {
+    const userRef = doc(db, 'users', uid);
+    const snap = await getDoc(userRef);
+    if (snap.exists()) {
+      progress = snap.data().progress;
+    }
+  } catch (error) {
+    console.warn("Firebase falló, recuperando de localStorage", error);
+  }
+
+  // Fallback a localStorage
+  const localProgress = localStorage.getItem(`progress_${uid}`);
+  if (localProgress) {
+    const parsedLocal = JSON.parse(localProgress);
+    // Merge preferenciando localStorage si tiene más avance
+    if (!progress || (parsedLocal.globalPercentage > (progress.globalPercentage || 0))) {
+      progress = parsedLocal;
+    }
+  }
+
+  return progress;
+};
+
+export const updateLastVisited = async (uid, route) => {
+  try {
+    const userRef = doc(db, 'users', uid);
+    await updateDoc(userRef, {
+      'progress.lastVisitedModule': route
+    });
+  } catch (error) {
+    console.warn("Firebase falló, guardando ruta en localStorage", error);
+  }
+  
+  // Guardar en localStorage
+  const localData = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
+  localData.lastVisitedModule = route;
+  localStorage.setItem(`progress_${uid}`, JSON.stringify(localData));
+};
+
+const calculateGlobalPercentage = (completedLessons, evaluationsPassed) => {
+  // Para el Campus actual, tenemos 4 lecciones en el Módulo 1 y 2 Evaluaciones.
+  // Total hitos = 6.
+  const totalMilestones = 6; 
+  const currentMilestones = (completedLessons?.length || 0) + (evaluationsPassed?.length || 0);
+  let globalPercentage = Math.round((currentMilestones / totalMilestones) * 100);
+  return globalPercentage > 100 ? 100 : globalPercentage;
+};
+
+export const markLessonCompleted = async (uid, lessonId) => {
+  let completedLessons = [];
+  let evaluationsPassed = [];
+  
+  try {
+    const userRef = doc(db, 'users', uid);
+    const snap = await getDoc(userRef);
+    if (snap.exists()) {
+      const data = snap.data();
+      completedLessons = data.progress.completedLessons || [];
+      evaluationsPassed = data.progress.evaluationsPassed || [];
+    }
+  } catch (error) {
+    console.warn("Firebase falló al leer progreso, usando local", error);
+    const localData = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
+    completedLessons = localData.completedLessons || [];
+    evaluationsPassed = localData.evaluationsPassed || [];
+  }
+  
+  if (completedLessons.includes(lessonId)) return;
+  completedLessons.push(lessonId);
+  
+  const globalPercentage = calculateGlobalPercentage(completedLessons, evaluationsPassed);
+
+  // Intentar guardar en Firebase
+  try {
+    const userRef = doc(db, 'users', uid);
+    await updateDoc(userRef, {
+      'progress.completedLessons': completedLessons,
+      'progress.globalPercentage': globalPercentage
+    });
+  } catch (error) {
+    console.warn("Firebase falló al guardar, progreso seguro en localStorage", error);
+  }
+
+  // Backup Inquebrantable en LocalStorage
+  const newProgress = { completedLessons, evaluationsPassed, globalPercentage };
+  const existingLocal = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
+  localStorage.setItem(`progress_${uid}`, JSON.stringify({ ...existingLocal, ...newProgress }));
+};
+
+export const saveEvaluationResult = async (uid, moduleId, score, passed) => {
+  let evaluationsPassed = [];
+  let completedLessons = [];
+
+  try {
+    const userRef = doc(db, 'users', uid);
+    const snap = await getDoc(userRef);
+    if (snap.exists()) {
+      const data = snap.data();
+      evaluationsPassed = data.progress.evaluationsPassed || [];
+      completedLessons = data.progress.completedLessons || [];
+    }
+  } catch (error) {
+    console.warn("Firebase falló al leer evaluaciones, usando local", error);
+    const localData = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
+    evaluationsPassed = localData.evaluationsPassed || [];
+    completedLessons = localData.completedLessons || [];
+  }
+  
+  if (passed && !evaluationsPassed.includes(moduleId)) {
+    evaluationsPassed.push(moduleId);
+  }
+  
+  const globalPercentage = calculateGlobalPercentage(completedLessons, evaluationsPassed);
+
+  // Intentar guardar en Firebase
+  try {
+    const userRef = doc(db, 'users', uid);
+    await updateDoc(userRef, {
+      'progress.evaluationsPassed': evaluationsPassed,
+      'progress.globalPercentage': globalPercentage
+    });
+  } catch (error) {
+    console.warn("Firebase falló al guardar evaluación, guardando en localStorage", error);
+  }
+
+  // Backup Inquebrantable en LocalStorage
+  const newProgress = { completedLessons, evaluationsPassed, globalPercentage };
+  const existingLocal = JSON.parse(localStorage.getItem(`progress_${uid}`) || '{}');
+  localStorage.setItem(`progress_${uid}`, JSON.stringify({ ...existingLocal, ...newProgress }));
+};
