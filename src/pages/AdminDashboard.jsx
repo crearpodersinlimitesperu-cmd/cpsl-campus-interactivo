@@ -236,16 +236,31 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                     <div>
-                      <div style={{ color: 'var(--crear-gold)', fontWeight: 'bold', marginBottom: '0.5rem' }}>Recorrido de Módulos:</div>
+                      <div style={{ color: 'var(--crear-gold)', fontWeight: 'bold', marginBottom: '0.5rem' }}>Auditoría de Acciones y Recorrido:</div>
                       <ul style={{ margin: 0, paddingLeft: '1.5rem', color: '#adb5bd', fontSize: '0.9rem' }}>
                         {session.history && session.history.length > 0 ? (
-                          session.history.map((h, i) => (
-                            <li key={i}>
-                              <span style={{ color: '#fff' }}>{new Date(h.timestamp).toLocaleTimeString()}</span> - {formatModuleName(h.path)}
-                            </li>
-                          ))
+                          session.history.map((h, i) => {
+                            const time = new Date(h.timestamp).toLocaleTimeString();
+                            if (h.type === 'action') {
+                              return (
+                                <li key={i} style={{ marginBottom: '0.5rem', color: '#fff' }}>
+                                  <span style={{ color: 'var(--crear-gold)' }}>[{time}]</span>
+                                  <strong style={{ marginLeft: '8px', color: 'var(--crear-blue)' }}>⚡ {h.action}</strong>
+                                  {h.details && <span style={{ marginLeft: '4px', opacity: 0.8 }}>({h.details})</span>}
+                                </li>
+                              );
+                            } else {
+                              // Es una ruta antigua o tipo 'route'
+                              return (
+                                <li key={i} style={{ marginBottom: '0.5rem' }}>
+                                  <span style={{ color: '#adb5bd' }}>[{time}]</span>
+                                  <span style={{ marginLeft: '8px' }}>🧭 Visitó: {formatModuleName(h.path)}</span>
+                                </li>
+                              );
+                            }
+                          })
                         ) : (
-                          <li>Ningún módulo detectado (Sesión inactiva o error de red)</li>
+                          <li>Ningún evento detectado (Sesión inactiva o error de red)</li>
                         )}
                       </ul>
                     </div>

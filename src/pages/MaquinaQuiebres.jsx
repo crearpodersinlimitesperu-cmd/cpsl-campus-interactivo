@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { maquinaQuiebres } from '../data/maquinaQuiebres';
 import { useUI } from '../context/UIContext';
+import { useAuth } from '../context/AuthContext';
+import { logUserAction } from '../services/db';
 
 export default function MaquinaQuiebres() {
   const [patronActivo, setPatronActivo] = useState(null);
   const { isFocusMode, toggleFocusMode } = useUI();
+  const { user, sessionId } = useAuth();
 
   return (
     <div className="dinamicas-container animate-fade-in" style={{ paddingBottom: '3rem' }}>
@@ -61,7 +64,13 @@ export default function MaquinaQuiebres() {
         {maquinaQuiebres.map((mq) => (
           <button 
             key={mq.id}
-            onClick={() => setPatronActivo(patronActivo === mq.id ? null : mq.id)}
+            onClick={() => {
+              const isOpening = patronActivo !== mq.id;
+              setPatronActivo(isOpening ? mq.id : null);
+              if (isOpening && user) {
+                logUserAction(user.uid, sessionId, 'Diseñó Quiebre', mq.patron);
+              }
+            }}
             style={{
               background: patronActivo === mq.id ? 'var(--crear-blue)' : 'rgba(255,255,255,0.03)',
               color: patronActivo === mq.id ? '#fff' : 'var(--text-main)',

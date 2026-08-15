@@ -216,7 +216,7 @@ export const logSessionRoute = async (uid, sessionId, currentRoute) => {
   try {
     const sessionRef = doc(db, 'users', uid, 'sessions', sessionId);
     const now = new Date().toISOString();
-    const historyEntry = { path: currentRoute, timestamp: now };
+    const historyEntry = { type: 'route', path: currentRoute, timestamp: now };
     
     await updateDoc(sessionRef, {
       lastActiveAt: now,
@@ -224,6 +224,22 @@ export const logSessionRoute = async (uid, sessionId, currentRoute) => {
     });
   } catch (error) {
     console.warn("Error logueando ruta de sesión", error);
+  }
+};
+
+export const logUserAction = async (uid, sessionId, action, details = "") => {
+  if (!sessionId) return;
+  try {
+    const sessionRef = doc(db, 'users', uid, 'sessions', sessionId);
+    const now = new Date().toISOString();
+    const historyEntry = { type: 'action', action, details, timestamp: now };
+    
+    await updateDoc(sessionRef, {
+      lastActiveAt: now,
+      history: arrayUnion(historyEntry)
+    });
+  } catch (error) {
+    console.warn("Error logueando acción del usuario", error);
   }
 };
 

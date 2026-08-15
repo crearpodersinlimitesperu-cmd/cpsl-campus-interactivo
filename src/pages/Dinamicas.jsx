@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { dinamicas } from '../data/dinamicas';
 import { useUI } from '../context/UIContext';
+import { useAuth } from '../context/AuthContext';
+import { logUserAction } from '../services/db';
 
 export default function Dinamicas() {
   const [filtro, setFiltro] = useState('Todos');
   const [dinamicaActiva, setDinamicaActiva] = useState(null);
   
   const { isFocusMode, toggleFocusMode } = useUI();
+  const { user, sessionId } = useAuth();
 
   // Obtener la lista única de escenarios para el filtro
   const escenarios = ['Todos', ...new Set(dinamicas.map(d => d.escenario))];
@@ -132,7 +135,12 @@ export default function Dinamicas() {
               <button 
                 className="btn-primary" 
                 style={{ marginTop: 'auto', padding: '10px' }}
-                onClick={() => setDinamicaActiva(dinamica.id)}
+                onClick={() => {
+                  setDinamicaActiva(dinamica.id);
+                  if (user) {
+                    logUserAction(user.uid, sessionId, 'Abrió Dinámica', dinamica.nombre);
+                  }
+                }}
               >
                 Ver Instrucciones
               </button>

@@ -1,36 +1,11 @@
 import { evaluacion1 } from './evaluacion1';
 
-// Plantilla base para generar evaluaciones genéricas rápidamente si no existe un archivo específico
 const generateGenericEval = (id, title, description, focusTerm) => ({
   id,
   title: `Evaluación: ${title}`,
-  description: description,
-  questions: [
-    {
-      id: `${id}_q1`,
-      question: `En el contexto de ${title}, ¿cuál es el principio operativo fundamental?`,
-      options: [
-        `La integración de ${focusTerm} de manera teórica sin aplicación práctica.`,
-        `La aplicación directa de ${focusTerm} para producir una alteración cuántica en la realidad del sujeto.`,
-        `Memorizar los postulados históricos relacionados con ${focusTerm}.`,
-        `Evitar por completo cualquier referencia a ${focusTerm}.`
-      ],
-      correctAnswer: 1,
-      feedback: `Todo el entrenamiento está diseñado hacia la aplicación pragmática y la alteración de la realidad del cliente a través de ${focusTerm}.`
-    },
-    {
-      id: `${id}_q2`,
-      question: `¿Cuál es el indicador principal de que el conocimiento de este módulo ha sido interiorizado?`,
-      options: [
-        `Cuando se experimenta una fricción cognitiva seguida de un cambio de conducta observable (toma de acción masiva).`,
-        `Cuando el individuo puede recitar de memoria el manual del módulo.`,
-        `Cuando el sujeto se siente completamente cómodo y sin ningún tipo de resistencia.`,
-        `Cuando se logra convencer a otros usando terminología compleja.`
-      ],
-      correctAnswer: 0,
-      feedback: 'El aprendizaje real en Alto Rendimiento siempre se manifiesta a través de un cambio conductual y la toma de acción, no solo comprensión intelectual.'
-    }
-  ]
+  description: description + " Resuelve este caso práctico y recibe feedback de nuestra IA actuando como Master Coach.",
+  type: 'open_ai',
+  caseStudy: `Un cliente llega a ti sintiéndose estancado y frustrado. Sabes que el núcleo de su problema puede abordarse mediante ${focusTerm}. \n\nDescribe paso a paso cómo estructurarías la sesión, qué distinciones le aportarías y qué acción concreta le pedirías al final para garantizar una alteración en su realidad.`
 });
 
 export const evaluacionesRegistry = {

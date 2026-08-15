@@ -3,21 +3,22 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useUI } from '../context/UIContext';
 import { evaluacionesRegistry } from '../data/evaluacionesRegistry';
-import { saveEvaluationResult, updateLastVisited } from '../services/db';
+import { saveEvaluationResult, updateLastVisited, logUserAction } from '../services/db';
+import { evaluarRespuestaAlumno } from '../services/ai';
 
 export default function EvaluacionContainer() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, sessionId } = useAuth();
   const { isFocusMode, toggleFocusMode } = useUI();
   
   const evalData = evaluacionesRegistry[id];
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [score, setScore] = useState(0);
+  const [studentAnswer, setStudentAnswer] = useState('');
+  const [isEvaluating, setIsEvaluating] = useState(false);
+  const [aiFeedback, setAiFeedback] = useState(null);
   const [isFinished, setIsFinished] = useState(false);
+  const [passed, setPassed] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -35,69 +36,77 @@ export default function EvaluacionContainer() {
     );
   }
 
-  const currentQuestion = evalData.questions[currentQuestionIndex];
-
-  const handleSelectOption = (index) => {
-    if (isAnswered) return; // Prevent changing after answered
-    setSelectedOption(index);
-  };
-
-  const handleCheckAnswer = () => {
-    if (selectedOption === null) return;
+  const handleEvaluate = async () => {
+    if (!studentAnswer.trim() || isEvaluating) return;
     
-    setIsAnswered(true);
-    if (selectedOption === currentQuestion.correctAnswer) {
-      setScore(prev => prev + 1);
+    setIsEvaluating(true);
+    if (user) logUserAction(user.uid, sessionId, 'Envió Respuesta a IA', `Módulo: ${evalData.title}`);
+    
+    try {
+      const result = await evaluarRespuestaAlumno(evalData.title, evalData.caseStudy, studentAnswer);
+      setAiFeedback(result.feedback);
+      setPassed(result.passed);
+      setIsFinished(true);
+      
+      if (user) {
+        logUserAction(user.uid, sessionId, 'Finalizó Evaluación IA', `Aprobó: ${result.passed ? 'Sí' : 'No'}`);
+        // Consider a "score" of 100 if passed, 0 if not passed for the DB layer
+        const percentage = result.passed ? 100 : 0;
+        await saveEvaluationResult(user.uid, id, percentage, result.passed);
+      }
+    } catch (error) {
+      console.error(error);
+      setAiFeedback("Hubo un error de conexión con nuestro Master Coach IA. Por favor, intenta de nuevo o avisa a soporte técnico.");
+    } finally {
+      setIsEvaluating(false);
     }
   };
 
-  const handleNextQuestion = async () => {
-    if (currentQuestionIndex < evalData.questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-      setSelectedOption(null);
-      setIsAnswered(false);
-    } else {
-      setIsFinished(true);
-      if (user) {
-        // Guardar resultado
-        const finalScore = score + (selectedOption === currentQuestion.correctAnswer ? 1 : 0);
-        const percentage = Math.round((finalScore / evalData.questions.length) * 100);
-        const passed = percentage >= 75; // 75% para aprobar
-        try {
-          await saveEvaluationResult(user.uid, id, percentage, passed);
-        } catch (error) {
-          console.error("Error al guardar resultado de evaluación:", error);
-        }
-      }
-    }
+  const formatAiText = (text) => {
+    if (!text) return { __html: '' };
+    return { __html: text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--crear-gold);">$1</strong>') };
   };
 
   if (isFinished) {
-    const finalPercentage = Math.round((score / evalData.questions.length) * 100);
-    const passed = finalPercentage >= 75;
-
     return (
-      <div className="module-container" style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
-        <div className="glass-panel p-6" style={{marginTop: '4rem'}}>
+      <div className="module-container animate-fade-in" style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
+        <div className="glass-panel p-6" style={{marginTop: '4rem', borderLeft: `4px solid ${passed ? '#34A853' : '#EA4335'}`}}>
           <h1 style={{fontSize: '3rem', color: passed ? '#34A853' : '#EA4335'}}>
-            {passed ? '¡Aprobado!' : 'No Aprobado'}
+            {passed ? '¡Aprobado por el Master Coach!' : 'Requiere Refinamiento'}
           </h1>
-          <p style={{fontSize: '1.5rem', margin: '2rem 0'}}>Tu puntuación: <strong>{finalPercentage}%</strong></p>
-          <p className="text-muted" style={{marginBottom: '3rem'}}>
+          
+          <div style={{ textAlign: 'left', marginTop: '2rem', padding: '1.5rem', background: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
+            <h3 className="text-gold" style={{ marginTop: 0, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              🤖 Feedback de la IA
+            </h3>
+            <div 
+              style={{ color: 'var(--text-main)', fontSize: '1.1rem', lineHeight: '1.8', whiteSpace: 'pre-wrap' }}
+              dangerouslySetInnerHTML={formatAiText(aiFeedback)}
+            />
+          </div>
+
+          <p className="text-muted" style={{marginTop: '2rem', marginBottom: '3rem'}}>
             {passed 
-              ? 'Has demostrado una sólida comprensión de los Fundamentos Teóricos. El progreso se ha guardado en tu expediente.' 
-              : 'Te recomendamos repasar el módulo y volver a intentarlo para asegurar la correcta aplicación de la metodología.'}
+              ? 'Has demostrado una aplicación profunda de la metodología. Tu avance ha sido registrado en tu expediente.' 
+              : 'La maestría toma tiempo. Revisa el feedback, vuelve a estudiar el módulo y perfecciona tu respuesta.'}
           </p>
-          <button className="btn-primary" onClick={() => navigate('/dashboard')}>
-            Volver al Dashboard
-          </button>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            {!passed && (
+              <button className="btn-secondary" onClick={() => { setIsFinished(false); setAiFeedback(null); }}>
+                Intentar de nuevo
+              </button>
+            )}
+            <button className="btn-primary" onClick={() => navigate('/dashboard')}>
+              Volver al Dashboard
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="module-container" style={{maxWidth: '800px', margin: '0 auto', paddingBottom: '4rem'}}>
+    <div className="module-container animate-fade-in" style={{maxWidth: '800px', margin: '0 auto', paddingBottom: '4rem'}}>
       <header style={{marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <p className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '0', fontWeight: 'bold'}}>{evalData.title}</p>
@@ -116,86 +125,54 @@ export default function EvaluacionContainer() {
           )}
         </div>
         
-        <h1 style={{fontSize: '2rem', margin: 0}}>Pregunta {currentQuestionIndex + 1} de {evalData.questions.length}</h1>
-        
-        <div className="progress-bar-container" style={{height: '4px', marginTop: '0.5rem'}}>
-          <div className="progress-bar-fill" style={{width: `${((currentQuestionIndex) / evalData.questions.length) * 100}%`}}></div>
-        </div>
+        <h1 style={{fontSize: '2.2rem', margin: 0}}>Evaluación Práctica (IA)</h1>
+        <p className="text-muted" style={{ fontSize: '1.1rem' }}>{evalData.description}</p>
       </header>
 
-      <div className="glass-panel p-6" style={{marginBottom: '2rem'}}>
-        <p style={{fontSize: '1.25rem', marginBottom: '2rem'}}>{currentQuestion.question}</p>
-        
-        <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-          {currentQuestion.options.map((option, index) => {
-            let bgColor = 'rgba(255, 255, 255, 0.05)';
-            let borderColor = 'rgba(255, 255, 255, 0.1)';
-            
-            if (isAnswered) {
-              if (index === currentQuestion.correctAnswer) {
-                bgColor = 'rgba(52, 168, 83, 0.2)'; // Green
-                borderColor = '#34A853';
-              } else if (index === selectedOption && index !== currentQuestion.correctAnswer) {
-                bgColor = 'rgba(234, 67, 53, 0.2)'; // Red
-                borderColor = '#EA4335';
-              }
-            } else if (selectedOption === index) {
-              bgColor = 'rgba(212, 175, 55, 0.2)'; // Gold
-              borderColor = 'var(--crear-gold)';
-            }
-
-            return (
-              <button 
-                key={index}
-                onClick={() => handleSelectOption(index)}
-                style={{
-                  padding: '1rem',
-                  textAlign: 'left',
-                  borderRadius: '8px',
-                  background: bgColor,
-                  border: `1px solid ${borderColor}`,
-                  color: 'white',
-                  cursor: isAnswered ? 'default' : 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {option}
-              </button>
-            )
-          })}
-        </div>
+      <div className="glass-panel p-6" style={{marginBottom: '2rem', borderLeft: '4px solid var(--crear-gold)'}}>
+        <h3 className="text-gold" style={{ marginTop: 0, marginBottom: '1rem' }}>Caso de Estudio</h3>
+        <p style={{fontSize: '1.25rem', lineHeight: '1.8', whiteSpace: 'pre-wrap'}}>{evalData.caseStudy}</p>
       </div>
 
-      {isAnswered && (
-        <div className="glass-panel p-6" style={{borderLeft: `4px solid ${selectedOption === currentQuestion.correctAnswer ? '#34A853' : '#EA4335'}`, marginBottom: '2rem'}}>
-          <h3 style={{color: selectedOption === currentQuestion.correctAnswer ? '#34A853' : '#EA4335', marginBottom: '0.5rem', fontSize: '1.1rem'}}>
-            {selectedOption === currentQuestion.correctAnswer ? '✅ ¡Correcto!' : '❌ Incorrecto'}
-          </h3>
-          {selectedOption !== currentQuestion.correctAnswer && (
-            <p style={{marginBottom: '0.5rem'}}>La respuesta correcta era: <strong>{currentQuestion.options[currentQuestion.correctAnswer]}</strong></p>
-          )}
-          <p className="text-muted">{currentQuestion.feedback}</p>
-        </div>
-      )}
+      <div className="glass-panel p-6" style={{marginBottom: '2rem'}}>
+        <label htmlFor="studentAnswer" style={{ display: 'block', marginBottom: '1rem', color: 'var(--crear-gold)', fontWeight: 'bold' }}>
+          Tu Intervención (Respuesta):
+        </label>
+        <textarea
+          id="studentAnswer"
+          value={studentAnswer}
+          onChange={(e) => setStudentAnswer(e.target.value)}
+          placeholder="Escribe tu razonamiento aquí. Demuestra que puedes aplicar la distinción en el mundo real..."
+          style={{
+            width: '100%',
+            minHeight: '200px',
+            background: 'rgba(0,0,0,0.3)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            borderRadius: '8px',
+            padding: '1rem',
+            color: 'white',
+            fontSize: '1.1rem',
+            lineHeight: '1.6',
+            resize: 'vertical',
+            fontFamily: 'inherit'
+          }}
+        />
+      </div>
 
       <footer style={{display: 'flex', justifyContent: 'flex-end'}}>
-        {!isAnswered ? (
-          <button 
-            className="btn-primary" 
-            onClick={handleCheckAnswer}
-            disabled={selectedOption === null}
-            style={{opacity: selectedOption === null ? 0.5 : 1}}
-          >
-            Comprobar Respuesta
-          </button>
-        ) : (
-          <button 
-            className="btn-primary" 
-            onClick={handleNextQuestion}
-          >
-            {currentQuestionIndex === evalData.questions.length - 1 ? 'Finalizar Evaluación' : 'Siguiente Pregunta'}
-          </button>
-        )}
+        <button 
+          className="btn-primary" 
+          onClick={handleEvaluate}
+          disabled={!studentAnswer.trim() || isEvaluating}
+          style={{
+            opacity: (!studentAnswer.trim() || isEvaluating) ? 0.5 : 1,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}
+        >
+          {isEvaluating ? '🧠 IA Evaluando...' : 'Enviar para Evaluación Mestra'}
+        </button>
       </footer>
     </div>
   )

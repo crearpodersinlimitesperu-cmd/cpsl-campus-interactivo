@@ -62,3 +62,61 @@ ${historialResumido || 'No hay conexiones detalladas en el radar.'}
     return "Error al generar el diagnóstico: " + error.message;
   }
 };
+
+export const evaluarRespuestaAlumno = async (moduleTitle, question, studentAnswer) => {
+  if (!GROQ_API_KEY) {
+    throw new Error("No se encontró la llave de API de Groq en las variables de entorno.");
+  }
+
+  const systemPrompt = `Eres un Master Coach Evaluador. Tu tarea es evaluar la respuesta de un alumno a un caso práctico.
+El módulo evaluado es: ${moduleTitle}.
+La pregunta fue: "${question}".
+
+Criterios de Aprobación:
+- El alumno debe demostrar comprensión profunda, no solo repetir teoría.
+- Debe aplicar las distinciones de forma pragmática.
+- Debe tener una longitud razonable (al menos unas cuantas oraciones con sentido).
+
+Responde ÚNICAMENTE con un objeto JSON (sin texto adicional, sin bloques de código tipo \`\`\`json) que tenga esta estructura exacta:
+{
+  "passed": true o false,
+  "feedback": "Tu feedback directo y constructivo (máximo 2 párrafos) al alumno, hablándole directamente."
+}`;
+
+  const userPrompt = `Respuesta del alumno:
+"${studentAnswer}"
+
+Genera el JSON de evaluación:`;
+
+  try {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${GROQ_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: "llama-3.1-8b-instant",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt }
+        ],
+        temperature: 0.1,
+        max_tokens: 500,
+        response_format: { type: "json_object" }
+      })
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`Error en la respuesta de Groq API: ${response.status} - ${errText}`);
+    }
+
+    const data = await response.json();
+    const resultContent = data.choices[0].message.content;
+    return JSON.parse(resultContent);
+  } catch (error) {
+    console.error("Error al evaluar respuesta con IA:", error);
+    throw error;
+  }
+};

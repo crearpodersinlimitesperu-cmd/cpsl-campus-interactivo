@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { groundings, groundingEmergencia } from '../data/groundings';
 import { useUI } from '../context/UIContext';
+import { useAuth } from '../context/AuthContext';
+import { logUserAction } from '../services/db';
 
 export default function Groundings() {
   const [isActive, setIsActive] = useState(false);
@@ -12,6 +14,7 @@ export default function Groundings() {
   const [groundingActivo, setGroundingActivo] = useState(null);
   
   const { isFocusMode, toggleFocusMode } = useUI();
+  const { user, sessionId } = useAuth();
 
   // Obtener escenarios para el filtro
   const escenarios = ['Todos', ...new Set(groundings.map(g => g.escenario))];
@@ -193,7 +196,16 @@ export default function Groundings() {
                 </button>
               </div>
             ) : (
-              <button className="btn-primary" style={{ marginTop: 'auto', padding: '10px' }} onClick={() => setGroundingActivo(g.id)}>
+              <button 
+                className="btn-primary" 
+                style={{ marginTop: 'auto', padding: '10px' }} 
+                onClick={() => {
+                  setGroundingActivo(g.id);
+                  if (user) {
+                    logUserAction(user.uid, sessionId, 'Abrió Grounding', g.nombre);
+                  }
+                }}
+              >
                 Ver Grounding
               </button>
             )}
