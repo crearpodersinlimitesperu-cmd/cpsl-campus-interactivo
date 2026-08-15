@@ -39,7 +39,7 @@ ${historialResumido || 'No hay conexiones detalladas en el radar.'}
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: "llama3-70b-8192",
+        model: "llama-3.1-8b-instant",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt }
@@ -50,7 +50,9 @@ ${historialResumido || 'No hay conexiones detalladas en el radar.'}
     });
 
     if (!response.ok) {
-      throw new Error("Error en la respuesta de Groq API");
+      const errText = await response.text();
+      console.error("GROQ API ERROR:", errText);
+      throw new Error(`Error en la respuesta de Groq API: ${response.status} - ${errText}`);
     }
 
     const data = await response.json();
