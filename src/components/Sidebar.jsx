@@ -18,8 +18,8 @@ export default function Sidebar({ isOpen, onClose }) {
             </svg>
           </button>
           
-          <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" className="logo-holographic" style={{ width: '160px', height: '160px', marginBottom: '0.5rem' }} />
-          <h2 className="text-gold" style={{fontSize: '1.4rem', margin: 0, letterSpacing: '1px'}}>INTERRUPCIÓN</h2>
+          <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '160px', height: '160px', marginBottom: '0.5rem' }} />
+          <h2 className="text-gold" style={{fontSize: '1.4rem', margin: 0, letterSpacing: '1px'}}>INTERRUPTION</h2>
         </div>
         <nav>
         <ul>

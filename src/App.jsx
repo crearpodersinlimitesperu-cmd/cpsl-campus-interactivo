@@ -43,9 +43,9 @@ function App() {
       <div className="login-container">
         <div className="glass-panel login-card animate-fade-in" style={{padding: '4rem 3rem'}}>
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
-            <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" className="logo-holographic" style={{width: '300px', height: '300px', maxWidth: '100%'}} />
+            <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{width: '300px', height: '300px', maxWidth: '100%'}} />
           </div>
-          <h1 className="text-gold" style={{fontSize: '2.5rem', marginBottom: '0.5rem', textAlign: 'center'}}>INTERRUPCIÓN</h1>
+          <h1 className="text-gold" style={{fontSize: '2.5rem', marginBottom: '0.5rem', textAlign: 'center', letterSpacing: '2px'}}>INTERRUPTION</h1>
           <p className="text-muted" style={{marginBottom: '3rem', fontSize: '1.1rem', textAlign: 'center'}}>Plataforma de Entrenamiento Avanzado</p>
           
           <button onClick={loginWithGoogle} className="btn-primary" style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px'}}>
@@ -69,8 +69,8 @@ function App() {
         <>
           <div className="mobile-header glass-panel">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" className="logo-holographic" style={{ width: '45px', height: '45px' }} />
-              <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPCIÓN</h2>
+              <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '45px', height: '45px' }} />
+              <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPTION</h2>
             </div>
             <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
