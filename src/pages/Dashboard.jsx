@@ -46,7 +46,10 @@ export default function Dashboard() {
           </div>
           <button 
             className="btn-primary"
-            onClick={() => navigate(progress?.lastVisitedModule || '/modulo/fundamentos')}
+            onClick={() => {
+              const route = progress?.lastVisitedModule;
+              navigate(route && route !== '/dashboard' ? route : '/modulo/fundamentos');
+            }}
           >
             Continuar donde lo dejé
           </button>

@@ -17,7 +17,7 @@ export const initializeUser = async (user) => {
       role: 'student',
       progress: {
         globalPercentage: 0,
-        lastVisitedModule: '/dashboard',
+        lastVisitedModule: '/modulo/fundamentos',
         completedModules: [],
         completedLessons: [],
         evaluationsPassed: []
