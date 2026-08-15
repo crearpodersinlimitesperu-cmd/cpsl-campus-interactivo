@@ -104,8 +104,8 @@ export default function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {users.map((u, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            {users.map((u) => (
+              <tr key={u.uid} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
                 <td style={{ padding: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     {u.photoURL && <img src={u.photoURL} alt="avatar" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />}
@@ -117,7 +117,13 @@ export default function AdminDashboard() {
                 </td>
                 <td style={{ padding: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '100px', height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px' }}>
+                    <div 
+                      role="progressbar" 
+                      aria-valuenow={u.progress?.globalPercentage || 0} 
+                      aria-valuemin="0" 
+                      aria-valuemax="100" 
+                      style={{ width: '100px', height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px' }}
+                    >
                       <div style={{ width: `${u.progress?.globalPercentage || 0}%`, height: '100%', background: 'var(--crear-gold)', borderRadius: '4px' }}></div>
                     </div>
                     <span>{u.progress?.globalPercentage || 0}%</span>
@@ -156,15 +162,26 @@ export default function AdminDashboard() {
 
       {/* Modal de Historial de Auditoría */}
       {selectedUser && (
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.85)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem' }}>
-          <div className="glass-panel animate-fade-in" style={{ width: '100%', maxWidth: '900px', maxHeight: '90vh', overflowY: 'auto', padding: '2rem', position: 'relative' }}>
+        <div 
+          onClick={(e) => { if (e.target === e.currentTarget) closeHistory(); }}
+          style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.85)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem' }}
+        >
+          <div 
+            className="glass-panel animate-fade-in relative w-full max-w-4xl p-8" 
+            style={{ maxHeight: '90vh', overflowY: 'auto' }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
             <button 
               onClick={closeHistory}
-              style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'transparent', border: 'none', color: 'var(--crear-gold)', cursor: 'pointer', fontSize: '1.5rem' }}
+              aria-label="Cerrar historial"
+              className="absolute top-6 right-6 text-gold text-2xl hover:text-white transition-colors"
+              style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
             >
               &times;
             </button>
-            <h2 className="text-gold" style={{ marginTop: 0, marginBottom: '0.5rem' }}>Libro de Auditoría</h2>
+            <h2 id="modal-title" className="text-gold" style={{ marginTop: 0, marginBottom: '0.5rem' }}>Libro de Auditoría</h2>
             
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
               <p className="text-muted" style={{ margin: 0 }}>Historial de Conexiones de: <strong>{selectedUser.name}</strong></p>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useUI } from '../context/UIContext';
-import { evaluacion1 } from '../data/evaluacion1';
+import { evaluacionesRegistry } from '../data/evaluacionesRegistry';
 import { saveEvaluationResult, updateLastVisited } from '../services/db';
 
 export default function EvaluacionContainer() {
@@ -11,8 +11,7 @@ export default function EvaluacionContainer() {
   const { user } = useAuth();
   const { isFocusMode, toggleFocusMode } = useUI();
   
-  // Asumimos que id es 'm1_eval' para cargar la evaluación 1 (simplificación por ahora)
-  const evalData = evaluacion1;
+  const evalData = evaluacionesRegistry[id];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -25,6 +24,16 @@ export default function EvaluacionContainer() {
       updateLastVisited(user.uid, `/evaluacion/${id}`);
     }
   }, [user, id]);
+
+  if (!evalData) {
+    return (
+      <div className="module-container" style={{maxWidth: '800px', margin: '4rem auto', textAlign: 'center'}}>
+        <h2 className="text-gold">Evaluación no encontrada</h2>
+        <p className="text-muted">La evaluación para este módulo aún no está disponible.</p>
+        <button className="btn-primary" onClick={() => navigate('/dashboard')}>Volver al inicio</button>
+      </div>
+    );
+  }
 
   const currentQuestion = evalData.questions[currentQuestionIndex];
 
