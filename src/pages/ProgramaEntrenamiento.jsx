@@ -9,42 +9,127 @@ export default function ProgramaEntrenamiento() {
     <div className="animate-fade-in">
       <div className="glass-panel" style={{ padding: '2rem', marginBottom: '2rem', border: '1px solid var(--crear-gold)' }}>
         <h2 className="text-gold" style={{ marginTop: 0 }}>{programaTeoria.vision.titulo}</h2>
-        <p className="text-main" style={{ fontSize: '1.1rem', lineHeight: 1.6 }}>{programaTeoria.vision.texto}</p>
-        <ul className="text-muted" style={{ paddingLeft: '1.5rem', marginTop: '1rem' }}>
-          {programaTeoria.vision.detalles.map((d, i) => <li key={i}>{d}</li>)}
-        </ul>
+        <p className="text-main" style={{ fontSize: '1.1rem', lineHeight: 1.6, fontStyle: 'italic' }}>
+          "{programaTeoria.vision.texto}"
+        </p>
+        <div style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+          {programaTeoria.vision.detalles.map((d, i) => (
+            <div key={i} style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid var(--crear-gold)' }}>
+              <strong className="text-gold" style={{ display: 'block', fontSize: '0.9rem', marginBottom: '0.3rem' }}>{d.dimension}</strong>
+              <span className="text-muted" style={{ fontSize: '0.95rem' }}>{d.detalle}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         {programaTeoria.fundamentos.map((f, i) => (
-          <div key={i} className="glass-panel" style={{ padding: '1.5rem' }}>
-            <h3 className="text-blue" style={{ marginTop: 0 }}>{f.titulo}</h3>
-            {f.definicion && <p className="text-muted" style={{ fontSize: '0.95rem' }}>{f.definicion}</p>}
+          <div key={i} className="glass-panel" style={{ padding: '2rem' }}>
+            <h3 className="text-blue" style={{ marginTop: 0, fontSize: '1.5rem', marginBottom: '1rem' }}>{f.titulo}</h3>
+            {f.definicion && <p className="text-muted" style={{ fontSize: '1.05rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>{f.definicion}</p>}
             
-            {f.diferencia && (
-              <div style={{ marginTop: '1rem', background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '8px' }}>
-                <div style={{ marginBottom: '0.5rem' }}><strong className="text-main">Hacer:</strong> <span className="text-muted">{f.diferencia.hacer}</span></div>
-                <div><strong className="text-gold">Ser:</strong> <span className="text-muted">{f.diferencia.ser}</span></div>
+            {f.diferencias && (
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+                  <thead>
+                    <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
+                      <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid #ff5252', color: '#ff5252' }}>Hacer Enrolamiento</th>
+                      <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid var(--crear-gold)', color: 'var(--crear-gold)' }}>Ser Enrolamiento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {f.diferencias.map((dif, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '1rem', color: 'var(--text-muted)' }}>{dif.hacer}</td>
+                        <td style={{ padding: '1rem', color: 'var(--text-main)', fontWeight: 'bold' }}>{dif.ser}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )}
 
-            {f.filosofia && (
-              <ul className="text-muted" style={{ paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
-                {f.filosofia.map((item, idx) => <li key={idx} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
-              </ul>
+            {f.filosofiaTabla && (
+              <div style={{ overflowX: 'auto', marginTop: '1rem' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
+                      <th style={{ padding: '1rem', textAlign: 'left', color: 'var(--crear-blue)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>Fuente</th>
+                      <th style={{ padding: '1rem', textAlign: 'left', color: 'var(--text-main)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>Concepto</th>
+                      <th style={{ padding: '1rem', textAlign: 'left', color: 'var(--crear-gold)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>Aplicación al Liderazgo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {f.filosofiaTabla.map((row, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '1rem', color: 'var(--text-muted)', fontWeight: 'bold' }}>{row.fuente}</td>
+                        <td style={{ padding: '1rem', color: 'var(--text-muted)' }}>{row.concepto}</td>
+                        <td style={{ padding: '1rem', color: 'var(--text-main)' }}>{row.aplicacion}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
 
-            {f.lista && (
-              <ol className="text-muted" style={{ paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
-                {f.lista.map((item, idx) => <li key={idx} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
-              </ol>
+            {f.pilaresEstructurados && (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginTop: '1rem' }}>
+                {f.pilaresEstructurados.map((pilar, idx) => (
+                  <div key={idx} style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid var(--crear-gold)' }}>
+                    <h4 className="text-gold" style={{ margin: '0 0 0.5rem 0', fontSize: '1.2rem' }}>{pilar.nombre}</h4>
+                    <p style={{ margin: '0 0 1rem 0' }}><strong>Compromiso:</strong> <span className="text-muted">{pilar.compromiso}</span></p>
+                    <div style={{ marginBottom: '1rem' }}>
+                      <strong>Práctica:</strong>
+                      <ul style={{ margin: '0.5rem 0 0 0', paddingLeft: '1.5rem', color: 'var(--text-muted)' }}>
+                        {pilar.practica.map((prac, i) => <li key={i}>{prac}</li>)}
+                      </ul>
+                    </div>
+                    <p style={{ margin: 0 }}><strong>Impacto:</strong> <span className="text-blue">{pilar.impacto}</span></p>
+                  </div>
+                ))}
+              </div>
             )}
 
-            {f.propositos && (
-              <ul className="text-muted" style={{ paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
-                {f.propositos.map((item, idx) => <li key={idx} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
-              </ul>
+            {f.ejemplos && (
+              <div style={{ overflowX: 'auto', marginTop: '1rem', marginBottom: '2rem' }}>
+                <h4 className="text-gold" style={{ marginBottom: '1rem' }}>Ejemplos de Futuros Imposibles</h4>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
+                      <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid #ff5252', color: '#ff5252' }}>Futuro "Realista"</th>
+                      <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid var(--crear-gold)', color: 'var(--crear-gold)' }}>Futuro Imposible</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {f.ejemplos.map((ej, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '1rem', color: 'var(--text-muted)' }}>{ej.realista}</td>
+                        <td style={{ padding: '1rem', color: 'var(--text-main)', fontWeight: 'bold' }}>{ej.imposible}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
+
+            {f.compromisos && (
+              <div style={{ marginTop: '1rem' }}>
+                <h4 className="text-blue" style={{ marginBottom: '1.5rem', fontSize: '1.3rem' }}>Los 3 Compromisos del Programa</h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                  {f.compromisos.map((comp, idx) => (
+                    <div key={idx} style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '8px' }}>
+                      <h5 className="text-gold" style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>{comp.nombre}</h5>
+                      <p className="text-muted" style={{ fontSize: '0.95rem', marginBottom: '1rem' }}>{comp.descripcion}</p>
+                      <strong>Cómo:</strong>
+                      <ul style={{ margin: '0.5rem 0 0 0', paddingLeft: '1.2rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                        {comp.como.map((c, i) => <li key={i}>{c}</li>)}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
           </div>
         ))}
       </div>
@@ -62,18 +147,19 @@ export default function ProgramaEntrenamiento() {
           <p className="text-main" style={{ fontSize: '0.95rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>"{h.proposito}"</p>
           
           <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1rem', borderRadius: '8px' }}>
-            {typeof h.estructura[0] === 'string' ? (
+            {h.estructuraList && (
               <ul style={{ paddingLeft: '1rem', margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                {h.estructura.map((item, i) => <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
+                {h.estructuraList.map((item, i) => <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
               </ul>
-            ) : (
+            )}
+            
+            {h.estructura && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                 {h.estructura.map((item, i) => (
                   <div key={i} style={{ fontSize: '0.85rem' }}>
                     <strong className="text-blue" style={{ display: 'block', marginBottom: '0.2rem' }}>{item.dimension}</strong>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                      <div style={{ borderLeft: '2px solid var(--crear-gold)', paddingLeft: '0.5rem', color: 'var(--text-main)' }}><strong>Siendo:</strong> {item.siendo}</div>
-                      <div style={{ borderLeft: '2px solid #ff5252', paddingLeft: '0.5rem', color: 'var(--text-muted)' }}><strong>Haciendo:</strong> {item.haciendo}</div>
+                    <div style={{ color: 'var(--text-muted)', paddingLeft: '0.5rem', borderLeft: '2px solid var(--crear-gold)' }}>
+                      {item.descripcion}
                     </div>
                   </div>
                 ))}
@@ -96,12 +182,18 @@ export default function ProgramaEntrenamiento() {
               onClick={() => setSemanaActiva(semanaActiva === s.semana ? null : s.semana)}
               style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', background: semanaActiva === s.semana ? 'rgba(1, 180, 228, 0.1)' : 'transparent', border: 'none', color: 'var(--text-main)', cursor: 'pointer', textAlign: 'left' }}
             >
-              <h3 style={{ margin: 0, fontSize: '1.2rem' }}>Semana {s.semana}: <span className="text-gold">{s.titulo}</span></h3>
+              <div>
+                <h3 style={{ margin: 0, fontSize: '1.2rem', marginBottom: '0.3rem' }}>Semana {s.semana}: <span className="text-gold">{s.titulo}</span></h3>
+                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--crear-blue)' }}>Herramientas: {s.herramientasClave}</p>
+              </div>
               <span style={{ fontSize: '1.5rem', transition: 'transform 0.3s', transform: semanaActiva === s.semana ? 'rotate(180deg)' : 'none' }}>▼</span>
             </button>
             
             {semanaActiva === s.semana && (
               <div style={{ padding: '0 1.5rem 1.5rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ background: 'rgba(212, 175, 55, 0.1)', border: '1px solid var(--crear-gold)', padding: '1rem', borderRadius: '8px', marginTop: '1.5rem', textAlign: 'center' }}>
+                  <strong className="text-gold">Compromiso de Acción Semanal:</strong> {s.compromiso}
+                </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '1.5rem' }}>
                   {s.dias.map(d => (
                     <div key={d.dia} style={{ display: 'flex', gap: '1rem', background: 'rgba(0,0,0,0.2)', padding: '0.8rem 1rem', borderRadius: '8px', alignItems: 'center' }}>
@@ -120,18 +212,54 @@ export default function ProgramaEntrenamiento() {
 
   const renderRecursos = () => (
     <div className="animate-fade-in">
-      <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Rituales de Contexto</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
-        {programaRecursos.dinamicas.map((d, i) => (
-          <div key={i} className="glass-panel" style={{ padding: '1.5rem' }}>
-            <h4 className="text-main" style={{ margin: '0 0 0.5rem 0' }}>{d.nombre}</h4>
-            <span style={{ fontSize: '0.8rem', color: 'var(--crear-blue)', display: 'block', marginBottom: '1rem' }}>{d.uso}</span>
-            <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', fontStyle: 'italic' }}>{d.proposito}</p>
-            <ul style={{ paddingLeft: '1.2rem', margin: 0, color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-              {d.instrucciones.map((inst, idx) => <li key={idx}>{inst}</li>)}
-            </ul>
-          </div>
-        ))}
+      
+      <div style={{ marginBottom: '4rem' }}>
+        <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Rituales del Programa</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+          {programaRecursos.dinamicas.map((d, i) => (
+            <div key={i} className="glass-panel" style={{ padding: '1.5rem' }}>
+              <h4 className="text-main" style={{ margin: '0 0 0.5rem 0' }}>{d.nombre}</h4>
+              <span style={{ fontSize: '0.8rem', color: 'var(--crear-blue)', display: 'block', marginBottom: '1rem' }}>Cuándo: {d.uso}</span>
+              <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', fontStyle: 'italic' }}>{d.proposito}</p>
+              <strong style={{ fontSize: '0.9rem' }}>Cómo:</strong>
+              <ul style={{ paddingLeft: '1.2rem', margin: '0.5rem 0 0 0', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                {d.instrucciones.map((inst, idx) => <li key={idx}>{inst}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ marginBottom: '4rem' }}>
+        <h3 className="text-blue" style={{ marginBottom: '1.5rem' }}>Métricas y Evaluación</h3>
+        <div className="glass-panel" style={{ padding: '2rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '2rem' }}>
+            <thead>
+              <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
+                <th style={{ padding: '1rem', textAlign: 'left', color: 'var(--text-main)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>Métrica</th>
+                <th style={{ padding: '1rem', textAlign: 'left', color: 'var(--crear-gold)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>Meta</th>
+                <th style={{ padding: '1rem', textAlign: 'left', color: 'var(--crear-blue)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>Cómo medir</th>
+              </tr>
+            </thead>
+            <tbody>
+              {programaRecursos.evaluacion.metricas.map((m, idx) => (
+                <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <td style={{ padding: '1rem', color: 'var(--text-main)', fontWeight: 'bold' }}>{m.metrica}</td>
+                  <td style={{ padding: '1rem', color: 'var(--crear-gold)' }}>{m.meta}</td>
+                  <td style={{ padding: '1rem', color: 'var(--text-muted)' }}>{m.como}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          
+          <h4 className="text-gold" style={{ marginBottom: '1rem' }}>Evaluación Final (Día 42)</h4>
+          <p className="text-muted" style={{ marginBottom: '1rem' }}>Cada participante presenta:</p>
+          <ol style={{ paddingLeft: '1.5rem', margin: 0, color: 'var(--text-main)', lineHeight: 1.8 }}>
+            {programaRecursos.evaluacion.evaluacionFinal.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ol>
+        </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
@@ -154,7 +282,7 @@ export default function ProgramaEntrenamiento() {
         </div>
 
         <div>
-          <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Podcasts</h3>
+          <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Podcasts y Lecturas</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {programaRecursos.podcasts.map((p, i) => (
               <div key={i} className="glass-panel" style={{ padding: '1rem', borderLeft: '3px solid var(--crear-gold)' }}>
@@ -164,16 +292,18 @@ export default function ProgramaEntrenamiento() {
                   {p.episodios.map((ep, idx) => (
                     <li key={idx} style={{ marginBottom: '0.4rem' }}>
                       {typeof ep === 'string' ? ep : ep.nombre}
-                      {ep.link && (
-                        <a href={ep.link} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--crear-gold)', textDecoration: 'none', marginLeft: '8px', fontSize: '0.75rem', fontWeight: 'bold' }}>
-                          🎧 Escuchar
-                        </a>
-                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+            
+            <div className="glass-panel" style={{ padding: '1rem', borderLeft: '3px solid var(--crear-blue)', marginTop: '1rem' }}>
+              <h4 className="text-main" style={{ margin: '0 0 1rem 0' }}>Lecturas Fundamentales</h4>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                {programaRecursos.lecturas.map((l, idx) => <li key={idx}>{l}</li>)}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
