@@ -7,15 +7,15 @@ export default function Glosario() {
   const terminos = [
     {
       termino: "Grounding",
-      definicion: "Intervención psico-fisiológica breve (30-180 segundos) diseñada para modular la reactividad del sistema nervioso autónomo y restablecer la homeostasis. Ayuda a recuperar la claridad cognitiva, pero no sustituye el proceso analítico ni constituye una intervención psicoterapéutica profunda."
+      definicion: "Práctica breve de atención corporal, respiración y presencia utilizada para favorecer el enfoque, disminuir distracciones y preparar al participante para una conversación o actividad. Ayuda a recuperar la claridad, pero no sustituye el proceso analítico ni constituye una intervención psicoterapéutica profunda."
     },
     {
       termino: "Quiebre (Ontológico)",
       definicion: "Declaración consciente de que el flujo de transparencia (la rutina automática) se ha interrumpido. No es algo negativo per se, sino un espacio de diseño donde una nueva posibilidad puede ser declarada. Un quiebre siempre vive en la interpretación del observador, no en el hecho biológico o físico."
     },
     {
-      termino: "Futuro Imposible",
-      definicion: "Visión inspiradora que proyecta una aspiración que hoy parece inalcanzable. Funciona como un faro de dirección y un habilitador de saltos discontinuos, no como un KPI rígido o una métrica operativa de éxito."
+      termino: "Futuro de Posibilidad",
+      definicion: "Declaración de una aspiración que amplía el marco habitual de acción y exige nuevas decisiones, capacidades y compromisos. Funciona como un faro de dirección, no como un KPI rígido o una métrica operativa de éxito."
     },
     {
       termino: "El Observador",
@@ -27,11 +27,11 @@ export default function Glosario() {
     },
     {
       termino: "Enrolamiento",
-      definicion: "El proceso de invitar a otros a participar en un futuro imposible de manera libre y comprometida. No es persuadir, convencer ni manipular desde la carencia, sino crear un contexto de posibilidad compartida donde el otro elige expandirse."
+      definicion: "El proceso de invitar a otros a participar en un futuro de posibilidad de manera libre y comprometida. No es persuadir, convencer ni manipular desde la carencia, sino crear un contexto compartido donde el otro elige expandirse."
     },
     {
       termino: "Coaching de Alto Rendimiento",
-      definicion: "Marco heurístico del programa que utiliza los Principios de Posibilidad (salto discontinuo, observador generativo) para explicar cambios no-lineales en el comportamiento humano."
+      definicion: "Marco metodológico del programa que utiliza principios de filosofía, liderazgo y ontología del lenguaje para generar resultados extraordinarios a través de la expansión de las posibilidades de acción del observador."
     }
   ];
 

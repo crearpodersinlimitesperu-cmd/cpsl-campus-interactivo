@@ -225,7 +225,7 @@ export const dimensionesAutoevaluacion = [
       "Busca un mentor o supervisor de coaching.",
       "Pide feedback de cada coachee al final del proceso.",
       "Establece límites claros para evitar burnout.",
-      "Impacta a mínimo 7 personas por trimestre para que vivan una vida extraordinaria."
+      "Impacta a mínimo 7 personas por trimestre para que vivan una vida extraordinaria. Nota: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo."
     ]
   }
 ];

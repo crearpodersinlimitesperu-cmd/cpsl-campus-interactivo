@@ -23,7 +23,7 @@ export const curriculum = [
   },
   {
     id: 'modulo2',
-    titulo: 'Módulo 2: Arquitectura de Intervención Clínica',
+    titulo: 'Módulo 2: Arquitectura de Intervenciones de Coaching',
     descripcion: 'Estructura estándar de sesión y repertorio de técnicas conversacionales.',
     estado: 'disponible',
     duracionSemanas: 1,
@@ -86,7 +86,7 @@ export const curriculum = [
   },
   {
     id: 'modulo9',
-    titulo: 'Módulo 9: Guía Clínica: Parálisis y Sobreanálisis',
+    titulo: 'Módulo 9: Parálisis, Sobreanálisis y Acción',
     descripcion: 'Especialización en desbloqueo cognitivo, interrupción de parálisis y acción masiva.',
     estado: 'disponible',
     duracionSemanas: 2,

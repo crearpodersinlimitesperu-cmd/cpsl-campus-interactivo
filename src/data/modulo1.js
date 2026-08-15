@@ -4,7 +4,7 @@ export const modulo1 = [
     title: "1.1 Propósito y Alcance del Manual",
     content: `
       <div class="alert-info">
-        <p><strong>Este documento constituye el manual académico y metodológico</strong> diseñado para la estandarización de competencias en el ámbito del coaching de alto rendimiento, la transformación profunda y la regulación emocional.</p>
+        <p><strong>Este documento constituye el manual académico y metodológico</strong> diseñado para la estandarización de competencias en el ámbito del coaching de alto rendimiento, la transformación profunda, la presencia y la gestión de estados.</p>
       </div>
       <p>Su propósito principal es dotar a facilitadores, directivos y líderes de un <span class="highlight-text">corpus teórico-práctico unificado</span>, riguroso y basado en evidencia, que permita diseñar, implementar y evaluar intervenciones de desarrollo humano de manera consistente y altamente efectiva.</p>
     `
@@ -53,7 +53,7 @@ export const modulo1 = [
       </div>
       <p>El modelo de <strong>"Coaching de Alto Rendimiento"</strong> es un marco heurístico innovador que transpone, de manera analógica y metafórica, algunas ideas al campo del desarrollo humano y la ontología del lenguaje.</p>
       <div class="glass-panel" style="padding: 1.5rem; margin-top: 1.5rem;">
-        <p><strong>El observador y el contexto:</strong> Nuestras preguntas, categorías y decisiones influyen en la experiencia que tenemos de los sistemas humanos y en las posibilidades de acción que percibimos. (Inspirado analógicamente en el Efecto Observador).</p>
+        <p><strong>El observador y el contexto:</strong> Nuestras preguntas, categorías, interpretaciones y decisiones influyen en la manera en que experimentamos una situación y en las posibilidades de acción que identificamos.</p>
         <p><strong>Definición Operativa:</strong> Consiste en un proceso sistémico de expansión perceptual que utiliza la metáfora de cambio no lineal, la reestructuración del lenguaje, el diseño de promesas y la habituación estratégica para catalizar saltos cualitativos en el desarrollo personal.</p>
       </div>
       
@@ -105,10 +105,10 @@ export const modulo1 = [
   },
   {
     id: "m1_l4",
-    title: "1.4 Regulación Emocional y Anclaje (Grounding)",
+    title: "1.4 Presencia, Autorregulación y Anclaje (Grounding)",
     content: `
       <h3>1.4.1 Definición y Mecanismos</h3>
-      <p>El <span class="highlight-text">Grounding (técnica de anclaje somático)</span> es una intervención psico-fisiológica breve diseñada para modular la reactividad del sistema nervioso autónomo y restablecer la homeostasis. Sus funciones clínicas y operativas principales son:</p>
+      <p>El <span class="highlight-text">Grounding (técnica de anclaje)</span> es una práctica breve de atención corporal, respiración y presencia utilizada para favorecer el enfoque, disminuir distracciones y preparar al participante para una conversación o actividad. Sus funciones operativas principales son:</p>
       
       <div class="grid-2-cols">
         <div class="glass-panel" style="padding: 1.5rem; text-align: center;">
@@ -138,7 +138,7 @@ export const modulo1 = [
       <ul class="icon-list blue-bullets">
         <li><strong>Brevedad operativa:</strong> Las intervenciones deben acotarse temporalmente entre 30 y 180 segundos.</li>
         <li><strong>Eficiencia cognitiva (Simplicidad):</strong> Empleo de instrucciones unívocas, directas y desprovistas de abstracciones complejas.</li>
-        <li><strong>Viabilidad contextual (Accesibilidad):</strong> Capacidad de ejecución autónoma en entornos cotidianos sin requerir instrumentación clínica especializada.</li>
+        <li><strong>Viabilidad contextual (Accesibilidad):</strong> Capacidad de ejecución autónoma en entornos cotidianos sin requerir instrumentación o acompañamiento especializado.</li>
         <li><strong>Bioseguridad y contención:</strong> Exclusión categórica de estímulos o posturas que puedan inducir desregulación traumática o riesgo físico.</li>
         <li><strong>Consistencia (Repetibilidad):</strong> Eficacia preservada ante la aplicación longitudinal e iterativa de la técnica.</li>
         <li><strong>Alineación ecológica (Coherencia contextual):</strong> Pertinencia de la técnica respecto al clima organizacional o terapéutico en curso.</li>

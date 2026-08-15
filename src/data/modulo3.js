@@ -5,8 +5,8 @@ export const modulo3 = [
     content: `
       <div class="alert-info">
         <p><strong>2.3.1 Pasos para Diseñar un Grounding</strong></p>
-        <p style="font-size: 0.95rem;">Un Grounding es una intervención psico-fisiológica breve diseñada para modular la reactividad del sistema nervioso autónomo y restablecer la homeostasis. Puede apoyar la claridad mental y la regulación emocional, pero no sustituye el análisis, la evidencia objetiva ni un proceso terapéutico.</p>
-        <p>El diseño de una intervención de anclaje requiere ejecutar seis pasos metodológicos estrictos para garantizar su eficacia neurofisiológica.</p>
+        <p style="font-size: 0.95rem;">Un Grounding es una práctica breve de atención corporal, respiración y presencia utilizada para favorecer el enfoque, disminuir distracciones y preparar al participante para una conversación o actividad. Puede apoyar la claridad mental y la gestión de estados, pero no sustituye el análisis, la evidencia objetiva ni un proceso terapéutico.</p>
+        <p>El diseño de una intervención de anclaje requiere ejecutar seis pasos metodológicos estrictos para garantizar su eficacia en la gestión de estados.</p>
       </div>
       
       <div class="crear-table-wrapper" style="margin-top: 2rem;">

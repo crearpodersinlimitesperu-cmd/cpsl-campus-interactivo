@@ -32,7 +32,7 @@ export const modulo9 = [
   },
   {
     id: "m9_l2",
-    title: "Estrategias Clínicas de Choque (1-5)",
+    title: "Estrategias de Choque y Expansión (1-5)",
     content: `
       <h3>Herramientas de Interrupción</h3>
       <p>Cómo detener la mente analítica y empujar a la acción.</p>

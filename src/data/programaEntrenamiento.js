@@ -1,7 +1,7 @@
 export const programaTeoria = {
   vision: {
     titulo: "Visión del Programa",
-    texto: "Este programa no te enseña a 'hacer' enrolamiento. Te entrena para SER enrolamiento. Entrenamos a equipos para convertirse en creadores de contexto de alto rendimiento, de modo que: 1) Vivan sus futuros imposibles, 2) Impacten al máximo de personas posible, con un mínimo de 7 personas a vivir una vida extraordinaria, 3) Entrenen a otros a ser enrolamiento.",
+    texto: "Este programa no te enseña a 'hacer' enrolamiento. Te entrena para SER enrolamiento. Entrenamos a equipos para convertirse en creadores de contexto de alto rendimiento, de modo que: 1) Vivan sus futuros de posibilidad, 2) Impacten al máximo de personas posible, con un estándar mínimo de 7 personas para que vivan una vida extraordinaria. Importante: El número 7 no es la meta. Es el reflejo de un estándar alto. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo. 3) Entrenen a otros a ser enrolamiento.",
     detalles: [
       { dimension: "Duración", detalle: "6 semanas (42 días)" },
       { dimension: "Formato", detalle: "Virtual o presencial" },
@@ -27,7 +27,7 @@ export const programaTeoria = {
       filosofiaTabla: [
         { fuente: "Heidegger", concepto: "El ser-en-el-mundo como creador de significado", aplicacion: "El líder no describe la realidad, la crea con su presencia y lenguaje" },
         { fuente: "Principios de Posibilidad", concepto: "El observador crea la realidad que observa", aplicacion: "El líder observa posibilidades, no limitaciones, y eso crea realidad" },
-        { fuente: "Coaching de Alto Rendimiento", concepto: "La transformación no es lineal, es un salto desde el futuro", aplicacion: "El líder diseña desde el futuro imposible, no desde el problema actual" }
+        { fuente: "Coaching de Alto Rendimiento", concepto: "La transformación no es lineal, es un salto desde el futuro", aplicacion: "El líder diseña desde el futuro de posibilidad, no desde el problema actual" }
       ]
     },
     {
@@ -41,8 +41,8 @@ export const programaTeoria = {
         },
         {
           nombre: "2. Enrolamiento",
-          compromiso: "Invitar a otros a sumarse a la visión. Impacta al máximo de personas posible, con un mínimo de 7 personas a vivir una vida extraordinaria.",
-          practica: ["Compartes tu futuro imposible.", "Invitas (no presionas) a otros a crear el suyo.", "Celebras su expansión, no tu 'logro' de enrolarlos."],
+          compromiso: "Invitar a otros a sumarse a la visión. Impacta al máximo de personas posible, con un estándar mínimo de 7 personas para que vivan una vida extraordinaria. Nota: El número 7 no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo.",
+          practica: ["Compartes tu futuro de posibilidad.", "Invitas (no presionas) a otros a crear el suyo.", "Celebras su expansión, no tu 'logro' de enrolarlos."],
           impacto: "Creas un movimiento, no un equipo."
         },
         {
@@ -52,9 +52,9 @@ export const programaTeoria = {
           impacto: "Modelas presencia para otros."
         },
         {
-          nombre: "4. Futuros Imposibles",
+          nombre: "4. Futuros de Posibilidad",
           compromiso: "Mantener viva la visión de lo que es posible crear.",
-          practica: ["Declaras tu futuro imposible (no tu meta 'realista').", "Actúas desde ese futuro, no desde tu presente.", "Inspiras a otros a declarar los suyos."],
+          practica: ["Declaras tu futuro de posibilidad (no tu meta 'realista').", "Actúas desde ese futuro, no desde tu presente.", "Inspiras a otros a declarar los suyos."],
           impacto: "Creas un campo de posibilidad, no de limitación."
         },
         {
@@ -66,7 +66,7 @@ export const programaTeoria = {
       ]
     },
     {
-      titulo: "El Propósito: Vivir Futuros Imposibles",
+      titulo: "El Propósito: Vivir Futuros de Posibilidad",
       definicion: "Una aspiración que hoy parece inalcanzable, pero que se declara como posible de crear. No es una meta SMART ni un objetivo 'realista'. Es una declaración audaz, un salto de posibilidad, un compromiso con lo extraordinario.",
       ejemplos: [
         { realista: "'Quiero mejorar mi liderazgo'", imposible: "'Declaro que soy un líder que transforma vidas'" },
@@ -76,14 +76,14 @@ export const programaTeoria = {
       ],
       compromisos: [
         {
-          nombre: "1. Vivir tu Futuro Imposible",
+          nombre: "1. Vivir tu Futuro de Posibilidad",
           descripcion: "No solo declararlo. Lo vives HOY, no 'cuando esté listo'.",
           como: ["Actúas COMO SI ya fueras esa versión.", "Tomas decisiones desde ese futuro.", "Enrolas a otros desde ese futuro."]
         },
         {
           nombre: "2. Impactar al Máximo de Personas",
-          descripcion: "No solo inspirarlas. Las impactas activamente para que vivan una vida extraordinaria. Mínimo 7 personas.",
-          como: ["Compartes tu futuro imposible.", "Les preguntas: '¿Cuál es el TUYO?'", "Las acompañas a declararlo y vivirlo."]
+          descripcion: "No solo inspirarlas. Las impactas activamente para que vivan una vida extraordinaria. Estándar mínimo: 7 personas. Importante: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de un estándar alto. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo.",
+          como: ["Compartes tu futuro de posibilidad.", "Les preguntas: '¿Cuál es el TUYO?'", "Las acompañas a declararlo y vivirlo."]
         },
         {
           nombre: "3. Entrenar a Otros",
@@ -122,14 +122,14 @@ export const programaHerramientas = [
   },
   {
     id: 3,
-    nombre: "El Contrato de Futuros Imposibles",
-    proposito: "Declarar y sostener el futuro imposible personal y del equipo.",
+    nombre: "El Contrato de Futuros de Posibilidad",
+    proposito: "Declarar y sostener el futuro de posibilidad personal y del equipo.",
     uso: "Contrato firmado y visible.",
     estructuraList: [
-      "1. Mi futuro imposible: (describir en presente, como si ya fuera real)",
+      "1. Mi futuro de posibilidad: (describir en presente, como si ya fuera real)",
       "2. Quién tengo que ser: (qué versión de mí tiene que existir)",
       "3. Acciones diarias: (3 acciones concretas que me alinean)",
-      "4. A quién impacto: (Mínimo 7 personas a quienes impactas para que vivan una vida extraordinaria)",
+      "4. A quién impacto: (Estándar mínimo: 7 personas a quienes impactas para que vivan una vida extraordinaria. Nota: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo)",
       "5. Checkpoint: (fecha de reporte de progreso)"
     ]
   },
@@ -167,9 +167,9 @@ export const programaSemanas = [
     semana: 1,
     titulo: "Fundamentos del Enrolamiento",
     herramientasClave: "Brújula del Enrolamiento, Mapa del Contexto",
-    compromiso: "Declara tu futuro imposible",
+    compromiso: "Declara tu futuro de posibilidad",
     dias: [
-      { dia: 1, reto: "Declara tu futuro imposible por escrito. Compártelo con el equipo." },
+      { dia: 1, reto: "Declara tu futuro de posibilidad por escrito. Compártelo con el equipo." },
       { dia: 2, reto: "Identifica a mínimo 7 personas a quienes impactarás esta semana." },
       { dia: 3, reto: "Practica la escucha profunda (5 minutos sin hablar, solo escuchar)." },
       { dia: 4, reto: "Evalúa tu congruencia: ¿Tu acción coincide con tu palabra hoy?" },
@@ -210,16 +210,16 @@ export const programaSemanas = [
   },
   {
     semana: 4,
-    titulo: "Vivir Futuros Imposibles",
-    herramientasClave: "Contrato de Futuros Imposibles, Silla del Futuro",
-    compromiso: "Actúa desde tu futuro imposible",
+    titulo: "Vivir Futuros de Posibilidad",
+    herramientasClave: "Contrato de Futuros de Posibilidad, Silla del Futuro",
+    compromiso: "Actúa desde tu futuro de posibilidad",
     dias: [
-      { dia: 22, reto: "Relee tu futuro imposible. ¿Sigues comprometido?" },
-      { dia: 23, reto: "Identifica UNA acción que te acerca a tu futuro imposible. Hazla hoy." },
-      { dia: 24, reto: "Enrola a alguien a vivir SU futuro imposible." },
-      { dia: 25, reto: "Evalúa: ¿Qué te detiene de vivir tu futuro imposible?" },
-      { dia: 26, reto: "Comparte tu futuro imposible con alguien externo al equipo." },
-      { dia: 27, reto: "Reporta: ¿Qué acción tomaste hacia tu futuro imposible esta semana?" },
+      { dia: 22, reto: "Relee tu futuro de posibilidad. ¿Sigues comprometido?" },
+      { dia: 23, reto: "Identifica UNA acción que te acerca a tu futuro de posibilidad. Hazla hoy." },
+      { dia: 24, reto: "Enrola a alguien a vivir SU futuro de posibilidad." },
+      { dia: 25, reto: "Evalúa: ¿Qué te detiene de vivir tu futuro de posibilidad?" },
+      { dia: 26, reto: "Comparte tu futuro de posibilidad con alguien externo al equipo." },
+      { dia: 27, reto: "Reporta: ¿Qué acción tomaste hacia tu futuro de posibilidad esta semana?" },
       { dia: 28, reto: "Descansa. Integra." }
     ]
   },
@@ -229,11 +229,11 @@ export const programaSemanas = [
     herramientasClave: "Mapa de Enrolamiento, Declaración de Expansión",
     compromiso: "Entrena a 1 persona",
     dias: [
-      { dia: 29, reto: "Identifica a mínimo 7 personas a quienes impactarás." },
+      { dia: 29, reto: "Identifica a mínimo 7 personas a quienes impactarás. Importante: El número 7 no es tu meta. Es el reflejo de un estándar alto. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo." },
       { dia: 30, reto: "Comparte con ellas el concepto de 'ser enrolamiento'." },
       { dia: 31, reto: "Entrénalas en UNA herramienta del programa." },
       { dia: 32, reto: "Pídeles que enrolen a alguien. Reporta." },
-      { dia: 33, reto: "Evalúa: ¿Qué aprendiste al entrenar?" },
+      { dia: 33, reto: "Impacta a mínimo 7 personas. Reporta. Nota: El número 7 no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo." },
       { dia: 34, reto: "Ajusta tu enfoque de entrenamiento." },
       { dia: 35, reto: "Descansa. Integra." }
     ]
@@ -259,27 +259,27 @@ export const programaRecursos = {
   dinamicas: [
     { nombre: "El Check-in de la Mañana (10 min)", uso: "Diario", proposito: "Alinear el equipo al inicio del día.", instrucciones: ["1. Compartir: 'Hoy me comprometo a...'", "2. Equipo escucha sin juzgar.", "3. Al final del día: 'Hoy cumplí...'"] },
     { nombre: "El Círculo de la Expansión (30 min)", uso: "Semanal (Viernes)", proposito: "Compartir transformaciones.", instrucciones: ["1. Círculo. Compartir: 'Esta semana enrolié a...', 'Yo aprendí...'", "2. Equipo celebra cada historia."] },
-    { nombre: "El Muro de los Futuros Imposibles", uso: "Permanente", proposito: "Mantener viva la visión.", instrucciones: ["1. Escribir futuro en post-it.", "2. Pegar en muro visible.", "3. Actualización semanal: 'Esta semana avancé en...'"] },
+    { nombre: "El Muro de los Futuros de Posibilidad", uso: "Permanente", proposito: "Mantener viva la visión.", instrucciones: ["1. Escribir futuro en post-it.", "2. Pegar en muro visible.", "3. Actualización semanal: 'Esta semana avancé en...'"] },
     { nombre: "El Contrato de Accountability", uso: "Revisión semanal", proposito: "Sostener responsabilidad.", instrucciones: ["1. Declarar compromiso.", "2. Equipo acepta/rechaza si no es claro/medible.", "3. Contrato público.", "4. Checkpoint semanal: '¿Cumpliste?'"] }
   ],
   evaluacion: {
     metricas: [
-      { metrica: "Futuros imposibles declarados", meta: "100% del equipo", como: "Contrato de Futuros Imposibles" },
-      { metrica: "Personas impactadas", meta: "Mínimo 7, idealmente 10+ por participante", como: "Reporte semanal" },
+      { metrica: "Futuros imposibles declarados", meta: "100% del equipo", como: "Contrato de Futuros de Posibilidad" },
+      { metrica: "Personas impactadas", meta: "Estándar mínimo 7, idealmente 10+ por participante. Importante: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de un estándar alto. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo.", como: "Reporte semanal" },
       { metrica: "Personas entrenadas", meta: "3+ por participante", como: "Reporte de entrenamiento" },
       { metrica: "Congruencia", meta: "80%+ compromisos cumplidos", como: "Checkpoints semanales" },
       { metrica: "Expansión del equipo", meta: "30%+ crecimiento en resultados", como: "Métricas de negocio" }
     ],
     evaluacionFinal: [
-      "Su futuro imposible y cómo lo vivió.",
-      "Las personas que impactó (mínimo 7, idealmente 10+).",
+      "Su futuro de posibilidad y cómo lo vivió.",
+      "Las personas que impactó (estándar mínimo 7, idealmente 10+. Nota: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo).",
       "Las personas que entrenó (mínimo 3).",
       "Su transformación personal.",
       "Su legado y próximos pasos."
     ]
   },
   peliculas: [
-    { titulo: "En Busca de la Felicidad (2006)", tema: "Persistencia, futuro imposible.", dinamica: "¿Cuál es tu 'oficina en el metro'?", link: "https://www.youtube.com/watch?v=0wJM21yvUqw" },
+    { titulo: "En Busca de la Felicidad (2006)", tema: "Persistencia, futuro de posibilidad.", dinamica: "¿Cuál es tu 'oficina en el metro'?", link: "https://www.youtube.com/watch?v=0wJM21yvUqw" },
     { titulo: "Invictus (2009)", tema: "Liderazgo, creación de contexto.", dinamica: "¿Qué contexto creas tú?", link: "https://www.youtube.com/watch?v=RZY8c_a_dlQ" },
     { titulo: "El Discurso del Rey (2010)", tema: "Superación, apoyo.", dinamica: "¿Quién es tu 'Logue'?", link: "https://www.youtube.com/watch?v=pzI4D6dyp_o" },
     { titulo: "Cadena de Favores (2000)", tema: "Enrolamiento en cadena, legado.", dinamica: "¿A quiénes enrolos?", link: "https://www.youtube.com/watch?v=1b-bB1r3G4E" },

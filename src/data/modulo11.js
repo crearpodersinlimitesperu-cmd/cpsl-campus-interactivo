@@ -8,7 +8,7 @@ export const modulo11 = [
         <p>Un coach no puede generar quiebres, preguntas poderosas ni intervenciones creativas si está operando desde patrones automáticos, rigidez mental o bloqueo creativo. La creatividad del coach no es un "extra", es una <strong>condición de posibilidad</strong> para el coaching de alto rendimiento.</p>
       </div>
 
-      <h3>Fuentes de la Creatividad Clínica</h3>
+      <h3>Fuentes de la Creatividad en el Coaching</h3>
       <ul class="icon-list blue-bullets">
         <li><strong>Guilford (1950)</strong>: Pensamiento divergente como base de la creatividad.</li>
         <li><strong>De Bono (1970)</strong>: Pensamiento lateral y ruptura de patrones.</li>

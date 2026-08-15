@@ -93,7 +93,7 @@ export const modulo5 = [
       
       <ul class="icon-list blue-bullets" style="margin-top: 1.5rem;">
         <li><strong>El Mapa de la Angustia (Herramienta 5):</strong> Identifica una situación angustiante y pregúntate: "¿Qué libertad estoy evitando ejercer?". Declara que esa angustia te está diciendo que eres libre de elegir distinto.</li>
-        <li><strong>El Salto de Posibilidad Existencial (Herramienta 6):</strong> Define un futuro imposible sin garantías. Da un paso HOY sabiendo que podrías fracasar. Aprende a vivir con la incertidumbre, ese es el "Caballero de la Fe" de Kierkegaard.</li>
+        <li><strong>El Salto de Posibilidad Existencial (Herramienta 6):</strong> Define un futuro de posibilidad sin garantías. Da un paso HOY sabiendo que podrías fracasar. Aprende a vivir con la incertidumbre, ese es el "Caballero de la Fe" de Kierkegaard.</li>
       </ul>
 
       <div class="alert-info" style="margin-top: 2rem;">

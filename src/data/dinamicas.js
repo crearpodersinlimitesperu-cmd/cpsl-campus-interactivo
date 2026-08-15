@@ -102,7 +102,7 @@ export const dinamicas = [
     descripcion_escenario: "El equipo habla mucho pero actúa poco; hay poca accountability.",
     objetivo: "Generar compromisos públicos y medibles.",
     instrucciones: [
-      "Cada persona escribe sus compromisos de impacto (mínimo 7 personas) que está dispuesto a hacer en los próximos 7 días.",
+      "Cada persona escribe sus compromisos de impacto (estándar mínimo 7 personas) que está dispuesto a hacer en los próximos 7 días. Nota: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo.",
       "En plenaria, cada uno 'subasta' sus compromisos: los lee en voz alta.",
       "El grupo puede 'comprar' (apoyar) o 'rechazar' (si el compromiso no es claro o medible).",
       "Los compromisos 'vendidos' se escriben en un contrato público.",
@@ -295,7 +295,7 @@ export const dinamicas = [
     descripcion_escenario: "El equipo no tiene aspiraciones inspiradoras; se conforma con lo 'realista'.",
     objetivo: "Conectar con futuros que hoy parecen imposibles.",
     instrucciones: [
-      "Cada persona escribe su 'futuro imposible' (algo que desea pero cree inalcanzable).",
+      "Cada persona escribe su 'futuro de posibilidad' (algo que desea pero cree inalcanzable).",
       "Formen un 'tribunal' con 3 roles: Fiscal (cuestiona por qué es imposible), Defensor (argumenta por qué es posible), Juez (decide si vale la pena intentarlo).",
       "Cada futuro pasa por el tribunal.",
       "Al final, cada persona responde: '¿Estoy dispuesto a intentarlo?'"

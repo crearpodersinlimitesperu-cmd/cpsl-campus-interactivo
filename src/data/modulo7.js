@@ -17,7 +17,7 @@ export const modulo7 = [
       
       <ul class="icon-list blue-bullets" style="margin-top: 1.5rem;">
         <li><strong>H11: El Observador del Líder:</strong> Identifica un problema. Obsérvalo desde 3 perspectivas distintas (como coach externo, como cliente, como tu yo del futuro). Elige la que te otorgue agencia.</li>
-        <li><strong>H12: El Salto de Posibilidad del Líder:</strong> ¿Qué creencia tendrías que SOLTAR y qué identidad ADOPTAR para llegar a ese futuro imposible de un solo paso? Actúa desde esa identidad HOY.</li>
+        <li><strong>H12: El Salto de Posibilidad del Líder:</strong> ¿Qué creencia tendrías que SOLTAR y qué identidad ADOPTAR para llegar a ese futuro de posibilidad de un solo paso? Actúa desde esa identidad HOY.</li>
       </ul>
     `
   },
@@ -44,7 +44,7 @@ export const modulo7 = [
     title: "Semanas 10 y 11: Enrolamiento y Expansión",
     content: `
       <h3>Ser Enrolamiento</h3>
-      <p>Enrolar no es persuadir ni convencer; es invitar a otros a habitar futuros imposibles desde tu propia presencia y congruencia.</p>
+      <p>Enrolar no es persuadir ni convencer; es invitar a otros a habitar futuros de posibilidad desde tu propia presencia y congruencia.</p>
       
       <div class="crear-table-wrapper" style="margin-top: 2rem;">
         <table class="crear-table">
@@ -57,11 +57,11 @@ export const modulo7 = [
           <tbody>
             <tr>
               <td><strong class="text-gold">H15. Mapa de Enrolamiento</strong></td>
-              <td>Dibuja tu futuro imposible en el centro. Alrededor, escribe los nombres de mínimo 7 personas (idealmente 10+) que podrían vivir una vida extraordinaria. Identifica el futuro imposible de ELLOS y conéctalo al tuyo.</td>
+              <td>Dibuja tu futuro de posibilidad en el centro. Alrededor, escribe los nombres de mínimo 7 personas (idealmente 10+) que podrían vivir una vida extraordinaria. Identifica el futuro de posibilidad de ELLOS y conéctalo al tuyo. Importante: El número 7 no es tu meta. Es el reflejo de un estándar alto. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo.</td>
             </tr>
             <tr>
               <td><strong class="text-blue">H16. Declaración de Expansión</strong></td>
-              <td>"Me comprometo a impactar al máximo de personas posible, con un mínimo de 7 personas en los próximos Y días para que vivan una vida extraordinaria." Expande a otros para que ellos expandan a más.</td>
+              <td>"Me comprometo a impactar al máximo de personas posible, con un estándar mínimo de 7 personas en los próximos Y días para que vivan una vida extraordinaria." Expande a otros para que ellos expandan a más. Nota: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo.</td>
             </tr>
           </tbody>
         </table>
@@ -75,7 +75,7 @@ export const modulo7 = [
     content: `
 <div class="alert-info" style="margin-bottom: 2rem;">
   <h3 style="margin-top: 0; color: var(--crear-gold);">¿Qué es un Maestro Enrolador?</h3>
-  <p>Un <strong>Maestro Enrolador</strong> no es alguien que "hace enrolamiento". Es alguien que <strong>ES enrolamiento</strong>. Su presencia, su palabra y su acción generan un campo que invita a otros a expandirse hacia sus futuros imposibles.</p>
+  <p>Un <strong>Maestro Enrolador</strong> no es alguien que "hace enrolamiento". Es alguien que <strong>ES enrolamiento</strong>. Su presencia, su palabra y su acción generan un campo que invita a otros a expandirse hacia sus futuros de posibilidad.</p>
 </div>
 
 <h3>Distinciones Clave</h3>
@@ -127,7 +127,7 @@ export const modulo7 = [
     <h5 style="margin-top: 0;">Nivel 3: El Invitador</h5><p><strong>Enfoque:</strong> "Te invito a sumarte."</p><p><strong>Herramienta:</strong> Invitación auténtica.</p><p><strong>Limitación:</strong> Dualidad yo/tú.</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid #00e676;">
-    <h5 style="margin-top: 0;">Nivel 4: El Expansor</h5><p><strong>Enfoque:</strong> "¿Cuál es tu futuro imposible?"</p><p><strong>Herramienta:</strong> Preguntas poderosas.</p><p><strong>Limitación:</strong> Aún hay "yo" que expande.</p>
+    <h5 style="margin-top: 0;">Nivel 4: El Expansor</h5><p><strong>Enfoque:</strong> "¿Cuál es tu futuro de posibilidad?"</p><p><strong>Herramienta:</strong> Preguntas poderosas.</p><p><strong>Limitación:</strong> Aún hay "yo" que expande.</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid #2979ff;">
     <h5 style="margin-top: 0;">Nivel 5: Creador de Contexto</h5><p><strong>Enfoque:</strong> "Creo un contexto posible."</p><p><strong>Herramienta:</strong> Diseño de espacio.</p><p><strong>Limitación:</strong> "Yo" crea, "Tú" expandes.</p>
@@ -154,7 +154,7 @@ export const modulo7 = [
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-gold);">
     <h4 style="margin: 0 0 0.5rem 0;">3: No Convenzo, Expando</h4>
-    <p><strong>Novato:</strong> "Tienes que hacer esto." | <strong>Maestro:</strong> "¿Qué futuro imposible estás evitando crear?"</p>
+    <p><strong>Novato:</strong> "Tienes que hacer esto." | <strong>Maestro:</strong> "¿Qué futuro de posibilidad estás evitando crear?"</p>
     <p style="margin-bottom: 0;"><strong>Práctica:</strong> El otro se expande no por lo que dices, sino por lo que tú ves en él.</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-blue);">
@@ -195,11 +195,11 @@ export const modulo7 = [
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-gold);">
     <h4 style="margin: 0 0 0.5rem 0;">11: No Creo Seguidores, Creo Líderes</h4>
     <p><strong>Novato:</strong> "Quiero que me sigan." | <strong>Maestro:</strong> "Quiero que sean líderes."</p>
-    <p style="margin-bottom: 0;"><strong>Práctica:</strong> Busca crear líderes que impacten a mínimo 7 personas cada uno.</p>
+    <p style="margin-bottom: 0;"><strong>Práctica:</strong> Busca crear líderes que impacten a mínimo 7 personas cada uno. Nota: El número 7 no es tu meta. Es el reflejo de un estándar alto. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo.</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-blue);">
     <h4 style="margin: 0 0 0.5rem 0;">12: No Termino, Expando</h4>
-    <p><strong>Novato:</strong> "Ya lo enrolé. Listo." | <strong>Maestro:</strong> "Impacto a mínimo 7 personas. Ellas impactan a otras. Expansión infinita."</p>
+    <p><strong>Novato:</strong> "Ya lo enrolé. Listo." | <strong>Maestro:</strong> "Impacto a mínimo 7 personas. Ellas impactan a otras. Expansión infinita. Importante: El número 7 no es mi meta. Es el reflejo de mi estándar. No busco impactar 7 personas por cumplir. Busco un estándar tan alto que 7 personas sea solo el comienzo."</p>
     <p style="margin-bottom: 0;"><strong>Práctica:</strong> El efecto multiplicador es el legado.</p>
   </div>
 </div>
@@ -210,7 +210,7 @@ export const modulo7 = [
     <h4 class="text-gold">Cualidades</h4>
     <ul class="icon-list blue-bullets">
       <li><strong>1. Presencia Plena:</strong> 100% presente, el otro se siente visto. Cultívalo con groundings y meditación.</li>
-      <li><strong>2. Claridad de Visión:</strong> Hablar con certeza. Lee tu futuro imposible diariamente.</li>
+      <li><strong>2. Claridad de Visión:</strong> Hablar con certeza. Lee tu futuro de posibilidad diariamente.</li>
       <li><strong>3. Congruencia Radical:</strong> Tu palabra, acción y ser están alineados.</li>
       <li><strong>4. Escucha Profunda:</strong> Escuchar lo que no se dice. Sin juzgar.</li>
       <li><strong>5. Amor Incondicional:</strong> Aceptación radical del estado del otro.</li>
@@ -230,14 +230,14 @@ export const modulo7 = [
 <h3 style="margin-top: 3rem;">Prácticas y Legado</h3>
 <div class="glass-panel" style="padding: 2rem; border-left: 4px solid var(--crear-gold);">
   <h4 style="margin-top: 0; color: var(--text-main);">Prácticas Diarias</h4>
-  <p><strong>1. Declaración (5m):</strong> "Hoy soy enrolamiento. Visualiza a mínimo 7 personas a quienes impactas hoy."</p>
+  <p><strong>1. Declaración (5m):</strong> "Hoy soy enrolamiento. Visualiza a mínimo 7 personas a quienes impactas hoy. Importante: El número 7 no es tu meta. Es el reflejo de tu estándar. No busques impactar 7 personas por cumplir. Busca un estándar tan alto que 7 personas sea solo el comienzo."</p>
   <p><strong>2. Grounding (2m):</strong> Antes de interactuar, respira y declara presencia.</p>
   <p><strong>3. Diario (10m):</strong> "Hoy fui enrolamiento en...", "Aprendí...", "Haré diferente..."</p>
   <p><strong>4. Círculo (Semanal):</strong> "Esta semana enrolé a X, aprendí Y."</p>
   <p><strong>5. Congruencia (Semanal):</strong> Revisa tus compromisos. Ajusta.</p>
   
   <h4 style="margin-top: 2rem; color: var(--crear-blue);">El Legado</h4>
-  <p style="font-size: 1.1rem; color: var(--text-muted); font-style: italic;">"Un Maestro Enrolador se caracteriza por su efecto multiplicador: facilita que otras personas se expandan y contribuyan, a su vez, al desarrollo de liderazgo en sus propios entornos."</p>
+  <p style="font-size: 1.1rem; color: var(--text-muted); font-style: italic;">"Un Maestro Enrolador no se mide por: ❌ Cuántas personas enrola (el número es un indicador, no el propósito). ✅ Se mide por cuántas personas viven una vida extraordinaria (estándar mínimo 7, idealmente ilimitadas). Nota: El estándar mínimo de 7 personas no es tu meta. Es el reflejo de tu estándar. Si tu estándar es alto, 7 personas será solo el comienzo."</p>
 </div>
 `
   }

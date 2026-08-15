@@ -97,7 +97,7 @@ export default function ProgramaEntrenamiento() {
                   <thead>
                     <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
                       <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid var(--color-error)', color: 'var(--color-error)' }}>Futuro "Realista"</th>
-                      <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid var(--crear-gold)', color: 'var(--crear-gold)' }}>Futuro Imposible</th>
+                      <th style={{ padding: '1rem', textAlign: 'left', borderBottom: '2px solid var(--crear-gold)', color: 'var(--crear-gold)' }}>Futuro de Posibilidad</th>
                     </tr>
                   </thead>
                   <tbody>

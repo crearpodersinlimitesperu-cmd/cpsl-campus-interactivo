@@ -16,7 +16,7 @@ export const modulo10 = [
           <ul class="icon-list blue-bullets">
             <li>Facilitar la toma de conciencia sobre narrativas limitantes.</li>
             <li>Acompañar en el diseño de planes de acción verificables.</li>
-            <li>Enseñar técnicas breves de regulación emocional (groundings) para la claridad cognitiva temporal.</li>
+            <li>Enseñar técnicas breves de autorregulación y gestión de estados (groundings) para la claridad cognitiva temporal.</li>
             <li>Desafiar las excusas operativas y el sobreanálisis.</li>
           </ul>
         </div>
@@ -43,7 +43,7 @@ export const modulo10 = [
         </thead>
         <tbody>
           <tr>
-            <td><strong>Incapacidad persistente para actuar:</strong> El cliente experimenta parálisis total, ataques de pánico ante la idea de tomar acción, o desregulación emocional severa que no cede con groundings.</td>
+            <td><strong>Incapacidad persistente para actuar:</strong> El cliente experimenta parálisis total, ataques de pánico ante la idea de tomar acción, o alteración de estado persistente que no cede con groundings.</td>
             <td>Detener la exploración ontológica. Reconocer la sobrecarga ("Veo que esto es muy pesado"). Sugerir evaluación psicológica antes de continuar el coaching.</td>
           </tr>
           <tr>

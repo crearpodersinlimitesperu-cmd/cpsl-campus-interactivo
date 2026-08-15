@@ -307,13 +307,13 @@ export const maquinaQuiebres = [
       },
       {
         fase: "3. Declaración",
-        herramienta: "Declaración: 'Mi futuro imposible es... y estoy dispuesto a...'",
+        herramienta: "Declaración: 'Mi futuro de posibilidad es... y estoy dispuesto a...'",
         instrucciones: "Declarar el futuro y el compromiso de intentarlo."
       },
       {
         fase: "4. Acción",
         herramienta: "Checkpoint 7 días",
-        instrucciones: "Reportar: '¿Qué paso diste hacia tu futuro imposible?'"
+        instrucciones: "Reportar: '¿Qué paso diste hacia tu futuro de posibilidad?'"
       }
     ],
     pregunta_quiebre: "¿Qué te da más miedo: que sea imposible o que sea posible y no lo intentes?"
