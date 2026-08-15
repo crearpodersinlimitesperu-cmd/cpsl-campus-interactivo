@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -17,26 +17,34 @@ import AutoevaluacionCoach from './pages/AutoevaluacionCoach'
 import AdminDashboard from './pages/AdminDashboard'
 import { useAuth } from './context/AuthContext'
 import { useUI } from './context/UIContext'
-import { updateTimeSpent } from './services/db'
+import { updateTimeSpent, updateSessionHeartbeat, logSessionRoute } from './services/db'
 
 function App() {
-  const { user, loginWithGoogle } = useAuth();
+  const { user, sessionId, loginWithGoogle } = useAuth();
   const { isFocusMode, toggleFocusMode } = useUI();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  // Rastreador de tiempo silencioso (se ejecuta cada minuto si hay un usuario logueado)
+  // Registro de Rutas (Spy Mode)
+  useEffect(() => {
+    if (user && sessionId) {
+      logSessionRoute(user.uid, sessionId, location.pathname);
+    }
+  }, [user, sessionId, location.pathname]);
+
+  // Rastreador de tiempo silencioso (Latido cada minuto)
   useEffect(() => {
     let interval;
-    if (user) {
+    if (user && sessionId) {
       interval = setInterval(() => {
-        updateTimeSpent(user.uid, 1);
+        updateSessionHeartbeat(user.uid, sessionId);
       }, 60000); // 1 minuto
     }
     return () => clearInterval(interval);
-  }, [user]);
+  }, [user, sessionId]);
 
   if (!user) {
     return (

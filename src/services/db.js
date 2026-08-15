@@ -1,5 +1,5 @@
 import { db } from '../lib/firebase';
-import { doc, getDoc, setDoc, updateDoc, collection, getDocs, increment } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, collection, getDocs, increment, arrayUnion, query, orderBy } from 'firebase/firestore';
 
 export const initializeUser = async (user) => {
   if (!user) return;
@@ -186,5 +186,77 @@ export const updateTimeSpent = async (uid, additionalMinutes) => {
     });
   } catch (error) {
     console.warn("Firebase falló al actualizar tiempo de sesión", error);
+  }
+};
+
+// --- AUDITORÍA DE SESIONES ---
+
+export const startSession = async (uid, deviceInfo) => {
+  try {
+    const sessionsCol = collection(db, 'users', uid, 'sessions');
+    const sessionRef = doc(sessionsCol);
+    const now = new Date().toISOString();
+    await setDoc(sessionRef, {
+      sessionId: sessionRef.id,
+      startedAt: now,
+      lastActiveAt: now,
+      device: deviceInfo || navigator.userAgent,
+      durationMinutes: 0,
+      history: []
+    });
+    return sessionRef.id;
+  } catch (error) {
+    console.warn("Error al iniciar sesión de auditoría", error);
+    return null;
+  }
+};
+
+export const logSessionRoute = async (uid, sessionId, currentRoute) => {
+  if (!sessionId) return;
+  try {
+    const sessionRef = doc(db, 'users', uid, 'sessions', sessionId);
+    const now = new Date().toISOString();
+    const historyEntry = { path: currentRoute, timestamp: now };
+    
+    await updateDoc(sessionRef, {
+      lastActiveAt: now,
+      history: arrayUnion(historyEntry)
+    });
+  } catch (error) {
+    console.warn("Error logueando ruta de sesión", error);
+  }
+};
+
+export const updateSessionHeartbeat = async (uid, sessionId) => {
+  if (!sessionId) return;
+  try {
+    const sessionRef = doc(db, 'users', uid, 'sessions', sessionId);
+    const now = new Date().toISOString();
+    
+    await updateDoc(sessionRef, {
+      lastActiveAt: now,
+      durationMinutes: increment(1)
+    });
+    
+    // Mantenemos el acumulado global funcionando
+    const userRef = doc(db, 'users', uid);
+    await updateDoc(userRef, {
+      'progress.totalTimeSpent': increment(1)
+    });
+  } catch (error) {
+    console.warn("Error actualizando latido de sesión", error);
+  }
+};
+
+export const getUserSessions = async (uid) => {
+  try {
+    const q = query(collection(db, 'users', uid, 'sessions'), orderBy('startedAt', 'desc'));
+    const snap = await getDocs(q);
+    const sessions = [];
+    snap.forEach(docSnap => sessions.push(docSnap.data()));
+    return sessions;
+  } catch (error) {
+    console.error("Error obteniendo el historial de sesiones:", error);
+    return [];
   }
 };
