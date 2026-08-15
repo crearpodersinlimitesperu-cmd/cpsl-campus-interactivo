@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useUI } from '../context/UIContext';
 import { evaluacion1 } from '../data/evaluacion1';
 import { saveEvaluationResult, updateLastVisited } from '../services/db';
 
@@ -8,6 +9,7 @@ export default function EvaluacionContainer() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { isFocusMode, toggleFocusMode } = useUI();
   
   // Asumimos que id es 'm1_eval' para cargar la evaluación 1 (simplificación por ahora)
   const evalData = evaluacion1;
@@ -87,11 +89,27 @@ export default function EvaluacionContainer() {
 
   return (
     <div className="module-container" style={{maxWidth: '800px', margin: '0 auto', paddingBottom: '4rem'}}>
-      <header style={{marginBottom: '2rem'}}>
-        <p className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '0.5rem', fontWeight: 'bold'}}>{evalData.title}</p>
-        <h1 style={{fontSize: '2rem'}}>Pregunta {currentQuestionIndex + 1} de {evalData.questions.length}</h1>
+      <header style={{marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <p className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '0', fontWeight: 'bold'}}>{evalData.title}</p>
+          
+          {!isFocusMode && (
+            <button 
+              onClick={toggleFocusMode}
+              className="btn-secondary"
+              style={{fontSize: '0.8rem', padding: '6px 12px', display: 'flex', alignItems: 'center', gap: '6px'}}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </svg>
+              Modo Enfoque
+            </button>
+          )}
+        </div>
         
-        <div className="progress-bar-container" style={{height: '4px', marginTop: '1.5rem'}}>
+        <h1 style={{fontSize: '2rem', margin: 0}}>Pregunta {currentQuestionIndex + 1} de {evalData.questions.length}</h1>
+        
+        <div className="progress-bar-container" style={{height: '4px', marginTop: '0.5rem'}}>
           <div className="progress-bar-fill" style={{width: `${((currentQuestionIndex) / evalData.questions.length) * 100}%`}}></div>
         </div>
       </header>

@@ -14,14 +14,16 @@ import MaquinaQuiebres from './pages/MaquinaQuiebres'
 import ProgramaEntrenamiento from './pages/ProgramaEntrenamiento'
 import AutoevaluacionCoach from './pages/AutoevaluacionCoach'
 import { useAuth } from './context/AuthContext'
+import { useUI } from './context/UIContext'
 
 function App() {
   const { user, loginWithGoogle } = useAuth();
+  const { isFocusMode, toggleFocusMode } = useUI();
 
   if (!user) {
     return (
       <div className="login-container">
-        <div className="glass-panel login-card" style={{padding: '4rem 3rem'}}>
+        <div className="glass-panel login-card animate-fade-in" style={{padding: '4rem 3rem'}}>
           <h1 className="text-gold" style={{fontSize: '2.5rem', marginBottom: '0.5rem'}}>PLATAFORMA DE ENTRENAMIENTO</h1>
           <p className="text-muted" style={{marginBottom: '3rem', fontSize: '1.1rem'}}>Tu proceso de aprendizaje. Tu progreso. Tu transformación.</p>
           
@@ -41,10 +43,23 @@ function App() {
   }
 
   return (
-    <div className="app-layout">
-      <Sidebar />
+    <div className={`app-layout ${isFocusMode ? 'focus-mode-active' : ''}`}>
+      {!isFocusMode && <Sidebar />}
 
-      <main className="main-content">
+      <main className="main-content animate-fade-in">
+        {isFocusMode && (
+          <button 
+            onClick={toggleFocusMode} 
+            className="focus-exit-btn"
+            title="Salir del Modo Enfoque"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+            </svg>
+            <span>Salir de Enfoque</span>
+          </button>
+        )}
+        
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

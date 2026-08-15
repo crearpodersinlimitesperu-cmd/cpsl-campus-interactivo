@@ -275,3 +275,77 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--crear-blue);
   font-weight: 600;
 }
+
+/* ==========================================================================
+   FOCUS MODE & IMMERSIVE DESIGN (MAESTRO PROMPT)
+   ========================================================================== */
+
+/* Fade-in Animation for smooth transitions */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Breathing Animation for Deep Immersion */
+.animate-breathe {
+  animation: breathe 8s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 40px rgba(1, 180, 228, 0.4); }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Focus Mode Global Overrides */
+.focus-mode-active {
+  background-color: #050814; /* Even darker for pure focus */
+}
+
+.focus-mode-active .main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 4rem;
+  transition: all 0.5s ease;
+}
+
+.focus-mode-active .content-reader {
+  font-size: 1.25rem; /* Larger font for easy reading */
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* Floating Exit Focus Button */
+.focus-exit-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(10, 17, 40, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  border-radius: 30px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.focus-exit-btn:hover {
+  background: rgba(255, 183, 3, 0.1);
+  color: var(--crear-gold);
+  border-color: var(--crear-gold);
+  transform: scale(1.05);
+}
