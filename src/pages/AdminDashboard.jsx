@@ -23,7 +23,7 @@ export default function AdminDashboard() {
   };
 
   // Hardcoded check using Env Var or direct fallback
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'crearglobalcom@gmail.com';
+  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'jose.sanchez@crearpsl.net';
   const isAdmin = user && user.email === adminEmail;
 
   useEffect(() => {

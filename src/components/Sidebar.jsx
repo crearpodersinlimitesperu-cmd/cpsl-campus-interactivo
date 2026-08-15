@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 
 export default function Sidebar({ isOpen, onClose }) {
   const { user } = useAuth();
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'crearglobalcom@gmail.com';
+  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'jose.sanchez@crearpsl.net';
   const isAdmin = user && user.email === adminEmail;
 
   return (
