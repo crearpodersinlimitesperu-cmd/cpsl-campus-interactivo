@@ -1,6 +1,11 @@
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 export default function Sidebar() {
+  const { user } = useAuth();
+  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'crearglobalcom@gmail.com';
+  const isAdmin = user && user.email === adminEmail;
+
   return (
     <aside className="sidebar glass-panel">
       <h2 className="text-gold" style={{fontSize: '1.5rem', marginBottom: '2rem'}}>CREAR</h2>
@@ -78,6 +83,16 @@ export default function Sidebar() {
               Evaluaciones Alumnos
             </NavLink>
           </li>
+          {isAdmin && (
+            <li style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid rgba(255, 215, 0, 0.2)' }}>
+              <NavLink 
+                to="/admin"
+                className={({ isActive }) => isActive ? "active text-gold" : "text-gold"}
+              >
+                👑 Panel CEO
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </aside>
