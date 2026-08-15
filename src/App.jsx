@@ -38,8 +38,11 @@ function App() {
     return (
       <div className="login-container">
         <div className="glass-panel login-card animate-fade-in" style={{padding: '4rem 3rem'}}>
-          <h1 className="text-gold" style={{fontSize: '2.5rem', marginBottom: '0.5rem'}}>PLATAFORMA DE ENTRENAMIENTO</h1>
-          <p className="text-muted" style={{marginBottom: '3rem', fontSize: '1.1rem'}}>Tu proceso de aprendizaje. Tu progreso. Tu transformación.</p>
+          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
+            <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" style={{width: '120px', height: '120px', borderRadius: '24px', boxShadow: '0 0 30px rgba(255, 183, 3, 0.3)', border: '2px solid var(--crear-gold)'}} />
+          </div>
+          <h1 className="text-gold" style={{fontSize: '2.5rem', marginBottom: '0.5rem', textAlign: 'center'}}>INTERRUPCIÓN</h1>
+          <p className="text-muted" style={{marginBottom: '3rem', fontSize: '1.1rem', textAlign: 'center'}}>Plataforma de Entrenamiento Avanzado</p>
           
           <button onClick={loginWithGoogle} className="btn-primary" style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px'}}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">

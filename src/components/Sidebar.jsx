@@ -8,7 +8,10 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar glass-panel">
-      <h2 className="text-gold" style={{fontSize: '1.5rem', marginBottom: '2rem'}}>INTERRUPCIÓN</h2>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+        <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" style={{ width: '45px', height: '45px', borderRadius: '10px', border: '1px solid var(--crear-gold)' }} />
+        <h2 className="text-gold" style={{fontSize: '1.2rem', margin: 0, letterSpacing: '1px'}}>INTERRUPCIÓN</h2>
+      </div>
       <nav>
         <ul>
           <li>
