@@ -190,7 +190,7 @@ export default function AdminDashboard() {
                 className="btn-primary" 
                 style={{ background: 'var(--crear-blue)', borderColor: 'var(--crear-blue)', display: 'flex', gap: '8px', alignItems: 'center', opacity: (generatingAi || loadingSessions) ? 0.5 : 1 }}
               >
-                {generatingAi ? '⏳ Procesando...' : '🧠 Generar Diagnóstico Cuántico'}
+                {generatingAi ? '⏳ Procesando...' : '🧠 Generar Diagnóstico de Alto Rendimiento'}
               </button>
             </div>
 

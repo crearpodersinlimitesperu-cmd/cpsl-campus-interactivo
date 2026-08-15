@@ -26,8 +26,8 @@ export const programaTeoria = {
       definicion: "Alguien que genera las condiciones para que otros operen desde su máximo potencial. No resuelve problemas, da respuestas o dirige desde el control. Diseña el espacio, crea las condiciones y facilita la emergencia.",
       filosofiaTabla: [
         { fuente: "Heidegger", concepto: "El ser-en-el-mundo como creador de significado", aplicacion: "El líder no describe la realidad, la crea con su presencia y lenguaje" },
-        { fuente: "Física Cuántica", concepto: "El observador crea la realidad que observa", aplicacion: "El líder observa posibilidades, no limitaciones, y eso crea realidad" },
-        { fuente: "Coaching Cuántico", concepto: "La transformación no es lineal, es un salto desde el futuro", aplicacion: "El líder diseña desde el futuro imposible, no desde el problema actual" }
+        { fuente: "Principios de Posibilidad", concepto: "El observador crea la realidad que observa", aplicacion: "El líder observa posibilidades, no limitaciones, y eso crea realidad" },
+        { fuente: "Coaching de Alto Rendimiento", concepto: "La transformación no es lineal, es un salto desde el futuro", aplicacion: "El líder diseña desde el futuro imposible, no desde el problema actual" }
       ]
     },
     {
@@ -67,7 +67,7 @@ export const programaTeoria = {
     },
     {
       titulo: "El Propósito: Vivir Futuros Imposibles",
-      definicion: "Una aspiración que hoy parece inalcanzable, pero que se declara como posible de crear. No es una meta SMART ni un objetivo 'realista'. Es una declaración audaz, un salto cuántico, un compromiso con lo extraordinario.",
+      definicion: "Una aspiración que hoy parece inalcanzable, pero que se declara como posible de crear. No es una meta SMART ni un objetivo 'realista'. Es una declaración audaz, un salto de posibilidad, un compromiso con lo extraordinario.",
       ejemplos: [
         { realista: "'Quiero mejorar mi liderazgo'", imposible: "'Declaro que soy un líder que transforma vidas'" },
         { realista: "'Quiero vender más'", imposible: "'Declaro que mi producto llega a 1 millón de personas'" },
@@ -284,7 +284,7 @@ export const programaRecursos = {
     { titulo: "El Discurso del Rey (2010)", tema: "Superación, apoyo.", dinamica: "¿Quién es tu 'Logue'?", link: "https://www.youtube.com/watch?v=pzI4D6dyp_o" },
     { titulo: "Cadena de Favores (2000)", tema: "Enrolamiento en cadena, legado.", dinamica: "¿A quiénes enrolos?", link: "https://www.youtube.com/watch?v=1b-bB1r3G4E" },
     { titulo: "Soul (2020)", tema: "Propósito, vivir plenamente.", dinamica: "¿Cuál es tu 'chispa'?", link: "https://www.youtube.com/watch?v=xOsLIiOB_SQ" },
-    { titulo: "La Vida Secreta de Walter Mitty (2013)", tema: "Salto cuántico, vivir el futuro.", dinamica: "¿Qué salto estás evitando?", link: "https://www.youtube.com/watch?v=HddkucqSzSM" },
+    { titulo: "La Vida Secreta de Walter Mitty (2013)", tema: "Salto de posibilidad, vivir el futuro.", dinamica: "¿Qué salto estás evitando?", link: "https://www.youtube.com/watch?v=HddkucqSzSM" },
     { titulo: "Coach Carter (2005)", tema: "Alto rendimiento, disciplina.", dinamica: "¿Qué estándar declaras?", link: "https://www.youtube.com/watch?v=0KzUuI9o0eA" }
   ],
   podcasts: [

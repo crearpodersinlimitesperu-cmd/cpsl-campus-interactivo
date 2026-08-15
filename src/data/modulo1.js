@@ -4,7 +4,7 @@ export const modulo1 = [
     title: "1.1 Propósito y Alcance del Manual",
     content: `
       <div class="alert-info">
-        <p><strong>Este documento constituye el manual académico y metodológico</strong> diseñado para la estandarización de competencias en el ámbito del coaching de alto rendimiento, la transformación cuántica y la regulación emocional.</p>
+        <p><strong>Este documento constituye el manual académico y metodológico</strong> diseñado para la estandarización de competencias en el ámbito del coaching de alto rendimiento, la transformación profunda y la regulación emocional.</p>
       </div>
       <p>Su propósito principal es dotar a facilitadores, directivos y líderes de un <span class="highlight-text">corpus teórico-práctico unificado</span>, riguroso y basado en evidencia, que permita diseñar, implementar y evaluar intervenciones de desarrollo humano de manera consistente y altamente efectiva.</p>
     `
@@ -46,23 +46,23 @@ export const modulo1 = [
   },
   {
     id: "m1_l3",
-    title: "1.3 Transformación Cuántica Aplicada al Coaching",
+    title: "1.3 Transformación Profunda Aplicada al Coaching",
     content: `
       <div class="alert-info">
-        <p><strong>Uso metafórico:</strong> En este programa usamos "cuántico" como metáfora de cambio discontinuo, posibilidad y revisión de perspectivas. Nos inspiramos en ciertas ideas de la física cuántica como analogías, no como demostración científica de que el pensamiento crea la realidad física. No se trata de aplicar mecánica cuántica a la psicología, sino de usar estas imágenes para ampliar el repertorio de lectura del liderazgo.</p>
+        <p><strong>Principios de Posibilidad:</strong> En este programa nos enfocamos en el cambio discontinuo, la creación de posibilidad y la revisión de perspectivas. Usamos estos principios para ampliar el repertorio de lectura y acción del liderazgo.</p>
       </div>
-      <p>El modelo de <strong>"Coaching Cuántico"</strong> es un marco heurístico innovador que transpone, de manera analógica y metafórica, algunas ideas al campo del desarrollo humano y la ontología del lenguaje.</p>
+      <p>El modelo de <strong>"Coaching de Alto Rendimiento"</strong> es un marco heurístico innovador que transpone, de manera analógica y metafórica, algunas ideas al campo del desarrollo humano y la ontología del lenguaje.</p>
       <div class="glass-panel" style="padding: 1.5rem; margin-top: 1.5rem;">
         <p><strong>El observador y el contexto:</strong> Nuestras preguntas, categorías y decisiones influyen en la experiencia que tenemos de los sistemas humanos y en las posibilidades de acción que percibimos. (Inspirado analógicamente en el Efecto Observador).</p>
         <p><strong>Definición Operativa:</strong> Consiste en un proceso sistémico de expansión perceptual que utiliza la metáfora de cambio no lineal, la reestructuración del lenguaje, el diseño de promesas y la habituación estratégica para catalizar saltos cualitativos en el desarrollo personal.</p>
       </div>
       
-      <h3>1.3.2 Principios de la Transformación Cuántica</h3>
+      <h3>1.3.2 Principios de la Transformación Profunda</h3>
       <p>Este modelo postula que el principal impedimento para la evolución humana es la externalización del locus de control: delegar la agencia creativa a las circunstancias empíricas o a narrativas históricas deterministas.</p>
       <ul class="icon-list">
         <li><span class="highlight-text">Diseño ontológico desde la posibilidad:</span> La intervención se ancla en la proyección de futuros incondicionados, desvinculándose de las narrativas de déficit.</li>
         <li><span class="highlight-text">El postulado del Observador generativo:</span> Inspirado metafóricamente en la interpretación de Copenhague, sostiene que la perspectiva adoptada por el sujeto altera materialmente su espectro de elecciones y realidades posibles.</li>
-        <li><span class="highlight-text">El Salto Cuántico frente a la linealidad:</span> Habilita transiciones de estado disruptivas y exponenciales, cuestionando la necesidad de progresiones causales estrictamente ligadas a condicionamientos pasados.</li>
+        <li><span class="highlight-text">El Salto de Posibilidad frente a la linealidad:</span> Habilita transiciones de estado disruptivas y exponenciales, cuestionando la necesidad de progresiones causales estrictamente ligadas a condicionamientos pasados.</li>
         <li><span class="highlight-text">Sincronización integral:</span> Consolidación de la coherencia sistémica entre los dominios cognitivo (pensamiento), afectivo (emoción) y conativo (acción ejecutiva).</li>
         <li><span class="highlight-text">Deconstrucción de condicionamientos:</span> Desarticulación neurocognitiva y discursiva de esquemas limitantes para desbloquear la agencia creadora.</li>
       </ul>
@@ -74,7 +74,7 @@ export const modulo1 = [
             <tr>
               <th>Criterio</th>
               <th>Coaching Tradicional</th>
-              <th>Coaching Cuántico</th>
+              <th>Coaching de Alto Rendimiento</th>
             </tr>
           </thead>
           <tbody>
@@ -86,7 +86,7 @@ export const modulo1 = [
             <tr>
               <td><strong>Naturaleza del Cambio</strong></td>
               <td>Lineal, progresiva y sujeta a causalidad histórica.</td>
-              <td><span class="highlight-blue">Saltos cuánticos: disruptiva, exponencial y no lineal.</span></td>
+              <td><span class="highlight-blue">Saltos de posibilidad: disruptiva, exponencial y no lineal.</span></td>
             </tr>
             <tr>
               <td><strong>Locus de Control</strong></td>

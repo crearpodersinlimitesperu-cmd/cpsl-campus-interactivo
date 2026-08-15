@@ -30,8 +30,8 @@ export default function Glosario() {
       definicion: "El proceso de invitar a otros a participar en un futuro imposible de manera libre y comprometida. No es persuadir, convencer ni manipular desde la carencia, sino crear un contexto de posibilidad compartida donde el otro elige expandirse."
     },
     {
-      termino: "Coaching Cuántico (Uso Metafórico)",
-      definicion: "Marco heurístico del programa que utiliza conceptos de la física cuántica (salto discontinuo, efecto observador) como analogías para explicar cambios no-lineales en el comportamiento humano. No representa una validación clínica ni científica basada en la física de partículas."
+      termino: "Coaching de Alto Rendimiento",
+      definicion: "Marco heurístico del programa que utiliza los Principios de Posibilidad (salto discontinuo, observador generativo) para explicar cambios no-lineales en el comportamiento humano."
     }
   ];
 

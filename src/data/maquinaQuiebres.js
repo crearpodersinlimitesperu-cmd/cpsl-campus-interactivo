@@ -210,7 +210,7 @@ export const maquinaQuiebres = [
     receta: [
       {
         fase: "1. Interrupción",
-        herramienta: "Grounding: 'Salto Cuántico'",
+        herramienta: "Grounding: 'Salto de Posibilidad'",
         instrucciones: "3 minutos. Párate, prepara el salto, siente la posibilidad."
       },
       {

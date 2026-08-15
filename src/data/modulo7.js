@@ -1,7 +1,7 @@
 export const modulo7 = [
   {
     id: "m7_l1",
-    title: "M7: Liderazgo de Transformación Cuántica",
+    title: "M7: Liderazgo de Transformación Profunda",
     content: `
       <div class="alert-info" style="margin-bottom: 2rem;">
         <h3 style="margin-top: 0; color: var(--crear-gold);">El Salto Discontinuo</h3>
@@ -9,15 +9,15 @@ export const modulo7 = [
       </div>
 
       <div class="alert-info">
-        <p><strong>Uso metafórico:</strong> En este programa usamos "cuántico" como metáfora de cambio discontinuo, posibilidad y revisión de perspectivas. Nos inspiramos en ciertas ideas como analogías, no como demostración científica. No se trata de aplicar mecánica cuántica a la dinámica organizacional, sino de usar estas imágenes para ampliar el repertorio de lectura del liderazgo.</p>
+        <p><strong>Principios de Posibilidad:</strong> El líder de alto rendimiento no predice el futuro, crea posibilidades que antes no existían. Los 3 principios del líder de posibilidad son: 1) El observador crea posibilidades, 2) La transformación es discontinua, 3) El lenguaje crea realidad.</p>
       </div>
 
       <h3>El Observador Crea la Realidad</h3>
-      <p>El líder cuántico entiende que los resultados no son lineales. Se logran a través de saltos discontinuos alterando al "observador" interno.</p>
+      <p>El líder de alto rendimiento entiende que los resultados no son lineales. Se logran a través de saltos discontinuos alterando al "observador" interno.</p>
       
       <ul class="icon-list blue-bullets" style="margin-top: 1.5rem;">
         <li><strong>H11: El Observador del Líder:</strong> Identifica un problema. Obsérvalo desde 3 perspectivas distintas (como coach externo, como cliente, como tu yo del futuro). Elige la que te otorgue agencia.</li>
-        <li><strong>H12: El Salto Cuántico del Líder:</strong> ¿Qué creencia tendrías que SOLTAR y qué identidad ADOPTAR para llegar a ese futuro imposible de un solo paso? Actúa desde esa identidad HOY.</li>
+        <li><strong>H12: El Salto de Posibilidad del Líder:</strong> ¿Qué creencia tendrías que SOLTAR y qué identidad ADOPTAR para llegar a ese futuro imposible de un solo paso? Actúa desde esa identidad HOY.</li>
       </ul>
     `
   },

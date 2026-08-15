@@ -81,7 +81,7 @@ export const modulo4 = [
     title: "2.5.2 Desvíos del Coachee y Cierre del Manual",
     content: `
       <h3>Desvíos Comunes del Participante o Coachee</h3>
-      <p>Así como el facilitador enfrenta retos, el cliente exhibirá resistencias naturales al proceso de salto cuántico.</p>
+      <p>Así como el facilitador enfrenta retos, el cliente exhibirá resistencias naturales al proceso de salto de posibilidad.</p>
       
       <ul class="icon-list blue-bullets">
         <li><strong>Fuga hacia el pasado:</strong> Intentar resolver traumas históricos en lugar de diseñar futuros de posibilidad. El coach debe redirigir la energía creadora hacia el futuro.</li>

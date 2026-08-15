@@ -76,8 +76,8 @@ export const modulo2 = [
     id: "m2_l3",
     title: "2.2 Repertorio de Técnicas Conversacionales",
     content: `
-      <h3>Técnicas Clave del Coach Cuántico</h3>
-      <p>El coach de alto rendimiento integra 11 técnicas conversacionales clave durante el proceso para romper resistencias y generar saltos cuánticos.</p>
+      <h3>Técnicas Clave del Coach de Alto Rendimiento</h3>
+      <p>El coach de alto rendimiento integra 11 técnicas conversacionales clave durante el proceso para romper resistencias y generar saltos de posibilidad.</p>
       
       <div class="grid-2-cols" style="margin-top: 2rem;">
         <div style="border-left: 2px solid var(--crear-blue); padding-left: 1rem; margin-bottom: 1rem;">
@@ -122,7 +122,7 @@ export const modulo2 = [
       </ul>
       
       <div class="alert-info" style="margin-top: 2rem;">
-        <p><strong>Nota del Experto:</strong> Las técnicas 10 y 11 son el núcleo de la transformación cuántica. Sin responsabilidad total y sin un plan ejecutivo, el "darse cuenta" se convierte simplemente en entretenimiento intelectual, sin impacto en la realidad tangible.</p>
+        <p><strong>Nota del Experto:</strong> Las técnicas 10 y 11 son el núcleo de la transformación profunda. Sin responsabilidad total y sin un plan ejecutivo, el "darse cuenta" se convierte simplemente en entretenimiento intelectual, sin impacto en la realidad tangible.</p>
       </div>
     `
   }

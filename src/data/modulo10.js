@@ -25,7 +25,7 @@ export const modulo10 = [
           <ul class="icon-list blue-bullets">
             <li>Tratar, diagnosticar o intervenir en trastornos de salud mental (ansiedad clínica, depresión, TEPT).</li>
             <li>Prometer resultados absolutos ignorando las barreras sistémicas, económicas o biológicas del individuo.</li>
-            <li>Usar las metáforas de "física cuántica" como justificación clínica o médica.</li>
+            <li>Usar los principios de posibilidad como justificación clínica o médica.</li>
             <li>Asumir que "todo está en la mente" y que "el cliente lo elige todo".</li>
           </ul>
         </div>

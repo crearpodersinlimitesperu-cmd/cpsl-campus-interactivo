@@ -72,7 +72,7 @@ export default function Dashboard() {
             <p className="text-muted" style={{marginBottom: '1.5rem'}}>
               {progress?.lastVisitedModule?.includes('evaluacion') 
                 ? 'Elige tu siguiente paso en la Ruta de Formación.' 
-                : 'Bases del Coaching, Física Cuántica y Ontología.'}
+                : 'Bases del Coaching, Principios de Posibilidad y Ontología.'}
             </p>
           </div>
           <button 

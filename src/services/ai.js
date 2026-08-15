@@ -9,9 +9,9 @@ export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHis
     return `Sesión (${new Date(s.startedAt).toLocaleDateString()}): Duración ${s.durationMinutes || 0} min. Dispositivo: ${s.device}. Módulos visitados: ${s.history ? s.history.length : 0}`;
   }).join('\n');
 
-  const systemPrompt = `Eres un Master Coach Cuántico y Analista de Comportamiento Humano de Alto Nivel.
+  const systemPrompt = `Eres un Master Coach de Alto Rendimiento y Analista de Comportamiento Humano de Alto Nivel.
 Tu tarea es auditar la data biométrica y de conexión de un alumno en una plataforma e-learning y dar un diagnóstico de su nivel de compromiso.
-Tienes que detectar si el alumno procrastina, si tiene un progreso congruente, o si "intelectualiza" (pasa horas conectándose sin completar tareas).
+Tienen que detectar si el alumno procrastina, si tiene un progreso congruente, o si "intelectualiza" (pasa horas conectándose sin completar tareas).
 
 REGLAS DE FORMATO:
 - Sé directo, quirúrgico y profesional. No saludes.

@@ -137,14 +137,14 @@ export const groundings = [
   },
   {
     id: 10,
-    nombre: "Salto Cuántico",
+    nombre: "Salto de Posibilidad",
     escenario: "Atrapados en pensamiento lineal ('paso a paso'), sin permiso para lo imposible.",
     formato: "Virtual o presencial",
     duracion: "3 minutos",
     instrucciones: [
       "Interrupción: 'Párate. Separa los pies. Prepara tu cuerpo para saltar.'",
       "Anclaje: 'Dobla ligeramente las rodillas. Siente la energía en tus piernas. No saltes todavía. Solo siente la posibilidad.'",
-      "Expansión: 'Imagina que estás a punto de dar un salto cuántico: no un paso pequeño, un SALTO. De quien eres a quien puedes ser.'",
+      "Expansión: 'Imagina que estás a punto de dar un salto de posibilidad: no un paso pequeño, un SALTO. De quien eres a quien puedes ser.'",
       "Declaración: '¿Qué salto estás evitando dar? ¿Qué te espera al otro lado?'",
       "Acción: 'En las próximas 24 horas, darás un micro-salto (una acción que te saque de tu zona de confort). ¿Qué salto darás?'"
     ],

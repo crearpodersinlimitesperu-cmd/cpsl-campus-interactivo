@@ -5,7 +5,7 @@ export const modulo8 = [
     content: `
       <div class="alert-info" style="margin-bottom: 2rem;">
         <h3 style="margin-top: 0; color: var(--crear-gold);">Semana 12: Integración y Legado</h3>
-        <p>Has completado el viaje filosófico y cuántico. Ahora debes declarar el legado que dejas en tu equipo, tu organización y en el mundo.</p>
+        <p>Has completado el viaje filosófico y de alto rendimiento. Ahora debes declarar el legado que dejas en tu equipo, tu organización y en el mundo.</p>
       </div>
 
       <h3>El Manifiesto y el Plan de Expansión</h3>

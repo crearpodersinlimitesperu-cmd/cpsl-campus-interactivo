@@ -15,7 +15,7 @@ export const curriculum = [
   {
     id: 'modulo1',
     titulo: 'Módulo 1: Fundamentos Teóricos',
-    descripcion: 'Bases conceptuales del Coaching de Alto Rendimiento y Transformación Cuántica.',
+    descripcion: 'Bases conceptuales del Coaching de Alto Rendimiento y Transformación Profunda.',
     estado: 'disponible',
     duracionSemanas: 1,
     lecciones: modulo1,
@@ -68,8 +68,8 @@ export const curriculum = [
   },
   {
     id: 'modulo7',
-    titulo: 'Módulo 7: Liderazgo de Transformación Cuántica',
-    descripcion: 'Salto cuántico del líder, quiebres ontológicos y el mapa de enrolamiento.',
+    titulo: 'Módulo 7: Liderazgo de Transformación Profunda',
+    descripcion: 'Salto de posibilidad del líder, quiebres ontológicos y el mapa de enrolamiento.',
     estado: 'disponible',
     duracionSemanas: 3,
     lecciones: modulo7,
@@ -78,7 +78,7 @@ export const curriculum = [
   {
     id: 'modulo8',
     titulo: 'Módulo 8: Integración y Legado Existencial',
-    descripcion: 'El Manifiesto del Líder Cuántico-Existencial y el Plan de Expansión.',
+    descripcion: 'El Manifiesto del Líder de Alto Rendimiento y el Plan de Expansión.',
     estado: 'disponible',
     duracionSemanas: 1,
     lecciones: modulo8,
