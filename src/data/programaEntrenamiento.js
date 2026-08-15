@@ -1,7 +1,7 @@
 export const programaTeoria = {
   vision: {
     titulo: "Visión del Programa",
-    texto: "Este programa no te enseña a 'hacer' enrolamiento. Te entrena para SER enrolamiento. Entrenamos a equipos para convertirse en creadores de contexto de alto rendimiento, de modo que: 1) Vivan sus futuros imposibles, 2) Enrolen a al menos 3 personas, 3) Entrenen a otros a ser enrolamiento.",
+    texto: "Este programa no te enseña a 'hacer' enrolamiento. Te entrena para SER enrolamiento. Entrenamos a equipos para convertirse en creadores de contexto de alto rendimiento, de modo que: 1) Vivan sus futuros imposibles, 2) Impacten al máximo de personas posible, con un mínimo de 7 personas a vivir una vida extraordinaria, 3) Entrenen a otros a ser enrolamiento.",
     detalles: [
       { dimension: "Duración", detalle: "6 semanas (42 días)" },
       { dimension: "Formato", detalle: "Virtual o presencial" },
@@ -41,7 +41,7 @@ export const programaTeoria = {
         },
         {
           nombre: "2. Enrolamiento",
-          compromiso: "Invitar a otros a sumarse a la visión.",
+          compromiso: "Invitar a otros a sumarse a la visión. Impacta al máximo de personas posible, con un mínimo de 7 personas a vivir una vida extraordinaria.",
           practica: ["Compartes tu futuro imposible.", "Invitas (no presionas) a otros a crear el suyo.", "Celebras su expansión, no tu 'logro' de enrolarlos."],
           impacto: "Creas un movimiento, no un equipo."
         },
@@ -81,8 +81,8 @@ export const programaTeoria = {
           como: ["Actúas COMO SI ya fueras esa versión.", "Tomas decisiones desde ese futuro.", "Enrolas a otros desde ese futuro."]
         },
         {
-          nombre: "2. Enrolar a 3 Personas",
-          descripcion: "No solo inspirarlas. Las enrolos activamente a vivir SUS futuros imposibles.",
+          nombre: "2. Impactar al Máximo de Personas",
+          descripcion: "No solo inspirarlas. Las impactas activamente para que vivan una vida extraordinaria. Mínimo 7 personas.",
           como: ["Compartes tu futuro imposible.", "Les preguntas: '¿Cuál es el TUYO?'", "Las acompañas a declararlo y vivirlo."]
         },
         {
@@ -129,7 +129,7 @@ export const programaHerramientas = [
       "1. Mi futuro imposible: (describir en presente, como si ya fuera real)",
       "2. Quién tengo que ser: (qué versión de mí tiene que existir)",
       "3. Acciones diarias: (3 acciones concretas que me alinean)",
-      "4. A quién enrolo: (3 personas a quienes enrolo)",
+      "4. A quién impacto: (Mínimo 7 personas a quienes impactas para que vivan una vida extraordinaria)",
       "5. Checkpoint: (fecha de reporte de progreso)"
     ]
   },
@@ -170,7 +170,7 @@ export const programaSemanas = [
     compromiso: "Declara tu futuro imposible",
     dias: [
       { dia: 1, reto: "Declara tu futuro imposible por escrito. Compártelo con el equipo." },
-      { dia: 2, reto: "Identifica 3 personas a quienes enrolos esta semana." },
+      { dia: 2, reto: "Identifica a mínimo 7 personas a quienes impactarás esta semana." },
       { dia: 3, reto: "Practica la escucha profunda (5 minutos sin hablar, solo escuchar)." },
       { dia: 4, reto: "Evalúa tu congruencia: ¿Tu acción coincide con tu palabra hoy?" },
       { dia: 5, reto: "Enrola a tu primera persona. Reporta qué pasó." },
@@ -203,7 +203,7 @@ export const programaSemanas = [
       { dia: 16, reto: "Interrumpe UNA conversación tóxica hoy." },
       { dia: 17, reto: "Genera UNA conversación de posibilidad hoy." },
       { dia: 18, reto: "Evalúa: ¿Qué contexto creaste hoy?" },
-      { dia: 19, reto: "Enrola a 3 personas. Reporta." },
+      { dia: 19, reto: "Impacta a mínimo 7 personas. Reporta." },
       { dia: 20, reto: "Reflexiona: ¿Qué contexto te limita? ¿Cómo lo transformas?" },
       { dia: 21, reto: "Descansa. Integra." }
     ]
@@ -229,7 +229,7 @@ export const programaSemanas = [
     herramientasClave: "Mapa de Enrolamiento, Declaración de Expansión",
     compromiso: "Entrena a 1 persona",
     dias: [
-      { dia: 29, reto: "Identifica a 3 personas a quienes entrenarás." },
+      { dia: 29, reto: "Identifica a mínimo 7 personas a quienes impactarás." },
       { dia: 30, reto: "Comparte con ellas el concepto de 'ser enrolamiento'." },
       { dia: 31, reto: "Entrénalas en UNA herramienta del programa." },
       { dia: 32, reto: "Pídeles que enrolen a alguien. Reporta." },
@@ -246,8 +246,8 @@ export const programaSemanas = [
     dias: [
       { dia: 36, reto: "Declara tu legado: ¿Qué dejas en este equipo/organización?" },
       { dia: 37, reto: "Enrola a alguien a continuar tu legado." },
-      { dia: 38, reto: "Evalúa: ¿Cuántas personas enrolos en total? (meta: 10+)" },
-      { dia: 39, reto: "Evalúa: ¿Cuántas personas entrenaste? (meta: 3+)" },
+      { dia: 38, reto: "Evalúa: ¿A cuántas personas impactaste en total? (mínimo 7, idealmente 10+)" },
+      { dia: 39, reto: "Evalúa: ¿A cuántas personas entrenaste y expandiste en total? (mínimo 7+)" },
       { dia: 40, reto: "Comparte tu transformación con el equipo." },
       { dia: 41, reto: "Celebra los logros del equipo." },
       { dia: 42, reto: "Declara: ¿Qué sigue?" }
@@ -265,14 +265,14 @@ export const programaRecursos = {
   evaluacion: {
     metricas: [
       { metrica: "Futuros imposibles declarados", meta: "100% del equipo", como: "Contrato de Futuros Imposibles" },
-      { metrica: "Personas enrolos", meta: "10+ por participante", como: "Reporte semanal" },
+      { metrica: "Personas impactadas", meta: "Mínimo 7, idealmente 10+ por participante", como: "Reporte semanal" },
       { metrica: "Personas entrenadas", meta: "3+ por participante", como: "Reporte de entrenamiento" },
       { metrica: "Congruencia", meta: "80%+ compromisos cumplidos", como: "Checkpoints semanales" },
       { metrica: "Expansión del equipo", meta: "30%+ crecimiento en resultados", como: "Métricas de negocio" }
     ],
     evaluacionFinal: [
       "Su futuro imposible y cómo lo vivió.",
-      "Las personas que enroló (mínimo 10).",
+      "Las personas que impactó (mínimo 7, idealmente 10+).",
       "Las personas que entrenó (mínimo 3).",
       "Su transformación personal.",
       "Su legado y próximos pasos."

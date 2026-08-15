@@ -225,7 +225,7 @@ export const dimensionesAutoevaluacion = [
       "Busca un mentor o supervisor de coaching.",
       "Pide feedback de cada coachee al final del proceso.",
       "Establece límites claros para evitar burnout.",
-      "Enrola a al menos 1 persona por trimestre a ser coach o líder."
+      "Impacta a mínimo 7 personas por trimestre para que vivan una vida extraordinaria."
     ]
   }
 ];

@@ -57,11 +57,11 @@ export const modulo7 = [
           <tbody>
             <tr>
               <td><strong class="text-gold">H15. Mapa de Enrolamiento</strong></td>
-              <td>Dibuja tu futuro imposible en el centro. Alrededor pon 10 personas a las que podrías sumar. Identifica el futuro imposible de ELLOS y conéctalo al tuyo.</td>
+              <td>Dibuja tu futuro imposible en el centro. Alrededor, escribe los nombres de mínimo 7 personas (idealmente 10+) que podrían vivir una vida extraordinaria. Identifica el futuro imposible de ELLOS y conéctalo al tuyo.</td>
             </tr>
             <tr>
               <td><strong class="text-blue">H16. Declaración de Expansión</strong></td>
-              <td>"Me comprometo a enrolar a X personas en los próximos Y días para que vivan sus futuros imposibles". Expande a otros para que ellos expandan a más.</td>
+              <td>"Me comprometo a impactar al máximo de personas posible, con un mínimo de 7 personas en los próximos Y días para que vivan una vida extraordinaria." Expande a otros para que ellos expandan a más.</td>
             </tr>
           </tbody>
         </table>
@@ -195,11 +195,11 @@ export const modulo7 = [
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-gold);">
     <h4 style="margin: 0 0 0.5rem 0;">11: No Creo Seguidores, Creo Líderes</h4>
     <p><strong>Novato:</strong> "Quiero que me sigan." | <strong>Maestro:</strong> "Quiero que sean líderes."</p>
-    <p style="margin-bottom: 0;"><strong>Práctica:</strong> Busca crear líderes que creen otros líderes.</p>
+    <p style="margin-bottom: 0;"><strong>Práctica:</strong> Busca crear líderes que impacten a mínimo 7 personas cada uno.</p>
   </div>
   <div class="glass-panel" style="padding: 1.5rem; border-left: 3px solid var(--crear-blue);">
     <h4 style="margin: 0 0 0.5rem 0;">12: No Termino, Expando</h4>
-    <p><strong>Novato:</strong> "Ya lo enrolé. Listo." | <strong>Maestro:</strong> "Lo enrolé. Él enrola a otros. Expansión infinita."</p>
+    <p><strong>Novato:</strong> "Ya lo enrolé. Listo." | <strong>Maestro:</strong> "Impacto a mínimo 7 personas. Ellas impactan a otras. Expansión infinita."</p>
     <p style="margin-bottom: 0;"><strong>Práctica:</strong> El efecto multiplicador es el legado.</p>
   </div>
 </div>
@@ -230,7 +230,7 @@ export const modulo7 = [
 <h3 style="margin-top: 3rem;">Prácticas y Legado</h3>
 <div class="glass-panel" style="padding: 2rem; border-left: 4px solid var(--crear-gold);">
   <h4 style="margin-top: 0; color: var(--text-main);">Prácticas Diarias</h4>
-  <p><strong>1. Declaración (5m):</strong> "Hoy soy enrolamiento. Visualiza a 3 personas expandidas."</p>
+  <p><strong>1. Declaración (5m):</strong> "Hoy soy enrolamiento. Visualiza a mínimo 7 personas a quienes impactas hoy."</p>
   <p><strong>2. Grounding (2m):</strong> Antes de interactuar, respira y declara presencia.</p>
   <p><strong>3. Diario (10m):</strong> "Hoy fui enrolamiento en...", "Aprendí...", "Haré diferente..."</p>
   <p><strong>4. Círculo (Semanal):</strong> "Esta semana enrolé a X, aprendí Y."</p>

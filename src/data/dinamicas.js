@@ -102,7 +102,7 @@ export const dinamicas = [
     descripcion_escenario: "El equipo habla mucho pero actúa poco; hay poca accountability.",
     objetivo: "Generar compromisos públicos y medibles.",
     instrucciones: [
-      "Cada persona escribe 3 compromisos que está dispuesto a hacer en los próximos 7 días.",
+      "Cada persona escribe sus compromisos de impacto (mínimo 7 personas) que está dispuesto a hacer en los próximos 7 días.",
       "En plenaria, cada uno 'subasta' sus compromisos: los lee en voz alta.",
       "El grupo puede 'comprar' (apoyar) o 'rechazar' (si el compromiso no es claro o medible).",
       "Los compromisos 'vendidos' se escriben en un contrato público.",
