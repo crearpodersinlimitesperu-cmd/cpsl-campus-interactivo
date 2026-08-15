@@ -42,8 +42,8 @@ function App() {
     return (
       <div className="login-container">
         <div className="glass-panel login-card animate-fade-in" style={{padding: '4rem 3rem'}}>
-          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
-            <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" style={{width: '120px', height: '120px', borderRadius: '24px', boxShadow: '0 0 30px rgba(255, 183, 3, 0.3)', border: '2px solid var(--crear-gold)'}} />
+          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
+            <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" className="logo-holographic" style={{width: '300px', height: '300px', maxWidth: '100%'}} />
           </div>
           <h1 className="text-gold" style={{fontSize: '2.5rem', marginBottom: '0.5rem', textAlign: 'center'}}>INTERRUPCIÓN</h1>
           <p className="text-muted" style={{marginBottom: '3rem', fontSize: '1.1rem', textAlign: 'center'}}>Plataforma de Entrenamiento Avanzado</p>
@@ -69,7 +69,7 @@ function App() {
         <>
           <div className="mobile-header glass-panel">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" style={{ width: '32px', height: '32px', borderRadius: '8px', border: '1px solid var(--crear-gold)' }} />
+              <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" className="logo-holographic" style={{ width: '45px', height: '45px' }} />
               <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPCIÓN</h2>
             </div>
             <button className="mobile-menu-btn" onClick={toggleMobileMenu}>

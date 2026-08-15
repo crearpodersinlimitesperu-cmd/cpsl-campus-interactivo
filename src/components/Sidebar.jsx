@@ -10,17 +10,16 @@ export default function Sidebar({ isOpen, onClose }) {
     <>
       <div className={`sidebar-overlay ${isOpen ? 'show' : ''}`} onClick={onClose}></div>
       <aside className={`sidebar glass-panel ${isOpen ? 'open' : ''}`}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" style={{ width: '45px', height: '45px', borderRadius: '10px', border: '1px solid var(--crear-gold)' }} />
-            <h2 className="text-gold" style={{fontSize: '1.2rem', margin: 0, letterSpacing: '1px'}}>INTERRUPCIÓN</h2>
-          </div>
-          <button className="close-sidebar-btn" onClick={onClose} aria-label="Cerrar menú">
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem', position: 'relative' }}>
+          <button className="close-sidebar-btn" onClick={onClose} aria-label="Cerrar menú" style={{ position: 'absolute', right: '-10px', top: '-10px' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
+          
+          <img src="/interrupcion_logo.jpg" alt="Logo Interrupción" className="logo-holographic" style={{ width: '160px', height: '160px', marginBottom: '0.5rem' }} />
+          <h2 className="text-gold" style={{fontSize: '1.4rem', margin: 0, letterSpacing: '1px'}}>INTERRUPCIÓN</h2>
         </div>
         <nav>
         <ul>
