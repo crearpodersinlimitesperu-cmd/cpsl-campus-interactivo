@@ -41,14 +41,25 @@ export default function Dashboard() {
         <div className="glass-panel p-6" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <div>
             <h3 className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '1rem'}}>Última Actividad</h3>
-            <h2>{progress?.lastVisitedModule === '/modulo/fundamentos' ? 'Fundamentos Teóricos' : 'Bienvenida'}</h2>
-            <p className="text-muted" style={{marginBottom: '1.5rem'}}>Bases del Coaching, Física Cuántica y Ontología.</p>
+            <h2>{progress?.lastVisitedModule === '/modulo/fundamentos' ? 'Fundamentos Teóricos' : 
+                 progress?.lastVisitedModule?.includes('evaluacion') ? 'Evaluación Completada' : 
+                 'Módulos Avanzados'}</h2>
+            <p className="text-muted" style={{marginBottom: '1.5rem'}}>
+              {progress?.lastVisitedModule?.includes('evaluacion') 
+                ? 'Elige tu siguiente paso en la Ruta de Formación.' 
+                : 'Bases del Coaching, Física Cuántica y Ontología.'}
+            </p>
           </div>
           <button 
             className="btn-primary"
             onClick={() => {
               const route = progress?.lastVisitedModule;
-              navigate(route && route !== '/dashboard' ? route : '/modulo/fundamentos');
+              if (route && route.includes('evaluacion')) {
+                // Si lo último que hizo fue una evaluación, mejor lo enviamos a la Ruta para que vea los siguientes módulos
+                navigate('/ruta');
+              } else {
+                navigate(route && route !== '/dashboard' ? route : '/modulo/fundamentos');
+              }
             }}
           >
             Continuar donde lo dejé
