@@ -60,6 +60,13 @@ export default function RutaFormacion() {
       descripcion: 'El Manifiesto del Líder Cuántico-Existencial y el Plan de Expansión.',
       estado: 'disponible',
       duracion: '1 Semana'
+    },
+    {
+      id: 'modulo9',
+      titulo: 'Módulo 9: Guía Clínica: Parálisis y Sobreanálisis',
+      descripcion: 'Especialización en desbloqueo cognitivo, interrupción de parálisis y acción masiva.',
+      estado: 'disponible',
+      duracion: '6 Semanas'
     }
   ];
 
