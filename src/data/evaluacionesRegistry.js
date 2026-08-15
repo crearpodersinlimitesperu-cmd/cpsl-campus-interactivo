@@ -34,6 +34,7 @@ const generateGenericEval = (id, title, description, focusTerm) => ({
 });
 
 export const evaluacionesRegistry = {
+  fundamentos: evaluacion1,
   modulo1: evaluacion1,
   modulo2: generateGenericEval('modulo2', 'Arquitectura de Intervención Clínica', 'Estructura estándar de sesión y repertorio de técnicas.', 'la estructura conversacional'),
   modulo3: generateGenericEval('modulo3', 'Maestría en Groundings', 'Diseño y aplicación de protocolos somáticos.', 'la regulación somática y anclajes'),
