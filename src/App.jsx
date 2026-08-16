@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 import Sidebar from './components/Sidebar'
+import GlobalHUDWidget from './components/GlobalHUDWidget'
 import ProtectedRoute from './components/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
 import RutaFormacion from './pages/RutaFormacion'
@@ -118,6 +119,8 @@ function App() {
           <Sidebar isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
         </>
       )}
+
+      {user && <GlobalHUDWidget />}
 
       <main className="main-content animate-fade-in">
         {isFocusMode && (

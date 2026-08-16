@@ -33,9 +33,7 @@ export default function Dashboard() {
         <article className="glass-panel" style={{ padding: '1.5rem', borderLeft: '4px solid var(--crear-blue)', background: 'rgba(23, 42, 69, 0.4)', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <div style={{ flex: 1 }}>
             <h3 className="text-blue" style={{ marginTop: 0, marginBottom: '0.5rem', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
+
               Preparación y Presencia (Grounding)
             </h3>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.95rem' }}>

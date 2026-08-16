@@ -6,7 +6,10 @@ export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHis
 
   // Preprocesar el historial para que la IA lo entienda fácilmente sin tokens innecesarios
   const historialResumido = sessionsHistory.map(s => {
-    return `Sesión (${new Date(s.startedAt).toLocaleDateString()}): Duración ${s.durationMinutes || 0} min. Dispositivo: ${s.device}. Módulos visitados: ${s.history ? s.history.length : 0}`;
+    const fecha = new Date(s.startedAt).toLocaleDateString();
+    const duracion = s.durationMinutes || 0;
+    const mods = s.history ? s.history.length : 0;
+    return 'Sesion (' + fecha + '): Duracion ' + duracion + ' min. Dispositivo: ' + s.device + '. Modulos: ' + mods;
   }).join('\n');
 
   const systemPrompt = `Eres un Master Coach de Alto Rendimiento y Analista de Comportamiento Humano de Alto Nivel.
