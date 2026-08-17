@@ -163,6 +163,7 @@ function App() {
         )}
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/home" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/ruta" element={<ProtectedRoute><RutaFormacion /></ProtectedRoute>} />
           <Route path="/modulo/:id" element={<ProtectedRoute><ModuloContainer /></ProtectedRoute>} />

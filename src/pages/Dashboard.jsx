@@ -89,6 +89,60 @@ export default function Dashboard() {
           </button>
         </article>
       </section>
+
+      {/* SECCIÓN OFICIAL: TAREAS & RETOS EN CONJUNTO DEL EQUIPO (DEADLINES C1) */}
+      <section aria-label="Tareas y Retos de Equipo" style={{ marginTop: '2rem' }}>
+        <article className="glass-panel" style={{ padding: '2rem', border: '1px solid rgba(0, 210, 255, 0.3)', borderRadius: '1.25rem', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1.5rem' }}>
+            <div style={{ flex: 1, minWidth: '280px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255, 183, 3, 0.15)', border: '1px solid rgba(255, 183, 3, 0.4)', padding: '0.25rem 0.75rem', borderRadius: '9999px', marginBottom: '0.6rem' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--crear-gold, #ffb703)', letterSpacing: '1px' }}>⚡ RETOS EN CONJUNTO & DEADLINES C1</span>
+              </div>
+              <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.5rem', fontWeight: 900, color: '#ffffff' }}>
+                Tareas y Retos Sincronizados de Equipo
+              </h3>
+              <p className="text-muted" style={{ margin: 0, fontSize: '0.95rem', maxWidth: '650px' }}>
+                Organiza las metas grupales antes, durante y después de Capítulo 1. Deadlines vivos calculados en tiempo real según la fecha de entrenamiento de tu sede.
+              </p>
+            </div>
+
+            {/* BOTÓN + TAREA / RETO DE ALTO CONTRASTE Y MÁXIMA VISIBILIDAD */}
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <button 
+                onClick={() => navigate('/tareas-qt')}
+                style={{
+                  background: 'linear-gradient(135deg, #00d2ff 0%, #1a75bc 100%)',
+                  color: '#030712',
+                  border: '2px solid #ffffff',
+                  boxShadow: '0 0 25px rgba(0, 210, 255, 0.6), inset 0 1px 1px rgba(255,255,255,0.8)',
+                  padding: '0.85rem 1.75rem',
+                  borderRadius: '9999px',
+                  fontWeight: 900,
+                  fontSize: '0.9rem',
+                  letterSpacing: '1.5px',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 0 35px rgba(0, 210, 255, 0.9)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 210, 255, 0.6), inset 0 1px 1px rgba(255,255,255,0.8)';
+                }}
+              >
+                <span style={{ fontSize: '1.2rem', lineHeight: 1 }}>+</span>
+                <span>TAREAS & RETOS QT</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
     </>
   )
 }
