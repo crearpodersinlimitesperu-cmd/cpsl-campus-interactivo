@@ -121,6 +121,15 @@ export default function Sidebar({ isOpen, onClose }) {
           </li>
           <li>
             <NavLink 
+              to="/tareas-qt"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={onClose}
+            >
+              Tareas QT (Deadlines C1) 🎯
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
               to="/evaluaciones"
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
