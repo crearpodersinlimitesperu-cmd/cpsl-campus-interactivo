@@ -1,695 +1,954 @@
-// ESPECIFICACIÓN TÉCNICA Y BLUEPRINT: MÓDULO DE MICRO-LEARNING Y GAMIFICACIÓN
-// PLATAFORMA NODUS STAFF (V1.0) — CREAR PODER SIN LÍMITES 2026
+// =========================================================================================
+// BLUEPRINT CURRICULAR & SISTEMA DE GAMIFICACIÓN: RUTA DE MAESTRÍA EN COMUNICACIÓN Y RETOS
+// =========================================================================================
 
+// INSIGNIAS Y MEDALLAS DE MAESTRÍA EN COMUNICACIÓN Y RETOS
 export const nodusStaffBadges = [
   {
     id: 'mente_aprendiz',
     code: 'MED-MENTE-APRENDIZ',
     name: 'Mente de Aprendiz',
     icon: '📝',
-    xpReward: 100,
-    requirement: 'Completar todo el syllabus de Neuromarketing Ético y Causa OS en el Modo Aprendiz.',
+    xpReward: 150,
+    requirement: 'Comprender la biología decisional de los Tres Cerebros y dominar las 3 estrategias para calmar al Perro Guardián.',
     color: '#10b981'
+  },
+  {
+    id: 'arquitecto_valor',
+    code: 'MED-ARQUITECTO-VALOR',
+    name: 'Arquitecto de Valor',
+    icon: '⚖️',
+    xpReward: 250,
+    requirement: 'Dominar la Ecuación de Alex Hormozi, las 4 palancas analógicas y el Método Grand Slam en 5 pasos.',
+    color: '#f59e0b'
   },
   {
     id: 'sombra_impecable',
     code: 'MED-SOMBRA-IMPECABLE',
     name: 'Sombra Impecable',
     icon: '👤',
-    xpReward: 500,
-    requirement: 'Completar de forma perfecta las simulaciones de la Guía de Conversaciones Difíciles y Fisonomía.',
+    xpReward: 400,
+    requirement: 'Resolver con maestría las simulaciones de fisonomía, presencia neutral y escucha empática de vasija vacía.',
     color: '#38bdf8'
   },
   {
     id: 'guardian_rigor',
     code: 'MED-GUARDIAN-RIGOR',
-    name: 'Guardián del Rigor',
+    name: 'Guardián de la Integridad',
     icon: '🛡️',
-    xpReward: 600,
-    requirement: 'Resolver correctamente los casos prácticos de administración de Palabra Rota y gestión de sala en Nodus.',
-    color: '#f59e0b'
-  },
-  {
-    id: 'racha_honor',
-    code: 'MED-RACHA-HONOR',
-    name: 'Racha de Honor',
-    icon: '🔥',
-    xpReward: 300,
-    requirement: 'Ingresar y completar al menos una micro-lección diaria durante 7 días consecutivos en Nodus.',
-    color: '#ef4444'
+    xpReward: 500,
+    requirement: 'Distinguir hechos objetivos de interpretaciones y sostener acuerdos firmes desde la responsabilidad radical (Causa OS).',
+    color: '#8b5cf6'
   },
   {
     id: 'lider_imo',
     code: 'MED-LIDER-IMO',
-    name: 'Líder IMO',
+    name: 'Maestro de la Comunicación Ética',
     icon: '⚡',
-    xpReward: 1000,
-    requirement: 'Aprobar con calificación del 100% la simulación y examen teórico-práctico de Crear Poder Sin Límites.',
-    color: '#8b5cf6'
+    xpReward: 750,
+    requirement: 'Superar al 100% todos los retos y simulaciones situacionales sin manipulación, coerción ni atajos engañosos.',
+    color: '#ec4899'
   }
 ];
 
+// MATRIZ DE COMPETENCIAS Y RETOS DE MAESTRÍA (NEUTRAL, SIN CARGOS NI RANGOS)
 export const nodusStaffRoleCertifications = [
   {
-    role: 'Aliado en Mesa de Registro',
-    minFisonomia: 2,
+    role: 'Nivel 1: Escucha Activa y Vasija Vacía',
+    minFisonomia: 1,
+    requiredBadge: 'mente_aprendiz',
+    badgeName: 'Mente de Aprendiz',
+    moduleName: 'Biología de la Decisión y Neuromarketing Ético',
+    description: 'Capacidad para silenciar la agenda propia, generar seguridad psicológica y desactivar la alarma del cerebro reptiliano.'
+  },
+  {
+    role: 'Nivel 2: Arquitectura de la Ecuación de Valor',
+    minFisonomia: 3,
+    requiredBadge: 'arquitecto_valor',
+    badgeName: 'Arquitecto de Valor',
+    moduleName: 'La Ecuación de Valor y Ofertas Irresistibles',
+    description: 'Capacidad para transformar obstáculos en soluciones de alto valor, reduciendo el esfuerzo a cero y acelerando victorias rápidas.'
+  },
+  {
+    role: 'Nivel 3: Narrativa y Conexión Límbica',
+    minFisonomia: 5,
     requiredBadge: 'sombra_impecable',
     badgeName: 'Sombra Impecable',
-    description: 'Acreditado para recepción, escaneo QR de participantes y custodia de cartas de exoneración física.'
+    moduleName: 'El Plan Maestro de Enrolamiento en 3 Pasos',
+    description: 'Capacidad para estructurar conversaciones bajo el marco del Viaje del Héroe (SB7) y utilizar los 7 atajos éticos de Cialdini.'
   },
   {
-    role: 'Mánager de Sede',
-    minFisonomia: 4,
-    requiredModule: 'modulo_staff_2',
-    moduleName: 'Coaching Ético y No Violento',
-    description: 'Acreditado para llamadas de Palabra Rota, contención de participantes y gestión de quiebres sin coerción.'
-  },
-  {
-    role: 'Quantum Team (QT)',
-    minFisonomia: 6,
+    role: 'Nivel 4: Responsabilidad Radical y Causa OS',
+    minFisonomia: 7,
     requiredBadge: 'guardian_rigor',
-    badgeName: 'Guardián del Rigor',
-    description: 'Acreditado para auditorías predictivas de Futuros Imposibles, seguimiento inter-FDS y sincronización comercial.'
-  },
-  {
-    role: 'Capitán / Liderazgo Operativo',
-    minFisonomia: 8,
-    requiredBadge: 'lider_imo',
-    badgeName: 'Líder IMO',
-    description: 'Acreditado para supervisión de montajes, Caída de Confianza, groundings de sala y cierres contables POS.'
+    badgeName: 'Guardián de la Integridad',
+    moduleName: 'Responsabilidad Radical y Kit de Acción',
+    description: 'Capacidad para separar hechos de juicios dramáticos, sostener acuerdos en integridad y estructurar invitaciones con el Método M-A-G-I-C.'
   }
 ];
 
+// SIMULADOR INTERACTIVO DE RETOS SITUACIONALES DE COMUNICACIÓN
 export const nodusStaffSimulations = [
   {
     id: 'sim_caso_1',
-    category: 'Mánagers',
-    title: 'Caso Práctico 1: Objeción en Llamada de Palabra Rota (Mánagers)',
-    badgeEligible: 'guardian_rigor',
-    scenario: 'Es viernes a las 14:15 PM. El sistema Nodus detecta que el participante "Juan Torres" declaró Breakthrough el jueves pero no registra su ticket verde. Lo llamas y te dice: "Mi transferencia ya salió de mi banco, pero está retenida por el sistema de seguridad. No es mi culpa. Déjenme entrar al bloque de la tarde y les muestro el comprobante de mi celular."',
+    category: 'Neuromarketing Ético',
+    title: 'Reto 1: Calmar al Perro Guardián ante el Miedo al Esfuerzo',
+    badgeEligible: 'mente_aprendiz',
+    scenario: 'Durante una conversación de acompañamiento, una persona interesada en un proceso de transformación te dice con tono defensivo y los brazos cruzados: «Todo suena muy bonito, pero ya sé cómo son estas cosas. Seguro me van a pedir horas de tareas absurdas, despertarme de madrugada y pagar un dineral que no tengo. No tengo tiempo para agotarme más de lo que ya estoy».',
     options: [
       {
         id: 'opt_a',
-        text: '«Comprendo, Juan, tranquilo. Pasa al salón y cuando se libere la transferencia la registramos en Nodus. Lo importante es que estés en el entrenamiento.»',
+        text: '«Si de verdad quisieras cambiar tu vida encontrarías el tiempo. Quien quiere busca motivos y quien no busca excusas. Si no te inscribes hoy perderás el beneficio del descuento especial.»',
         isCorrect: false,
-        classification: 'Error de Contenedor (Sympathy)',
-        xpDelta: -50,
-        feedback: 'Rompe el rigor financiero de la sede y debilita la integridad de la palabra del participante, dejando una transacción abierta sin garantía real en Nodus.'
+        classification: 'Discurso que Altera (Agresión y Falsa Escasez)',
+        xpDelta: -80,
+        feedback: 'El Perro Guardián detecta una amenaza directa a su estatus, peligro biológico y manipulación. Se activará la respuesta de huida o ataque, cerrando completamente la puerta a la confianza.'
       },
       {
         id: 'opt_b',
-        text: '«Juan, si la transferencia no está cobrada a las 14:00 PM, tu código QR está bloqueado. Es tu responsabilidad haberlo hecho antes. Si no pagas en efectivo en la mesa ahora mismo, no entras.»',
+        text: '«Tienes toda la razón, la verdad es que sí es agotador y difícil. Si quieres no hagamos nada ahora y descansa, luego vemos el próximo mes si te animas.»',
         isCorrect: false,
-        classification: 'Error de Coaching Ético (Agresión)',
-        xpDelta: -100,
-        feedback: 'Ataca al participante y genera un ambiente de hostilidad y miedo en lugar de un contenedor de aprendizaje, dignidad y responsabilidad radical.'
+        classification: 'Complacencia Pasiva (Validación del Miedo)',
+        xpDelta: -40,
+        feedback: 'Validas la resignación sin ofrecer ninguna estructura de apoyo. Abandonas el rol de guía y dejas a la persona atrapada en la misma inercia de dolor.'
       },
       {
         id: 'opt_c',
-        text: '«Juan, reconozco la acción que tomaste al realizar la transferencia. El hecho objetivo en la plataforma es que el dinero no ha ingresado aún a la cuenta de la sede. Estamos aquí para cuidar tu palabra declarada. ¿Qué opciones de bajo riesgo ves para asegurar que tu palabra quede intacta antes de abrir las puertas, como realizar un abono temporal con tarjeta o efectivo en caja que se te reembolsará al conciliarse la transferencia?»',
+        text: '«Reconozco profundamente el valor de tu energía y es completamente natural que cuides tu tiempo. No se trata de sobrecargarte ni de que tomes una decisión apresurada hoy. ¿Te abrirías a que conversemos solo 15 minutos para mapear cuál es tu verdadero sueño y ver si un plan simplificado de 10 minutos al día te daría más tiempo y paz, sin ningún compromiso de continuar si sientes que no es para ti?»',
         isCorrect: true,
-        classification: 'Excelente (Rigor, Hechos y Coaching Ético)',
+        classification: 'Discurso que Calma (Neuromarketing Ético)',
         xpDelta: 150,
-        feedback: 'Impecable. Distingue el hecho de la suposición, valida la acción ejecutada, sostiene el rigor de la palabra sin agresión y guía al participante a una solución de bajo riesgo y voluntaria.'
+        feedback: '¡Impecable! Aplicas las 3 estrategias: 1) Vacías la vasija reconociendo su cansancio, 2) Hablas al «Para Qué» (más tiempo y paz) ocultando el esfuerzo abrumador, y 3) Ofreces una rampa de bajo compromiso (15 minutos) que neutraliza la alarma biológica.'
       }
     ]
   },
   {
     id: 'sim_caso_2',
-    category: 'Capitanes',
-    title: 'Caso Práctico 2: Corrección de Vestimenta en Sede (Capitanes)',
-    badgeEligible: 'sombra_impecable',
-    scenario: 'Sábado a las 08:15 AM. Un Aliado de tu equipo se presenta al salón de entrenamiento vistiendo una sudadera negra con un logotipo blanco muy grande y llamativo de una marca deportiva comercial en el pecho.',
+    category: 'Rigor & Integridad',
+    title: 'Reto 2: Compromiso Pendiente: Hechos Objetivos vs. Juicios y Drama',
+    badgeEligible: 'guardian_rigor',
+    scenario: 'Un participante acordó entregar un informe clave antes de las 14:00 horas como parte de su compromiso de integridad. Son las 14:30 horas y no hay registro del documento. Al llamarlo para calibrar la situación, te dice alterado: «¡Es que el sistema falló, la red estuvo pésima y ustedes son muy intransigentes, no es mi culpa!»',
     options: [
       {
         id: 'opt_a',
-        text: '«No pasa nada, como la sudadera es negra, combina bien con el salón y no distrae tanto.»',
+        text: '«No te preocupes en absoluto, comprendo perfectamente lo de la red. Tómate el tiempo que necesites y entrégalo cuando puedas a lo largo del día.»',
         isCorrect: false,
-        classification: 'Negligencia Visual',
-        xpDelta: -50,
-        feedback: 'Incumple el estándar de neutralidad visual. El logotipo comercial rompe la fisonomía del staff y distrae la energía del salón.'
+        classification: 'Simpatía Complaciente (Quiebre del Contenedor)',
+        xpDelta: -60,
+        feedback: 'Rompes el rigor del acuerdo. Alimentas la narrativa del espectador en la arena, debilitando la fuerza de la palabra del participante.'
       },
       {
         id: 'opt_b',
-        text: '«Quítate la sudadera inmediatamente. Estás rompiendo el código de vestimenta frente a los participantes.»',
+        text: '«El plazo venció a las 14:00 en punto. No hay excusas que valgan: si no puedes cumplir un horario tan simple, estás saboteando todo tu proceso y no podrás continuar.»',
         isCorrect: false,
-        classification: 'Agresión Jerárquica',
+        classification: 'Ataque y Confrontación Destructiva',
         xpDelta: -100,
-        feedback: 'Humilla al colaborador y quiebra el contexto de seguridad psicológica del equipo de soporte.'
+        feedback: 'Atacas la identidad de la persona en lugar de examinar el hecho objetivo. Provocas reactividad defensiva y destruyes el espacio de aprendizaje.'
       },
       {
         id: 'opt_c',
-        text: '«Sostener nuestra fisonomía de impecabilidad visual es lo que nos da la autoridad moral para couchear al participante hoy. Reconozco que hace frío, por lo que te pido que reemplacemos esa prenda por una chompa negra lisa sin estampados del baúl de staff antes de que iniciemos el grounding de apertura.»',
+        text: '«Reconozco la frustración técnica que me describes. Distingamos el hecho del evento: el hecho objetivo es que son las 14:30 y el informe no está en el registro. Tu palabra fue entregarlo a las 14:00. Desde el modo Causa: ¿qué acción concreta en tus manos puedes ejecutar en los próximos 10 minutos para restaurar la integridad de tu acuerdo?»',
         isCorrect: true,
-        classification: 'Autoridad Moral & Cuidado del Equipo',
+        classification: 'Responsabilidad Radical (Modo Causa OS)',
         xpDelta: 150,
-        feedback: 'Excelente. Conecta la norma con el propósito ontológico, valida la necesidad humana (frío) y provee de inmediato una solución operativa desde el baúl de insumos.'
+        feedback: 'Extraordinario. Separas el hecho medible de la queja emocional, no compras la justificación del «efecto» y colocas al interlocutor como el protagonista capaz de restaurar su palabra.'
       }
     ]
   },
   {
     id: 'sim_caso_3',
-    category: 'Aliados & Mánagers',
-    title: 'Caso Práctico 3: Enrolamiento Ético de un Participante (Neuromarketing Ético)',
-    badgeEligible: 'sombra_impecable',
-    scenario: 'Domingo de cierre de C1. Un participante se te acerca y te dice: "El entrenamiento me cambió la vida, pero no sé si deba tomar Capítulo Dos. Tengo miedo de que el trabajo no me deje tiempo o de no poder pagarlo."',
+    category: 'Ecuación de Valor',
+    title: 'Reto 3: Desarmar la Objeción de «No Tengo Tiempo ni Dinero»',
+    badgeEligible: 'arquitecto_valor',
+    scenario: 'Al presentarle un programa de desarrollo personal, la persona te responde: «Me parece valiosísimo, de verdad lo quiero. Pero honestamente no me alcanza el dinero para pagarlo completo y llego a mi casa a las 9 de la noche sin tiempo para nada».',
     options: [
       {
         id: 'opt_a',
-        text: '«¡Tienes que hacerlo ya! Si no firmas hoy, estás operando desde el miedo. Esta oferta expira hoy a las 21:00 PM y no volverá a repetirse jamás.»',
+        text: '«Si no inviertes en ti nunca vas a tener dinero ni tiempo. Pídele prestado a un amigo o tarjetéalo todo hoy mismo porque el que no arriesga no gana.»',
         isCorrect: false,
-        classification: 'Falsa Escasez y Manipulación',
-        xpDelta: -100,
-        feedback: 'La urgencia artificial y la manipulación destruyen la confianza del contenedor y activan el Perro Guardián del participante.'
+        classification: 'Presión Coercitiva e Invasiva',
+        xpDelta: -90,
+        feedback: 'Transfiere un riesgo desmedido al participante sin modificar la ecuación de valor. El neocórtex se alarma y el reptil rechaza la propuesta.'
       },
       {
         id: 'opt_b',
-        text: '«¿Para qué entraste a este salón, para seguir siendo la víctima de tus excusas o para crear un futuro extraordinario? Firma el contrato ahora mismo.»',
-        isCorrect: false,
-        classification: 'Confrontación en Arena y Juicio',
-        xpDelta: -100,
-        feedback: 'Atacar y juzgar a las personas genera un rechazo inmediato de su cerebro reptiliano y quiebra el coaching ético.'
+        text: '«Te entiendo, el dinero es un obstáculo para todos. El valor de este programa es darte herramientas para multiplicar tus ingresos y gobernar tu agenda. Miremos la ecuación: desfragmentemos el programa en micro-cápsulas de 10 minutos de consumo flexible y diseñemos un plan de pagos escalonado en 3 cuotas sin intereses para que el esfuerzo financiero sea nulo mes a mes. ¿Te permitiría eso avanzar con certeza y tranquilidad?»',
+        isCorrect: true,
+        classification: 'Alquimia de Valor (Hormozi)',
+        xpDelta: 160,
+        feedback: '¡Brillante! Redujiste el esfuerzo y sacrificio a cero (10 minutos diarios) y disminuiste el riesgo financiero (pagos escalonados), haciendo que el valor percibido supere con creces el costo percibido.'
       },
       {
         id: 'opt_c',
-        text: '«Entiendo que el tiempo y el dinero parezcan obstáculos enormes hoy. El "para qué" de C2 es darte las herramientas para que tú gobiernes tu tiempo y tus ingresos, en lugar de que ellos te gobiernen a ti. ¿Qué valor tendría para tu vida resolver esta limitación de una vez por todas de forma voluntaria y con nuestro acompañamiento?»',
-        isCorrect: true,
-        classification: 'Excelente (Neuromarketing Ético & Círculo Dorado)',
-        xpDelta: 150,
-        feedback: 'Impecable. Apelas al cerebro límbico (el Para Qué), desmantelas la fricción sin presionar, y pones al participante como el héroe que gobierna su propia vida.'
+        text: '«Por ser tú, te voy a dar un 60% de descuento si firmas ahora mismo.»',
+        isCorrect: false,
+        classification: 'Devaluación de la Oferta',
+        xpDelta: -70,
+        feedback: 'Regalar descuentos indiscriminados devalúa el proceso y destruye la percepción de calidad. No resuelve la causa raíz de la objeción (el tiempo y la certeza).'
       }
     ]
   },
   {
     id: 'sim_caso_4',
-    category: 'Aliados & Mánagers',
-    title: 'Caso Práctico 4: Gestión Ética ante Intención de Abandono (Coaching No Violento)',
-    badgeEligible: 'lider_imo',
-    scenario: 'Sábado a las 16:30 PM. Durante el break de la tarde de C2, un participante se acerca visiblemente abrumado y te dice: "Esto es demasiado intenso para mí. No me siento cómodo con las dinámicas y he decidido retirarme ahora mismo a mi casa."',
+    category: 'Coaching No Violento',
+    title: 'Reto 4: Preservación del Libre Albedrío y Consentimiento Radical',
+    badgeEligible: 'sombra_impecable',
+    scenario: 'A mitad de una sesión de entrenamiento, una persona se muestra desbordada emocionalmente y manifiesta: «Esto es demasiado para mí. Me siento abrumado por mis propias limitaciones y quiero abandonar el proceso ahora mismo».',
     options: [
       {
         id: 'opt_a',
-        text: '«Si te vas ahora vas a demostrar que huyes de tus compromisos como en el resto de tu vida. ¿Quieres seguir siendo una persona que abandona a mitad de camino?»',
+        text: '«Si renuncias ahora estarás repitiendo el patrón de huida de toda tu vida. ¿Quieres volver a ser alguien que se rinde en el primer obstáculo?»',
         isCorrect: false,
-        classification: 'Manipulación por Culpa (Coaching Coercitivo Violatorio)',
-        xpDelta: -100,
-        feedback: 'Infracción grave de Coaching Ético. La manipulación mediante etiquetas personales y culpa está expresamente prohibida en CREAR PODER SIN LÍMITES.'
+        classification: 'Manipulación por Culpa (Coaching Coercitivo)',
+        xpDelta: -120,
+        feedback: 'Infracción ética absoluta. Usar la culpa y las etiquetas para retener a alguien es manipulación psicológica y vulnera el principio de dignidad.'
       },
       {
         id: 'opt_b',
-        text: '«Está bien, si quieres irte no te detengo. Firma aquí tu carta de retiro voluntario y que te vaya bien.»',
+        text: '«De acuerdo, si te quieres ir nadie te detiene. Firma tu retiro voluntario y que te vaya bien.»',
         isCorrect: false,
-        classification: 'Abandono de Contenedor',
+        classification: 'Abandono del Contenedor',
         xpDelta: -50,
-        feedback: 'Desidia operativa. No indaga en la distinción ontológica del quiebre ni ofrece contención humana antes de formalizar la salida.'
+        feedback: 'Falta de empatía y contención. Desaprovecha la oportunidad de ofrecer una pausa reflexiva y un acompañamiento compasivo.'
       },
       {
         id: 'opt_c',
-        text: '«Respeto completamente tu libre elección y tu bienestar emocional es lo primero. Antes de que tomes una decisión definitiva, ¿te abrirías a respirar 5 minutos juntos afuera del salón y explorar qué es lo que se está mostrando para ti en este momento, sin ninguna presión de quedarte si decides no hacerlo?»',
+        text: '«Honro y respeto profundamente tu libre elección; tu bienestar y tu ritmo están por encima de todo. Antes de que tomes una decisión definitiva, ¿me permites que respiremos 5 minutos en calma y miremos qué emoción se está moviendo en ti, con la certeza total de que si decides pausar o marcharte, contarás con mi apoyo incondicional?»',
         isCorrect: true,
-        classification: 'Coaching No Violento y Consentimiento Radical',
+        classification: 'Consentimiento Radical y Contenedor Seguro',
         xpDelta: 150,
-        feedback: 'Sobresaliente. Prioriza la dignidad y el consentimiento del ser humano, desactiva la reactividad y crea un espacio seguro libre de coerción.'
+        feedback: 'Maestría pura. Respeta la autonomía del ser, desactiva el estado de alerta del sistema nervioso, valida la emoción y sostiene el contenedor desde la seguridad psicológica.'
+      }
+    ]
+  },
+  {
+    id: 'sim_caso_5',
+    category: 'Fisonomía & Presencia',
+    title: 'Reto 5: Fisonomía, Presencia y Cuidado del Entorno',
+    badgeEligible: 'sombra_impecable',
+    scenario: 'En un espacio formativo presencial donde se acordó neutralidad visual para no distraer la atención de los participantes, un facilitador de soporte se presenta con prendas de colores brillantes y logotipos comerciales llamativos.',
+    options: [
+      {
+        id: 'opt_a',
+        text: '«No importa la ropa, lo que cuenta es la actitud interior. No seamos exagerados con las normas.»',
+        isCorrect: false,
+        classification: 'Negligencia del Estándar',
+        xpDelta: -50,
+        feedback: 'Ignora el impacto psicológico del entorno visual en el foco atencional del grupo.'
+      },
+      {
+        id: 'opt_b',
+        text: '«Estás violando el código del espacio delante de todos. Cámbiate inmediatamente o te retiras del equipo.»',
+        isCorrect: false,
+        classification: 'Agresión Autoritária',
+        xpDelta: -90,
+        feedback: 'Rompe la seguridad psicológica y utiliza la intimidación en lugar del liderazgo pedagógico.'
+      },
+      {
+        id: 'opt_c',
+        text: '«Sostener nuestra neutralidad visual permite que el único protagonista sea el participante y su proceso interior. Reconozco tu disposición de estar aquí; te pido que reemplacemos esa prenda por una neutra que tenemos en el espacio antes de iniciar, para cuidar el estándar colectivo.»',
+        isCorrect: true,
+        classification: 'Autoridad Moral con Empatía',
+        xpDelta: 140,
+        feedback: 'Ejemplar. Comunica el propósito ontológico del estándar, cuida la dignidad de la persona y ofrece una alternativa práctica sin conflicto.'
+      }
+    ]
+  },
+  {
+    id: 'sim_caso_6',
+    category: 'Transformación de Obstáculos',
+    title: 'Reto 6: Aplicación del Método Grand Slam de 5 Pasos',
+    badgeEligible: 'lider_imo',
+    scenario: 'Diseñas un programa de acompañamiento donde el principal obstáculo identificado de los participantes es: «No sé qué publicar ni cómo hablar ante la cámara, me bloqueo por completo y abandono».',
+    options: [
+      {
+        id: 'opt_a',
+        text: 'Decirles que practiquen 100 horas frente al espejo y contraten un productor audiovisual costoso.',
+        isCorrect: false,
+        classification: 'Aumento de Fricción',
+        xpDelta: -60,
+        feedback: 'Multiplica el esfuerzo y sacrificio en el denominador de la ecuación de valor, provocando deserción.'
+      },
+      {
+        id: 'opt_b',
+        text: 'Diseñar un banco de 30 guiones estructurados «llena los espacios», una guía de calibración de 3 pasos y sesiones grupales de práctica guiada de 15 minutos semanales.',
+        isCorrect: true,
+        classification: 'Solución Grand Slam Apalancada',
+        xpDelta: 160,
+        feedback: '¡Excelente! Conviertes el obstáculo en una solución apalancada de alto valor: reduce el esfuerzo a minutos y eleva la probabilidad de logro al 100%.'
+      },
+      {
+        id: 'opt_c',
+        text: 'Eliminar el módulo de comunicación en video para que nadie se frustre.',
+        isCorrect: false,
+        classification: 'Reducción del Resultado Anhelado',
+        xpDelta: -40,
+        feedback: 'Mutila el valor del programa reduciendo el resultado anhelado en el numerador de la fórmula.'
       }
     ]
   }
 ];
 
+// =========================================================================================
+// MÓDULO I: BIOLOGÍA DE LA DECISIÓN Y NEUROMARKETING ÉTICO
+// =========================================================================================
 export const moduloStaff1 = [
   {
     id: 'staff_1_1',
-    title: '1.1 El Estándar de Excelencia Negra (Neutralidad Visual)',
-    durationMinutes: 4,
+    title: '1.1 Los Tres Cerebros y el «Perro Guardián» (Naturaleza Biológica)',
+    durationMinutes: 5,
     content: `
       <div class="alert-info" style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">Propósito Ontológico de la Fisonomía Negra</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          En <strong>CREAR PODER SIN LÍMITES</strong>, el staff no asiste a la sala para ser admirado ni para expresar su individualidad estética. El uso del negro absoluto tiene como único fin sostener la <strong>neutralidad visual y la autoridad de contexto</strong>: el participante es el único foco de luz en el salón.
+        <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">La Biología Decisional del Ser Humano</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Toda decisión humana responde a un orden biológico evolutivo estricto. No decidimos por lógica matemática pura; decidimos a través de tres directores biológicos que operan en nuestro sistema nervioso central.
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Criterios de Impecabilidad vs. Incumplimiento</h3>
-      <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0;">
-        <thead>
-          <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); text-align: left; color: var(--text-muted);">
-            <th style="padding: 0.6rem;">Elemento</th>
-            <th style="padding: 0.6rem; color: #34d399;">✓ Impecabilidad (Estándar 2026)</th>
-            <th style="padding: 0.6rem; color: #f87171;">✗ Incumplimiento (Observación)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-            <td style="padding: 0.6rem; font-weight: bold;">Parte Superior</td>
-            <td style="padding: 0.6rem;">Polo negro liso, camisa de botones o chompa sin estampados, costuras negras invisibles.</td>
-            <td style="padding: 0.6rem;">Costuras blancas visibles, logotipos comerciales, estampados o prendas decoloradas.</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-            <td style="padding: 0.6rem; font-weight: bold;">Pantalón</td>
-            <td style="padding: 0.6rem;">Pantalón de vestir negro formal o Jean azul índigo/oscuro pulcro (Viernes Aliados).</td>
-            <td style="padding: 0.6rem;">Jeans rotos, desgastados, con aplicaciones o tiro excesivamente informal.</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-            <td style="padding: 0.6rem; font-weight: bold;">Calzado Staff</td>
-            <td style="padding: 0.6rem;">Zapatos de vestir negros o calzado negro pulcro 100% monocromático.</td>
-            <td style="padding: 0.6rem;">Suela blanca visible, cordones de colores o calzado empolvado.</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(245, 158, 11, 0.05);">
-            <td style="padding: 0.6rem; font-weight: bold; color: #fbbf24;">Calzado Entrenador (2026)</td>
-            <td style="padding: 0.6rem; color: #fbbf24;"><strong>Autorización Oficial 2026:</strong> El Coach/Entrenador principal puede utilizar zapatillas deportivas negras para sostener el dinamismo físico prolongado.</td>
-            <td style="padding: 0.6rem;">El resto del staff no puede usar zapatillas salvo autorización médica explícita.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f87171;">
+          <h4 style="margin: 0 0 0.5rem; color: #f87171;">🐶 1. El Perro Guardián (Cerebro Reptiliano)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem;">
+            Es el cerebro más antiguo de la evolución humana. Su misión innegociable es garantizar la <strong>supervivencia</strong> mediante dos reglas:
+          </p>
+          <ul style="font-size: 0.85rem; color: #fff; margin: 0; padding-left: 1.2rem; line-height: 1.5;">
+            <li><strong>Ahorrar energía metabólica:</strong> Odia el esfuerzo innecesario y las explicaciones complejas.</li>
+            <li><strong>Evitar el peligro y el dolor:</strong> Reacciona de inmediato ante cualquier amenaza de pérdida (dinero, estatus o tiempo).</li>
+          </ul>
+        </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. Uniformidad del Viernes de Apertura</h3>
-      <p>
-        Para los <strong>Aliados en mesas de registro</strong>, el uniforme obligatorio comprende:
-      </p>
-      <ul style="color: var(--text-muted); line-height: 1.8;">
-        <li>Camisa negra de manga larga o corta con cuello y botones.</li>
-        <li>Jean azul índigo oscuro sin roturas ni deslavados.</li>
-        <li>Calzado negro impecable.</li>
-        <li>Gafete oficial de CREAR PODER SIN LÍMITES visible en el pectoral izquierdo.</li>
-      </ul>
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #ec4899;">
+          <h4 style="margin: 0 0 0.5rem; color: #ec4899;">❤️ 2. El Corazón (Cerebro Límbico)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem;">
+            Es el centro de las <strong>emociones, la pertenencia y los vínculos</strong>. Siente antes de pensar.
+          </p>
+          <ul style="font-size: 0.85rem; color: #fff; margin: 0; padding-left: 1.2rem; line-height: 1.5;">
+            <li>No procesa palabras técnicas ni números fríos; procesa <strong>significado e imágenes</strong>.</li>
+            <li>Se moviliza por el <strong>«Para Qué»</strong> (el propósito, el honor, la familia, la trascendencia).</li>
+          </ul>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #38bdf8;">
+          <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">🔬 3. El Científico (Neocórtex)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem;">
+            Es el cerebro racional y analítico. Es sumamente lento y consume una enorme cantidad de glucosa.
+          </p>
+          <ul style="font-size: 0.85rem; color: #fff; margin: 0; padding-left: 1.2rem; line-height: 1.5;">
+            <li><strong>No toma la decisión:</strong> su función es <strong>justificar lógicamente</strong> lo que el corazón y el reptil ya eligieron.</li>
+            <li>Requiere datos claros, números transparentes y comparativas sencillas para sentirse seguro.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.2rem; background: rgba(255, 183, 3, 0.05); border: 1px solid rgba(255, 183, 3, 0.3); border-radius: 8px;">
+        <h4 style="margin: 0 0 0.5rem; color: var(--crear-gold);">🚇 La Lección del Metro de Londres: Certeza vs. Rapidez</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          En el metro de Londres, las quejas de los usuarios no disminuyeron cuando los trenes se hicieron más rápidos, sino cuando se instalaron <strong>pantallas con el tiempo exacto de llegada</strong> («Próximo tren en 3 minutos»). 
+          El cerebro humano tolera el esfuerzo si tiene <strong>certeza absoluta del proceso</strong>. La incertidumbre despierta al Perro Guardián; la claridad y la previsibilidad lo calman de inmediato.
+        </p>
+      </div>
     `
   },
   {
     id: 'staff_1_2',
-    title: '1.2 El Guardián del Tiempo (La Fisionomía del Reloj)',
-    durationMinutes: 3,
+    title: '1.2 Las Tres Estrategias Fundamentales para Calmar al Perro Guardián',
+    durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Regla Inquebrantable del Contenedor de Tiempo</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          Queda <strong>estrictamente prohibido</strong> consultar la hora en el teléfono móvil dentro del salón o frente a los participantes. El staff de CREAR PODER SIN LÍMITES porta un reloj de muñeca físico en todo momento.
+      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">Cómo Desactivar la Alarma Biológica</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Cuando abordas a una persona con un discurso agresivo, demandante o técnico, el Perro Guardián detecta una amenaza de gasto (dinero/tiempo) y de dolor (esfuerzo abrumador). Para que la conversación fluya hacia el entendimiento, debes aplicar estas tres estrategias:
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Por qué el teléfono celular destruye el contexto</h3>
-      <p>
-        Cuando un participante ve a un Aliado o Mánager mirando su teléfono, la mente del participante asume de forma inconsciente: <em>«Está distraído con mensajes personales o redes sociales»</em>. La autoridad moral del staff como guardián del presente se disuelve al instante.
-      </p>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #10b981;">
+          <h4 style="margin: 0 0 0.5rem; color: #34d399;">1. Vaciar la Vasija (Mente de Principiante y Escucha Empática)</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.6rem;">
+            El perro guardián huele el interés propio y la urgencia por imponer una idea. Si entras con la soberbia de tener la razón o con prisa por convencer, el interlocutor se cerrará en banda.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; font-size: 0.88rem; color: #a7f3d0;">
+            <strong>La Acción:</strong> Silencia tu ego. Conviértete en un espejo limpio que escucha sin juzgar, creando un contenedor de <strong>Seguridad Psicológica</strong> donde la persona se sienta a salvo de ser presionada o manipulada. Quien más comprende adquiere la autoridad silenciosa.
+          </div>
+        </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. Protocolo de Sincronización de Tiempo</h3>
-      <ul style="color: var(--text-muted); line-height: 1.8;">
-        <li><strong>Grounding de las 07:45 AM:</strong> El Coordinador de Sala (CC1Y2 / CMJ) sincroniza los relojes de todos los miembros del staff al segundo exacto con la hora oficial de la sede.</li>
-        <li><strong>Señalética Silenciosa:</strong> El Capitán de Tiempo marca los minutos restantes al Entrenador mediante tarjetas visuales estándar (15 min, 10 min, 5 min, Tiempo Cumplido), sin interrumpir verbalmente el flujo de sala.</li>
-      </ul>
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f59e0b;">
+          <h4 style="margin: 0 0 0.5rem; color: #fbbf24;">2. Hablar al «Para Qué» (El Sueño) y Esconder el «Qué» (El Esfuerzo)</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.6rem;">
+            El cerebro reptil odia el consumo innecesario de energía. Si le hablas de «hacer 30 tareas complejas, madrugar todos los días y soportar presiones», el guardián calculará un costo biológico insoportable y huirá.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; font-size: 0.88rem; color: #fde68a;">
+            <strong>La Acción:</strong> Conecta directamente con su anhelo profundo (su Futuro Deseado). Presenta el proceso no como un cúmulo de cargas pesadas, sino como el vehículo que <strong>reduce la fricción</strong> mediante acompañamiento estructurado.
+          </div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #38bdf8;">
+          <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">3. Ofrecer una Rampa de Bajo Compromiso (Reducir el Riesgo)</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.6rem;">
+            Pedirle a una persona indecisa que firme un compromiso a largo plazo o haga un desembolso inmediato es el equivalente a intentar acariciar a un perro desconocido de golpe: te va a morder.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; font-size: 0.88rem; color: #bae6fd;">
+            <strong>La Acción:</strong> Presenta pasos intermedios de bajo esfuerzo y cero riesgo: <em>«Tengamos una breve conversación de 15 minutos para mapear tus metas con calma, sin ningún compromiso de continuar si sientes que no es tu momento»</em>.
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'staff_1_3',
+    title: '1.3 La Fisonomía de la Comunicación en Acción (Altera vs. Calma)',
+    durationMinutes: 4,
+    content: `
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Contraste Directo de Modelos de Comunicación</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Las palabras exactas y la postura corporal determinan si el sistema nervioso del otro se abre a la colaboración o se atrinchera en la resistencia.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.05);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.8rem;">
+            <span style="font-size: 1.4rem;">❌</span>
+            <h4 style="margin: 0; color: #f87171;">Discurso que Altera al Perro Guardián</h4>
+          </div>
+          <blockquote style="margin: 0 0 0.8rem; padding: 0.8rem; background: rgba(0,0,0,0.4); border-left: 3px solid #ef4444; font-size: 0.9rem; color: #fecaca; line-height: 1.6; font-style: italic;">
+            «Tienes que decidirte ahora mismo. Este proceso es extremadamente exigente, vas a tener que levantarte temprano todos los días para cumplir los retos y si no firmas hoy perderás la oportunidad para siempre.»
+          </blockquote>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            <strong>Lo que escucha el cerebro reptil:</strong> <em>«¡Peligro inminente! Voy a perder dinero, voy a quedarme sin dormir, es un esfuerzo agotador. ¡Huye o ataca!»</em>.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.05);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.8rem;">
+            <span style="font-size: 1.4rem;">✅</span>
+            <h4 style="margin: 0; color: #34d399;">Discurso que Calma al Perro Guardián</h4>
+          </div>
+          <blockquote style="margin: 0 0 0.8rem; padding: 0.8rem; background: rgba(0,0,0,0.4); border-left: 3px solid #10b981; font-size: 0.9rem; color: #a7f3d0; line-height: 1.6; font-style: italic;">
+            «Reconozco el valor de la meta que tienes en mente. Volver a la rutina sin una estructura que te acompañe suele ser el mayor obstáculo. No te pido que decidas nada ahora; solo te invito a abrir un espacio de 15 minutos para escuchar tu visión y mostrarte un método paso a paso que simplifica tu avance. ¿Te hace sentido explorar esa opción?»
+          </blockquote>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            <strong>Lo que escucha el cerebro reptil:</strong> <em>«Me reconoce, me cuida, solo son 15 minutos y no hay peligro de perder nada. Puedo bajar la guardia con total seguridad.»</em>.
+          </p>
+        </div>
+      </div>
     `
   }
 ];
 
+// =========================================================================================
+// MÓDULO II: LA ECUACIÓN DE VALOR Y OFERTAS IRRESISTIBLES (ALEX HORMOZI)
+// =========================================================================================
 export const moduloStaff2 = [
   {
     id: 'staff_2_1',
-    title: '2.1 El Guía de la Historia (StoryBrand en el Servicio)',
+    title: '2.1 La Ecuación Científica de Valor y la Regla de la Discrepancia',
     durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #a78bfa;">El Modelo StoryBrand del Liderazgo de Servicio</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          En toda gran narrativa humana, el protagonista no es el guía: <strong>Luke Skywalker es el héroe, Yoda es el guía. Katniss es el héroe, Haymitch es el guía.</strong> En nuestras salas de entrenamiento, el participante es el Héroe; el Staff es únicamente el Guía facilitador.
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">La Fracción Matemática del Valor Percibido</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Alex Hormozi demostró que el valor de cualquier propuesta no depende de lo que cuesta producirla, sino de cómo el cerebro humano pondera sus variables en una fracción matemática.
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Desmantelamiento del Ego en el Staff</h3>
-      <p>
-        El mayor riesgo operativo en un equipo de transformación es la <em>«arrogancia del graduado»</em>: creer que por haber vivido los procesos de C1, C2 y Maestría, el staff tiene respuestas para la vida de otra persona o el derecho de aleccionar.
-      </p>
+      <div style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 183, 3, 0.3); text-align: center; margin: 1.5rem 0;">
+        <div style="font-size: 0.85rem; text-transform: uppercase; color: var(--crear-gold); font-weight: 700; margin-bottom: 0.5rem;">
+          Fórmula Universal de Valor (Alex Hormozi)
+        </div>
+        <div style="font-family: monospace; font-size: 1.15rem; color: #fde047; font-weight: bold; padding: 0.8rem; background: rgba(0,0,0,0.4); border-radius: 8px;">
+          Valor = (Resultado Anhelado [El Sueño] × Probabilidad Percibida de Logro) / (Retraso Temporal [Tiempo] × Esfuerzo y Sacrificio)
+        </div>
+      </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. Las 3 Preguntas de Limpieza del Ego</h3>
-      <p>Antes de ingresar a cada bloque de sala, todo Aliado y Mánager debe responderse en silencio:</p>
-      <ol style="color: var(--text-muted); line-height: 1.8;">
-        <li>¿Estoy haciendo esta intervención para que el participante se transforme o para sentirme sabio e importante?</li>
-        <li>¿Puedo sostener la mirada de este ser humano sin juzgar su historia ni su ritmo de aprendizaje?</li>
-        <li>¿Estoy dispuesto a que el participante se lleve el crédito del 100% de su victoria?</li>
-      </ol>
+      <h4 style="color: var(--crear-gold); margin-top: 1.5rem;">La Regla de la Discrepancia de Valor</h4>
+      <p style="color: var(--text-muted); line-height: 1.6;">
+        El ser humano nunca decide por el precio de etiqueta; decide por la <strong>discrepancia</strong> entre el valor percibido y el esfuerzo solicitado:
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0;">
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #10b981;">
+          <strong style="color: #34d399;">Discrepancia Gigantesca (Oferta Irresistible):</strong>
+          <p style="margin: 0.4rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Si percibo que recibiré $10,000 en valor de transformación y solo se me pide un esfuerzo equivalente a $1,000, la decisión es automática. Siento que estoy ganando de inmediato.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #ef4444;">
+          <strong style="color: #f87171;">Discrepancia Nula o Negativa (Resistencia):</strong>
+          <p style="margin: 0.4rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Si el esfuerzo y el sacrificio percibidos son mayores que la promesa, surgen objeciones de inmediato: <em>«no tengo dinero»</em> o <em>«no tengo tiempo»</em>. Reducir el precio no soluciona el problema; optimizar la fracción sí.
+          </p>
+        </div>
+      </div>
     `
   },
   {
     id: 'staff_2_2',
-    title: '2.2 Conversaciones Libres de Presión (Coaching No Violento)',
+    title: '2.2 Las Cuatro Palancas en Plastilina (Analogías Prácticas)',
     durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">Dignidad y Consentimiento Radical</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          En <strong>CREAR PODER SIN LÍMITES</strong> está formalmente erradicada cualquier forma de manipulación emocional, coerción psicológica, chantaje moral o presión grupal. El crecimiento solo es real cuando es <strong>elegido voluntariamente</strong> desde la dignidad del ser.
+      <div class="alert-info" style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">Las 4 Palancas del Valor Explicadas en Plastilina</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Para maximizar el numerador y reducir el denominador a casi cero, utilizamos cuatro analogías sencillas y universales:
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Lo que NUNCA hace un Staff Certificado</h3>
-      <ul style="color: #f87171; line-height: 1.8;">
-        <li>✗ Decirle al participante: «Si te vas, le fallas a tu familia / a tu equipo».</li>
-        <li>✗ Cuestionar su hombría, valentía o carácter moral por querer retirarse o por tener dudas financieras.</li>
-        <li>✗ Impedir físicamente la salida de una persona de la sala de conferencias.</li>
-        <li>✗ Diagnosticar patologías clínicas, trastornos mentales o emitir juicios médicos.</li>
-      </ul>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #10b981;">
+          <h4 style="margin: 0 0 0.4rem; color: #34d399;">🍲 Palanca 1: El Resultado Anhelado (La Sopa)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.5rem;">
+            Nadie compra una sopa por la marca de la olla ni por las horas que tomó cortar las verduras. Compran el sabor reconfortante, el aroma y la nutrición de sentirse saciados.
+          </p>
+          <div style="font-size: 0.82rem; color: #a7f3d0; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px;">
+            <strong>Principio:</strong> Vende siempre el destino final, nunca el vehículo técnico.
+          </div>
+        </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. El Protocolo de Devolución No Violenta</h3>
-      <p style="color: var(--text-muted);">
-        Cuando un participante experimenta angustia o resistencia, el Mánager aplica el ciclo de 4 pasos:
-      </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-        <div class="glass-panel" style="padding: 1rem; border-top: 3px solid #38bdf8;">
-          <h5 style="margin: 0 0 0.3rem 0; color: #38bdf8;">1. Validación</h5>
-          <p style="font-size: 0.85rem; margin: 0; color: var(--text-muted);">Reconocer su emoción como legítima: «Escucho que te sientes abrumado y tiene sentido».</p>
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #38bdf8;">
+          <h4 style="margin: 0 0 0.4rem; color: #38bdf8;">🌉 Palanca 2: Probabilidad de Logro (El Puente de Acero)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.5rem;">
+            Cruzar un cañón profundo sobre cuerdas viejas da pánico. Cruzar por un puente de acero sólido con barandillas firmes y guías expertos da total tranquilidad.
+          </p>
+          <div style="font-size: 0.82rem; color: #bae6fd; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px;">
+            <strong>Principio:</strong> Eleva la certeza mediante acompañamiento guiado y testimonios reales.
+          </div>
         </div>
-        <div class="glass-panel" style="padding: 1rem; border-top: 3px solid #f59e0b;">
-          <h5 style="margin: 0 0 0.3rem 0; color: #f59e0b;">2. Consentimiento</h5>
-          <p style="font-size: 0.85rem; margin: 0; color: var(--text-muted);">«¿Me permites hacerte una pregunta sobre lo que declaraste ayer?»</p>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #f59e0b;">
+          <h4 style="margin: 0 0 0.4rem; color: #fbbf24;">🍎 Palanca 3: Retraso Temporal (La Semilla y el Árbol)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.5rem;">
+            Esperar cinco años a que un árbol dé manzanas agota a cualquiera. Pero si te entregan una canasta de manzanas el primer día mientras riegas la semilla, el tiempo vuela.
+          </p>
+          <div style="font-size: 0.82rem; color: #fde68a; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px;">
+            <strong>Principio:</strong> Diseña «Victorias Rápidas» (Fast Wins) en las primeras 48 horas.
+          </div>
         </div>
-        <div class="glass-panel" style="padding: 1rem; border-top: 3px solid #8b5cf6;">
-          <h5 style="margin: 0 0 0.3rem 0; color: #8b5cf6;">3. Contexto</h5>
-          <p style="font-size: 0.85rem; margin: 0; color: var(--text-muted);">Separar el hecho objetivo (la incomodidad) de la interpretación («no puedo»).</p>
-        </div>
-        <div class="glass-panel" style="padding: 1rem; border-top: 3px solid #10b981;">
-          <h5 style="margin: 0 0 0.3rem 0; color: #10b981;">4. Elección Libre</h5>
-          <p style="font-size: 0.85rem; margin: 0; color: var(--text-muted);">«La decisión es 100% tuya y nosotros honraremos lo que elijas para ti».</p>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #8b5cf6;">
+          <h4 style="margin: 0 0 0.4rem; color: #a78bfa;">💊 Palanca 4: Esfuerzo y Sacrificio (Pastilla vs. Gimnasio)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.5rem;">
+            La gente pagaría fortunas por una píldora que dé salud instantánea antes que pagar un gimnasio donde deba madrugar con frío y sudar dos horas diarias.
+          </p>
+          <div style="font-size: 0.82rem; color: #ddd6fe; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px;">
+            <strong>Principio:</strong> Reduce la fricción con herramientas listas para usar y hábitos de 5 minutos.
+          </div>
         </div>
       </div>
     `
   },
   {
     id: 'staff_2_3',
-    title: '2.3 BrandScript Oficial de Maestría del Juego (SB7-MJ) & Guiones de Llamada',
-    durationMinutes: 7,
+    title: '2.3 El Método Grand Slam en 5 Pasos para Transformar Obstáculos en Valor',
+    durationMinutes: 6,
     content: `
-      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Manual de Enrolamiento Narrativo — Edición Oficial V1.0 (2026)</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          Unificación de la narrativa comercial bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong> para enrolar a graduados de C2 hacia la Maestría del Juego (MJ) de 90 días desde el amor y la libre elección.
+      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">Metodología de 5 Pasos para Construir Soluciones Irresistibles</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          En lugar de inventar contenidos al azar, el Método Grand Slam toma cada dolor u obstáculo del usuario y lo transforma sistemáticamente en un componente de alto valor.
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Los 7 Elementos del BrandScript SB7-MJ</h3>
-      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #3b82f6;">
-          <strong style="color: #60a5fa;">1. Un Personaje (El Héroe):</strong> Graduado de C2. Un líder que despertó su poder en sala y busca materializarlo en su vida diaria.
+      <div style="display: flex; flex-direction: column; gap: 0.9rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #3b82f6;">
+          <strong style="color: #60a5fa;">Paso 1: Identificar el Dolor Crónico y el Futuro Deseado</strong>
+          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Escuchar con vasija vacía cuál es el punto A (dolor, estancamiento, soledad) y cuál es el punto B (libertad, impacto, paz mental).
+          </p>
         </div>
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #ef4444;">
-          <strong style="color: #f87171;">2. Tiene un Problema (El Efecto Lunes):</strong> Externo (entorno inercial), Interno (miedo al auto-sabotaje y soledad) y Filosófico (inaceptable volver a vivir una vida promedio tras conocer su grandeza).
-        </div>
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #8b5cf6;">
-          <strong style="color: #a78bfa;">3. Encuentra un Guía:</strong> El Mánager y la Plataforma Nodus. Mentor empático con autoridad técnica.
-        </div>
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #10b981;">
-          <strong style="color: #34d399;">4. Que le da un Plan de 3 Pasos:</strong> 1) Declara tu Futuro Imposible (FI), 2) Entrena en Integridad (28 entrenamientos sustentables), 3) Conquista El Viaje y gradúate en Gratitud.
-        </div>
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #f59e0b;">
-          <strong style="color: #fbbf24;">5. Y lo llama a la Acción:</strong> CTA Directo en mesa Nodus del domingo o CTA Transicional agendando calibración de FI de 15 minutos.
-        </div>
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #ec4899;">
-          <strong style="color: #f472b6;">6. Que evita el Fracaso:</strong> Evitar el marchitamiento de la palabra y caer en «la arena» de la víctima.
-        </div>
-        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #eab308;">
-          <strong style="color: #facc15;">7. Y termina en Éxito:</strong> Convertirse en un Líder IMO (coherencia y abundancia integral).
-        </div>
-      </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. Neuromarketing Ético: Calmar al Perro Guardián</h3>
-      <p style="color: var(--text-muted);">
-        En llamadas telefónicas, desactiva la alerta del cerebro reptil en los primeros 15 segundos solicitando permiso de tiempo («¿estás en un espacio cómodo de 3 minutos para conversar?»), reconociendo la fisionomía de su Breakthrough y tratando la objeción de dinero con rigor de Causa OS (Alex Hormozi) sin manipulación ni culpa.
-      </p>
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #ef4444;">
+          <strong style="color: #f87171;">Paso 2: Mapear Todos los Obstáculos Exhaustivamente</strong>
+          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Anotar cada barrera real o imaginaria: «no sé cómo empezar», «no tengo tiempo», «me distraigo con facilidad», «mi entorno no me apoya».
+          </p>
+        </div>
 
-      <div style="margin-top: 1.5rem; background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; padding: 1rem; border-radius: 8px; text-align: center;">
-        <p style="margin: 0 0 0.5rem 0; color: #fff; font-weight: 700;">¿Quieres entrenar con el simulador interactivo de llamadas y copiar las plantillas de WhatsApp?</p>
-        <a href="/guiones-mj" style="color: #f59e0b; font-weight: 900; text-decoration: underline;">➔ Ir a la Consola Interactiva BrandScript & Guiones MJ</a>
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #10b981;">
+          <strong style="color: #34d399;">Paso 3: Convertir Cada Obstáculo en una Solución de Alto Valor</strong>
+          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Para «no sé cómo empezar» ➔ Plantilla paso a paso prediseñada. Para «me distraigo» ➔ Compañero de compromiso diario de 3 minutos.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #f59e0b;">
+          <strong style="color: #fbbf24;">Paso 4: Vehículo de Entrega con Apalancamiento («Uno a Muchos»)</strong>
+          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Crear activos digitales (guías, grabaciones, herramientas interactivas) que ayuden a miles de personas sin requerir tu presencia física 24/7.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #ec4899;">
+          <strong style="color: #f472b6;">Paso 5: Filtrar y Apilar (Trim & Stack)</strong>
+          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            Eliminar lo costoso y difícil de mantener. Conservar únicamente los elementos de <strong>bajo costo de entrega y altísimo impacto percibido</strong>.
+          </p>
+        </div>
       </div>
     `
   }
 ];
 
+// =========================================================================================
+// MÓDULO III: EL PLAN MAESTRO DE ENROLAMIENTO EN 3 PASOS Y STORYBRAND (SB7)
+// =========================================================================================
 export const moduloStaff3 = [
   {
     id: 'staff_3_1',
-    title: '3.1 El Rigor de la Palabra (Viernes 14:01 PM)',
+    title: '3.1 Filosofía del Enrolamiento Ético y el Marco StoryBrand (SB7)',
     durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #f87171;">El Trigger Tecnológico de Palabra Rota en Nodus</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          A las <strong>14:01 PM en punto del viernes</strong>, el servidor central de Nodus ejecuta un cron job automatizado que cambia el estado de todo participante con saldo no liquidado a <strong>«Palabra Rota»</strong>, inhabilitando su código QR en los lectores de puerta de la sede.
+      <div class="alert-info" style="background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #a78bfa;">El Interlocutor es el Héroe, Tú eres el Guía</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          El modelo tradicional de ventas sitúa al vendedor como la estrella que convence. En el StoryBrand Framework (SB7) y el Enrolamiento Humano, el interlocutor es siempre el Héroe; tú eres el Guía empático que le ofrece un camino probado.
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Por qué la rigidez tecnológica protege al ser</h3>
-      <p>
-        Si el staff de puerta relaja la regla y permite el ingreso bajo promesas informales, le envía al cerebro del participante el mensaje de que <em>«su palabra no tiene consecuencias reales»</em>. El rigor no es castigo; es el espejo que le muestra al participante dónde se rinde ante sus compromisos.
-      </p>
-
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. Flujo Operativo de Mesas de Regularización</h3>
-      <ul style="color: var(--text-muted); line-height: 1.8;">
-        <li><strong>14:01 PM:</strong> Nodus emite la alerta roja al Dashboard del Gerente de Sede con el listado de participantes pendientes.</li>
-        <li><strong>14:05 PM:</strong> El equipo de Mánagers inicia las llamadas de reactivación siguiendo estrictamente el guión de 5 pasos.</li>
-        <li><strong>15:30 PM:</strong> Apertura de la mesa especial de caja de regularización en el foyer del salón.</li>
-      </ul>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #3b82f6;">
+          <strong style="color: #60a5fa;">1. Un Personaje (El Héroe):</strong> Una persona con un sueño que anhela transformar su realidad cotidiana.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #ef4444;">
+          <strong style="color: #f87171;">2. Tiene un Problema:</strong> Externo (falta de tiempo/sistema), Interno (miedo a fallar, soledad) y Filosófico (injusticia de no desplegar su potencial).
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #8b5cf6;">
+          <strong style="color: #a78bfa;">3. Encuentra un Guía:</strong> Un facilitador que combina <strong>empatía genuina</strong> («comprendo tu dolor») con <strong>autoridad técnica</strong> («hemos trazado este camino con éxito»).
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #10b981;">
+          <strong style="color: #34d399;">4. Que le da un Plan Claro:</strong> Un mapa desfragmentado de 3 pasos que disuelve la confusión.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #f59e0b;">
+          <strong style="color: #fbbf24;">5. Lo llama a la Acción:</strong> Llamado Directo (acuerdo firme) o Llamado Transicional (sesión de calibración de 15 minutos).
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #ec4899;">
+          <strong style="color: #f472b6;">6. Que le ayuda a evitar el Fracaso:</strong> Romper el ciclo de auto-sabotaje, la desidia y la frustración.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #eab308;">
+          <strong style="color: #facc15;">7. Y culmina en el Éxito:</strong> Vivir en coherencia, maestría personal y plenitud.
+        </div>
+      </div>
     `
   },
   {
     id: 'staff_3_2',
-    title: '3.2 Estructura de la Conversación de Reactivación',
+    title: '3.2 Los Tres Pasos del Plan Maestro de Enrolamiento',
     durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Los 5 Pasos de la Llamada de Rigor y Amor</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          Una llamada de Palabra Rota no busca «cobrar dinero»; busca que el participante restablezca la integridad de su palabra consigo mismo antes del inicio del bloque vespertino.
+      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">El Andamiaje de Conversión Ética en 3 Fases</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Todo acuerdo auténtico sigue una secuencia natural que honra la libertad y la madurez de la persona:
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">Guión Estructurado Paso a Paso</h3>
-      <div style="display: flex; flexDirection: column; gap: 0.8rem; margin-top: 1rem;">
-        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #38bdf8;">
-          <strong style="color: #38bdf8;">Paso 1: Saludo y Declaración de Contexto</strong>
-          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">«Hola Juan, te habla Carlos, Mánager de tu sede. Te llamo con relación a tu compromiso declarado de Breakthrough».</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #38bdf8;">
+          <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">Paso 1: Descubre tu «Para Qué» (Calibración del Sueño)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.6rem;">
+            Calmar al reptil y escuchar con vasija vacía. Conectar con el dolor real y la visión profunda del interlocutor.
+          </p>
+          <div style="font-size: 0.82rem; color: #bae6fd; background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px;">
+            <strong>Pregunta Clave:</strong> «¿Qué tendría que ocurrir en los próximos 90 días para que sientas que tu tiempo y tu vida valieron cada segundo?»
+          </div>
         </div>
-        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #8b5cf6;">
-          <strong style="color: #a78bfa;">Paso 2: Presentación del Hecho Objetivo</strong>
-          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">«Son las 14:15 PM y la plataforma Nodus registra que tu código verde aún no ha sido conciliado en el sistema».</p>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #f59e0b;">
+          <h4 style="margin: 0 0 0.5rem; color: #fbbf24;">Paso 2: Diseña tu Estructura de Apoyo (Apalancamiento)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.6rem;">
+            Disolver el miedo al esfuerzo abrumador. Presentar el andamiaje, el compañero de compromiso y las herramientas que reducen el tiempo requerido a minutos.
+          </p>
+          <div style="font-size: 0.82rem; color: #fde68a; background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px;">
+            <strong>Pregunta Clave:</strong> «Si tuvieras un sistema que te toma solo 10 minutos al día y un mentor que te acompaña, ¿te abrirías a avanzar?»
+          </div>
         </div>
-        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #fbbf24;">
-          <strong style="color: #fbbf24;">Paso 3: Pregunta de Indagación de Palabra</strong>
-          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">«¿Qué ocurrió entre lo que declaraste ayer con tanta fuerza y lo que vemos en el sistema hoy?»</p>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-top: 3px solid #10b981;">
+          <h4 style="margin: 0 0 0.5rem; color: #34d399;">Paso 3: Sellar la Palabra (Integridad y Libre Elección)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.6rem;">
+            El principio de consistencia: una decisión verbal o escrita voluntaria alinea la identidad del ser humano con sus actos futuros.
+          </p>
+          <div style="font-size: 0.82rem; color: #a7f3d0; background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px;">
+            <strong>Pregunta Clave:</strong> «¿Es esta una elección genuina para ti o sientes alguna presión de mi parte? Tu palabra es tu poder.»
+          </div>
         </div>
-        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #ef4444;">
-          <strong style="color: #f87171;">Paso 4: Distinguir la Excusa de la Realidad</strong>
-          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">«Escucho que el banco tuvo una demora. Ese es el evento. Ahora: ¿tu palabra sigue en pie para estar en sala a las 16:00 PM?»</p>
-        </div>
-        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #34d399;">
-          <strong style="color: #34d399;">Paso 5: Solución de Bajo Riesgo Inmediata</strong>
-          <p style="margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--text-muted);">«¿Qué acción concreta puedes tomar ahora mismo en la mesa de caja para asegurar que tu lugar esté intacto antes del cierre de puertas?»</p>
-        </div>
+      </div>
+    `
+  },
+  {
+    id: 'staff_3_3',
+    title: '3.3 Los Siete Atajos de Cialdini y sus Límites Éticos Inquebrantables',
+    durationMinutes: 5,
+    content: `
+      <div class="alert-info" style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #f87171;">La Regla de Oro del Neuromarketing Ético</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Los atajos cognitivos descubiertos por Robert Cialdini facilitan la toma de decisiones, pero su uso ético exige una frontera infranqueable: <strong>jamás fabricar escasez falsa ni simular empatía para forzar una venta</strong>.
+        </p>
+      </div>
+
+      <div style="overflow-x: auto; margin: 1.5rem 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); text-align: left; color: var(--crear-gold);">
+              <th style="padding: 0.6rem;">Atajo Cognitivo</th>
+              <th style="padding: 0.6rem; color: #34d399;">Aplicación Ética y Legítima</th>
+              <th style="padding: 0.6rem; color: #f87171;">Límite Ético / Infracción Inaceptable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">1. Reciprocidad</td>
+              <td style="padding: 0.6rem;">Entregar valor y herramientas útiles sin esperar nada a cambio.</td>
+              <td style="padding: 0.6rem;">Dar algo para luego hacer sentir culpable o endeudada a la persona.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">2. Prueba Social</td>
+              <td style="padding: 0.6rem;">Compartir testimonios auténticos de personas con desafíos similares.</td>
+              <td style="padding: 0.6rem;">Exagerar resultados o inventar casos de éxito ficticios.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">3. Autoridad</td>
+              <td style="padding: 0.6rem;">Mostrar el rigor del método, certificaciones y datos comprobables.</td>
+              <td style="padding: 0.6rem;">Presumir títulos vacíos o actuar desde la soberbia y el desprecio.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">4. Simpatía / Afinidad</td>
+              <td style="padding: 0.6rem;">Encontrar puntos en común y escuchar con calidez genuina.</td>
+              <td style="padding: 0.6rem;">Halagos falsos y manipulación emocional fingida.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">5. Escasez Real</td>
+              <td style="padding: 0.6rem;">Informar con transparencia cupos físicos o límites reales de cupo.</td>
+              <td style="padding: 0.6rem;">Contadores regresivos falsos o amenazar con «último día» inventado.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">6. Consistencia</td>
+              <td style="padding: 0.6rem;">Recordar compromisos voluntarios declarados por la propia persona.</td>
+              <td style="padding: 0.6rem;">Atrapar a la persona en contradicciones lógicas para humillarla.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <td style="padding: 0.6rem; font-weight: bold;">7. Unidad</td>
+              <td style="padding: 0.6rem;">Hacerla sentir parte de una comunidad que cuida su crecimiento.</td>
+              <td style="padding: 0.6rem;">Generar sectarismo, hostilidad hacia el exterior o aislamiento.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     `
   }
 ];
 
+// =========================================================================================
+// MÓDULO IV: RESPONSABILIDAD RADICAL (CAUSA VS. EFECTO) Y KIT DE ACCIÓN
+// =========================================================================================
 export const moduloStaff4 = [
   {
     id: 'staff_4_1',
-    title: '4.1 Los 9 Niveles de Excelencia y Estructura Organizacional',
+    title: '4.1 Modo Causa vs. Modo Efecto (La Burocracia Emocional de la Queja)',
     durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">Unificación de Mando CPSL 2026</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          Queda <strong>formalmente eliminado el cargo de «Subdirector»</strong> en todas las sedes nacionales e internacionales. Todas las responsabilidades comerciales, operativas y contables quedan unificadas en el <strong>Gerente de Sede (Nivel 8)</strong> para erradicar la duplicidad de mandos y la fricción burocrática.
+      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">El Axioma Fundamental de la Responsabilidad</h4>
+        <p style="margin: 0; font-size: 1.1rem; color: #fff; font-weight: bold; text-align: center; letter-spacing: 0.5px;">
+          «Tú eres la CAUSA de tus resultados, no el EFECTO de tus circunstancias.»
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">Escalafón Oficial de 9 Niveles</h3>
-      <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1rem 0;">
-        <thead>
-          <tr style="border-bottom: 2px solid rgba(255,255,255,0.15); text-align: left; color: var(--text-muted);">
-            <th style="padding: 0.5rem;">Nivel</th>
-            <th style="padding: 0.5rem;">Rol</th>
-            <th style="padding: 0.5rem;">Enfoque Principal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: var(--crear-gold);">Nivel 1</td><td>Participante en Sala</td><td>Vivencia del entrenamiento y aprendizaje personal.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: var(--crear-gold);">Nivel 2</td><td>Egresado / Comunidad</td><td>Embajador de la visión y testimonio vivo.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #38bdf8;">Nivel 3</td><td>Aliado</td><td>Soporte logístico, registro de asistencia y mesas.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #38bdf8;">Nivel 4</td><td>Mánager de Sede</td><td>Contención de alumnos, llamadas de seguimiento y Palabra Rota.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #8b5cf6;">Nivel 5</td><td>Coordinador C1 / C2 (CC1Y2)</td><td>Liderazgo operativo del salón C1/C2 y montaje de herradura.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #8b5cf6;">Nivel 6</td><td>Coordinador de Maestría (CMJ)</td><td>Supervisión de Futuros Imposibles, retención y logística MJ.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #f59e0b;">Nivel 7</td><td>Quantum Team (QT)</td><td>Auditoría predictiva, enlace comercial e inteligencia de datos.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #f59e0b;">Nivel 8</td><td>Gerente de Sede</td><td>Máxima autoridad local: P&L de sede, supervisión Nodus y cierre de sala.</td></tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);"><td style="padding: 0.5rem; color: #ef4444;">Nivel 9</td><td>Equipo de Oficina & Dirección General</td><td>Gobernanza corporativa, facturación, conciliación contable y plataforma.</td></tr>
-        </tbody>
-      </table>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f59e0b;">
+          <h4 style="margin: 0 0 0.5rem; color: #fbbf24;">🏟️ El Espectador en la Arena (Efecto)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem;">
+            Se enfoca en justificar por qué las cosas salieron mal: el tráfico, la economía, el banco, el clima o la falta de interés del cliente.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px; font-size: 0.85rem; color: #fca5a5;">
+            Consume hasta un <strong>28% de su energía en burocracia emocional</strong> (quejarse, buscar culpables). Es cómodo porque no asume culpa, pero tiene <strong>cero poder</strong> para cambiar la realidad.
+          </div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #8b5cf6;">
+          <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Causa OS)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem;">
+            Asume la autoría del 100% de lo que ocurre en su espacio de influencia y en sus conversaciones.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px; font-size: 0.85rem; color: #c4b5fd;">
+            Ante un quiebre se pregunta: <em>«¿Quién estoy siendo yo para que este resultado ocurra y qué acción responsable puedo tomar en los próximos 5 minutos para transformar esta situación?»</em>.
+          </div>
+        </div>
+      </div>
     `
   },
   {
     id: 'staff_4_2',
-    title: '4.2 La Rutina Semanal del CC1Y2 y CMJ',
+    title: '4.2 El Rigor de los Hechos Duros y la Separación del Drama',
     durationMinutes: 5,
     content: `
-      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Deadlines Críticos e Impecabilidad de Entrega</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          La excelencia en sala durante el fin de semana se construye estrictamente en la disciplina de los deadlines administrativos de lunes a jueves.
+      <div class="alert-info" style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">Distinguiendo Hechos de Interpretaciones</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          La mayoría de las conversaciones difíciles se empantanan porque mezclamos lo que efectivamente ocurrió (los hechos duros) con lo que sentimos o suponemos sobre lo que ocurrió (las interpretaciones).
         </p>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">Calendario de Deadlines Operativos</h3>
-      <ul style="color: var(--text-muted); line-height: 1.8;">
-        <li><strong style="color: #f87171;">Lunes 12:00 PM:</strong> Trigger de Impecabilidad Contable. Conciliación de caja de sede del fin de semana previo.</li>
-        <li><strong style="color: #fbbf24;">Martes 12:00 PM:</strong> Envío de reportes de gastos autorizados y solicitud de viáticos.</li>
-        <li><strong style="color: #f87171;">Miércoles 19:00 PM:</strong> Carga del 100% de las Fichas de Inscripción (FI) de Maestría en Nodus. A las 19:01 PM se activa el trigger de Alerta de Deserción si la meta no está cargada.</li>
-        <li><strong style="color: #38bdf8;">Miércoles 20:00 PM:</strong> Grounding Virtual de Aliados de C2 (hora exacta, cero tolerancia de retraso).</li>
-        <li><strong style="color: #a78bfa;">Jueves 15:00 PM:</strong> Montaje de sala y prueba de sonido (altura mínima de techo 4.5 metros obligatoria).</li>
-        <li><strong style="color: #a78bfa;">Jueves 18:00 PM:</strong> Grounding presencial de Aliados C1 con puertas cerradas.</li>
-        <li><strong style="color: #34d399;">Domingo 21:00 PM:</strong> Cierre Contable POS obligatorio y envío de PDF consolidado de fichas físicas a Elizabeth Escobar.</li>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #10b981;">
+          <strong style="color: #34d399;">Hecho Duro (Objetivo, Medible):</strong>
+          <p style="margin: 0.4rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            «El reloj marca las 14:30. El documento no ha ingresado al buzón acordado.» No hay emoción ni juicio; es simplemente la realidad observable.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 1rem; border-left: 4px solid #ef4444;">
+          <strong style="color: #f87171;">Interpretación / Drama (Subjetivo):</strong>
+          <p style="margin: 0.4rem 0 0; font-size: 0.88rem; color: var(--text-muted);">
+            «No le importa el proceso», «siempre es un irresponsable», «me está faltando el respeto». Son historias mentales que desatan reactividad y conflicto estéril.
+          </p>
+        </div>
+      </div>
+
+      <h4 style="color: var(--crear-gold); margin-top: 1.5rem;">El Ciclo de 4 Pasos para la Calibración Ética</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 1rem;">
+        <div class="glass-panel" style="padding: 0.8rem; border-top: 3px solid #38bdf8;">
+          <strong style="color: #38bdf8;">1. Validación</strong>
+          <p style="font-size: 0.82rem; margin: 0.3rem 0 0; color: var(--text-muted);">Reconocer su emoción sin juzgarla: «Escucho que te sientes abrumado».</p>
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-top: 3px solid #f59e0b;">
+          <strong style="color: #f59e0b;">2. Consentimiento</strong>
+          <p style="font-size: 0.82rem; margin: 0.3rem 0 0; color: var(--text-muted);">Pedir permiso: «¿Me permites hacerte una pregunta sobre tu meta?».</p>
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-top: 3px solid #8b5cf6;">
+          <strong style="color: #8b5cf6;">3. Contexto</strong>
+          <p style="font-size: 0.82rem; margin: 0.3rem 0 0; color: var(--text-muted);">Mostrar el hecho duro separándolo del juicio personal.</p>
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-top: 3px solid #10b981;">
+          <strong style="color: #10b981;">4. Elección Libre</strong>
+          <p style="font-size: 0.82rem; margin: 0.3rem 0 0; color: var(--text-muted);">«La decisión es 100% tuya y honraremos lo que elijas para ti».</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'staff_4_3',
+    title: '4.3 El Kit de Acción: Método M-A-G-I-C y Checklist de Impecabilidad',
+    durationMinutes: 5,
+    content: `
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Estructuración de Invitaciones Magnéticas (M-A-G-I-C)</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Para invitar a una persona a un proceso formativo sin generar fricción cognitiva, estructura tu comunicación bajo las cinco dimensiones del Método M-A-G-I-C:
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 0.8rem; border-left: 4px solid #38bdf8;">
+          <strong style="color: #38bdf8;">M — Magnetic (Razón Magnética):</strong> El motivo irresistible que conecta con su anhelo existencial.
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-left: 4px solid #8b5cf6;">
+          <strong style="color: #a78bfa;">A — Avatar (Identificación Precisa):</strong> Especificar a quién va dirigido (ej. «para quienes quieren gobernar su tiempo»).
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-left: 4px solid #10b981;">
+          <strong style="color: #34d399;">G — Goal (Resultado Concreto):</strong> La victoria tangible que alcanzará al finalizar el ciclo.
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-left: 4px solid #f59e0b;">
+          <strong style="color: #fbbf24;">I — Interval (Marco Temporal):</strong> El plazo definido (ej. «15 minutos iniciales», «90 días de maestría»).
+        </div>
+        <div class="glass-panel" style="padding: 0.8rem; border-left: 4px solid #ec4899;">
+          <strong style="color: #f472b6;">C — Container (Contenedor Seguro):</strong> El entorno de acompañamiento respetuoso y libre de coerción.
+        </div>
+      </div>
+
+      <h4 style="color: var(--crear-gold); margin-top: 1.5rem;">Checklist de Impecabilidad del Facilitador (5 Filtros)</h4>
+      <ul style="color: var(--text-muted); line-height: 1.8; margin: 0.5rem 0 0; padding-left: 1.2rem;">
+        <li><strong style="color: #fff;">1. Vasija Vacía:</strong> ¿He silenciado mi ego y mis metas comerciales para escuchar 100% al otro?</li>
+        <li><strong style="color: #fff;">2. Dolor Interno Identificado:</strong> ¿Entiendo la emoción detrás de su obstáculo o solo el síntoma superficial?</li>
+        <li><strong style="color: #fff;">3. Ecuación Equilibrada:</strong> ¿He reducido el esfuerzo y el sacrificio percibidos a casi cero?</li>
+        <li><strong style="color: #fff;">4. Modo Causa Activo:</strong> ¿Asumo el 100% de la responsabilidad de la conexión sin culpar al participante?</li>
+        <li><strong style="color: #fff;">5. Libre Elección Respetada:</strong> ¿Respeto con amor su derecho a decir que «No» sin juzgarlo?</li>
       </ul>
     `
   }
 ];
 
+// ESTRUCTURA PRINCIPAL DE LOS 4 MÓDULOS DE CONOCIMIENTO Y RETOS
 export const nodusStaffModules = [
   {
     id: 'modulo_staff_1',
     numero: 'Módulo I',
-    titulo: 'Módulo I: Fisonomía y Presencia (Código de Honor)',
-    descripcion: 'El estándar de excelencia negra, neutralidad visual y la fisionomía del guardián del tiempo en sala.',
-    rolObjetivo: 'Aliados, Mánagers, Capitanes',
-    duracionMinutos: '7 min • 2 lecciones',
+    titulo: 'Módulo I: Biología de la Decisión y Neuromarketing Ético',
+    descripcion: 'Los Tres Cerebros, el Perro Guardián (ahorrar energía y evitar peligro), las 3 estrategias para calmarlo y la fisonomía de la comunicación.',
+    rolObjetivo: 'Comunicación Asertiva',
+    duracionMinutos: '14 min • 3 lecciones',
     xpReward: 300,
-    badgeAward: 'sombra_impecable',
+    badgeAward: 'mente_aprendiz',
     lecciones: moduloStaff1,
     tieneEvaluacion: true
   },
   {
     id: 'modulo_staff_2',
     numero: 'Módulo II',
-    titulo: 'Módulo II: Coaching Ético y No Violento (El Ser en Sala)',
-    descripcion: 'El staff como guía de la historia (StoryBrand), desmantelamiento del ego y conversaciones libres de coerción.',
-    rolObjetivo: 'Mánagers, Capitanes, QT',
-    duracionMinutos: '10 min • 2 lecciones',
+    titulo: 'Módulo II: La Ecuación de Valor y Ofertas Irresistibles (Alex Hormozi)',
+    descripcion: 'La fórmula matemática de valor, la regla de la discrepancia, las 4 palancas en plastilina y el Método Grand Slam en 5 pasos.',
+    rolObjetivo: 'Arquitectura de Valor',
+    duracionMinutos: '16 min • 3 lecciones',
     xpReward: 350,
-    badgeAward: null,
+    badgeAward: 'arquitecto_valor',
     lecciones: moduloStaff2,
     tieneEvaluacion: true
   },
   {
     id: 'modulo_staff_3',
     numero: 'Módulo III',
-    titulo: 'Módulo III: Gestión de Quiebres (La Guía de Palabra Rota)',
-    descripcion: 'Trigger de Palabra Rota a las 14:01 PM del viernes y guión en 5 pasos para reactivación de compromisos.',
-    rolObjetivo: 'Mánagers, QT, Gerentes',
-    duracionMinutos: '10 min • 2 lecciones',
+    titulo: 'Módulo III: El Plan Maestro de Enrolamiento en 3 Pasos y StoryBrand (SB7)',
+    descripcion: 'El interlocutor como héroe, los 3 pasos de conversión humana, los 7 atajos éticos de Cialdini y manejo responsable de objeciones.',
+    rolObjetivo: 'Narrativa y Acuerdos',
+    duracionMinutos: '15 min • 3 lecciones',
     xpReward: 400,
-    badgeAward: 'guardian_rigor',
+    badgeAward: 'sombra_impecable',
     lecciones: moduloStaff3,
     tieneEvaluacion: true
   },
   {
     id: 'modulo_staff_4',
     numero: 'Módulo IV',
-    titulo: 'Módulo IV: Estructura de Mando y Operaciones de Sede',
-    descripcion: 'Los 9 niveles de fisonomía de CPSL 2026, unificación de Gerente de Sede y rutinas críticas de CC1Y2 y CMJ.',
-    rolObjetivo: 'Capitanes, Coordinadores, Gerentes',
-    duracionMinutos: '10 min • 2 lecciones',
+    titulo: 'Módulo IV: Responsabilidad Radical (Causa vs. Efecto) y Kit de Acción',
+    descripcion: 'El observador fuente vs el espectador en la queja, hechos duros vs drama, método M-A-G-I-C y checklist de impecabilidad.',
+    rolObjetivo: 'Integridad Operativa',
+    duracionMinutos: '15 min • 3 lecciones',
     xpReward: 450,
-    badgeAward: 'lider_imo',
+    badgeAward: 'guardian_rigor',
     lecciones: moduloStaff4,
     tieneEvaluacion: true
   }
 ];
 
-export const nodusStaffTechnicalSpec = {
-  dbSchemaSql: `-- Tabla para registrar el progreso de gamificación del Staff Nodus
-CREATE TABLE nodus_staff_gamificacion (
-    staff_id UUID PRIMARY KEY,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    rol_actual VARCHAR(30) CHECK (rol_actual IN ('Aliado', 'Manager', 'Capitán', 'Quantum Team', 'CC1Y2', 'CMJ', 'Gerente Sede')),
-    xp_acumulado INT DEFAULT 0,
-    racha_dias_activos INT DEFAULT 0,
-    nivel_fisonomia INT DEFAULT 1, -- Nivel interno de maestría (del 1 al 10)
-    ultima_sesion_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+// NIVELES DE MAESTRÍA EN COMPETENCIAS (NEUTRAL, SIN CARGOS NI RANGOS)
+export const rolesDesbloqueadosFisonomia = [
+  { nivel: 1, rol: 'Observador Consciente', minXp: 0, desc: 'Dominio de la escucha empática y contención del juicio personal.' },
+  { nivel: 2, rol: 'Calibrador del Perro Guardián', minXp: 300, desc: 'Capacidad para calmar el cerebro reptiliano y generar seguridad psicológica.' },
+  { nivel: 3, rol: 'Arquitecto de Valor', minXp: 700, desc: 'Aplicación de la Ecuación de Alex Hormozi para estructurar soluciones de bajo esfuerzo.' },
+  { nivel: 4, rol: 'Comunicador Límbico', minXp: 1200, desc: 'Conexión con el «Para Qué» profundo y alineación narrativa bajo el modelo SB7.' },
+  { nivel: 5, rol: 'Facilitador de Acuerdos', minXp: 1800, desc: 'Manejo de objeciones éticas y diseño de rampas de bajo compromiso de 15 minutos.' },
+  { nivel: 6, rol: 'Transformador de Obstáculos', minXp: 2500, desc: 'Aplicación del Método Grand Slam para convertir barreras en soluciones apalancadas.' },
+  { nivel: 7, rol: 'Integrador de Modo Causa', minXp: 3300, desc: 'Separación impecable de hechos objetivos y juicios dramáticos ante compromisos pendientes.' },
+  { nivel: 8, rol: 'Maestro de Fisonomía y Presencia', minXp: 4200, desc: 'Sostenimiento del estándar colectivo con autoridad moral y empatía libre de agresión.' },
+  { nivel: 9, rol: 'Guardián de la Integridad', minXp: 5200, desc: 'Estructuración de invitaciones con el Método M-A-G-I-C y verificación de los 5 filtros.' },
+  { nivel: 10, rol: 'Maestro en Transformación Humana', minXp: 6500, desc: 'Máxima coherencia: acompañamiento respetuoso, libre albedrío incondicional y maestría.' }
+];
 
--- Registro de lecciones completadas
-CREATE TABLE nodus_staff_lecciones_completadas (
-    registro_id SERIAL PRIMARY KEY,
-    staff_id UUID REFERENCES nodus_staff_gamificacion(staff_id),
-    leccion_id VARCHAR(50) NOT NULL,
-    calificacion_obtenida INT CHECK (calificacion_obtenida BETWEEN 0 AND 100),
-    fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tabla de Medallas y Distintivos
-CREATE TABLE nodus_staff_medallas (
-    medalla_id VARCHAR(50) PRIMARY KEY,
-    nombre_medalla VARCHAR(100) NOT NULL,
-    descripcion TEXT NOT NULL,
-    xp_recompensa INT NOT NULL
-);
-
--- Relación de medallas obtenidas por usuario
-CREATE TABLE nodus_staff_medallas_usuario (
-    usuario_id UUID REFERENCES nodus_staff_gamificacion(staff_id),
-    medalla_id VARCHAR(50) REFERENCES nodus_staff_medallas(medalla_id),
-    fecha_adquisicion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (usuario_id, medalla_id)
-);`,
-  apiEndpoints: [
-    {
-      endpoint: '/api/v1/gamificacion/progreso/leccion',
-      method: 'POST',
-      description: 'Envío de Resultado de Lección de Micro-Learning',
-      payload: {
-        staff_id: "8f3b921a-da5c-48c0-82d2-81734bc1a166",
-        email: "carlos.aliado@crearpsl.net",
-        leccion_id: "LEC-C2-PR-02",
-        modulo: "Gestión de Palabra Rota",
-        tiempo_invertido_segundos: 245,
-        respuestas_correctas: 4,
-        respuestas_incorrectas: 1,
-        calificacion_final: 80,
-        xp_ganado: 150,
-        racha_actualizada: 5
-      }
-    },
-    {
-      endpoint: '/api/v1/gamificacion/medallas/desbloquear',
-      method: 'POST',
-      description: 'Desbloqueo de Medallas y Acreditación de Rol',
-      payload: {
-        staff_id: "8f3b921a-da5c-48c0-82d2-81734bc1a166",
-        medalla_desbloqueada: {
-          medalla_id: "MED-SOMBRA-IMPECABLE",
-          nombre: "Sombra Impecable",
-          xp_otorgado: 500
-        },
-        perfil_actualizado: {
-          xp_total: 2350,
-          nivel_fisonomia: 3,
-          roles_aprobados_sistema: [
-            "Aliado Registro",
-            "Aliado Mesa de Cierre"
-          ]
-        }
-      }
-    }
-  ]
-};
-
+// MÓDULO APRENDIZ COMPLETO Y EXPANDIDO (PRESERVADO PARA ACCESO RÁPIDO)
 export const moduloAprendiz = [
   {
     id: 'lec_3c',
     code: 'LEC_3C',
-    title: 'Lección 1: Los Tres Cerebros (El Perro, el Corazón y el Científico)',
+    title: 'Lección 1: Los Tres Cerebros y el Perro Guardián',
     durationMinutes: 4,
     xpReward: 50,
-    subtitle: 'Neuromarketing Ético aplicado al servicio de sala',
-    summary: 'Para conectar con un participante, no hables de números abstractos. Nuestra mente decide usando tres directores en un teatro.',
+    subtitle: 'Neuromarketing Ético aplicado a la biología de la decisión',
+    summary: 'Para conectar con un ser humano, no hables de números abstractos. Nuestra mente decide a través de tres directores biológicos.',
     content: `
       <div class="alert-info" style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
         <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">Neuromarketing Ético: Los Tres Directores de la Mente</h4>
         <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
-          En <strong>CREAR PODER SIN LÍMITES</strong>, el enrolamiento no es convencer ni forzar. Es hablarle con respeto y precisión a la biología decisional de cada ser humano.
+          El enrolamiento ético no es convencer ni forzar. Es hablarle con respeto y precisión a la biología decisional de cada ser humano.
         </p>
       </div>
 
@@ -697,37 +956,30 @@ export const moduloAprendiz = [
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f87171;">
           <h4 style="margin: 0 0 0.5rem; color: #f87171;">🐶 1. El Perro Guardián (Cerebro Reptiliano)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-            Solo le importa sobrevivir, ahorrar energía y evitar peligros. Si le das explicaciones aburridas de 4 horas, se duerme. Si lo atacas o presionas, te muerde o huye. <strong>¡Háblale con seguridad, sencillez y transparencia!</strong>
+            Solo le importa sobrevivir, ahorrar energía y evitar peligros. Si le das explicaciones complejas o lo presionas, te muerde o huye. <strong>¡Háblale con seguridad, sencillez y transparencia!</strong>
           </p>
         </div>
 
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #ec4899;">
           <h4 style="margin: 0 0 0.5rem; color: #ec4899;">❤️ 2. El Corazón (Cerebro Límbico - Emociones)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-            Siente antes de pensar. Se conecta con historias, el valor de pertenecer a un equipo, la gratitud y la emoción del logro. <strong>¡Es el verdadero motor que nos mueve a actuar!</strong>
+            Siente antes de pensar. Se conecta con historias, el valor de pertenecer, la gratitud y la emoción del logro. <strong>¡Es el verdadero motor que nos mueve a actuar!</strong>
           </p>
         </div>
 
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #38bdf8;">
           <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">🔬 3. El Científico (Neocórtex - Lógica)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-            Es analítico, lento y gasta mucha energía metabólica. Solo sirve para <strong>JUSTIFICAR lógicamente</strong> lo que el perro y el corazón ya decidieron previamente.
+            Es analítico, lento y consume mucha energía metabólica. Solo sirve para <strong>JUSTIFICAR lógicamente</strong> lo que el perro y el corazón ya decidieron previamente.
           </p>
         </div>
-      </div>
-
-      <div class="glass-panel" style="padding: 1.2rem; background: rgba(255, 183, 3, 0.05); border: 1px solid rgba(255, 183, 3, 0.3); border-radius: 8px;">
-        <h4 style="margin: 0 0 0.5rem; color: var(--crear-gold);">💡 Máxima de Neuromarketing Ético</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
-          Tu invitación debe dar calma al Perro Guardián, hacer latir al Corazón, y darle datos claros y sencillos al Científico. Si presionas o manipulas, el Perro Guardián del participante se activará, se sentirá amenazado y rechazará la propuesta por instinto de protección biológica.
-        </p>
       </div>
     `
   },
   {
     id: 'lec_eq',
     code: 'LEC_EQ',
-    title: 'Lección 2: La Ecuación de Valor en Sopa de Letras (Alex Hormozi)',
+    title: 'Lección 2: La Ecuación de Valor (Alex Hormozi)',
     durationMinutes: 4,
     xpReward: 50,
     subtitle: 'Cómo crear valor irresistible reduciendo el esfuerzo y sacrificio a cero',
@@ -740,30 +992,22 @@ export const moduloAprendiz = [
         </div>
       </div>
 
-      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">Imagina esto como servir una Sopa:</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0;">
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #10b981;">
-          <h4 style="margin: 0 0 0.5rem; color: #34d399;">⬆️ ARRIBA (Lo que Multiplica el Valor)</h4>
+          <h4 style="margin: 0 0 0.5rem; color: #34d399;">⬆️ Numerador (Multiplica el Valor)</h4>
           <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-            <li><strong>El Sueño:</strong> El sabor supremo y aroma de la sopa.</li>
-            <li><strong>Probabilidad de Logro:</strong> La certeza total de que el chef sabe cocinar a nivel Michelin y no fallará.</li>
+            <li><strong>El Sueño:</strong> El resultado anhelado y la visión cumplida.</li>
+            <li><strong>Probabilidad de Logro:</strong> La certeza total transmitida por el andamiaje y los testimonios.</li>
           </ul>
         </div>
 
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #ef4444;">
-          <h4 style="margin: 0 0 0.5rem; color: #f87171;">⬇️ ABAJO (Lo que Destruye el Valor)</h4>
+          <h4 style="margin: 0 0 0.5rem; color: #f87171;">⬇️ Denominador (Destruye el Valor)</h4>
           <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-            <li><strong>Espera:</strong> Cuánto tarda en llegar el plato a la mesa.</li>
-            <li><strong>Esfuerzo y Sacrificio:</strong> Si el cliente tiene que ir a comprar los ingredientes y lavar los platos después.</li>
+            <li><strong>Retraso Temporal:</strong> Cuánto tarda en verse la primera victoria.</li>
+            <li><strong>Esfuerzo y Sacrificio:</strong> La fricción y dificultad que el usuario debe soportar solo.</li>
           </ul>
         </div>
-      </div>
-
-      <div class="glass-panel" style="padding: 1.2rem; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px;">
-        <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">💡 Cómo aplicarlo en Sala y en Nodus</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
-          Si quieres que el entrenamiento sea irresistible, no intentes cobrar menos ni regalar descuentos que devalúen el proceso. En su lugar: <strong>¡REDUCE EL ESFUERZO Y EL SACRIFICIO!</strong> Facilita el pago en un clic en Nodus, entrega guías listas de usar y asegura al participante que su Mánager caminará con él paso a paso. Así, la fricción baja a cero.
-        </p>
       </div>
     `
   },
@@ -773,7 +1017,7 @@ export const moduloAprendiz = [
     title: 'Lección 3: El Observador Causa vs. El Espectador en la Arena',
     durationMinutes: 4,
     xpReward: 50,
-    subtitle: 'El principio ontológico maestro de CREAR PODER SIN LÍMITES',
+    subtitle: 'El principio ontológico maestro de la Responsabilidad Radical',
     summary: '«Tú eres la CAUSA de tus resultados, no el EFECTO de tus circunstancias.»',
     content: `
       <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
@@ -787,39 +1031,51 @@ export const moduloAprendiz = [
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f59e0b;">
           <h4 style="margin: 0 0 0.5rem; color: #fbbf24;">🏟️ El Espectador en la Arena (Efecto)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-            Se queja del clima, del hotel, de que el participante no paga, del tráfico o de que el sistema se cayó.
+            Se queja del entorno, de que el otro no colabora, del sistema o de la falta de dinero. Es cómodo porque no asume culpa, pero no tiene ningún poder de cambio.
           </p>
-          <div style="background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px; font-size: 0.85rem; color: #fca5a5;">
-            «Es que no tiene dinero», «Es que el banco falló». Estar en la arena de espectador es cómodo porque no tienes la culpa, pero no tienes <strong>NINGÚN PODER</strong> para transformar la realidad.
-          </div>
         </div>
 
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #8b5cf6;">
           <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Causa OS)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-            Asume la responsabilidad radical del 100% de lo que ocurre en su metro cuadrado y en su sala.
+            Asume la autoría del 100% de lo que ocurre en sus acuerdos. Ante un quiebre se pregunta: <em>«¿Qué acción responsable puedo tomar yo para transformar esta situación ahora mismo?»</em>.
           </p>
-          <div style="background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px; font-size: 0.85rem; color: #c4b5fd;">
-            Ante una Palabra Rota, se pregunta: <em>«¿Quién estoy siendo yo para que el participante prefiera romper su palabra?»</em> y <em>«¿Qué acción responsable puedo tomar yo para limpiar esta situación ahora mismo?»</em>
-          </div>
         </div>
-      </div>
-
-      <div class="glass-panel" style="padding: 1.2rem; background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px;">
-        <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">💡 Integración Nodus + Causa OS</h4>
-        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
-          Nodus registra el hecho frío (los datos y los números). Causa OS identifica tu nivel de compromiso ontológico y te mueve de la queja estéril (arena) al liderazgo accionable de servicio.
-        </p>
       </div>
     `
   }
 ];
 
-export const rolesDesbloqueadosFisonomia = [
-  { nivel: 1, rol: 'Aliado en Puerta', minXp: 0, desc: 'Acreditado para recepción inicial, saludo impecable y control de accesos.' },
-  { nivel: 2, rol: 'Aliado en Caja / Registro', minXp: 300, desc: 'Acreditado para escaneo de QR, custodia de fichas de inscripción y validación de vouchers.' },
-  { nivel: 4, rol: 'Mánager de Equipo', minXp: 900, desc: 'Acreditado para contención de participantes, llamadas de seguimiento y gestión de Palabra Rota.' },
-  { nivel: 6, rol: 'Quantum Team (Sombra)', minXp: 1500, desc: 'Acreditado para supervisión de dinámicas de sala, Caída de Confianza y soporte directo al Entrenador.' },
-  { nivel: 8, rol: 'Capitán de Sede', minXp: 2100, desc: 'Acreditado para groundings matutinos, control del reloj de sala y liderazgo operativo de voluntarios.' },
-  { nivel: 10, rol: 'Master Staff / Gerente Operativo', minXp: 2700, desc: 'Máxima autoridad operativa en sede: balance general, cierre de sala y gobierno de estándares.' }
-];
+// ESPECIFICACIÓN TÉCNICA DEL SISTEMA DE GAMIFICACIÓN
+export const nodusStaffTechnicalSpec = {
+  dbSchemaSql: `-- Tabla para registrar el progreso de maestría y gamificación
+CREATE TABLE nodus_maestria_gamificacion (
+    usuario_id UUID PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    nivel_maestria INT DEFAULT 1 CHECK (nivel_maestria BETWEEN 1 AND 10),
+    xp_acumulado INT DEFAULT 0,
+    racha_dias_activos INT DEFAULT 0,
+    ultima_sesion_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE nodus_retos_completados (
+    registro_id SERIAL PRIMARY KEY,
+    usuario_id UUID REFERENCES nodus_maestria_gamificacion(usuario_id),
+    reto_id VARCHAR(50) NOT NULL,
+    calificacion INT CHECK (calificacion BETWEEN 0 AND 100),
+    fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);`,
+  apiEndpoints: [
+    {
+      endpoint: '/api/v1/gamificacion/progreso/reto',
+      method: 'POST',
+      description: 'Envío de Resultado de Reto de Comunicación',
+      payload: {
+        reto_id: "sim_caso_1",
+        opcion_seleccionada: "opt_c",
+        es_impecable: true,
+        xp_ganado: 150
+      }
+    }
+  ]
+};

@@ -7,7 +7,8 @@ import {
   nodusStaffBadges, 
   nodusStaffRoleCertifications, 
   nodusStaffSimulations, 
-  nodusStaffTechnicalSpec 
+  nodusStaffTechnicalSpec,
+  rolesDesbloqueadosFisonomia
 } from '../data/nodusStaffCurriculum';
 import { getUserProgress } from '../services/db';
 import DOMPurify from 'dompurify';
@@ -17,22 +18,25 @@ export default function RutaFormacion() {
   const [activeTab, setActiveTab] = useState('staff'); // 'staff' | 'academic'
   const [progress, setProgress] = useState({ completedLessons: [], evaluationsPassed: [] });
 
-  // Estado persistente de Gamificación Staff Nodus
-  const storageKey = user ? `nodus_staff_state_${user.uid}` : 'nodus_staff_state_guest';
+  // Estado persistente de Gamificación y Maestría
+  const storageKey = user ? `nodus_maestria_state_${user.uid}` : 'nodus_maestria_state_guest';
   const [staffState, setStaffState] = useState(() => {
     try {
       const saved = localStorage.getItem(storageKey);
       if (saved) return JSON.parse(saved);
+      // Fallback a clave previa
+      const legacy = localStorage.getItem(user ? `nodus_staff_state_${user.uid}` : 'nodus_staff_state_guest');
+      if (legacy) return JSON.parse(legacy);
     } catch (e) {
-      console.warn("Error leyendo staffState de localStorage", e);
+      console.warn("Error leyendo estado de maestría de localStorage", e);
     }
     return {
       xp: 850,
       streak: 5,
-      currentRole: 'Aliado',
-      nivelFisonomia: 3,
+      currentTrack: 'Arquitectura de Valor',
+      nivelMaestria: 3,
       completedLessons: ['staff_1_1'],
-      unlockedBadges: ['sombra_impecable'],
+      unlockedBadges: ['mente_aprendiz'],
       simulationAnswers: {}
     };
   });
@@ -43,12 +47,27 @@ export default function RutaFormacion() {
   const [copiedSql, setCopiedSql] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
 
-  // Guardar staffState en localStorage al cambiar
+  // Estados interactivos para el Simulador de la Ecuación de Valor (Alex Hormozi)
+  const [valResultado, setValResultado] = useState(9);
+  const [valProbabilidad, setValProbabilidad] = useState(8);
+  const [valTiempo, setValTiempo] = useState(2);
+  const [valEsfuerzo, setValEsfuerzo] = useState(2);
+
+  // Estados interactivos para el Checklist de Impecabilidad (5 Filtros)
+  const [checklist, setChecklist] = useState({
+    vasijaVacia: true,
+    dolorIdentificado: true,
+    ecuacionEquilibrada: true,
+    modoCausa: false,
+    libreEleccion: false
+  });
+
+  // Guardar estado en localStorage al cambiar
   useEffect(() => {
     try {
       localStorage.setItem(storageKey, JSON.stringify(staffState));
     } catch (e) {
-      console.warn("Error guardando staffState", e);
+      console.warn("Error guardando estado de maestría", e);
     }
   }, [staffState, storageKey]);
 
@@ -63,34 +82,18 @@ export default function RutaFormacion() {
     setTimeout(() => setToastMessage(null), 4000);
   };
 
-  // Cálculo del nivel de Fisonomía según XP acumulado
-  const calculateFisonomiaLevel = (xp) => {
-    if (xp >= 3500) return 10;
-    if (xp >= 2800) return 9;
-    if (xp >= 2200) return 8;
-    if (xp >= 1700) return 7;
-    if (xp >= 1300) return 6;
-    if (xp >= 950) return 5;
-    if (xp >= 650) return 4;
-    if (xp >= 400) return 3;
-    if (xp >= 200) return 2;
+  // Cálculo del nivel de maestría según XP acumulado
+  const calculateMaestriaLevel = (xp) => {
+    for (let i = rolesDesbloqueadosFisonomia.length - 1; i >= 0; i--) {
+      if (xp >= rolesDesbloqueadosFisonomia[i].minXp) {
+        return rolesDesbloqueadosFisonomia[i].nivel;
+      }
+    }
     return 1;
   };
 
-  const getFisonomiaTitle = (lvl) => {
-    switch (lvl) {
-      case 1: return 'Postulante / Observador';
-      case 2: return 'Aliado en Registro';
-      case 3: return 'Aliado Certificado';
-      case 4: return 'Mánager Junior';
-      case 5: return 'Mánager Senior';
-      case 6: return 'Quantum Team (QT) Aspirante';
-      case 7: return 'Quantum Team (QT) Operativo';
-      case 8: return 'Capitán de Sede';
-      case 9: return 'Coordinador de Sala (CC1Y2 / CMJ)';
-      case 10: return 'Master Staff / Gerente Operativo';
-      default: return 'Staff Nodus';
-    }
+  const getMaestriaData = (lvl) => {
+    return rolesDesbloqueadosFisonomia.find(r => r.nivel === lvl) || rolesDesbloqueadosFisonomia[0];
   };
 
   // Manejador de respuestas en la simulación interactiva
@@ -99,7 +102,7 @@ export default function RutaFormacion() {
     if (currentAns?.isCorrect) return; // Ya resuelto correctamente
 
     const newXp = Math.max(0, staffState.xp + option.xpDelta);
-    const newLvl = calculateFisonomiaLevel(newXp);
+    const newLvl = calculateMaestriaLevel(newXp);
     let updatedBadges = [...staffState.unlockedBadges];
 
     // Desbloquear medalla si es correcta y elegible
@@ -112,7 +115,7 @@ export default function RutaFormacion() {
     setStaffState(prev => ({
       ...prev,
       xp: newXp,
-      nivelFisonomia: newLvl,
+      nivelMaestria: newLvl,
       unlockedBadges: updatedBadges,
       simulationAnswers: {
         ...prev.simulationAnswers,
@@ -137,11 +140,11 @@ export default function RutaFormacion() {
   const handleCompleteStaffLesson = (lessonId, xpAward = 150) => {
     if (staffState.completedLessons.includes(lessonId)) return;
     const newXp = staffState.xp + xpAward;
-    const newLvl = calculateFisonomiaLevel(newXp);
+    const newLvl = calculateMaestriaLevel(newXp);
     setStaffState(prev => ({
       ...prev,
       xp: newXp,
-      nivelFisonomia: newLvl,
+      nivelMaestria: newLvl,
       completedLessons: [...prev.completedLessons, lessonId]
     }));
     showToast(`✓ Lección completada (+${xpAward} XP)`, 'gold');
@@ -153,6 +156,36 @@ export default function RutaFormacion() {
     setCopiedSql(true);
     setTimeout(() => setCopiedSql(false), 3000);
   };
+
+  // Presets para el Simulador de la Ecuación de Valor
+  const applyPreset = (preset) => {
+    if (preset === 'tradicional') {
+      setValResultado(6);
+      setValProbabilidad(4);
+      setValTiempo(8);
+      setValEsfuerzo(9);
+      showToast('Cargado: Oferta Tradicional con Alta Fricción');
+    } else if (preset === 'optimizada') {
+      setValResultado(8);
+      setValProbabilidad(7);
+      setValTiempo(4);
+      setValEsfuerzo(4);
+      showToast('Cargado: Oferta Optimizada');
+    } else if (preset === 'grand_slam') {
+      setValResultado(10);
+      setValProbabilidad(10);
+      setValTiempo(1);
+      setValEsfuerzo(1);
+      showToast('Cargado: Oferta Grand Slam (Hormozi)', 'success');
+    }
+  };
+
+  // Cálculo del valor de la ecuación
+  const valorCalculado = ((valResultado * valProbabilidad) / Math.max(0.5, (valTiempo * valEsfuerzo) / 2)).toFixed(1);
+
+  // Progreso del checklist de impecabilidad
+  const checklistCount = Object.values(checklist).filter(Boolean).length;
+  const checklistPercent = Math.round((checklistCount / 5) * 100);
 
   // Funciones auxiliares de la Ruta Académica existente
   const isAcademicModuleCompleted = (mod) => {
@@ -170,8 +203,15 @@ export default function RutaFormacion() {
     return 'bloqueado';
   };
 
-  const currentFisonomiaLevel = calculateFisonomiaLevel(staffState.xp);
-  const currentFisonomiaTitle = getFisonomiaTitle(currentFisonomiaLevel);
+  const currentLevel = calculateMaestriaLevel(staffState.xp);
+  const currentMaestria = getMaestriaData(currentLevel);
+  const nextMaestria = currentLevel < 10 ? getMaestriaData(currentLevel + 1) : null;
+  const xpCurrentLevelMin = currentMaestria.minXp;
+  const xpNextLevelMin = nextMaestria ? nextMaestria.minXp : xpCurrentLevelMin + 1000;
+  const xpIntoCurrentLevel = Math.max(0, staffState.xp - xpCurrentLevelMin);
+  const xpNeededForNext = Math.max(1, xpNextLevelMin - xpCurrentLevelMin);
+  const levelProgressPercent = Math.min(100, Math.round((xpIntoCurrentLevel / xpNeededForNext) * 100));
+
   const activeSim = nodusStaffSimulations.find(s => s.id === activeSimulationId) || nodusStaffSimulations[0];
   const simResult = staffState.simulationAnswers[activeSim.id];
 
@@ -199,7 +239,7 @@ export default function RutaFormacion() {
         </div>
       )}
 
-      {/* Header Principal */}
+      {/* Header Principal con Marca Oficial */}
       <div style={{marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem'}}>
           <div>
@@ -213,22 +253,22 @@ export default function RutaFormacion() {
                 fontWeight: 'bold',
                 letterSpacing: '0.05em'
               }}>
-                CREAR PODER SIN LÍMITES 2026
+                CREAR PODER SIN LÍMITES
               </span>
               <span style={{
-                background: 'rgba(14, 165, 233, 0.15)',
-                color: '#38bdf8',
+                background: 'rgba(16, 185, 129, 0.15)',
+                color: '#34d399',
                 padding: '4px 12px',
                 borderRadius: '20px',
                 fontSize: '0.8rem',
                 fontWeight: 'bold'
               }}>
-                V1.0 OFICIAL
+                MAESTRÍA EN COMUNICACIÓN Y RETOS
               </span>
             </div>
-            <h1 style={{fontSize: '2.6rem', margin: '0.5rem 0 0.2rem', fontWeight: 800}}>Ruta de Formación</h1>
-            <p className="text-muted" style={{fontSize: '1.05rem', margin: 0}}>
-              Arquitectura dual: Formación de Liderazgo Operativo Staff Nodus y Escuela Académica de Coaching.
+            <h1 style={{fontSize: '2.6rem', margin: '0.5rem 0 0.2rem', fontWeight: 800}}>Ruta de Formación y Retos</h1>
+            <p className="text-muted" style={{fontSize: '1.05rem', margin: 0, maxWidth: '850px'}}>
+              Entrenamiento riguroso en Neuromarketing Ético, la Ecuación de Alex Hormozi, Enrolamiento en 3 Pasos y Responsabilidad Radical.
             </p>
           </div>
 
@@ -238,7 +278,7 @@ export default function RutaFormacion() {
               className="btn-secondary"
               style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', borderColor: '#f59e0b', color: '#f59e0b'}}
             >
-              <span>📜 BrandScript MJ</span>
+              <span>📜 BrandScript & Guiones</span>
             </Link>
 
             <Link
@@ -246,7 +286,7 @@ export default function RutaFormacion() {
               className="btn-primary"
               style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none'}}
             >
-              <span>🎮 Modo Aprendiz & Simulador</span>
+              <span>🎮 Simulador & Modo Aprendiz</span>
             </Link>
 
             <button 
@@ -258,7 +298,7 @@ export default function RutaFormacion() {
                 <polyline points="16 18 22 12 16 6"></polyline>
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
-              Blueprint Técnico & API
+              Blueprint Técnico
             </button>
           </div>
         </div>
@@ -294,7 +334,7 @@ export default function RutaFormacion() {
             }}
           >
             <span>⚡</span>
-            <span>Ruta Nodus Staff (Micro-Learning & Gamificación)</span>
+            <span>Maestría en Comunicación, Valor y Retos</span>
             <span style={{
               background: 'var(--crear-gold)',
               color: '#000',
@@ -303,7 +343,7 @@ export default function RutaFormacion() {
               fontSize: '0.75rem',
               fontWeight: 800
             }}>
-              4 Módulos
+              4 Módulos & Retos
             </span>
           </button>
 
@@ -343,12 +383,12 @@ export default function RutaFormacion() {
       </div>
 
       {/* ============================================================== */}
-      {/* PESTAÑA 1: RUTA NODUS STAFF & GAMIFICACIÓN 2026                 */}
+      {/* PESTAÑA 1: MAESTRÍA EN COMUNICACIÓN, VALOR Y RETOS             */}
       {/* ============================================================== */}
       {activeTab === 'staff' && (
         <div className="fade-in" style={{display: 'flex', flexDirection: 'column', gap: '2.5rem'}}>
           
-          {/* HUD de Gamificación del Staff Nodus */}
+          {/* HUD de Maestría y Competencias (Completamente Neutral) */}
           <section className="glass-panel" style={{
             padding: '1.8rem',
             background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(7, 13, 31, 0.95) 100%)',
@@ -380,22 +420,22 @@ export default function RutaFormacion() {
                   fontSize: '2rem',
                   boxShadow: '0 8px 20px rgba(255, 183, 3, 0.3)'
                 }}>
-                  🛡️
+                  ⚖️
                 </div>
                 <div>
                   <div style={{fontSize: '0.85rem', textTransform: 'uppercase', color: 'var(--crear-gold)', fontWeight: 800, letterSpacing: '0.05em'}}>
-                    Fisonomía Operativa Nodus
+                    Nivel de Maestría en Comunicación y Retos
                   </div>
                   <h2 style={{margin: '0.1rem 0', fontSize: '1.6rem', color: '#fff'}}>
-                    Nivel {currentFisonomiaLevel}: {currentFisonomiaTitle}
+                    Nivel {currentLevel}: {currentMaestria.rol}
                   </h2>
                   <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>
-                    Rol Activo: <span style={{color: '#38bdf8', fontWeight: 'bold'}}>{staffState.currentRole}</span>
+                    {currentMaestria.desc}
                   </div>
                 </div>
               </div>
 
-              {/* Contadores XP y Racha */}
+              {/* Contadores XP, Racha y Enfoque */}
               <div style={{display: 'flex', gap: '1.2rem', flexWrap: 'wrap'}}>
                 <div style={{
                   background: 'rgba(0,0,0,0.4)',
@@ -404,7 +444,7 @@ export default function RutaFormacion() {
                   border: '1px solid rgba(255,255,255,0.08)',
                   textAlign: 'center'
                 }}>
-                  <div style={{fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase'}}>XP Total</div>
+                  <div style={{fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase'}}>XP Acumulado</div>
                   <div style={{fontSize: '1.6rem', fontWeight: 900, color: 'var(--crear-gold)'}}>
                     {staffState.xp.toLocaleString()} <span style={{fontSize: '0.8rem', fontWeight: 'normal'}}>XP</span>
                   </div>
@@ -423,7 +463,7 @@ export default function RutaFormacion() {
                   </div>
                 </div>
 
-                {/* Selector de Rol */}
+                {/* Enfoque de Práctica Activo */}
                 <div style={{
                   background: 'rgba(0,0,0,0.4)',
                   padding: '10px 14px',
@@ -433,13 +473,13 @@ export default function RutaFormacion() {
                   flexDirection: 'column',
                   justifyContent: 'center'
                 }}>
-                  <label htmlFor="staff-role-select" style={{fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase'}}>
-                    Asignar Rol
+                  <label htmlFor="maestria-track-select" style={{fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase'}}>
+                    Enfoque Activo
                   </label>
                   <select
-                    id="staff-role-select"
-                    value={staffState.currentRole}
-                    onChange={(e) => setStaffState(prev => ({ ...prev, currentRole: e.target.value }))}
+                    id="maestria-track-select"
+                    value={staffState.currentTrack}
+                    onChange={(e) => setStaffState(prev => ({ ...prev, currentTrack: e.target.value }))}
                     style={{
                       background: 'rgba(255,255,255,0.08)',
                       border: '1px solid rgba(255,255,255,0.15)',
@@ -450,31 +490,32 @@ export default function RutaFormacion() {
                       cursor: 'pointer'
                     }}
                   >
-                    <option value="Aliado" style={{background: '#070d1f'}}>Aliado</option>
-                    <option value="Mánager" style={{background: '#070d1f'}}>Mánager</option>
-                    <option value="Capitán" style={{background: '#070d1f'}}>Capitán</option>
-                    <option value="Quantum Team" style={{background: '#070d1f'}}>Quantum Team (QT)</option>
-                    <option value="CC1Y2" style={{background: '#070d1f'}}>CC1Y2</option>
-                    <option value="CMJ" style={{background: '#070d1f'}}>CMJ</option>
-                    <option value="Gerente Sede" style={{background: '#070d1f'}}>Gerente Sede</option>
+                    <option value="Neuromarketing Ético" style={{background: '#070d1f'}}>Neuromarketing Ético</option>
+                    <option value="Arquitectura de Valor" style={{background: '#070d1f'}}>Arquitectura de Valor</option>
+                    <option value="Narrativa y StoryBrand" style={{background: '#070d1f'}}>Narrativa y StoryBrand</option>
+                    <option value="Responsabilidad Radical" style={{background: '#070d1f'}}>Responsabilidad Radical</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            {/* Barra de progreso de Fisonomía */}
+            {/* Barra de progreso de Maestría */}
             <div>
               <div style={{display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '6px', color: 'var(--text-muted)'}}>
-                <span>Progreso hacia Nivel {Math.min(10, currentFisonomiaLevel + 1)} ({getFisonomiaTitle(Math.min(10, currentFisonomiaLevel + 1))})</span>
+                <span>
+                  {nextMaestria 
+                    ? `Progreso hacia Nivel ${nextMaestria.nivel}: ${nextMaestria.rol}` 
+                    : 'NIVEL MÁXIMO DE MAESTRÍA ALCANZADO'}
+                </span>
                 <span style={{color: 'var(--crear-gold)', fontWeight: 'bold'}}>
-                  {currentFisonomiaLevel === 10 ? 'NIVEL MÁXIMO ALCANZADO' : `${staffState.xp % 500} / 500 XP`}
+                  {nextMaestria ? `${xpIntoCurrentLevel} / ${xpNeededForNext} XP (${levelProgressPercent}%)` : 'MAESTRÍA COMPLETA'}
                 </span>
               </div>
               <div className="progress-bar-container" style={{height: '8px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px'}}>
                 <div 
                   className="progress-bar-fill" 
                   style={{
-                    width: currentFisonomiaLevel === 10 ? '100%' : `${((staffState.xp % 500) / 500) * 100}%`,
+                    width: `${levelProgressPercent}%`,
                     background: 'linear-gradient(90deg, var(--crear-gold) 0%, #38bdf8 100%)',
                     boxShadow: '0 0 10px rgba(56, 189, 248, 0.4)'
                   }}
@@ -483,148 +524,215 @@ export default function RutaFormacion() {
             </div>
           </section>
 
-          {/* Vitrina de Medallas y Distintivos Oficiales */}
-          <section>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem'}}>
+          {/* SIMULADOR INTERACTIVO DE LA ECUACIÓN DE VALOR (ALEX HORMOZI) */}
+          <section className="glass-panel" style={{
+            padding: '2rem',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+            background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(7, 13, 31, 0.98) 100%)'
+          }}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem'}}>
               <div>
-                <h3 style={{fontSize: '1.4rem', margin: 0}}>Vitrina de Medallas Oficiales Nodus</h3>
-                <p className="text-muted" style={{fontSize: '0.9rem', margin: 0}}>
-                  Insignias requeridas para la certificación y habilitación operativa en CREAR PODER SIN LÍMITES.
+                <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.3rem'}}>
+                  <span style={{
+                    background: 'rgba(245, 158, 11, 0.2)',
+                    color: '#fbbf24',
+                    padding: '3px 10px',
+                    borderRadius: '12px',
+                    fontSize: '0.75rem',
+                    fontWeight: 800
+                  }}>
+                    CALCULADORA & SIMULADOR EN VIVO
+                  </span>
+                  <span style={{fontSize: '0.8rem', color: 'var(--text-muted)'}}>
+                    Marco Teórico: Alex Hormozi ($100M Offers)
+                  </span>
+                </div>
+                <h3 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: '#fff'}}>
+                  Simulador de la Ecuación de Valor
+                </h3>
+                <p style={{fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, maxWidth: '720px'}}>
+                  Ajusta las 4 palancas en tiempo real para observar cómo el cerebro humano calcula el valor percibido y cómo se desactiva el Perro Guardián.
                 </p>
               </div>
-              <span style={{fontSize: '0.85rem', color: 'var(--crear-gold)', fontWeight: 600}}>
-                {staffState.unlockedBadges.length} de {nodusStaffBadges.length} desbloqueadas
-              </span>
+
+              {/* Presets Rápidos */}
+              <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={() => applyPreset('tradicional')}
+                  className="btn-secondary"
+                  style={{fontSize: '0.75rem', padding: '6px 12px'}}
+                >
+                  Oferta Tradicional
+                </button>
+                <button 
+                  onClick={() => applyPreset('optimizada')}
+                  className="btn-secondary"
+                  style={{fontSize: '0.75rem', padding: '6px 12px'}}
+                >
+                  Oferta Optimizada
+                </button>
+                <button 
+                  onClick={() => applyPreset('grand_slam')}
+                  className="btn-primary"
+                  style={{fontSize: '0.75rem', padding: '6px 12px'}}
+                >
+                  ⚡ Grand Slam
+                </button>
+              </div>
             </div>
 
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem'}}>
-              {nodusStaffBadges.map(badge => {
-                const isUnlocked = staffState.unlockedBadges.includes(badge.id);
-                return (
-                  <div 
-                    key={badge.id}
-                    className="glass-panel"
-                    style={{
-                      padding: '1.2rem',
-                      borderTop: `3px solid ${isUnlocked ? badge.color : 'rgba(255,255,255,0.1)'}`,
-                      opacity: isUnlocked ? 1 : 0.6,
-                      background: isUnlocked ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.3)',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.8rem'}}>
-                      <div style={{
-                        fontSize: '1.8rem',
-                        filter: isUnlocked ? 'none' : 'grayscale(100%)',
-                        width: '42px',
-                        height: '42px',
-                        borderRadius: '10px',
-                        background: 'rgba(255,255,255,0.05)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        {badge.icon}
-                      </div>
-                      <div>
-                        <h4 style={{margin: 0, fontSize: '1rem', color: isUnlocked ? '#fff' : 'var(--text-muted)'}}>
-                          {badge.name}
-                        </h4>
-                        <span style={{fontSize: '0.75rem', color: badge.color, fontWeight: 700}}>
-                          +{badge.xpReward} XP
-                        </span>
-                      </div>
-                    </div>
+            {/* Display de la Fórmula y Resultado */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem',
+              alignItems: 'center',
+              background: 'rgba(0,0,0,0.4)',
+              padding: '1.5rem',
+              borderRadius: '14px',
+              border: '1px solid rgba(255,255,255,0.06)',
+              marginBottom: '1.5rem'
+            }}>
+              <div>
+                <div style={{fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--crear-gold)', fontWeight: 800, marginBottom: '6px'}}>
+                  Fórmula Matemática
+                </div>
+                <div style={{fontFamily: 'monospace', fontSize: '1rem', color: '#fde047', background: 'rgba(0,0,0,0.5)', padding: '0.8rem', borderRadius: '8px'}}>
+                  Valor = (Resultado [{valResultado}] × Probabilidad [{valProbabilidad}]) / (Retraso [{valTiempo}] × Esfuerzo [{valEsfuerzo}])
+                </div>
+              </div>
 
-                    <p style={{fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.5', minHeight: '48px', margin: '0 0 0.8rem'}}>
-                      {badge.requirement}
-                    </p>
+              <div style={{textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div style={{fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase'}}>Índice de Valor Percibido</div>
+                <div style={{
+                  fontSize: '2.8rem',
+                  fontWeight: 900,
+                  color: valorCalculado >= 20 ? '#34d399' : valorCalculado >= 8 ? 'var(--crear-gold)' : '#f87171'
+                }}>
+                  {valorCalculado}x
+                </div>
+                <span style={{
+                  fontSize: '0.8rem',
+                  padding: '3px 12px',
+                  borderRadius: '12px',
+                  background: valorCalculado >= 20 ? 'rgba(16, 185, 129, 0.2)' : valorCalculado >= 8 ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)',
+                  color: valorCalculado >= 20 ? '#34d399' : valorCalculado >= 8 ? '#fbbf24' : '#f87171',
+                  fontWeight: 'bold'
+                }}>
+                  {valorCalculado >= 20 ? '🏆 OFERTA IRRESISTIBLE (GRAND SLAM)' : valorCalculado >= 8 ? '⚖️ PROPUESTA EQUILIBRADA' : '⚠️ RESISTENCIA ELEVADA (PERRO GUARDiÁN EN ALERTA)'}
+                </span>
+              </div>
+            </div>
 
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem'}}>
-                      <span style={{fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)'}}>
-                        {badge.code}
-                      </span>
-                      {isUnlocked ? (
-                        <span style={{color: '#10b981', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px'}}>
-                          ✓ Desbloqueada
-                        </span>
-                      ) : (
-                        <span style={{color: 'rgba(255,255,255,0.4)'}}>
-                          🔒 Bloqueada
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Sliders Interactivos de las 4 Palancas */}
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.2rem'}}>
+              
+              {/* Palanca 1 */}
+              <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #10b981'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
+                  <strong style={{color: '#34d399', fontSize: '0.88rem'}}>🍲 1. Resultado Anhelado</strong>
+                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valResultado}/10</span>
+                </div>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="10" 
+                  value={valResultado} 
+                  onChange={(e) => setValResultado(Number(e.target.value))}
+                  style={{width: '100%', accentColor: '#10b981', cursor: 'pointer'}}
+                />
+                <p style={{fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0.3rem 0 0'}}>
+                  La magnitud del sueño. «La sopa aromática y nutritiva».
+                </p>
+              </div>
+
+              {/* Palanca 2 */}
+              <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #38bdf8'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
+                  <strong style={{color: '#38bdf8', fontSize: '0.88rem'}}>🌉 2. Probabilidad de Logro</strong>
+                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valProbabilidad}/10</span>
+                </div>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="10" 
+                  value={valProbabilidad} 
+                  onChange={(e) => setValProbabilidad(Number(e.target.value))}
+                  style={{width: '100%', accentColor: '#38bdf8', cursor: 'pointer'}}
+                />
+                <p style={{fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0.3rem 0 0'}}>
+                  Certeza transmitida. «El puente de acero con barandillas».
+                </p>
+              </div>
+
+              {/* Palanca 3 */}
+              <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #f59e0b'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
+                  <strong style={{color: '#fbbf24', fontSize: '0.88rem'}}>🍎 3. Retraso Temporal</strong>
+                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valTiempo}/10</span>
+                </div>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="10" 
+                  value={valTiempo} 
+                  onChange={(e) => setValTiempo(Number(e.target.value))}
+                  style={{width: '100%', accentColor: '#f59e0b', cursor: 'pointer'}}
+                />
+                <p style={{fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0.3rem 0 0'}}>
+                  Tiempo para ver la primera victoria (1 = Inmediato, 10 = Años).
+                </p>
+              </div>
+
+              {/* Palanca 4 */}
+              <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #ec4899'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
+                  <strong style={{color: '#f472b6', fontSize: '0.88rem'}}>💊 4. Esfuerzo & Sacrificio</strong>
+                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valEsfuerzo}/10</span>
+                </div>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="10" 
+                  value={valEsfuerzo} 
+                  onChange={(e) => setValEsfuerzo(Number(e.target.value))}
+                  style={{width: '100%', accentColor: '#ec4899', cursor: 'pointer'}}
+                />
+                <p style={{fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0.3rem 0 0'}}>
+                  Carga y fricción percibida (1 = Píldora lista, 10 = Gimnasio agotador).
+                </p>
+              </div>
+            </div>
+
+            {/* Diagnóstico Ontológico Dinámico */}
+            <div style={{
+              marginTop: '1.2rem',
+              padding: '1rem',
+              borderRadius: '10px',
+              background: 'rgba(0,0,0,0.3)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              fontSize: '0.88rem',
+              color: 'var(--text-muted)',
+              lineHeight: '1.6'
+            }}>
+              <strong style={{color: '#fff'}}>Diagnóstico de la Conversación:</strong>{' '}
+              {valEsfuerzo >= 7 || valTiempo >= 7 ? (
+                <span style={{color: '#fca5a5'}}>
+                  El denominador está sobrecargado. El Perro Guardián levantará objeciones inmediatas como «no tengo tiempo» o «no tengo dinero». Desfragmenta el proceso en hábitos de 5 minutos y entrega una plantilla prediseñada para acelerar su primer resultado en 48 horas.
+                </span>
+              ) : valResultado >= 8 && valProbabilidad >= 8 ? (
+                <span style={{color: '#a7f3d0'}}>
+                  La discrepancia de valor es contundente. El participante percibe un acompañamiento probado donde el costo de no avanzar supera con creces el esfuerzo requerido. Es el momento de ofrecer un acuerdo firme y sellar su palabra.
+                </span>
+              ) : (
+                <span>
+                  La propuesta tiene tracción moderada. Incrementa la prueba social con testimonios y ofrece una rampa de bajo compromiso (sesión de calibración de 15 minutos) para elevar la probabilidad de logro sin generar fricción.
+                </span>
+              )}
             </div>
           </section>
 
-          {/* Matriz de Certificación de Roles */}
-          <section className="glass-panel" style={{padding: '1.5rem'}}>
-            <h3 style={{fontSize: '1.3rem', margin: '0 0 0.5rem'}}>Requisitos de Acreditación de Roles Operativos</h3>
-            <p className="text-muted" style={{fontSize: '0.9rem', marginBottom: '1.2rem'}}>
-              Criterios de gobernanza para asumir responsabilidades de sala en CREAR PODER SIN LÍMITES.
-            </p>
-
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1rem'}}>
-              {nodusStaffRoleCertifications.map((cert, idx) => {
-                const fisonomiaMet = currentFisonomiaLevel >= cert.minFisonomia;
-                const badgeMet = !cert.requiredBadge || staffState.unlockedBadges.includes(cert.requiredBadge);
-                const isCertified = fisonomiaMet && badgeMet;
-
-                return (
-                  <div 
-                    key={idx}
-                    style={{
-                      background: isCertified ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255,255,255,0.02)',
-                      border: `1px solid ${isCertified ? 'rgba(16, 185, 129, 0.3)' : 'rgba(255,255,255,0.08)'}`,
-                      borderRadius: '12px',
-                      padding: '1rem'
-                    }}
-                  >
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem'}}>
-                      <strong style={{color: isCertified ? '#34d399' : '#fff', fontSize: '0.95rem'}}>
-                        {cert.role}
-                      </strong>
-                      <span style={{
-                        fontSize: '0.7rem',
-                        padding: '2px 8px',
-                        borderRadius: '10px',
-                        background: isCertified ? '#10b981' : 'rgba(255,255,255,0.1)',
-                        color: isCertified ? '#000' : 'var(--text-muted)',
-                        fontWeight: 'bold'
-                      }}>
-                        {isCertified ? 'ACREDITADO' : 'PENDIENTE'}
-                      </span>
-                    </div>
-
-                    <p style={{fontSize: '0.8rem', color: 'var(--text-muted)', margin: '0 0 0.8rem', lineHeight: '1.4'}}>
-                      {cert.description}
-                    </p>
-
-                    <div style={{fontSize: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '0.6rem'}}>
-                      <div style={{color: fisonomiaMet ? '#34d399' : '#f87171'}}>
-                        {fisonomiaMet ? '✓' : '✗'} Nivel Fisonomía ≥ {cert.minFisonomia} (Actual: {currentFisonomiaLevel})
-                      </div>
-                      {cert.badgeName && (
-                        <div style={{color: badgeMet ? '#34d399' : '#f87171'}}>
-                          {badgeMet ? '✓' : '✗'} Medalla «{cert.badgeName}»
-                        </div>
-                      )}
-                      {cert.moduleName && (
-                        <div style={{color: '#34d399'}}>
-                          ✓ Módulo «{cert.moduleName}»
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* SIMULADOR INTERACTIVO DE CASOS PRÁCTICOS EN VIVO */}
+          {/* SIMULADOR INTERACTIVO DE RETOS SITUACIONALES */}
           <section className="glass-panel" style={{
             padding: '2rem',
             border: '1px solid rgba(255, 183, 3, 0.3)',
@@ -640,9 +748,9 @@ export default function RutaFormacion() {
                   fontSize: '0.75rem',
                   fontWeight: 800
                 }}>
-                  ENTRENAMIENTO SITUACIONAL EN VIVO
+                  ENTRENAMIENTO SITUACIONAL DE TOMA DE DECISIONES
                 </span>
-                <h3 style={{fontSize: '1.5rem', margin: '0.4rem 0 0'}}>Simulador Interactivo de Toma de Decisiones</h3>
+                <h3 style={{fontSize: '1.5rem', margin: '0.4rem 0 0'}}>6 Retos Prácticos de Comunicación</h3>
               </div>
 
               {/* Selector de Casos */}
@@ -668,7 +776,7 @@ export default function RutaFormacion() {
                         gap: '6px'
                       }}
                     >
-                      <span>Caso {i + 1}</span>
+                      <span>Reto {i + 1}</span>
                       {isAnswered && <span style={{color: '#10b981'}}>✓</span>}
                     </button>
                   );
@@ -765,17 +873,234 @@ export default function RutaFormacion() {
             )}
           </section>
 
-          {/* PLAN DE ESTUDIOS: 4 MÓDULOS DE MICRO-LEARNING */}
+          {/* CHECKLIST INTERACTIVO DE IMPECABILIDAD (5 FILTROS) */}
+          <section className="glass-panel" style={{
+            padding: '1.8rem',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(7, 13, 31, 0.98) 100%)'
+          }}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem'}}>
+              <div>
+                <span style={{
+                  background: 'rgba(16, 185, 129, 0.2)',
+                  color: '#34d399',
+                  padding: '3px 10px',
+                  borderRadius: '12px',
+                  fontSize: '0.75rem',
+                  fontWeight: 800
+                }}>
+                  CALIBRACIÓN DE INTEGRIDAD
+                </span>
+                <h3 style={{fontSize: '1.4rem', margin: '0.3rem 0 0'}}>
+                  Checklist de Impecabilidad del Comunicador (5 Filtros)
+                </h3>
+              </div>
+              <div style={{textAlign: 'right'}}>
+                <span style={{fontSize: '1.4rem', fontWeight: 900, color: checklistPercent === 100 ? '#34d399' : 'var(--crear-gold)'}}>
+                  {checklistPercent}%
+                </span>
+                <div style={{fontSize: '0.75rem', color: 'var(--text-muted)'}}>
+                  {checklistCount} de 5 filtros validados
+                </div>
+              </div>
+            </div>
+
+            <div style={{display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
+              {[
+                { key: 'vasijaVacia', title: '1. Vasija Vacía', desc: 'Silencié mi ego, mi necesidad de convencer y mis metas numéricas para escuchar al 100% al otro.' },
+                { key: 'dolorIdentificado', title: '2. Dolor Interno Identificado', desc: 'Comprendo la emoción profunda detrás de su resistencia en lugar de quedarme en la queja superficial.' },
+                { key: 'ecuacionEquilibrada', title: '3. Ecuación Equilibrada', desc: 'Diseñé una rampa de bajo compromiso (15 min) que reduce el esfuerzo y el riesgo a cero.' },
+                { key: 'modoCausa', title: '4. Modo Causa Activo', desc: 'Asumo el 100% de la responsabilidad de la conexión sin culpar a las circunstancias ni al participante.' },
+                { key: 'libreEleccion', title: '5. Libre Elección Respetada', desc: 'Honro incondicionalmente su libertad de decir que «No» sin ejercer ninguna forma de coerción o juicio.' }
+              ].map(item => (
+                <label 
+                  key={item.key}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '12px',
+                    padding: '0.8rem 1rem',
+                    borderRadius: '10px',
+                    background: checklist[item.key] ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255,255,255,0.02)',
+                    border: `1px solid ${checklist[item.key] ? 'rgba(16, 185, 129, 0.3)' : 'rgba(255,255,255,0.06)'}`,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  <input 
+                    type="checkbox" 
+                    checked={checklist[item.key]} 
+                    onChange={(e) => {
+                      setChecklist(prev => ({ ...prev, [item.key]: e.target.checked }));
+                      if (e.target.checked) showToast(`✓ Filtro validado: ${item.title}`);
+                    }}
+                    style={{marginTop: '4px', accentColor: '#10b981', cursor: 'pointer'}}
+                  />
+                  <div>
+                    <strong style={{color: checklist[item.key] ? '#34d399' : '#fff', fontSize: '0.92rem'}}>
+                      {item.title}
+                    </strong>
+                    <p style={{margin: '0.2rem 0 0', fontSize: '0.82rem', color: 'var(--text-muted)'}}>
+                      {item.desc}
+                    </p>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </section>
+
+          {/* MATRIZ DE COMPETENCIAS Y RETOS DE MAESTRÍA */}
+          <section className="glass-panel" style={{padding: '1.5rem'}}>
+            <h3 style={{fontSize: '1.3rem', margin: '0 0 0.5rem'}}>Matriz de Competencias y Retos de Maestría</h3>
+            <p className="text-muted" style={{fontSize: '0.9rem', marginBottom: '1.2rem'}}>
+              Niveles de acreditación basados exclusivamente en dominio conceptual, rigor ético y superación de retos prácticos.
+            </p>
+
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1rem'}}>
+              {nodusStaffRoleCertifications.map((cert, idx) => {
+                const fisonomiaMet = currentLevel >= cert.minFisonomia;
+                const badgeMet = !cert.requiredBadge || staffState.unlockedBadges.includes(cert.requiredBadge);
+                const isCertified = fisonomiaMet && badgeMet;
+
+                return (
+                  <div 
+                    key={idx}
+                    style={{
+                      background: isCertified ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255,255,255,0.02)',
+                      border: `1px solid ${isCertified ? 'rgba(16, 185, 129, 0.3)' : 'rgba(255,255,255,0.08)'}`,
+                      borderRadius: '12px',
+                      padding: '1rem'
+                    }}
+                  >
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem'}}>
+                      <strong style={{color: isCertified ? '#34d399' : '#fff', fontSize: '0.95rem'}}>
+                        {cert.role}
+                      </strong>
+                      <span style={{
+                        fontSize: '0.7rem',
+                        padding: '2px 8px',
+                        borderRadius: '10px',
+                        background: isCertified ? '#10b981' : 'rgba(255,255,255,0.1)',
+                        color: isCertified ? '#000' : 'var(--text-muted)',
+                        fontWeight: 'bold'
+                      }}>
+                        {isCertified ? 'DOMINADO' : 'EN DESARROLLO'}
+                      </span>
+                    </div>
+
+                    <p style={{fontSize: '0.8rem', color: 'var(--text-muted)', margin: '0 0 0.8rem', lineHeight: '1.4'}}>
+                      {cert.description}
+                    </p>
+
+                    <div style={{fontSize: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '0.6rem'}}>
+                      <div style={{color: fisonomiaMet ? '#34d399' : '#f87171'}}>
+                        {fisonomiaMet ? '✓' : '✗'} Nivel de Maestría ≥ {cert.minFisonomia} (Actual: {currentLevel})
+                      </div>
+                      {cert.badgeName && (
+                        <div style={{color: badgeMet ? '#34d399' : '#f87171'}}>
+                          {badgeMet ? '✓' : '✗'} Insignia «{cert.badgeName}»
+                        </div>
+                      )}
+                      {cert.moduleName && (
+                        <div style={{color: '#34d399'}}>
+                          ✓ Módulo «{cert.moduleName}»
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* VITRINA DE INSIGNIAS DE MAESTRÍA */}
+          <section>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem'}}>
+              <div>
+                <h3 style={{fontSize: '1.4rem', margin: 0}}>Vitrina de Insignias de Maestría</h3>
+                <p className="text-muted" style={{fontSize: '0.9rem', margin: 0}}>
+                  Distintivos que validan el dominio de las herramientas de comunicación y facilitación ontológica.
+                </p>
+              </div>
+              <span style={{fontSize: '0.85rem', color: 'var(--crear-gold)', fontWeight: 600}}>
+                {staffState.unlockedBadges.length} de {nodusStaffBadges.length} desbloqueadas
+              </span>
+            </div>
+
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem'}}>
+              {nodusStaffBadges.map(badge => {
+                const isUnlocked = staffState.unlockedBadges.includes(badge.id);
+                return (
+                  <div 
+                    key={badge.id}
+                    className="glass-panel"
+                    style={{
+                      padding: '1.2rem',
+                      borderTop: `3px solid ${isUnlocked ? badge.color : 'rgba(255,255,255,0.1)'}`,
+                      opacity: isUnlocked ? 1 : 0.6,
+                      background: isUnlocked ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.3)',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.8rem'}}>
+                      <div style={{
+                        fontSize: '1.8rem',
+                        filter: isUnlocked ? 'none' : 'grayscale(100%)',
+                        width: '42px',
+                        height: '42px',
+                        borderRadius: '10px',
+                        background: 'rgba(255,255,255,0.05)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        {badge.icon}
+                      </div>
+                      <div>
+                        <h4 style={{margin: 0, fontSize: '1rem', color: isUnlocked ? '#fff' : 'var(--text-muted)'}}>
+                          {badge.name}
+                        </h4>
+                        <span style={{fontSize: '0.75rem', color: badge.color, fontWeight: 700}}>
+                          +{badge.xpReward} XP
+                        </span>
+                      </div>
+                    </div>
+
+                    <p style={{fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.5', minHeight: '48px', margin: '0 0 0.8rem'}}>
+                      {badge.requirement}
+                    </p>
+
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem'}}>
+                      <span style={{fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)'}}>
+                        {badge.code}
+                      </span>
+                      {isUnlocked ? (
+                        <span style={{color: '#10b981', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px'}}>
+                          ✓ Desbloqueada
+                        </span>
+                      ) : (
+                        <span style={{color: 'rgba(255,255,255,0.4)'}}>
+                          🔒 Bloqueada
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* PLAN DE ESTUDIOS: 4 MÓDULOS DE CONOCIMIENTO */}
           <section>
             <div style={{marginBottom: '1.5rem'}}>
-              <h3 style={{fontSize: '1.5rem', margin: '0 0 0.3rem'}}>Plan de Micro-Learning: Módulos I al IV</h3>
+              <h3 style={{fontSize: '1.5rem', margin: '0 0 0.3rem'}}>Plan de Conocimiento: Módulos I al IV</h3>
               <p className="text-muted" style={{fontSize: '0.95rem', margin: 0}}>
-                Cápsulas formativas de 3 a 5 minutos diseñadas para la excelencia del staff en sala y sedes 2026.
+                Síntesis rigurosa y no redundante de los principios fundamentales de la comunicación y el enrolamiento ético.
               </p>
             </div>
 
             <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-              {nodusStaffModules.map((modulo, idx) => {
+              {nodusStaffModules.map((modulo) => {
                 const completedCount = modulo.lecciones.filter(l => staffState.completedLessons.includes(l.id)).length;
                 const isModComplete = completedCount === modulo.lecciones.length;
 
@@ -915,7 +1240,7 @@ export default function RutaFormacion() {
       )}
 
       {/* ============================================================== */}
-      {/* PESTAÑA 2: RUTA ACADÉMICA DE COACHING (11 MÓDULOS EXISTENTES)   */}
+      {/* PESTAÑA 2: RUTA ACADÉMICA DE COACHING (11 MÓDULOS)             */}
       {/* ============================================================== */}
       {activeTab === 'academic' && (
         <div className="fade-in">
@@ -984,7 +1309,7 @@ export default function RutaFormacion() {
       )}
 
       {/* ============================================================== */}
-      {/* MODAL: VISTA RÁPIDA DE MICRO-LECCIÓN STAFF                     */}
+      {/* MODAL: VISTA RÁPIDA DE MICRO-LECCIÓN                           */}
       {/* ============================================================== */}
       {activeLessonModal && (
         <div style={{
@@ -1019,7 +1344,7 @@ export default function RutaFormacion() {
             }}>
               <div>
                 <span style={{fontSize: '0.8rem', color: 'var(--crear-gold)', fontWeight: 800, textTransform: 'uppercase'}}>
-                  {activeLessonModal.modulo.numero} • MICRO-LECCIÓN
+                  {activeLessonModal.modulo.numero} • LECCIÓN DE MAESTRÍA
                 </span>
                 <h3 style={{margin: '0.2rem 0 0', fontSize: '1.3rem'}}>
                   {activeLessonModal.leccion.title}
@@ -1062,7 +1387,7 @@ export default function RutaFormacion() {
                 className="btn-secondary"
                 style={{fontSize: '0.85rem'}}
               >
-                Abrir en Modo Lector
+                Abrir en Modo Lector Completo
               </Link>
               <button
                 onClick={() => {
@@ -1080,7 +1405,7 @@ export default function RutaFormacion() {
       )}
 
       {/* ============================================================== */}
-      {/* MODAL: BLUEPRINT TÉCNICO & ARQUITECTURA API NODUS              */}
+      {/* MODAL: BLUEPRINT TÉCNICO & ARQUITECTURA API                    */}
       {/* ============================================================== */}
       {showTechnicalBlueprint && (
         <div style={{
@@ -1118,7 +1443,7 @@ export default function RutaFormacion() {
                   ARQUITECTURA DE DATOS & ENDPOINTS
                 </span>
                 <h3 style={{margin: '0.2rem 0 0', fontSize: '1.3rem'}}>
-                  Blueprint Técnico Nodus Staff V1.0 (2026)
+                  Blueprint Técnico de Gamificación & Retos
                 </h3>
               </div>
               <button 
