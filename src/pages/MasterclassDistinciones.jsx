@@ -5,7 +5,7 @@ export default function MasterclassDistinciones() {
     <div className="p-8 max-w-5xl mx-auto text-slate-300">
       
       <div className="glass-panel p-8 rounded-2xl shadow-xl">
-        <div dangerouslySetInnerHTML={ __html: `<h1 className="text-4xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">MASTER CLASS: EL ARTE DE LAS DISTINCIONES CUÁNTICAS</h1>
+        <div dangerouslySetInnerHTML={{ __html: `<h1 className="text-4xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">MASTER CLASS: EL ARTE DE LAS DISTINCIONES CUÁNTICAS</h1>
 <h2 className="text-2xl font-black mt-8 mb-4 border-b border-gray-700 pb-2 text-indigo-400">Saliendo de "La Arena" del Drama hacia el Alto Rendimiento Operativo</h2>
 <h3 className="text-xl font-bold mt-6 mb-2 text-blue-300">GUÍA MAGISTRAL DE ENSEÑANZA AUTÓNOMA Y APLICACIÓN EN SALA (EDICIÓN 2026)</h3>
 
@@ -136,7 +136,7 @@ export default function MasterclassDistinciones() {
 <hr className="my-8 border-gray-800" />
 <em>Este documento magistral constituye el estándar educativo para la fisonomía y el lenguaje de las sedes de Crear Poder Sin Límites.</em>
 <em>Generado el 3 de Septiembre de 2026 | Clasificación: CONFIDENCIAL - MANUAL DE ENTRENAMIENTO DE STAFF.</em>
-` } />
+` }} />
       </div>
     </div>
   );
