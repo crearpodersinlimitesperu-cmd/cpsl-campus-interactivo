@@ -177,6 +177,21 @@ export default function Dashboard() {
                 >
                   <span>MODO APRENDIZ (MICRO-LEARNING)</span>
                 </button>
+
+                <button
+                  onClick={() => navigate('/masterclass-distinciones')}
+                  className="btn-secondary"
+                  style={{
+                    padding: '0.9rem 1.5rem',
+                    borderRadius: '9999px',
+                    fontWeight: 800,
+                    fontSize: '0.88rem',
+                    background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.2))',
+                    border: '1px solid rgba(168, 85, 247, 0.4)'
+                  }}
+                >
+                  <span style={{ color: '#d8b4fe' }}>🌟 MASTERCLASS DISTINCIONES</span>
+                </button>
               </div>
             </div>
 

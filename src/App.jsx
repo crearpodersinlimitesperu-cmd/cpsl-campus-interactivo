@@ -22,6 +22,7 @@ import BrandscriptGuionesMJ from './pages/BrandscriptGuionesMJ'
 import VendeSinVender from './pages/VendeSinVender'
 import NotFound from './pages/NotFound'
 import Glosario from './pages/Glosario'
+import MasterclassDistinciones from './pages/MasterclassDistinciones'
 import AdminRoute from './components/AdminRoute'
 import { useAuth } from './context/AuthContext'
 import { useUI } from './context/UIContext'
@@ -178,6 +179,8 @@ function App() {
           <Route path="/autoevaluacion" element={<ProtectedRoute><AutoevaluacionCoach /></ProtectedRoute>} />
           <Route path="/glosario" element={<ProtectedRoute><Glosario /></ProtectedRoute>} />
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
+          <Route path="/masterclass" element={<ProtectedRoute><MasterclassDistinciones /></ProtectedRoute>} />
+          <Route path="/masterclass-distinciones" element={<ProtectedRoute><MasterclassDistinciones /></ProtectedRoute>} />
           <Route path="/gamificacion" element={<ProtectedRoute><GamificacionStaff /></ProtectedRoute>} />
           <Route path="/crisol" element={<ProtectedRoute><GamificacionStaff defaultTab="simulador" /></ProtectedRoute>} />
           <Route path="/simulador" element={<ProtectedRoute><GamificacionStaff defaultTab="simulador" /></ProtectedRoute>} />
