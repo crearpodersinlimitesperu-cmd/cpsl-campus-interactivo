@@ -5,6 +5,15 @@
 // INSIGNIAS Y MEDALLAS DE MAESTRÍA EN COMUNICACIÓN Y RETOS
 export const nodusStaffBadges = [
   {
+    id: 'arquitecto_vision',
+    code: 'MED-ARQUITECTO-VISION',
+    name: 'Arquitecto de Visión Cuántica',
+    icon: '🌌',
+    xpReward: 500,
+    requirement: 'Dominar el Esqueleto de la Orientación y el principio de Construir desde la Nada en 8 pasos.',
+    color: '#ec4899'
+  },
+  {
     id: 'mente_aprendiz',
     code: 'MED-MENTE-APRENDIZ',
     name: 'Mente de Aprendiz',
@@ -869,6 +878,217 @@ export const moduloStaff4 = [
 ];
 
 // ESTRUCTURA PRINCIPAL DE LOS 4 MÓDULOS DE CONOCIMIENTO Y RETOS
+
+// =========================================================================================
+// MÓDULO V: PROTOCOLO DE ORIENTACIÓN — «CONSTRUIR DESDE LA NADA»
+// =========================================================================================
+export const moduloStaff5 = [
+  {
+    id: 'staff_5_1',
+    title: '5.1 Romper el Contexto Viejo y la Nada como Incertidumbre Creativa',
+    durationMinutes: 6,
+    content: `
+      <div class="alert-info" style="background: rgba(236, 72, 153, 0.1); border-left: 4px solid #ec4899; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #f472b6;">Punto Cero: La Nada como Espacio de Invención</h4>
+        <p style="margin: 0; font-size: 1.05rem; color: #fff; font-style: italic;">
+          «Construir no está mal… pero está jodido si vienes de creerte libre siendo quien crees que eres.»
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f87171;">
+          <h4 style="margin: 0 0 0.5rem; color: #f87171;">⚠️ La Trampa de la Identidad Antigua</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Hoy no venimos a mejorar lo que ya eres. Venimos a <strong>inventar quiénes somos</strong>. Si montas una visión desde quien crees que eres, esa visión nace limitada por tus viejas heridas, miedos y paradigmas.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #38bdf8;">
+          <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">🛸 Certeza en la Incertidumbre</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            ¿Cómo te relacionas con lo que no sabes que no sabes? En ese vacío ya no hay expectativa, ni miedo, ni afán neurótico de ganar. Estás en la nave: no hay mapa previo, hay pura creación consciente.
+          </p>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'staff_5_2',
+    title: '5.2 Visión Colectiva, Ubuntu y la Conversación del Equipo Cuántico',
+    durationMinutes: 5,
+    content: `
+      <div class="alert-info" style="background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #a78bfa;">De lo Individual a lo Colectivo</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: #fff; line-height: 1.6;">
+          «Esto no es un club vacacional. Esto es la Legión Extranjera.» Los cimientos del edificio no son individuales; son <strong>columnas colectivas</strong>.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #10b981;">
+          <h4 style="margin: 0 0 0.5rem; color: #34d399;">🌍 Filosofía Ubuntu</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <em>«Yo soy porque nosotros somos.»</em> No es un individuo yendo solo a encestar para inflar su ego; es el equipo entero jugando sincronizado para ganar el juego grande de la vida.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #fbbf24;">
+          <h4 style="margin: 0 0 0.5rem; color: #fbbf24;">⚛️ Metáfora Cuántica</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Las partículas entrelazadas operan en resonancia sin necesidad de hablarse. El equipo de alto rendimiento opera conectado por instinto, por visión y por compromiso mutuo.
+          </p>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'staff_5_3',
+    title: '5.3 Pelele: Práctica Constante como Estilo de Vida (James Clear)',
+    durationMinutes: 4,
+    content: `
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Pelele = Patear la Pelota una y otra vez</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: #fff; line-height: 1.6;">
+          «Esto no es teoría. Esto es entrenamiento en la vida real.»
+        </p>
+      </div>
+
+      <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">
+        Basado en la ciencia de los hábitos de James Clear: la repetición deliberada y desprovista de drama forja nuevas conexiones sinápticas. En la sala no vienes a memorizar conceptos abstractos, vienes a <strong>practicar, sostener y automatizar</strong> nuevas conductas de liderazgo.
+      </p>
+    `
+  },
+  {
+    id: 'staff_5_4',
+    title: '5.4 Enrolamiento Radical, Construcción y Cierre: ¿Para Qué Vives?',
+    durationMinutes: 5,
+    content: `
+      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">Enrolar Soldados, no Espectadores</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: #fff; line-height: 1.6;">
+          «Aquí no hay jugadores en la banca. O eres protagonista o eres espectador.» Si estás dudando, después del break no vuelvas. Si regresas, es para jugar en las Grandes Ligas.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.2rem; border: 1px solid rgba(255, 183, 3, 0.3); background: rgba(0,0,0,0.4); margin: 1rem 0;">
+        <h4 style="margin: 0 0 0.5rem; color: var(--crear-gold);">🎙️ Guion Maestro del Entrenador</h4>
+        <blockquote style="margin: 0; font-size: 0.95rem; color: #fff; font-style: italic; border-left: 3px solid var(--crear-gold); padding-left: 1rem;">
+          «Mi nombre es [tu nombre]. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»
+        </blockquote>
+      </div>
+
+      <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">
+        La orientación concluye con la pregunta existencial que ancla todo el proceso: <strong>«¿Para qué vives?»</strong>.
+      </p>
+    `
+  }
+];
+
+export const orientacionData = {
+  titulo: 'Esqueleto de la Orientación: «Construir desde la Nada»',
+  subtitulo: 'Protocolo Maestro de Alineación, Ruptura de Contexto y Visión Colectiva (Causa OS)',
+  frasesAncla: [
+    { id: 'fa1', texto: 'Construir desde la nada.', contexto: 'Punto cero de creación ontológica' },
+    { id: 'fa2', texto: 'Esto no es un club vacacional. Esto es la Legión Extranjera.', contexto: 'Estándar innegociable de compromiso y juego grande' },
+    { id: 'fa3', texto: 'No hay jugadores en la banca.', contexto: 'Protagonismo radical o espectador pasivo en la arena' },
+    { id: 'fa4', texto: 'Pelele: práctica constante.', contexto: 'Repetición deliberada y neuroplasticidad sin drama' },
+    { id: 'fa5', texto: 'Yo soy porque nosotros somos.', contexto: 'Filosofía Ubuntu y entrelazamiento de visión colectiva' },
+    { id: 'fa6', texto: '¿Para qué vives?', contexto: 'La pregunta existencial que enciende el propósito y la acción' }
+  ],
+  pasos: [
+    {
+      paso: 1,
+      titulo: 'Apertura: Romper el Contexto Viejo',
+      fraseClave: '«Construir no está mal… pero está jodido si vienes de creerte libre siendo quien crees que eres.»',
+      mensajeCentral: 'Hoy no venimos a parchar ni a mejorar lo que ya eres. Venimos a inventar quiénes somos como seres humanos.',
+      imagenPotente: 'La nada como espacio de creación pura: una hoja en blanco, una tabla rasa libre de pasado.',
+      advertencia: 'Si montas una visión desde quien crees que eres, esa visión nace viciada y limitada por tus viejos paradigmas y heridas.',
+      citaMantra: '«La nada es la oportunidad perfecta para preguntarte: ¿quién soy ahora?»',
+      icono: '⚡'
+    },
+    {
+      paso: 2,
+      titulo: 'La Nada como Espacio de Incertidumbre Creativa',
+      fraseClave: '«¿Cómo te relacionas con lo desconocido, con lo que no sabes que no sabes?»',
+      mensajeCentral: 'En ese «no sé que no sé» desaparece la expectativa, el miedo paralizante y la necesidad de quedar bien. Solo hay certeza en la incertidumbre.',
+      imagenPotente: 'Estás en la nave. No hay mapa previo de navegación. Hay pura creación consciente en tiempo real.',
+      advertencia: 'Buscar certezas lógicas antes de dar el paso reactiva al Perro Guardián y bloquea la posibilidad de transformación.',
+      citaMantra: '«No necesitas un mapa cuando tienes la brújula del compromiso y la visión.»',
+      icono: '🛸'
+    },
+    {
+      paso: 3,
+      titulo: 'Visión: De lo Individual a lo Colectivo',
+      fraseClave: '«Esto no es un club vacacional. Esto es la Legión Extranjera.»',
+      mensajeCentral: 'El gran escollo al inicio es querer construir una visión egoica desde la identidad antigua. Hoy la visión es colectiva: nos trasciende a todos.',
+      imagenPotente: 'Columnas de un templo que soportan una causa común, no estatuas individuales compitiendo por brillo.',
+      advertencia: 'Quien busca figurar o tener la razón destruye el tejido del equipo y degrada el espacio a un club de amigos.',
+      citaMantra: '«Hidalgo no se quedó en quien creía que era: dejó de ser el cura del pueblo y se construyó desde la nada.»',
+      ejemplos: [
+        { figura: 'Los Niños Héroes (México)', leccion: 'Un grupo de cadetes que amaban tanto su patria que dieron su vida por una visión superior a su propia supervivencia biológica.' },
+        { figura: 'Miguel Hidalgo', leccion: 'Rompió el molde del cura rural y declaró un antes y un después en la historia. Su visión fue acción pura.' }
+      ],
+      icono: '🏛️'
+    },
+    {
+      paso: 4,
+      titulo: 'Ubuntu y Física Cuántica: La Conversación del Equipo',
+      fraseClave: '«Yo soy porque nosotros somos.»',
+      mensajeCentral: 'No es un jugador solitario corriendo a la canasta para que lo aplaudan; es el equipo jugando al unísono para ganar el juego.',
+      imagenPotente: 'Partículas cuánticas entrelazadas: conectadas instantáneamente sin necesidad de cables ni palabras.',
+      advertencia: 'El individualismo es una ilusión óptica del ego. En la sala, los cimientos son columnas colectivas.',
+      citaMantra: '«Conectados por instinto, por visión y por juego.»',
+      icono: '⚛️'
+    },
+    {
+      paso: 5,
+      titulo: 'Pelele: Práctica Constante como Estilo de Vida',
+      fraseClave: '«Pelele: patear la pelota una y otra vez contra la pared.»',
+      mensajeCentral: 'En este espacio no vienes a coleccionar teoría ni a tomar apuntes estériles. Vienes a practicar, a encarnar y a sostener.',
+      imagenPotente: 'El futbolista pateando 10,000 veces el mismo balón hasta que la maestría sea un reflejo biológico.',
+      advertencia: 'El ego cree que entender un concepto equivale a dominarlo. Sin repetición no hay nuevas sinapsis.',
+      citaMantra: '«Esto no es teoría. Esto es entrenamiento en la vida real.»',
+      referenciaCientifica: 'James Clear y la neurobiología de los hábitos: la repetición deliberada automatiza la excelencia.',
+      icono: '⚽'
+    },
+    {
+      paso: 6,
+      titulo: 'Enrolamiento: Elegir a los Soldados, no a los Espectadores',
+      fraseClave: '«Aquí no hay jugadores en la banca. O eres protagonista o eres espectador.»',
+      mensajeCentral: 'Filtro radical: distinguimos a los que operan desde la sobrevivencia de los que eligen el juego grande con compromiso inquebrantable.',
+      imagenPotente: 'La puerta del vestidor de las Grandes Ligas: solo cruzan quienes están dispuestos a darlo todo en la cancha.',
+      advertencia: '«Si estás dudando, después de este break no vuelvas. Si regresas, es para jugar en las Grandes Ligas.»',
+      citaMantra: '«Alinear la letra con la música.»',
+      guionEntrenador: '«Mi nombre es [tu nombre]. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»',
+      icono: '⚔️'
+    },
+    {
+      paso: 7,
+      titulo: 'Construcción: Quiénes Elegimos Ser como Equipo',
+      fraseClave: '«¿Quiénes elegimos ser como equipo?»',
+      mensajeCentral: 'No es una lista de expectativas pasivas ni buenas intenciones. Es una declaración de compromiso puro en acción.',
+      imagenPotente: '«Bienvenido a la cancha donde se meten los goles llamada [Visión del Participante].»',
+      advertencia: 'Confundir una declaración ontológica con un deseo cósmico sin fechas ni acciones verificables.',
+      citaMantra: '«El compromiso no negocia con el estado de ánimo.»',
+      ejemplosDeclaraciones: [
+        '«Estoy comprometido a crear poder y liderazgo en mi vida y entorno.»',
+        '«Estoy comprometido a crear familias unidas y trascendentes.»'
+      ],
+      icono: '🎯'
+    },
+    {
+      paso: 8,
+      titulo: 'Cierre: La Visión como Plataforma de Acción',
+      fraseClave: '«La orientación es lo más importante. Aquí los preparo para todo lo que viene. Lo demás son manejos.»',
+      mensajeCentral: 'La plataforma de visión se aterriza el sábado, antes del llamado a la acción. Es el ancla que sostendrá cada desafío posterior.',
+      imagenPotente: 'El cohete apoyado en su plataforma antes del despegue irreversible hacia lo desconocido.',
+      advertencia: 'Subestimar la orientación creyendo que «lo bueno viene después». La orientación es el cimiento de todo.',
+      citaMantra: '«¿Para qué vives?»',
+      icono: '🚀'
+    }
+  ]
+};
+
 export const nodusStaffModules = [
   {
     id: 'modulo_staff_1',
@@ -905,6 +1125,18 @@ export const nodusStaffModules = [
     badgeAward: 'sombra_impecable',
     lecciones: moduloStaff3,
     tieneEvaluacion: true
+  },
+  {
+    id: 'modulo_staff_5',
+    numero: 'Módulo V',
+    titulo: 'Módulo V: Protocolo de Orientación — «Construir desde la Nada»',
+    descripcion: 'Ruptura del contexto viejo, incertidumbre creativa, física cuántica y Ubuntu, la disciplina del Pelele, enrolamiento radical y visión colectiva.',
+    rolObjetivo: 'Alineación y Visión Colectiva',
+    duracionMinutos: '20 min • 4 lecciones',
+    xpReward: 500,
+    badgeAward: 'arquitecto_vision',
+    lecciones: moduloStaff5,
+    tieneEvaluacion: false
   },
   {
     id: 'modulo_staff_4',

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { curriculum } from '../data/curriculum';
 import { 
+  orientacionData,
   nodusStaffModules, 
   nodusStaffBadges, 
   nodusStaffRoleCertifications, 
@@ -42,6 +43,15 @@ export default function RutaFormacion() {
   });
 
   const [activeSimulationId, setActiveSimulationId] = useState('sim_caso_1');
+  
+  // Estados para el Protocolo de Orientación: Construir desde la Nada
+  const [orientacionStep, setOrientacionStep] = useState(1);
+  const [trainerName, setTrainerName] = useState(user?.displayName || 'Tu Nombre');
+  const [copiedAnchor, setCopiedAnchor] = useState(null);
+  const [peleleCount, setPeleleCount] = useState(0);
+  const [customVision, setCustomVision] = useState('');
+  const [visionSaved, setVisionSaved] = useState(false);
+
   const [activeLessonModal, setActiveLessonModal] = useState(null);
   const [showTechnicalBlueprint, setShowTechnicalBlueprint] = useState(false);
   const [copiedSql, setCopiedSql] = useState(false);
@@ -151,6 +161,36 @@ export default function RutaFormacion() {
   };
 
   // Helper para copiar SQL
+  // Helper para copiar frases ancla de la orientación
+  const handleCopyAnchor = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopiedAnchor(id);
+    showToast(`✓ Frase ancla copiada: "${text}"`, 'success');
+    setTimeout(() => setCopiedAnchor(null), 2500);
+  };
+
+  // Helper para completar el protocolo de orientación (+500 XP)
+  const handleCompleteOrientation = () => {
+    if (staffState.completedLessons.includes('orientacion_completa')) {
+      showToast('Ya has integrado este protocolo en tu bitácora de maestría.', 'gold');
+      return;
+    }
+    const newXp = staffState.xp + 500;
+    const newLvl = calculateMaestriaLevel(newXp);
+    let badges = [...staffState.unlockedBadges];
+    if (!badges.includes('arquitecto_vision')) {
+      badges.push('arquitecto_vision');
+    }
+    setStaffState(prev => ({
+      ...prev,
+      xp: newXp,
+      nivelMaestria: newLvl,
+      unlockedBadges: badges,
+      completedLessons: [...prev.completedLessons, 'orientacion_completa', 'staff_5_1', 'staff_5_2', 'staff_5_3', 'staff_5_4']
+    }));
+    showToast('🌌 ¡Protocolo de Orientación Integrado! (+500 XP y Medalla Desbloqueada)', 'success');
+  };
+
   const handleCopySql = () => {
     navigator.clipboard.writeText(nodusStaffTechnicalSpec.dbSchemaSql);
     setCopiedSql(true);
@@ -348,10 +388,44 @@ export default function RutaFormacion() {
           </button>
 
           <button
+            onClick={() => setActiveTab('orientacion')}
+            style={{
+              flex: 1.2,
+              padding: '12px 18px',
+              borderRadius: '12px',
+              border: 'none',
+              background: activeTab === 'orientacion' ? 'linear-gradient(135deg, rgba(236,72,153,0.25) 0%, rgba(139,92,246,0.15) 100%)' : 'transparent',
+              color: activeTab === 'orientacion' ? '#f472b6' : 'var(--text-muted)',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              transition: 'all 0.3s ease',
+              borderBottom: activeTab === 'orientacion' ? '2px solid #ec4899' : '2px solid transparent'
+            }}
+          >
+            <span>🧭</span>
+            <span>Orientación: Construir desde la Nada</span>
+            <span style={{
+              background: '#ec4899',
+              color: '#fff',
+              padding: '2px 8px',
+              borderRadius: '10px',
+              fontSize: '0.75rem',
+              fontWeight: 800
+            }}>
+              8 Pasos & Visión
+            </span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('academic')}
             style={{
               flex: 1,
-              padding: '12px 20px',
+              padding: '12px 18px',
               borderRadius: '12px',
               border: 'none',
               background: activeTab === 'academic' ? 'linear-gradient(135deg, rgba(0,212,255,0.2) 0%, rgba(0,212,255,0.05) 100%)' : 'transparent',
@@ -1234,6 +1308,569 @@ export default function RutaFormacion() {
                 );
               })}
             </div>
+          </section>
+
+        </div>
+      )}
+
+
+      {/* ============================================================== */}
+      {/* PESTAÑA 3: ESQUELETO DE LA ORIENTACIÓN: CONSTRUIR DESDE LA NADA */}
+      {/* ============================================================== */}
+      {activeTab === 'orientacion' && (
+        <div className="fade-in" style={{display: 'flex', flexDirection: 'column', gap: '2.5rem'}}>
+          
+          {/* HEADER DEL PROTOCOLO */}
+          <section className="glass-panel" style={{
+            padding: '2rem',
+            background: 'linear-gradient(135deg, rgba(236,72,153,0.1) 0%, rgba(139,92,246,0.05) 50%, rgba(7,13,31,0.95) 100%)',
+            border: '1px solid rgba(236,72,153,0.3)',
+            borderRadius: '20px',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem'}}>
+              <div>
+                <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.6rem'}}>
+                  <span style={{background: 'rgba(236,72,153,0.2)', color: '#f472b6', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 800}}>
+                    CAUSA OS • PROTOCOLO MAESTRO
+                  </span>
+                  <span style={{background: 'rgba(255,183,3,0.15)', color: 'var(--crear-gold)', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 800}}>
+                    CREAR PODER SIN LÍMITES
+                  </span>
+                </div>
+                <h2 style={{fontSize: '2.2rem', margin: '0 0 0.5rem', fontWeight: 800, color: '#fff'}}>
+                  Esqueleto de la Orientación: “Construir desde la Nada”
+                </h2>
+                <p style={{fontSize: '1.05rem', color: 'var(--text-muted)', margin: 0, maxWidth: '850px', lineHeight: 1.6}}>
+                  Punto cero de creación ontológica. La orientación no viene a parchar tu identidad pasada: viene a romper el contexto viejo, abrazar la incertidumbre creativa y forjar una <strong>visión colectiva inquebrantable</strong>.
+                </p>
+              </div>
+
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px'}}>
+                <button
+                  onClick={handleCompleteOrientation}
+                  style={{
+                    padding: '12px 24px',
+                    borderRadius: '14px',
+                    border: 'none',
+                    background: staffState.completedLessons.includes('orientacion_completa') ? 'rgba(16,185,129,0.2)' : 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
+                    color: staffState.completedLessons.includes('orientacion_completa') ? '#34d399' : '#fff',
+                    fontWeight: 800,
+                    fontSize: '0.95rem',
+                    cursor: 'pointer',
+                    boxShadow: '0 10px 25px rgba(236,72,153,0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  <span>{staffState.completedLessons.includes('orientacion_completa') ? '✓ Protocolo Integrado' : '⚡ Integrar en Bitácora (+500 XP)'}</span>
+                </button>
+                <span style={{fontSize: '0.78rem', color: 'var(--text-muted)'}}>
+                  {staffState.completedLessons.includes('orientacion_completa') ? 'Insignia Arquitecto de Visión Cuántica activa' : 'Supera los 8 pasos y consolida tu visión'}
+                </span>
+              </div>
+            </div>
+
+            {/* CITA MANIFIESTO DE APERTURA */}
+            <div style={{
+              marginTop: '1.8rem',
+              padding: '1.2rem 1.6rem',
+              background: 'rgba(0,0,0,0.5)',
+              borderLeft: '4px solid #ec4899',
+              borderRadius: '10px'
+            }}>
+              <div style={{fontSize: '0.82rem', textTransform: 'uppercase', color: '#f472b6', fontWeight: 800, letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
+                Frase Clave de Apertura
+              </div>
+              <div style={{fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', fontWeight: 600}}>
+                «Construir no está mal… pero está jodido si vienes de creerte libre siendo quien crees que eres.»
+              </div>
+              <div style={{fontSize: '0.88rem', color: 'var(--text-muted)', marginTop: '0.4rem'}}>
+                Hoy no venimos a mejorar lo que ya eres. Venimos a <strong>inventar quiénes somos</strong> desde una hoja en blanco.
+              </div>
+            </div>
+          </section>
+
+          {/* 6 FRASES ANCLA INTERACTIVAS */}
+          <section className="glass-panel" style={{padding: '1.8rem'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem', flexWrap: 'wrap', gap: '0.5rem'}}>
+              <div>
+                <h3 style={{margin: 0, fontSize: '1.3rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                  <span>⚓</span> Frases Ancla para Repetir durante la Orientación
+                </h3>
+                <p style={{margin: '0.2rem 0 0', fontSize: '0.85rem', color: 'var(--text-muted)'}}>
+                  Mántricas, contundentes e innegociables. Haz clic en cualquier frase para copiarla instantáneamente.
+                </p>
+              </div>
+              <span style={{fontSize: '0.8rem', background: 'rgba(255,255,255,0.06)', padding: '4px 12px', borderRadius: '12px', color: 'var(--text-muted)'}}>
+                6 Pilares Mántricos
+              </span>
+            </div>
+
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem'}}>
+              {orientacionData.frasesAncla.map((fa) => {
+                const isCopied = copiedAnchor === fa.id;
+                return (
+                  <div
+                    key={fa.id}
+                    onClick={() => handleCopyAnchor(fa.texto, fa.id)}
+                    style={{
+                      background: isCopied ? 'rgba(16,185,129,0.15)' : 'rgba(255,255,255,0.02)',
+                      border: isCopied ? '1px solid #10b981' : '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: '14px',
+                      padding: '1.2rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      gap: '0.8rem'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#ec4899'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = isCopied ? '#10b981' : 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                  >
+                    <div>
+                      <div style={{fontSize: '0.75rem', color: '#f472b6', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
+                        {fa.contexto}
+                      </div>
+                      <div style={{fontSize: '1.1rem', fontWeight: 800, color: '#fff', fontStyle: 'italic', lineHeight: 1.4}}>
+                        «{fa.texto}»
+                      </div>
+                    </div>
+                    <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                      <span style={{
+                        fontSize: '0.78rem',
+                        padding: '4px 10px',
+                        borderRadius: '8px',
+                        background: isCopied ? '#10b981' : 'rgba(255,255,255,0.08)',
+                        color: isCopied ? '#000' : 'var(--text-muted)',
+                        fontWeight: 700
+                      }}>
+                        {isCopied ? '✓ Copiado' : '📋 Copiar'}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* NAVEGADOR DE LOS 8 PASOS DE LA ORIENTACIÓN */}
+          <section className="glass-panel" style={{padding: '1.8rem'}}>
+            <div style={{marginBottom: '1.5rem'}}>
+              <div style={{fontSize: '0.85rem', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em'}}>
+                Ruta Paso a Paso de Transformación
+              </div>
+              <h3 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: '#fff'}}>
+                Los 8 Pasos del Esqueleto de Orientación
+              </h3>
+              <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0}}>
+                Selecciona cualquier paso para profundizar en su metodología, dinámicas vivenciales y herramientas de facilitación.
+              </p>
+            </div>
+
+            {/* BOTONERA HORIZONTAL DE 8 PASOS */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
+              gap: '8px',
+              marginBottom: '2rem'
+            }}>
+              {orientacionData.pasos.map((p) => {
+                const isSelected = orientacionStep === p.paso;
+                return (
+                  <button
+                    key={p.paso}
+                    onClick={() => setOrientacionStep(p.paso)}
+                    style={{
+                      padding: '12px 8px',
+                      borderRadius: '12px',
+                      border: isSelected ? '2px solid #ec4899' : '1px solid rgba(255,255,255,0.08)',
+                      background: isSelected ? 'linear-gradient(135deg, rgba(236,72,153,0.25) 0%, rgba(139,92,246,0.15) 100%)' : 'rgba(255,255,255,0.02)',
+                      color: isSelected ? '#fff' : 'var(--text-muted)',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: '4px',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <span style={{fontSize: '1.4rem'}}>{p.icono}</span>
+                    <span style={{fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', color: isSelected ? '#f472b6' : 'var(--text-muted)'}}>
+                      Paso {p.paso}
+                    </span>
+                    <span style={{fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', lineHeight: 1.2, color: isSelected ? '#fff' : 'rgba(255,255,255,0.7)'}}>
+                      {p.titulo.split(':')[0]}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* DETALLE PROFUNDO DEL PASO SELECCIONADO */}
+            {(() => {
+              const currentPaso = orientacionData.pasos.find(p => p.paso === orientacionStep) || orientacionData.pasos[0];
+              return (
+                <div className="fade-in" style={{
+                  background: 'rgba(0,0,0,0.4)',
+                  border: '1px solid rgba(236,72,153,0.3)',
+                  borderRadius: '18px',
+                  padding: '2rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.8rem'
+                }}>
+                  {/* Encabezado del paso */}
+                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem'}}>
+                    <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                      <div style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '16px',
+                        background: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.8rem'
+                      }}>
+                        {currentPaso.icono}
+                      </div>
+                      <div>
+                        <span style={{fontSize: '0.8rem', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em'}}>
+                          Paso {currentPaso.paso} de 8
+                        </span>
+                        <h4 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: '#fff'}}>
+                          {currentPaso.titulo}
+                        </h4>
+                      </div>
+                    </div>
+
+                    <div style={{display: 'flex', gap: '8px'}}>
+                      <button
+                        disabled={orientacionStep <= 1}
+                        onClick={() => setOrientacionStep(prev => Math.max(1, prev - 1))}
+                        className="btn-secondary"
+                        style={{padding: '8px 14px', fontSize: '0.82rem', opacity: orientacionStep <= 1 ? 0.4 : 1}}
+                      >
+                        ← Anterior
+                      </button>
+                      <button
+                        disabled={orientacionStep >= 8}
+                        onClick={() => setOrientacionStep(prev => Math.min(8, prev + 1))}
+                        className="btn-secondary"
+                        style={{padding: '8px 14px', fontSize: '0.82rem', opacity: orientacionStep >= 8 ? 0.4 : 1, borderColor: '#ec4899', color: '#f472b6'}}
+                      >
+                        Siguiente →
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Frase Clave Destacada */}
+                  <div style={{
+                    background: 'linear-gradient(135deg, rgba(236,72,153,0.15) 0%, rgba(139,92,246,0.1) 100%)',
+                    borderLeft: '4px solid #ec4899',
+                    padding: '1.2rem 1.6rem',
+                    borderRadius: '10px'
+                  }}>
+                    <div style={{fontSize: '0.78rem', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
+                      {currentPaso.paso === 2 ? 'Pregunta Disruptiva' : 'Frase Clave Ontológica'}
+                    </div>
+                    <div style={{fontSize: '1.25rem', fontWeight: 800, color: '#fff', fontStyle: 'italic', lineHeight: 1.4}}>
+                      {currentPaso.fraseClave}
+                    </div>
+                  </div>
+
+                  {/* Mensaje Central */}
+                  <div>
+                    <h5 style={{fontSize: '1rem', color: 'var(--crear-gold)', margin: '0 0 0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em'}}>
+                      💡 Mensaje Central & Propósito Ontológico
+                    </h5>
+                    <p style={{fontSize: '1.05rem', color: '#fff', lineHeight: 1.7, margin: 0}}>
+                      {currentPaso.mensajeCentral}
+                    </p>
+                  </div>
+
+                  {/* Grid: Metáfora / Imagen Potente vs Advertencia */}
+                  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.2rem'}}>
+                    <div style={{
+                      background: 'rgba(56,189,248,0.06)',
+                      border: '1px solid rgba(56,189,248,0.2)',
+                      borderRadius: '12px',
+                      padding: '1.2rem'
+                    }}>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem'}}>
+                        <span style={{fontSize: '1.2rem'}}>🌌</span>
+                        <h6 style={{margin: 0, fontSize: '0.92rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 800}}>
+                          Imagen Potente / Metáfora
+                        </h6>
+                      </div>
+                      <p style={{margin: 0, fontSize: '0.92rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.6}}>
+                        {currentPaso.imagenPotente}
+                      </p>
+                    </div>
+
+                    <div style={{
+                      background: 'rgba(239,68,68,0.06)',
+                      border: '1px solid rgba(239,68,68,0.2)',
+                      borderRadius: '12px',
+                      padding: '1.2rem'
+                    }}>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem'}}>
+                        <span style={{fontSize: '1.2rem'}}>⚠️</span>
+                        <h6 style={{margin: 0, fontSize: '0.92rem', color: '#f87171', textTransform: 'uppercase', fontWeight: 800}}>
+                          Advertencia / Riesgo del Ego
+                        </h6>
+                      </div>
+                      <p style={{margin: 0, fontSize: '0.92rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.6}}>
+                        {currentPaso.advertencia}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Mantra Rector */}
+                  <div style={{
+                    padding: '1rem 1.4rem',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px'
+                  }}>
+                    <span style={{fontSize: '1.6rem'}}>🧭</span>
+                    <div>
+                      <span style={{fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700}}>Mantra Rector del Paso</span>
+                      <div style={{fontSize: '1.05rem', color: 'var(--crear-gold)', fontWeight: 700, fontStyle: 'italic'}}>
+                        {currentPaso.citaMantra}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* HERRAMIENTAS INTERACTIVAS SEGÚN EL PASO */}
+                  {/* CASO PASO 3: EJEMPLOS HISTÓRICOS */}
+                  {currentPaso.paso === 3 && currentPaso.ejemplos && (
+                    <div style={{background: 'rgba(255,183,3,0.05)', border: '1px solid rgba(255,183,3,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
+                      <h5 style={{margin: '0 0 1rem', fontSize: '1rem', color: 'var(--crear-gold)', textTransform: 'uppercase'}}>
+                        🇲🇽 Casos Históricos de Visión Colectiva en Acción
+                      </h5>
+                      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem'}}>
+                        {currentPaso.ejemplos.map((ej, idx) => (
+                          <div key={idx} style={{background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)'}}>
+                            <div style={{fontWeight: 800, color: '#fff', fontSize: '1rem', marginBottom: '0.4rem'}}>
+                              {ej.figura}
+                            </div>
+                            <div style={{fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5}}>
+                              {ej.leccion}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CASO PASO 4: UBUNTU Y FÍSICA CUÁNTICA */}
+                  {currentPaso.paso === 4 && (
+                    <div style={{background: 'rgba(139,92,246,0.08)', border: '1px solid rgba(139,92,246,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
+                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#a78bfa', textTransform: 'uppercase'}}>
+                        ⚛️ Resonancia Cuántica en Sala
+                      </h5>
+                      <p style={{fontSize: '0.92rem', color: '#fff', lineHeight: 1.6, margin: '0 0 1rem'}}>
+                        En física cuántica, dos partículas entrelazadas comparten el mismo estado sin importar la distancia física. En la orientación, los participantes dejan de ser islas desconectadas y se transforman en un único organismo coherente.
+                      </p>
+                      <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+                        <div style={{flex: 1, background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '10px'}}>
+                          <div style={{color: '#10b981', fontWeight: 800, marginBottom: '0.3rem'}}>🌍 Ubuntu</div>
+                          <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>«Yo soy porque nosotros somos». La victoria solo es real cuando es del equipo entero.</div>
+                        </div>
+                        <div style={{flex: 1, background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '10px'}}>
+                          <div style={{color: '#38bdf8', fontWeight: 800, marginBottom: '0.3rem'}}>⚡ Instinto & Juego</div>
+                          <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>No hace falta hablar todo el tiempo: el equipo se mueve por mirada, por presencia y por foco inquebrantable.</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CASO PASO 5: PELELE Y HÁBITOS DE JAMES CLEAR */}
+                  {currentPaso.paso === 5 && (
+                    <div style={{background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
+                      <h5 style={{margin: '0 0 0.5rem', fontSize: '1rem', color: '#fbbf24', textTransform: 'uppercase'}}>
+                        ⚽ El Gimnasio de Sinapsis: Práctica Constante
+                      </h5>
+                      <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 1rem'}}>
+                        James Clear demuestra en <em>Hábitos Atómicos</em> que la maestría no nace de la inspiración esporádica, sino del volumen de repeticiones de baja fricción que cablean nuevas rutas neuronales.
+                      </p>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap'}}>
+                        <button
+                          onClick={() => {
+                            setPeleleCount(prev => prev + 1);
+                            showToast(`⚽ ¡Pelele #${peleleCount + 1}! Nueva sinapsis forjada en acción.`);
+                          }}
+                          style={{
+                            padding: '10px 20px',
+                            borderRadius: '10px',
+                            background: '#fbbf24',
+                            color: '#000',
+                            fontWeight: 800,
+                            border: 'none',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px'
+                          }}
+                        >
+                          <span>⚽ Patear la Pelota una vez más</span>
+                        </button>
+                        <span style={{fontSize: '0.95rem', color: '#fff'}}>
+                          Repeticiones acumuladas en sala: <strong style={{color: '#fbbf24', fontSize: '1.2rem'}}>{peleleCount}</strong>
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CASO PASO 6: SIMULADOR DEL GUION DEL ENTRENADOR */}
+                  {currentPaso.paso === 6 && (
+                    <div style={{background: 'rgba(236,72,153,0.08)', border: '1px solid rgba(236,72,153,0.3)', borderRadius: '14px', padding: '1.6rem'}}>
+                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#f472b6', textTransform: 'uppercase'}}>
+                        🎙️ Simulador del Guion del Entrenador (Personalizado)
+                      </h5>
+                      <div style={{marginBottom: '1rem'}}>
+                        <label style={{display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.4rem'}}>
+                          Ingresa tu nombre para calibrar tu declaración:
+                        </label>
+                        <input
+                          type="text"
+                          value={trainerName}
+                          onChange={(e) => setTrainerName(e.target.value)}
+                          placeholder="Tu Nombre"
+                          style={{
+                            width: '100%',
+                            maxWidth: '300px',
+                            padding: '8px 14px',
+                            borderRadius: '8px',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            background: '#070d1f',
+                            color: '#fff',
+                            fontSize: '0.95rem'
+                          }}
+                        />
+                      </div>
+
+                      <div style={{
+                        background: '#040714',
+                        borderLeft: '4px solid #ec4899',
+                        padding: '1.2rem',
+                        borderRadius: '10px',
+                        marginBottom: '1rem'
+                      }}>
+                        <div style={{fontSize: '1.1rem', color: '#fff', fontStyle: 'italic', lineHeight: 1.6}}>
+                          «Mi nombre es <span style={{color: 'var(--crear-gold)', fontWeight: 800}}>{trainerName || '[tu nombre]'}</span>. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => handleCopyAnchor(`Mi nombre es ${trainerName || '[tu nombre]'}. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.`, 'guion_entrenador')}
+                        className="btn-secondary"
+                        style={{fontSize: '0.85rem', padding: '6px 14px', borderColor: '#ec4899', color: '#f472b6'}}
+                      >
+                        📋 Copiar Guion del Entrenador
+                      </button>
+                    </div>
+                  )}
+
+                  {/* CASO PASO 7: DECLARACIÓN DE COMPROMISO */}
+                  {currentPaso.paso === 7 && (
+                    <div style={{background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
+                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#34d399', textTransform: 'uppercase'}}>
+                        🎯 Laboratorio de Declaración de Visión Colectiva
+                      </h5>
+                      <div style={{display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '1.2rem'}}>
+                        {currentPaso.ejemplosDeclaraciones?.map((dec, idx) => (
+                          <div key={idx} style={{
+                            background: 'rgba(0,0,0,0.3)',
+                            padding: '0.8rem 1.2rem',
+                            borderRadius: '8px',
+                            color: '#fff',
+                            fontSize: '0.95rem',
+                            fontStyle: 'italic',
+                            borderLeft: '3px solid #10b981'
+                          }}>
+                            {dec}
+                          </div>
+                        ))}
+                      </div>
+
+                      <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap'}}>
+                        <input
+                          type="text"
+                          value={customVision}
+                          onChange={(e) => setCustomVision(e.target.value)}
+                          placeholder="Escribe tu declaración: «Estoy comprometido a crear...»"
+                          style={{
+                            flex: 1,
+                            minWidth: '260px',
+                            padding: '10px 14px',
+                            borderRadius: '8px',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            background: '#070d1f',
+                            color: '#fff',
+                            fontSize: '0.92rem'
+                          }}
+                        />
+                        <button
+                          onClick={() => {
+                            if (!customVision.trim()) return;
+                            setVisionSaved(true);
+                            showToast('✓ Declaración anclada en la cancha de juego.', 'success');
+                          }}
+                          style={{
+                            padding: '10px 20px',
+                            borderRadius: '8px',
+                            background: '#10b981',
+                            color: '#000',
+                            fontWeight: 800,
+                            border: 'none',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          Anclar Visión
+                        </button>
+                      </div>
+                      {visionSaved && (
+                        <div style={{marginTop: '0.8rem', color: '#34d399', fontSize: '0.9rem'}}>
+                          ⚽ ¡Bienvenido a la cancha donde se meten los goles llamada: <strong>«{customVision}»</strong>!
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* CASO PASO 8: LA PREGUNTA FINAL */}
+                  {currentPaso.paso === 8 && (
+                    <div style={{
+                      background: 'radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(0,0,0,0.7) 100%)',
+                      border: '2px solid var(--crear-gold)',
+                      borderRadius: '16px',
+                      padding: '2rem',
+                      textAlign: 'center'
+                    }}>
+                      <span style={{fontSize: '2.5rem'}}>🚀</span>
+                      <h4 style={{fontSize: '1.8rem', color: 'var(--crear-gold)', margin: '0.5rem 0', fontWeight: 900}}>
+                        ¿PARA QUÉ VIVES?
+                      </h4>
+                      <p style={{fontSize: '1rem', color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto 1.5rem', lineHeight: 1.6}}>
+                        La plataforma de visión se aterriza el sábado, antes del llamado a la acción. Si tienes claro tu <em>Para Qué</em>, cualquier obstáculo en la arena se vuelve irrelevante.
+                      </p>
+                      <div style={{fontSize: '0.95rem', color: '#fff', fontStyle: 'italic'}}>
+                        «La orientación es lo más importante. Aquí los preparo para todo lo que viene. Lo demás son manejos.»
+                      </div>
+                    </div>
+                  )}
+
+                </div>
+              );
+            })()}
           </section>
 
         </div>
