@@ -57,6 +57,15 @@ export default function Sidebar({ isOpen, onClose }) {
           </li>
           <li>
             <NavLink 
+              to="/gamificacion"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={onClose}
+            >
+              🎮 Gamificación Staff (Nodus)
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
               to="/modulo/modulo1"
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}

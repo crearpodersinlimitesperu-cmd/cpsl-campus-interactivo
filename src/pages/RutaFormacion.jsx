@@ -232,17 +232,27 @@ export default function RutaFormacion() {
             </p>
           </div>
 
-          <button 
-            onClick={() => setShowTechnicalBlueprint(true)}
-            className="btn-secondary"
-            style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px'}}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-            Blueprint Técnico & API
-          </button>
+          <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+            <Link
+              to="/gamificacion"
+              className="btn-primary"
+              style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none'}}
+            >
+              <span>🎮 Modo Aprendiz & Simulador</span>
+            </Link>
+
+            <button 
+              onClick={() => setShowTechnicalBlueprint(true)}
+              className="btn-secondary"
+              style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px'}}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              Blueprint Técnico & API
+            </button>
+          </div>
         </div>
 
         {/* Conmutador de Pistas (Track Switcher) */}

@@ -52,6 +52,53 @@ export default function Dashboard() {
         </article>
       </section>
 
+      {/* SECCIÓN MODO APRENDIZ & GAMIFICACIÓN STAFF (NODUS) */}
+      <section aria-label="Modo Aprendiz y Gamificación Staff" style={{ marginBottom: '2rem' }}>
+        <article className="glass-panel" style={{
+          padding: '1.6rem 2rem',
+          border: '1px solid rgba(255, 183, 3, 0.4)',
+          background: 'linear-gradient(135deg, rgba(255, 183, 3, 0.08) 0%, rgba(7, 13, 31, 0.9) 100%)',
+          borderRadius: '1.25rem',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1.5rem'
+        }}>
+          <div style={{ flex: 1, minWidth: '280px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255, 183, 3, 0.2)', padding: '0.25rem 0.75rem', borderRadius: '9999px', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 900, color: 'var(--crear-gold)', letterSpacing: '1px' }}>
+                🎮 MODO APRENDIZ & NEUROMARKETING ÉTICO
+              </span>
+            </div>
+            <h3 style={{ margin: '0 0 0.4rem', fontSize: '1.4rem', fontWeight: 900, color: '#ffffff' }}>
+              Gamificación Staff & Fisonomía Nodus 2026
+            </h3>
+            <p className="text-muted" style={{ margin: 0, fontSize: '0.92rem', maxWidth: '650px' }}>
+              Los Tres Cerebros, la Ecuación de Valor en Sopa de Letras (Alex Hormozi), el Observador Causa y el Simulador de Decisiones en Sala con Trazabilidad Causa OS.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <button
+              onClick={() => navigate('/gamificacion')}
+              className="btn-primary"
+              style={{
+                padding: '0.85rem 1.75rem',
+                fontSize: '0.9rem',
+                fontWeight: 900,
+                borderRadius: '9999px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <span>EXPLORAR MODO APRENDIZ ➔</span>
+            </button>
+          </div>
+        </article>
+      </section>
+
       <section className="dashboard-grid" aria-label="Resumen de Progreso">
         <article className="glass-panel p-6">
           <h3 className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '1rem'}}>Progreso Global</h3>

@@ -3,6 +3,15 @@
 
 export const nodusStaffBadges = [
   {
+    id: 'mente_aprendiz',
+    code: 'MED-MENTE-APRENDIZ',
+    name: 'Mente de Aprendiz',
+    icon: '📝',
+    xpReward: 100,
+    requirement: 'Completar todo el syllabus de Neuromarketing Ético y Causa OS en el Modo Aprendiz.',
+    color: '#10b981'
+  },
+  {
     id: 'sombra_impecable',
     code: 'MED-SOMBRA-IMPECABLE',
     name: 'Sombra Impecable',
@@ -141,7 +150,40 @@ export const nodusStaffSimulations = [
   {
     id: 'sim_caso_3',
     category: 'Aliados & Mánagers',
-    title: 'Caso Práctico 3: Gestión Ética ante Intención de Abandono (Coaching No Violento)',
+    title: 'Caso Práctico 3: Enrolamiento Ético de un Participante (Neuromarketing Ético)',
+    badgeEligible: 'sombra_impecable',
+    scenario: 'Domingo de cierre de C1. Un participante se te acerca y te dice: "El entrenamiento me cambió la vida, pero no sé si deba tomar Capítulo Dos. Tengo miedo de que el trabajo no me deje tiempo o de no poder pagarlo."',
+    options: [
+      {
+        id: 'opt_a',
+        text: '«¡Tienes que hacerlo ya! Si no firmas hoy, estás operando desde el miedo. Esta oferta expira hoy a las 21:00 PM y no volverá a repetirse jamás.»',
+        isCorrect: false,
+        classification: 'Falsa Escasez y Manipulación',
+        xpDelta: -100,
+        feedback: 'La urgencia artificial y la manipulación destruyen la confianza del contenedor y activan el Perro Guardián del participante.'
+      },
+      {
+        id: 'opt_b',
+        text: '«¿Para qué entraste a este salón, para seguir siendo la víctima de tus excusas o para crear un futuro extraordinario? Firma el contrato ahora mismo.»',
+        isCorrect: false,
+        classification: 'Confrontación en Arena y Juicio',
+        xpDelta: -100,
+        feedback: 'Atacar y juzgar a las personas genera un rechazo inmediato de su cerebro reptiliano y quiebra el coaching ético.'
+      },
+      {
+        id: 'opt_c',
+        text: '«Entiendo que el tiempo y el dinero parezcan obstáculos enormes hoy. El "para qué" de C2 es darte las herramientas para que tú gobiernes tu tiempo y tus ingresos, en lugar de que ellos te gobiernen a ti. ¿Qué valor tendría para tu vida resolver esta limitación de una vez por todas de forma voluntaria y con nuestro acompañamiento?»',
+        isCorrect: true,
+        classification: 'Excelente (Neuromarketing Ético & Círculo Dorado)',
+        xpDelta: 150,
+        feedback: 'Impecable. Apelas al cerebro límbico (el Para Qué), desmantelas la fricción sin presionar, y pones al participante como el héroe que gobierna su propia vida.'
+      }
+    ]
+  },
+  {
+    id: 'sim_caso_4',
+    category: 'Aliados & Mánagers',
+    title: 'Caso Práctico 4: Gestión Ética ante Intención de Abandono (Coaching No Violento)',
     badgeEligible: 'lider_imo',
     scenario: 'Sábado a las 16:30 PM. Durante el break de la tarde de C2, un participante se acerca visiblemente abrumado y te dice: "Esto es demasiado intenso para mí. No me siento cómodo con las dinámicas y he decidido retirarme ahora mismo a mi casa."',
     options: [
@@ -585,3 +627,151 @@ CREATE TABLE nodus_staff_medallas_usuario (
     }
   ]
 };
+
+export const moduloAprendiz = [
+  {
+    id: 'lec_3c',
+    code: 'LEC_3C',
+    title: 'Lección 1: Los Tres Cerebros (El Perro, el Corazón y el Científico)',
+    durationMinutes: 4,
+    xpReward: 50,
+    subtitle: 'Neuromarketing Ético aplicado al servicio de sala',
+    summary: 'Para conectar con un participante, no hables de números abstractos. Nuestra mente decide usando tres directores en un teatro.',
+    content: `
+      <div class="alert-info" style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8;">Neuromarketing Ético: Los Tres Directores de la Mente</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
+          En <strong>CREAR PODER SIN LÍMITES</strong>, el enrolamiento no es convencer ni forzar. Es hablarle con respeto y precisión a la biología decisional de cada ser humano.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f87171;">
+          <h4 style="margin: 0 0 0.5rem; color: #f87171;">🐶 1. El Perro Guardián (Cerebro Reptiliano)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Solo le importa sobrevivir, ahorrar energía y evitar peligros. Si le das explicaciones aburridas de 4 horas, se duerme. Si lo atacas o presionas, te muerde o huye. <strong>¡Háblale con seguridad, sencillez y transparencia!</strong>
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #ec4899;">
+          <h4 style="margin: 0 0 0.5rem; color: #ec4899;">❤️ 2. El Corazón (Cerebro Límbico - Emociones)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Siente antes de pensar. Se conecta con historias, el valor de pertenecer a un equipo, la gratitud y la emoción del logro. <strong>¡Es el verdadero motor que nos mueve a actuar!</strong>
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #38bdf8;">
+          <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">🔬 3. El Científico (Neocórtex - Lógica)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Es analítico, lento y gasta mucha energía metabólica. Solo sirve para <strong>JUSTIFICAR lógicamente</strong> lo que el perro y el corazón ya decidieron previamente.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.2rem; background: rgba(255, 183, 3, 0.05); border: 1px solid rgba(255, 183, 3, 0.3); border-radius: 8px;">
+        <h4 style="margin: 0 0 0.5rem; color: var(--crear-gold);">💡 Máxima de Neuromarketing Ético</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Tu invitación debe dar calma al Perro Guardián, hacer latir al Corazón, y darle datos claros y sencillos al Científico. Si presionas o manipulas, el Perro Guardián del participante se activará, se sentirá amenazado y rechazará la propuesta por instinto de protección biológica.
+        </p>
+      </div>
+    `
+  },
+  {
+    id: 'lec_eq',
+    code: 'LEC_EQ',
+    title: 'Lección 2: La Ecuación de Valor en Sopa de Letras (Alex Hormozi)',
+    durationMinutes: 4,
+    xpReward: 50,
+    subtitle: 'Cómo crear valor irresistible reduciendo el esfuerzo y sacrificio a cero',
+    summary: 'Alex Hormozi descubrió que el valor percibido es como una fracción matemática.',
+    content: `
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">La Ecuación Científica de Valor</h4>
+        <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 1.05rem; color: #fde047; text-align: center; margin: 0.8rem 0;">
+          Valor = (Resultado Anhelado [El Sueño] × Probabilidad Percibida de Logro) / (Retraso Temporal [Espera] × Esfuerzo y Sacrificio)
+        </div>
+      </div>
+
+      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">Imagina esto como servir una Sopa:</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #10b981;">
+          <h4 style="margin: 0 0 0.5rem; color: #34d399;">⬆️ ARRIBA (Lo que Multiplica el Valor)</h4>
+          <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>El Sueño:</strong> El sabor supremo y aroma de la sopa.</li>
+            <li><strong>Probabilidad de Logro:</strong> La certeza total de que el chef sabe cocinar a nivel Michelin y no fallará.</li>
+          </ul>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #ef4444;">
+          <h4 style="margin: 0 0 0.5rem; color: #f87171;">⬇️ ABAJO (Lo que Destruye el Valor)</h4>
+          <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Espera:</strong> Cuánto tarda en llegar el plato a la mesa.</li>
+            <li><strong>Esfuerzo y Sacrificio:</strong> Si el cliente tiene que ir a comprar los ingredientes y lavar los platos después.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.2rem; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px;">
+        <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">💡 Cómo aplicarlo en Sala y en Nodus</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Si quieres que el entrenamiento sea irresistible, no intentes cobrar menos ni regalar descuentos que devalúen el proceso. En su lugar: <strong>¡REDUCE EL ESFUERZO Y EL SACRIFICIO!</strong> Facilita el pago en un clic en Nodus, entrega guías listas de usar y asegura al participante que su Mánager caminará con él paso a paso. Así, la fricción baja a cero.
+        </p>
+      </div>
+    `
+  },
+  {
+    id: 'lec_co',
+    code: 'LEC_CO',
+    title: 'Lección 3: El Observador Causa vs. El Espectador en la Arena',
+    durationMinutes: 4,
+    xpReward: 50,
+    subtitle: 'El principio ontológico maestro de CREAR PODER SIN LÍMITES',
+    summary: '«Tú eres la CAUSA de tus resultados, no el EFECTO de tus circunstancias.»',
+    content: `
+      <div class="alert-info" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #34d399;">El Secreto Ontológico Primordial</h4>
+        <p style="margin: 0; font-size: 1.1rem; color: #fff; font-weight: bold; text-align: center; letter-spacing: 0.5px;">
+          «Tú eres la CAUSA de tus resultados, no el EFECTO de tus circunstancias.»
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #f59e0b;">
+          <h4 style="margin: 0 0 0.5rem; color: #fbbf24;">🏟️ El Espectador en la Arena (Efecto)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Se queja del clima, del hotel, de que el participante no paga, del tráfico o de que el sistema se cayó.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px; font-size: 0.85rem; color: #fca5a5;">
+            «Es que no tiene dinero», «Es que el banco falló». Estar en la arena de espectador es cómodo porque no tienes la culpa, pero no tienes <strong>NINGÚN PODER</strong> para transformar la realidad.
+          </div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #8b5cf6;">
+          <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Causa OS)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Asume la responsabilidad radical del 100% de lo que ocurre en su metro cuadrado y en su sala.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); padding: 0.6rem; border-radius: 6px; font-size: 0.85rem; color: #c4b5fd;">
+            Ante una Palabra Rota, se pregunta: <em>«¿Quién estoy siendo yo para que el participante prefiera romper su palabra?»</em> y <em>«¿Qué acción responsable puedo tomar yo para limpiar esta situación ahora mismo?»</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.2rem; background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px;">
+        <h4 style="margin: 0 0 0.5rem; color: #38bdf8;">💡 Integración Nodus + Causa OS</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.6;">
+          Nodus registra el hecho frío (los datos y los números). Causa OS identifica tu nivel de compromiso ontológico y te mueve de la queja estéril (arena) al liderazgo accionable de servicio.
+        </p>
+      </div>
+    `
+  }
+];
+
+export const rolesDesbloqueadosFisonomia = [
+  { nivel: 1, rol: 'Aliado en Puerta', minXp: 0, desc: 'Acreditado para recepción inicial, saludo impecable y control de accesos.' },
+  { nivel: 2, rol: 'Aliado en Caja / Registro', minXp: 300, desc: 'Acreditado para escaneo de QR, custodia de fichas de inscripción y validación de vouchers.' },
+  { nivel: 4, rol: 'Mánager de Equipo', minXp: 900, desc: 'Acreditado para contención de participantes, llamadas de seguimiento y gestión de Palabra Rota.' },
+  { nivel: 6, rol: 'Quantum Team (Sombra)', minXp: 1500, desc: 'Acreditado para supervisión de dinámicas de sala, Caída de Confianza y soporte directo al Entrenador.' },
+  { nivel: 8, rol: 'Capitán de Sede', minXp: 2100, desc: 'Acreditado para groundings matutinos, control del reloj de sala y liderazgo operativo de voluntarios.' },
+  { nivel: 10, rol: 'Master Staff / Gerente Operativo', minXp: 2700, desc: 'Máxima autoridad operativa en sede: balance general, cierre de sala y gobierno de estándares.' }
+];
