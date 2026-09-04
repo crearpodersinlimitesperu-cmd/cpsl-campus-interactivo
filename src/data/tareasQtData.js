@@ -1,6 +1,6 @@
 /**
- * REPOSITORIO MAESTRO DE TAREAS OPERATIVAS DEL QUANTUM TEAM (CAPÍTULO 1)
- * Extraído del Sistema Operativo de Alto Rendimiento - CREAR Poder Sin Límites
+ * REPOSITORIO DE RETOS Y PRÁCTICAS FORMATIVAS DE AUTOENTRENAMIENTO (CAPÍTULO 1)
+ * Diseñado para toda persona en Modo Aprendiz - CREAR PODER SIN LÍMITES
  * 
  * Reglas de cálculo de fechas relativas al inicio del C1 (Viernes 09:00 AM):
  * - offsetDays: días relativos al viernes de inicio (negativo = antes, 0 = viernes, 1 = sábado, 2 = domingo, positivo = después)
@@ -16,92 +16,92 @@ export const TAREAS_QT_C1 = [
     id: "pre-01",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Alineación y Asignación de Roles en Sala QT",
-    descripcion: "Asignar y confirmar a los líderes en cada puesto clave: Capitán QT, Audio/Luces, Registro/Puerta, Guardianes de Pasillo, Soporte Emocional, Cronometrador y Logística/Abastecimiento.",
-    rol: "Capitán QT / Coordinador",
+    titulo: "Alineación y Práctica de Presencia Consciente",
+    descripcion: "Alinear el compromiso personal, foco de servicio y presencia: atención plena, calibración de fisonomía y disponibilidad para aportar valor.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: -7,
     time: "10:00",
-    entregable: "Matriz de roles confirmada y publicada en grupo oficial.",
-    origenManual: "Módulo 4: Desarrollo de Aliados y Matriz de Cancha"
+    entregable: "Compromiso de presencia confirmado y registrado en la bitácora.",
+    origenManual: "Autoentrenamiento: Presencia y Foco"
   },
   {
     id: "pre-02",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Auditoría de Lista de Participantes y Casos Especiales",
-    descripcion: "Revisar la nómina oficial de participantes inscritos. Identificar casos médicos, condiciones físicas, mujeres embarazadas o situaciones emocionales delicadas para asignación de guardián dedicado.",
-    rol: "Registro & Soporte Emocional",
+    titulo: "Sensibilidad Empática y Casos Especiales",
+    descripcion: "Reconocer las necesidades de acompañamiento respetuoso y condiciones de cada persona para brindar un espacio de seguridad psicológica y empatía.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: -5,
     time: "15:00",
-    entregable: "Ficha de alertas médicas/emocionales entregada al Entrenador.",
-    origenManual: "Módulo 5: Protocolo de Seguridad y Casos Especiales"
+    entregable: "Ficha de empatía y alertas de salud verificada.",
+    origenManual: "Autoentrenamiento: Empatía y Escucha Activa"
   },
   {
     id: "pre-03",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Validación de Uniformes e Imagen Oficial del Staff",
-    descripcion: "Garantizar que todo el Quantum Team cuente con el polo oficial de la empresa en perfecto estado, pantalón formal oscuro (sin roturas) y calzado pulcro. Cero uso de logos o accesorios no autorizados.",
-    rol: "Todos los QT",
+    titulo: "Validación de Imagen y Presencia Pulcra",
+    descripcion: "Cuidar la presentación personal, sobriedad y profesionalismo impecable con la indumentaria oficial de la empresa para proyectar congruencia.",
+    rol: "Modo Aprendiz",
     prioridad: "MEDIA",
     offsetDays: -3,
     time: "12:00",
-    entregable: "Checklist de uniforme y credenciales al 100%.",
-    origenManual: "Módulo 1: Identidad, ADN & Estándar Impecable"
+    entregable: "Checklist de presencia y congruencia al 100%.",
+    origenManual: "Autoentrenamiento: Congruencia e Identidad"
   },
   {
     id: "pre-04",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Confección de Kits, Gafetes y Bitácoras de Participante",
-    descripcion: "Impresión de credenciales con nombres oficiales, armado de carpetas de trabajo, entrega de bolígrafos y preparación de sobres confidenciales para las dinámicas vivenciales.",
-    rol: "Logística & Materiales",
+    titulo: "Preparación de Materiales y Bitácoras de Trabajo",
+    descripcion: "Revisión meticulosa de credenciales oficiales, guías de trabajo y cuadernos de autoobservación para una experiencia impecable.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: -2,
     time: "18:00",
-    entregable: "Cajas de material ordenadas alfabéticamente.",
-    origenManual: "Módulo 5: Flujos de Trabajo Temporales"
+    entregable: "Materiales organizados y listos para su uso.",
+    origenManual: "Autoentrenamiento: Orden y Excelencia Operativa"
   },
   {
     id: "pre-05",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Montaje de Sala: Alineación Milimétrica y Ergonomía",
-    descripcion: "Disposición de sillas en arco/herradura con separación exacta, pasillos despejados para tránsito de staff, eliminación de puntos ciegos hacia el podio del entrenador.",
-    rol: "Guardianes de Sala & Logística",
+    titulo: "Armonización del Entorno: Alineación y Ergonomía",
+    descripcion: "Disposición armónica del espacio, asientos cómodos con visibilidad total, libre tránsito y eliminación de obstáculos para una inmersión profunda.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: -1,
     time: "16:00",
-    entregable: "Alineación de sala verificada con cinta métrica y libre de obstáculos.",
-    origenManual: "Checklist Maestro Pre-Apertura (20 Puntos Críticos)"
+    entregable: "Entorno alineado y verificado para la experiencia.",
+    origenManual: "Autoentrenamiento: Creación del Contenedor"
   },
   {
     id: "pre-06",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Calibración Acústica, Microfonía y Climatización (AC a 21°C)",
-    descripcion: "Prueba de sonido (micrófono diadema y mano), ajuste de ecualización para evitar feedback, carga de playlists emocionales y ajuste del aire acondicionado entre 20°C y 22°C para mantener el estado de alerta.",
-    rol: "Audio & Luces",
+    titulo: "Calibración Acústica, Microfonía y Confort Térmico",
+    descripcion: "Prueba técnica de sonido, música envolvente y climatización equilibrada para asegurar concentración y bienestar.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: -1,
     time: "18:00",
-    entregable: "Sonido impecable probado y termostato fijado en 21°C.",
-    origenManual: "Checklist Maestro Pre-Apertura"
+    entregable: "Sonido impecable y confort ambiental verificado.",
+    origenManual: "Autoentrenamiento: Entorno y Bienestar"
   },
   {
     id: "pre-07",
     fase: "ANTES",
     faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
-    titulo: "Círculo Sagrado de Staff & Alineación con el Entrenador",
-    descripcion: "Reunión general del Quantum Team con el Entrenador Principal (Jueves por la noche). Grounding de equipo, mente en cero, repaso del mapa de quiebres y entrega del corazón al servicio.",
-    rol: "Todos los QT",
+    titulo: "Círculo de Enfoque & Alineación con el Entrenador",
+    descripcion: "Espacio de preparación vivencial: mente en calma, alineación con el propósito y disposición de servir desde la humildad del aprendizaje.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: -1,
     time: "20:00",
     entregable: "Pacto de impecabilidad y energía unificada.",
-    origenManual: "Módulo 2: Cultura Crear & 12 Principios del QT"
+    origenManual: "Autoentrenamiento: Estado del Ser"
   },
 
   // ==========================================
@@ -111,118 +111,118 @@ export const TAREAS_QT_C1 = [
     id: "dur-01",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Viernes 07:30 AM — Llegada de Staff y Grounding Matutino",
-    descripcion: "Llegada puntual del 100% del staff, verificación final de baterías de micrófonos, pañuelos en puntos estratégicos y último ajuste de temperatura antes de abrir puertas.",
-    rol: "Todos los QT",
+    titulo: "Viernes 07:30 AM — Llegada Temprana y Grounding Matutino",
+    descripcion: "Llegada con puntualidad impecable, centramiento de respiración y verificación final de los puntos de confort antes de iniciar.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: 0,
     time: "07:30",
-    entregable: "Staff en posición y sala blindada.",
-    origenManual: "Módulo 3: Mapa de Transformación Día 1"
+    entregable: "Presencia activa y entorno en impecabilidad.",
+    origenManual: "Autoentrenamiento: Puntualidad y Foco"
   },
   {
     id: "dur-02",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Viernes 08:00 AM — Registro Impecable y Custodia de Distractores",
-    descripcion: "Recepción cálida y firme, verificación de documento de identidad, entrega de gafete oficial y recolección segura de celulares / relojes inteligentes en sobres numerados.",
-    rol: "Puerta & Registro",
+    titulo: "Viernes 08:00 AM — Bienvenida Cálida y Desconexión Digital",
+    descripcion: "Recepción consciente, validación de credenciales y resguardo de celulares para favorecer la introspección y la presencia plena.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: 0,
     time: "08:00",
-    entregable: "100% de participantes registrados sin celulares en sala.",
-    origenManual: "Módulo 5: Protocolo de Puerta y Custodia"
+    entregable: "100% de enfoque sin distractores digitales en sala.",
+    origenManual: "Autoentrenamiento: Desconexión Digital"
   },
   {
     id: "dur-03",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Viernes 09:00 AM — Apertura Oficial & Postura de Guardia en Sala",
-    descripcion: "Cierre hermético de puertas, postura corporal de poder y servicio en los perímetros de sala. Monitoreo visual de participantes para sostener el contexto del entrenador sin cruzar miradas distractoras.",
-    rol: "Guardianes de Sala",
+    titulo: "Viernes 09:00 AM — Apertura Oficial & Fisonomía de Atención",
+    descripcion: "Postura corporal de escucha activa y apertura. Monitoreo del propio estado interno para sostener un ambiente de calma y enfoque continuo.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: 0,
     time: "09:00",
-    entregable: "Sala en silencio absoluto y contexto sostenido.",
-    origenManual: "Módulo 1: Postura del Guardián del Contexto"
+    entregable: "Silencio consciente y atención plena sostenida.",
+    origenManual: "Autoentrenamiento: Fisonomía y Autogestión"
   },
   {
     id: "dur-04",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Viernes Tarde/Noche — Contención en Procesos de Quiebre Profundo",
-    descripcion: "Suministro silencioso de pañuelos y agua cuando sea estrictamente requerido, sin interrumpir el proceso emocional del participante ni quitarle su quiebre. Custodia de baños y pasillos.",
-    rol: "Soporte Emocional",
+    titulo: "Viernes Tarde/Noche — Contención y Respeto a los Procesos",
+    descripcion: "Acompañamiento silencioso y respetuoso, sin invadir ni dramatizar, honrando los momentos de catarsis y auto-descubrimiento.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: 0,
     time: "19:00",
-    entregable: "Participantes contenidos con dignidad y respeto.",
-    origenManual: "Módulo 3: Día 1 - El Quiebre"
+    entregable: "Acompañamiento digno, respetuoso y empático.",
+    origenManual: "Autoentrenamiento: Respeto al Espacio del Otro"
   },
   {
     id: "dur-05",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Viernes Cierre (23:00) — Debriefing Nocturno de Staff (Máx 20 min)",
-    descripcion: "Revisión rápida con el Entrenador sobre la jornada del viernes: participantes en riesgo de abandono, ajustes de logística para el sábado, descanso inmediato.",
-    rol: "Todos los QT",
+    titulo: "Viernes Cierre (23:00) — Reflexión y Aprendizajes del Día (Máx 20 min)",
+    descripcion: "Espacio de síntesis y autoevaluación: reconocer los retos superados del viernes, organizar el descanso y preparar la jornada del sábado.",
+    rol: "Modo Aprendiz",
     prioridad: "MEDIA",
     offsetDays: 0,
     time: "23:00",
-    entregable: "Minuta de ajustes y retiro a descanso reparador.",
-    origenManual: "Módulo 5: Rituales de Cierre Diario"
+    entregable: "Bitácora personal de aprendizajes registrada.",
+    origenManual: "Autoentrenamiento: Cierre Reflexivo"
   },
   {
     id: "dur-06",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Sábado 07:30 AM — Puerta Estricta y Montaje de Dinámica de Espejo",
-    descripcion: "Verificación de puntualidad de participantes al segundo día. Preparación de sala para los procesos vivenciales de reconstrucción y auto-observación.",
-    rol: "Puerta & Logística",
+    titulo: "Sábado 07:30 AM — Puntualidad y Autoobservación en Sala",
+    descripcion: "Apertura del segundo día con disciplina y puntualidad rigurosa para las dinámicas vivenciales de reconstrucción y auto-observación.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: 1,
     time: "07:30",
-    entregable: "Sala lista y participantes ingresados sin retrasos.",
-    origenManual: "Módulo 3: Día 2 - El Espejo y la Reconstrucción"
+    entregable: "Presencia puntual y actitud receptiva.",
+    origenManual: "Autoentrenamiento: Disciplina y Autodisciplina"
   },
   {
     id: "dur-07",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Sábado Noche — El Gran Traspaso & Procesos de Perdón",
-    descripcion: "Control de iluminación tenue, música ambiental envolvente, custodia perimetral absoluta durante la dinámica central del perdón y cartas.",
-    rol: "Audio, Luces & Guardianes",
+    titulo: "Sábado Noche — Procesos de Cierre y Aceptación",
+    descripcion: "Acompañamiento en el proceso vivencial de perdón, reconciliación y aceptación radical con música y ambiente introspectivo.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: 1,
     time: "20:00",
-    entregable: "Atmósfera sagrada y proceso completado al 100%.",
-    origenManual: "Módulo 3: Dinámica Central del Sábado"
+    entregable: "Atmósfera de respeto y proceso completado en armonía.",
+    origenManual: "Autoentrenamiento: Reconciliación y Perdón"
   },
   {
     id: "dur-08",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Domingo 08:00 AM — Declaración de Visión & Enrolamiento al Ser",
-    descripcion: "Apertura del último día con energía máxima. Preparación de mesas de información de Capítulo 2 y registro de testimonios.",
-    rol: "Todos los QT",
+    titulo: "Domingo 08:00 AM — Declaración de Visión y Futuro Posible",
+    descripcion: "Inicio del día de proyección futura con energía alta, claridad de propósito y definición de metas transformadoras.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: 2,
     time: "08:00",
-    entregable: "Mesas de C2 preparadas y material listo.",
-    origenManual: "Módulo 3: Día 3 - El Enrolamiento al Ser"
+    entregable: "Visión personal de futuro redactada con claridad.",
+    origenManual: "Autoentrenamiento: Visión y Posibilidad"
   },
   {
     id: "dur-09",
     fase: "DURANTE",
     faseTitulo: "Fase 2: Ejecución de Alto Rendimiento en Sala",
-    titulo: "Domingo 16:00 PM — Protocolo de Ceremonia de Graduación & Familias",
-    descripcion: "Recepción ordenada de familiares e invitados de graduación, control de aforo, entrega de pines oficiales y rosas, música triunfal sincronizada al segundo.",
-    rol: "Puerta, Audio & Guardianes",
+    titulo: "Domingo 16:00 PM — Celebración de Cierre y Reconocimiento",
+    descripcion: "Momento culmen de reconocimiento mutuo, gratitud compartida y culminación vivencial del ciclo.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: 2,
     time: "16:00",
-    entregable: "Ceremonia impecable y entrega de credenciales de graduado.",
-    origenManual: "Módulo 5: Protocolo de Graduación y Familias"
+    entregable: "Celebración consciente y culminación del ciclo.",
+    origenManual: "Autoentrenamiento: Gratitud y Reconocimiento"
   },
 
   // ==========================================
@@ -232,52 +232,52 @@ export const TAREAS_QT_C1 = [
     id: "post-01",
     fase: "DESPUÉS",
     faseTitulo: "Fase 3: Cierre, Métricas & Continuidad Post-C1",
-    titulo: "Domingo 20:30 PM — Desmontaje Total y Devolución del Local",
-    descripcion: "Recolección completa de equipos, señalética, cables, banderas y basura. Dejar el salón del hotel en estado impecable (mejor de como fue recibido).",
-    rol: "Logística & Todos los QT",
+    titulo: "Domingo 20:30 PM — Orden Integral y Cuidado del Espacio",
+    descripcion: "Dejar el espacio físico impecable, ordenado y en perfecto estado como reflejo de la congruencia y el respeto al entorno.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: 2,
     time: "20:30",
-    entregable: "Acta de entrega de local firmada sin observaciones.",
-    origenManual: "Módulo 5: Protocolo de Cierre y Desmontaje"
+    entregable: "Espacio verificado en impecabilidad total.",
+    origenManual: "Autoentrenamiento: Cuidado del Entorno"
   },
   {
     id: "post-02",
     fase: "DESPUÉS",
     faseTitulo: "Fase 3: Cierre, Métricas & Continuidad Post-C1",
-    titulo: "Domingo 22:00 PM — Círculo de Cierre QT & Entrega de Aprendizajes",
-    descripcion: "Reunión íntima del staff con el Entrenador: agradecimiento mutuo, reconocimiento a la excelencia, retroalimentación ontológica personal y cierre formal del servicio.",
-    rol: "Todos los QT",
+    titulo: "Domingo 22:00 PM — Círculo de Cierre & Cosecha de Aprendizajes",
+    descripcion: "Espacio reflexivo final: gratitud, reconocimiento personal a los logros alcanzados y consolidación de lecciones aprendidas.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: 2,
     time: "22:00",
-    entregable: "Cierre energético y celebración del equipo.",
-    origenManual: "Módulo 2: El Ritual de Agradecimiento del Staff"
+    entregable: "Cierre consciente y cosecha de aprendizajes.",
+    origenManual: "Autoentrenamiento: Cosecha de Aprendizajes"
   },
   {
     id: "post-03",
     fase: "DESPUÉS",
     faseTitulo: "Fase 3: Cierre, Métricas & Continuidad Post-C1",
-    titulo: "Lunes T+1 — Autopsia Operativa y Cálculo de Conversión (PP%)",
-    descripcion: "Reunión de gerencia y capitanes: auditar métricas de graduación, porcentaje de pase a Capítulo 2 (PP%), quiebres logísticos presentados y plan de acción preventivo para la siguiente edición.",
-    rol: "Capitán QT & Gerencia de Sede",
+    titulo: "Lunes T+1 — Integración de Aprendizajes y Métricas de Consciencia",
+    descripcion: "Auditar la propia experiencia, reflexionar sobre las áreas de estiramiento y definir el plan de acción para el día a día.",
+    rol: "Modo Aprendiz",
     prioridad: "CRÍTICA",
     offsetDays: 3,
     time: "18:00",
-    entregable: "Informe de Autopsia Post-C1 cargado al sistema con métricas reales.",
-    origenManual: "portal-content-gerencia: Calculadora de Conversión PP% y Autopsia"
+    entregable: "Plan de integración personal completado.",
+    origenManual: "Autoentrenamiento: Integración Cotidiana"
   },
   {
     id: "post-04",
     fase: "DESPUÉS",
     faseTitulo: "Fase 3: Cierre, Métricas & Continuidad Post-C1",
-    titulo: "Miércoles T+3 — Acompañamiento a Noche de Reencuentro e Inicio C2",
-    descripcion: "Seguimiento y confirmación de asistencia de los graduados a su primera sesión de seguimiento / enrolamiento activo hacia su Capítulo Dos.",
-    rol: "Capitán QT & Líderes de Enrolamiento",
+    titulo: "Miércoles T+3 — Acompañamiento y Siguiente Nivel de Formación",
+    descripcion: "Dar continuidad a las declaraciones personales, sostener los hábitos adquiridos y dar el paso al siguiente nivel de maestría.",
+    rol: "Modo Aprendiz",
     prioridad: "ALTA",
     offsetDays: 5,
     time: "19:00",
-    entregable: "Lista de asistencia al Reencuentro con más del 85% de presencia.",
-    origenManual: "Módulo 3: La Cadena de Continuidad Transformacional"
+    entregable: "Seguimiento y consolidación del compromiso.",
+    origenManual: "Autoentrenamiento: Continuidad y Constancia"
   }
 ];

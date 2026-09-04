@@ -184,6 +184,8 @@ function App() {
           <Route path="/brandscript-mj" element={<ProtectedRoute><BrandscriptGuionesMJ /></ProtectedRoute>} />
           <Route path="/vende-sin-vender" element={<ProtectedRoute><VendeSinVender /></ProtectedRoute>} />
           <Route path="/causa" element={<ProtectedRoute><VendeSinVender /></ProtectedRoute>} />
+          <Route path="/retos" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
+          <Route path="/retos-aprendizaje" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
           <Route path="/tareas-qt" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/superadmin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />

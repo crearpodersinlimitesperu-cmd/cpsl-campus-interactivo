@@ -8,7 +8,7 @@ export default function BrandscriptGuionesMJ() {
   // Variables dinámicas para el generador de WhatsApp
   const [waName, setWaName] = useState('Carlos');
   const [waSede, setWaSede] = useState('Lima');
-  const [waManager, setWaManager] = useState('Equipo de Mánagers');
+  const [waManager, setWaManager] = useState('Equipo de Mentoría Empática');
   const [waLink, setWaLink] = useState('https://calendly.com/crearpsl-mj/calibracion-fi');
 
   // Estado del Checklist de Impecabilidad
@@ -43,7 +43,7 @@ Aún resuena en la sede la fisionomía y la fuerza de tu palabra declarada este 
 
 El lunes ha llegado, y con él, la oportunidad de elegir: ¿volver a la inercia cotidiana o entrenar para consolidar tu Breakthrough?
 
-El equipo de Mánagers y la comunidad de Maestría del Juego ya está lista para recibirte en el contenedor de los 90 días. Tu espacio de estiramiento está guardado.
+La comunidad de personas en modo aprendiz y Maestría del Juego ya está lista para recibirte en el contenedor de los 90 días. Tu espacio de estiramiento está guardado.
 
 Paso 1: Ingresa a tu App Nodus 📱
 Paso 2: Agenda tu sesión de calibración de Futuro Imposible (FI) de 15 minutos aquí: ${waLink}
@@ -52,21 +52,21 @@ Paso 3: Sostiene tu palabra.
 Sostener la fisionomía del Ser es el juego de los grandes. Nos vemos en la cancha. 
 
 Atentamente,
-El Equipo de Mánagers y Capitanes de ${waSede}
+Equipo de Mentoría Empática de ${waSede}
 CREAR PODER SIN LÍMITES 2026.`;
 
   const mensaje2Text = `Hola, ${waName} 👋
 
-Te saludamos desde la oficina de la sede ${waSede}. Hoy es viernes de Capítulo Dos, un día clave para cuidar el contenedor de integridad que declaraste el jueves por la noche.
+Te saludamos desde la sede ${waSede}. Hoy es viernes de Capítulo Dos, un día clave para cuidar el contenedor de integridad que declaraste el jueves por la noche.
 
-Para asegurar que tu ingreso al bloque de confrontación de las 15:00 PM sea fluido y libre de distracciones logísticas:
+Para asegurar que tu ingreso al bloque vivencial de las 15:00 PM sea fluido y libre de distracciones logísticas:
 
 📌 Tu estado actual en Nodus requiere conciliación de caja.
-⏰ El cierre automático de registros contables de la plataforma se ejecutará a las 14:00 PM.
+⏰ El cierre automático de registros de la plataforma se ejecutará a las 14:00 PM.
 
 Queremos cuidar tu experiencia y tu palabra. Por favor, acércate a la mesa externa de registro antes de la hora límite o envíanos tu comprobante digital por esta vía para validar tu "Ticket Verde" en el sistema.
 
-Si tienes algún quiebre técnico o financiero de última hora, avísanos de inmediato para diseñar juntos una solución de bajo riesgo con el Gerente de Sede antes de que el sistema aplique el bloqueo automático.
+Si tienes algún quiebre técnico o financiero de última hora, avísanos de inmediato para diseñar juntos una solución oportuna antes del cierre.
 
 ¡Sostener tu palabra es tu mayor poder! Nos vemos en sala. 🛡️
 CREAR PODER SIN LÍMITES`;
@@ -169,7 +169,7 @@ CREAR PODER SIN LÍMITES`;
                 fontWeight: '700',
                 border: '1px solid rgba(16, 185, 129, 0.3)'
               }}>
-                CONFIDENCIAL: MÁNAGERS & ALIADOS
+                AUTOENTRENAMIENTO: COMUNICACIÓN & MENTORÍA EMPÁTICA
               </span>
             </div>
             <h1 style={{
@@ -184,7 +184,7 @@ CREAR PODER SIN LÍMITES`;
               Manual de Enrolamiento Narrativo: BrandScript & Guiones MJ
             </h1>
             <p style={{ margin: 0, color: '#94a3b8', fontSize: '1rem', maxWidth: '850px', lineHeight: '1.6' }}>
-              Herramienta oficial de <strong>CREAR PODER SIN LÍMITES</strong> para unificar la narrativa comercial de Gerencia, Capitanes, Aliados y Mánagers bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong> para la Maestría del Juego (MJ) de 90 días.
+              Herramienta oficial de <strong>CREAR PODER SIN LÍMITES</strong> para personas en modo aprendiz que desarrollan habilidades de comunicación empática y mentoría bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong> para la Maestría del Juego (MJ) de 90 días.
             </p>
           </div>
 
@@ -193,7 +193,7 @@ CREAR PODER SIN LÍMITES`;
               🧭 Volver a Ruta
             </NavLink>
             <NavLink to="/gamificacion" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', borderColor: '#10b981' }}>
-              🎮 Gamificación Staff
+              🎮 Modo Aprendiz (Nodus)
             </NavLink>
           </div>
         </div>
@@ -327,7 +327,7 @@ CREAR PODER SIN LÍMITES`;
               <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <strong style={{ color: '#c084fc', display: 'block', marginBottom: '0.35rem' }}>🧭 La Organización es el Guía</strong>
                 <span style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.6' }}>
-                  Los Mánagers y Aliados no buscan ser las estrellas del salón. Su rol exclusivo es encarnar el arquetipo del Mentor (el Guía), proveyendo empatía, autoridad ética, un plan simplificado y un llamado irrazonable a la acción.
+                  En modo aprendiz no buscamos protagonismo. Nuestro propósito es encarnar el arquetipo del Mentor empático (el Guía), proveyendo escucha activa, presencia ontológica, un plan simplificado y un llamado consciente a la acción.
                 </span>
               </div>
 
@@ -876,7 +876,7 @@ Mánager: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan d
                   Checklist de Impecabilidad del Enrolador Narrativo
                 </h3>
                 <p style={{ margin: '0.3rem 0 0 0', color: '#94a3b8', fontSize: '0.95rem' }}>
-                  Antes de realizar una llamada o enviar un mensaje, todo Aliado, Mánager o Coordinador debe auditar su propia fisionomía frente a esta rúbrica de integridad.
+                  Antes de realizar una llamada o entablar una conversación, toda persona en modo aprendiz debe auditar su propia fisionomía frente a esta rúbrica de integridad.
                 </p>
               </div>
 
@@ -1032,10 +1032,10 @@ Mánager: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan d
             </div>
 
             <button
-              onClick={() => copyToClipboard(`# MANUAL DE ENROLAMIENTO NARRATIVO: BRANDSCRIPT Y GUIONES DE COMUNICACIÓN PARA MAESTRÍA DEL JUEGO (MJ)
+              onClick={() => copyToClipboard(`# MANUAL DE AUTOENTRENAMIENTO NARRATIVO: BRANDSCRIPT Y GUIONES DE COMUNICACIÓN EMPÁTICA
 ## EDICIÓN V1.0 — CREAR PODER SIN LÍMITES 2026
 
-Este manual constituye la herramienta definitiva para que la Gerencia de Sede, los Capitanes, Aliados y Mánagers unifiquen su narrativa comercial bajo el **StoryBrand Framework (SB7)** y el **Neuromarketing Ético**. Su propósito es estructurar mensajes de alto impacto y guiones telefónicos que reduzcan el esfuerzo y sacrificio percibidos por los graduados de Capítulo Dos (C2), guiándolos hacia un compromiso voluntario y de alta integridad con la **Maestría del Juego (MJ)** de 90 días.
+Este manual constituye la herramienta de autoentrenamiento para que las personas en modo aprendiz desarrollen su capacidad de comunicación empática y mentoría bajo el **StoryBrand Framework (SB7)** y el **Neuromarketing Ético**. Su propósito es estructurar mensajes de alto impacto y conversaciones conscientes que reduzcan el esfuerzo y sacrificio percibidos por los graduados de Capítulo Dos (C2), guiándolos hacia un compromiso voluntario y de alta integridad con la **Maestría del Juego (MJ)** de 90 días.
 
 ---
 
@@ -1043,7 +1043,7 @@ Este manual constituye la herramienta definitiva para que la Gerencia de Sede, l
 En la cultura de alto rendimiento de **Crear Poder Sin Límites (CPSL)**, no operamos desde la venta tradicional ni desde el empuje comercial invasivo. Operamos desde la **creación de contexto**. 
 
 *   **El Participante es el Héroe:** El graduado de Capítulo Dos (C2) es el único protagonista de su propia película. Él es quien debe enfrentar a sus "dragones cotidianos" (la inercia, la zona de confort, el escepticismo de su entorno).
-*   **La Organización es el Guía:** Los Mánagers y Aliados no buscan ser las estrellas del salón. Su rol exclusivo es encarnar el arquetipo del Mentor (el Guía), proveyendo empatía, autoridad ética, un plan simplificado y un llamado irrazonable a la acción.
+*   **La Organización es el Guía:** En modo aprendiz no buscamos protagonismo. Nuestro propósito es encarnar el arquetipo del Mentor empático (el Guía), proveyendo escucha activa, presencia ontológica, un plan simplificado y un llamado consciente a la acción.
 *   **El Combustible es la Elección Voluntaria:** El enrolamiento es un acto de amor y estiramiento. Todo acuerdo financiero o de asistencia debe nacer de la libre elección del participante, erradicando cualquier forma de coacción, manipulación o culpa.
 
 ---
@@ -1054,7 +1054,7 @@ En la cultura de alto rendimiento de **Crear Poder Sin Límites (CPSL)**, no ope
 | :--- | :--- | :--- |
 | **1. Un Personaje (El Héroe)** | Graduado de Capítulo Dos (C2). | Un líder que ha despertado su poder en sala y busca materializarlo en la fisionomía de su vida diaria. |
 | **2. Tiene un Problema** | El "Efecto Lunes" y el entorno inercial. | **Externo:** Volver a un entorno que no comprende su transformación.<br>**Interno:** Miedo al auto-sabotaje y a quedarse solo.<br>**Filosófico:** Es inaceptable regresar a vivir una vida promedio tras haber conocido su grandeza. |
-| **3. Encuentra un Guía** | El equipo de Mánagers y la Plataforma Nodus. | Un mentor empático (que ya recorrió los 90 días) y con autoridad técnica (respaldado por la telemetría de Nodus). |
+| **3. Encuentra un Guía** | La comunidad en modo aprendiz y la Plataforma Nodus. | Un mentor empático (que ya recorrió los 90 días) y con autoridad ética (respaldado por la telemetría de Nodus). |
 | **4. Que le da un Plan** | La estructura de los 90 días de MJ. | **Paso 1:** Declara tu Futuro Imposible (FI).<br>**Paso 2:** Entrena en Integridad (28 Entrenamientos Sustentables).<br>**Paso 3:** Conquista "El Viaje" y gradúate en Gratitud. |
 | **5. Y lo llama a la Acción** | El registro y la inscripción voluntaria. | **CTA Directo:** Registrarse en Nodus en la mesa de conversión del domingo.<br>**CTA Transicional:** Agendar sesión de calibración de FI de 15 minutos. |
 | **6. Que evita el Fracaso** | Evitar el marchitamiento de la palabra. | Caer de vuelta en la anestesia de la víctima ("la arena"), perdiendo el impulso de su Breakthrough de jueves. |
@@ -1062,18 +1062,18 @@ En la cultura de alto rendimiento de **Crear Poder Sin Límites (CPSL)**, no ope
 
 ---
 
-## 3. GUIONES DE LLAMADAS TELEFÓNICAS PARA MÁNAGERS
-*Nota técnica: Aplica la premisa de Neuromarketing de "Calmar al Perro Guardián" (Reptil) en los primeros 15 segundos mediante la simpatía y el respeto a su tiempo.*
+## 3. GUIONES DE CONVERSACIÓN EMPÁTICA
+*Nota técnica: Aplica la premisa de Neuromarketing de "Calmar al Perro Guardián" (Reptil) en los primeros 15 segundos mediante la empatía y el respeto a su tiempo.*
 
 ### Escenario A: El graduado de C2 indeciso o con miedo al "efecto lunes"
 *   **Paso 1: Apertura y Conexión (Calmar al Reptil):**
-    > *"Hola [Nombre del Participante], te saluda [Nombre del Mánager], tu mánager de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?"*
+    > *"Hola [Nombre del Participante], te saluda [Tu Nombre], en modo aprendiz y acompañamiento. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?"*
 *   **Paso 2: Validación de fisionomía:**
     > *"Aún vibra en mí el espacio del domingo de Capítulo Dos. Quiero reconocer la fisonomía y la entrega que mostraste en tu Breakthrough. Vi a un creador absoluto en la sala. ¿Cómo se ha sentido apagar el micrófono y regresar a la rutina estos dos días?"*
 *   **Paso 3: Identificación del Problema Interno (StoryBrand):**
     > *[Escuchar activamente sin interrumpir]. "Es completamente natural, [Nombre]. La inercia del día a día es fuerte y volver al 'mundo real' sin una estructura puede sentirse como tratar de nadar contracorriente en la arena. Sabes que tienes el potencial, pero sostener la autodisciplina solo es sumamente retador."*
 *   **Paso 4: Presentación del Plan de 3 Pasos:**
-    > *"Por eso creamos la Maestría del Juego de 90 días. No es más teoría; es la pista de entrenamiento física para consolidar tu resultado. El plan es muy sencillo: primero, declaramos un Futuro Imposible en salud, finanzas o relaciones; segundo, entrenamos diariamente en integridad con el soporte de tu mánager y la Plataforma Nodus; y tercero, nos graduamos juntos en Gratitud. Tú pones la visión, nosotros la estructura de bajo riesgo."*
+    > *"Por eso creamos la Maestría del Juego de 90 días. No es más teoría; es la pista de entrenamiento física para consolidar tu resultado. El plan es muy sencillo: primero, declaramos un Futuro Imposible en salud, finanzas o relaciones; segundo, entrenamos diariamente en integridad con el soporte del contenedor y la Plataforma Nodus; y tercero, nos graduamos juntos en Gratitud. Tú pones la visión, nosotros la estructura de bajo riesgo."*
 *   **Paso 5: Llamado a la Acción Directo (CTA):**
     > *"[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiramiento y dar el paso a tu Maestría este fin de semana, o vas a permitir que la inercia del lunes tome las decisiones por ti?"*
 
@@ -1089,15 +1089,15 @@ En la cultura de alto rendimiento de **Crear Poder Sin Límites (CPSL)**, no ope
 *   **Guión de Aplicación:**
     > **Participante:** *"De verdad quiero hacer la Maestría, pero el dinero es mi límite en este momento. No tengo cómo cubrir la inversión."*
     >
-    > **Mánager (Guía):** *"Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?"*
+    > **Mentor (Guía):** *"Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?"*
     >
     > **Participante:** *"No, el entrenamiento sé que es increíble y me sirve, es solo que físicamente no tengo el dinero hoy."*
     >
-    > **Mánager (Causa OS):** *"Perfecto. Gracias por aclarar que la fisonomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?"*
+    > **Mentor (Causa OS):** *"Perfecto. Gracias por aclarar que la fisonomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?"*
     >
     > **Participante:** *"Podría dar una parte este viernes y el saldo en dos cuotas los fines de semana de módulo."*
     >
-    > **Mánager:** *"Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus bajo aprobación de la Gerencia para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días."*
+    > **Mentor:** *"Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días."*
 
 ---
 
@@ -1113,16 +1113,16 @@ Aún resuena en la sede la fisonomía y la fuerza de tu palabra declarada este f
 
 El lunes ha llegado, y con él, la oportunidad de elegir: ¿volver a la inercia cotidiana o entrenar para consolidar tu Breakthrough?
 
-El equipo de Mánagers y la comunidad de Maestría del Juego ya está lista para recibirte en el contenedor de los 90 días. Tu espacio de estiramiento está guardado.
+La comunidad de personas en modo aprendiz y Maestría del Juego ya está lista para recibirte en el contenedor de los 90 días. Tu espacio de estiramiento está guardado.
 
 Paso 1: Ingresa a tu App Nodus 📱
 Paso 2: Agenda tu sesión de calibración de Futuro Imposible (FI) de 15 minutos aquí: [Enlace_Calendly]
 Paso 3: Sostiene tu palabra.
 
-Sostener la fisonomía del Ser es el juego de los grandes. Nos vemos en la cancha. 
+Sostener la fisionomía del Ser es el juego de los grandes. Nos vemos en la cancha. 
 
 Atentamente,
-El Equipo de Mánagers y Capitanes de [Sede]
+Equipo de Mentoría Empática de [Sede]
 CREAR PODER SIN LÍMITES 2026.
 \`\`\`
 
@@ -1134,35 +1134,36 @@ CREAR PODER SIN LÍMITES 2026.
 \`\`\`text
 Hola, [Nombre] 👋
 
-Te saludamos desde la oficina de la sede. Hoy es viernes de Capítulo Dos, un día clave para cuidar el contenedor de integridad que declaraste el jueves por la noche.
+Te saludamos desde la sede. Hoy es viernes de Capítulo Dos, un día clave para cuidar el contenedor de integridad que declaraste el jueves por la noche.
 
-Para asegurar que tu ingreso al bloque de confrontación de las 15:00 PM sea fluido y libre de distracciones logísticas:
+Para asegurar que tu ingreso al bloque vivencial de las 15:00 PM sea fluido y libre de distracciones logísticas:
 
 📌 Tu estado actual en Nodus requiere conciliación de caja.
-⏰ El cierre automático de registros contables de la plataforma se ejecutará a las 14:00 PM.
+⏰ El cierre automático de registros de la plataforma se ejecutará a las 14:00 PM.
 
 Queremos cuidar tu experiencia y tu palabra. Por favor, acércate a la mesa externa de registro antes de la hora límite o envíanos tu comprobante digital por esta vía para validar tu "Ticket Verde" en el sistema.
 
-Si tienes algún quiebre técnico o financiero de última hora, avísanos de inmediato para diseñar juntos una solución de bajo riesgo con el Gerente de Sede antes de que el sistema aplique el bloqueo automático.
+Si tienes algún quiebre técnico o financiero de última hora, avísanos de inmediato para diseñar juntos una solución oportuna antes del cierre.
 
 ¡Sostener tu palabra es tu mayor poder! Nos vemos en sala. 🛡️
+CREAR PODER SIN LÍMITES
 \`\`\`
 
 ---
 
 ## 5. CHECKLIST DE IMPECABILIDAD DEL ENROLADOR NARRATIVO
 
-Antes de realizar una llamada o enviar un mensaje, todo Aliado, Mánager o Coordinador debe auditar su propia fisonomía frente a esta rúbrica de integridad:
+Antes de realizar una llamada o entablar una conversación, toda persona en modo aprendiz debe auditar su propia fisonomía frente a esta rúbrica de integridad:
 
 *   [ ] **Cero Simpatía al Drama:** ¿Estoy escuchando la justificación del participante con lástima, o lo estoy sosteniendo en su grandeza y capacidad de resolver? (La simpatía debilita al participante; la compasión y el rigor lo empoderan).
 *   [ ] **Datos vs. Interpretaciones:** ¿La objeción del participante es un hecho duro comprobable (ej. "no tengo saldo disponible en esta tarjeta") o es una interpretación basada en el miedo (ej. "es que nunca voy a poder pagar eso")?
 *   [ ] **Respeto Absoluto a la Autonomía:** ¿Estoy permitiendo que la decisión final y el plan de abono nazcan de la elección voluntaria del participante, o lo estoy presionando usando argumentos de culpa o escasez falsa?
-*   [ ] **Fisonomía de Voz y Corporalidad:** Aunque la conversación sea telefónica o por chat, ¿mi postura física refleja la fisonomía de un líder cuántico (espalda erguida, sonrisa telefónica, tono firme y amoroso)?
-*   [ ] **Trazabilidad en Nodus:** ¿He registrado de manera limpia y sin suposiciones cada acuerdo de pago, fecha límite y avance de Futuro Imposible en la plataforma para que la Gerencia de Sede cuente con datos de control impecables?
+*   [ ] **Fisonomía de Voz y Corporalidad:** Aunque la conversación sea telefónica o por chat, ¿mi postura física refleja la fisonomía de un creador (espalda erguida, sonrisa telefónica, tono firme y amoroso)?
+*   [ ] **Trazabilidad en Nodus:** ¿He registrado de manera limpia y sin suposiciones cada acuerdo de pago, fecha límite y avance de Futuro Imposible en la plataforma para contar con datos de control impecables?
 
 ---
-*Este manual constituye el estándar oficial de comunicación y enrolamiento ético de CREAR PODER SIN LÍMITES.*
-*Edición 2026 | Clasificación: Confidencial - Uso Exclusivo de Mánagers y Aliados.*
+*Este manual constituye el estándar oficial de comunicación empática y autoentrenamiento de CREAR PODER SIN LÍMITES.*
+*Edición 2026 | Autoentrenamiento para Personas en Modo Aprendiz.*
 `, 'markdownFull')}
               className="btn-primary"
               style={{ fontSize: '0.85rem' }}
@@ -1180,13 +1181,13 @@ Antes de realizar una llamada o enviar un mensaje, todo Aliado, Mánager o Coord
             color: '#cbd5e1'
           }}>
             <h2 style={{ color: '#f59e0b', fontSize: '1.4rem', borderBottom: '1px solid rgba(245, 158, 11, 0.3)', paddingBottom: '0.5rem' }}>
-              MANUAL DE ENROLAMIENTO NARRATIVO: BRANDSCRIPT Y GUIONES DE COMUNICACIÓN PARA MAESTRÍA DEL JUEGO (MJ)
+              MANUAL DE AUTOENTRENAMIENTO: BRANDSCRIPT Y GUIONES DE COMUNICACIÓN EMPÁTICA
             </h2>
             <p style={{ color: '#94a3b8', fontStyle: 'italic' }}>
               EDICIÓN V1.0 — CREAR PODER SIN LÍMITES 2026
             </p>
             <p>
-              Este manual constituye la herramienta definitiva para que la Gerencia de Sede, los Capitanes, Aliados y Mánagers unifiquen su narrativa comercial bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong>. Su propósito es estructurar mensajes de alto impacto y guiones telefónicos que reduzcan el esfuerzo y sacrificio percibidos por los graduados de Capítulo Dos (C2), guiándolos hacia un compromiso voluntario y de alta integridad con la <strong>Maestría del Juego (MJ)</strong> de 90 días.
+              Este manual constituye la herramienta definitiva para que las personas en modo aprendiz desarrollen una comunicación consciente bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong>. Su propósito es estructurar mensajes de alto impacto y guiones formativos que reduzcan el esfuerzo y sacrificio percibidos por los graduados de Capítulo Dos (C2), guiándolos hacia un compromiso voluntario y de alta integridad con la <strong>Maestría del Juego (MJ)</strong> de 90 días.
             </p>
 
             <h3 style={{ color: '#60a5fa', marginTop: '1.5rem' }}>1. EL MARCO ONTOLÓGICO: EL VIAJE DEL HÉROE EN LA MAESTRÍA</h3>
@@ -1195,7 +1196,7 @@ Antes de realizar una llamada o enviar un mensaje, todo Aliado, Mánager o Coord
             </p>
             <ul>
               <li><strong>El Participante es el Héroe:</strong> El graduado de Capítulo Dos (C2) es el único protagonista de su propia película. Él es quien debe enfrentar a sus «dragones cotidianos» (la inercia, la zona de confort, el escepticismo de su entorno).</li>
-              <li><strong>La Organización es el Guía:</strong> Los Mánagers y Aliados no buscan ser las estrellas del salón. Su rol exclusivo es encarnar el arquetipo del Mentor (el Guía), proveyendo empatía, autoridad ética, un plan simplificado y un llamado irrazonable a la acción.</li>
+              <li><strong>La Organización es el Guía:</strong> En modo aprendiz no buscamos protagonismo. Nuestro propósito es encarnar el arquetipo del Mentor empático (el Guía), proveyendo empatía, autoridad ética, un plan simplificado y un llamado consciente a la acción.</li>
               <li><strong>El Combustible es la Elección Voluntaria:</strong> El enrolamiento es un acto de amor y estiramiento. Todo acuerdo financiero o de asistencia debe nacer de la libre elección del participante, erradicando cualquier forma de coacción, manipulación o culpa.</li>
             </ul>
 

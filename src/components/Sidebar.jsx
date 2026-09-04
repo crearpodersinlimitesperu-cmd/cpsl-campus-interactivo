@@ -61,7 +61,7 @@ export default function Sidebar({ isOpen, onClose }) {
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              🎮 Gamificación Staff (Nodus)
+              🎮 Modo Aprendiz (Nodus)
             </NavLink>
           </li>
           <li>
@@ -70,7 +70,7 @@ export default function Sidebar({ isOpen, onClose }) {
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              📜 BrandScript & Guiones MJ
+              📜 Comunicación & Mentoría Empática
             </NavLink>
           </li>
           <li>
@@ -80,7 +80,7 @@ export default function Sidebar({ isOpen, onClose }) {
               onClick={onClose}
               style={{ color: 'var(--crear-gold)' }}
             >
-              📖 Vende Sin Vender (Causa OS)
+              📖 Vende Sin Vender (Autoentrenamiento)
             </NavLink>
           </li>
           <li>
@@ -144,16 +144,16 @@ export default function Sidebar({ isOpen, onClose }) {
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              Autoevaluación Coach 🧭
+              Autoevaluación Personal 🧭
             </NavLink>
           </li>
           <li>
             <NavLink 
-              to="/tareas-qt"
+              to="/retos"
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              Tareas QT (Deadlines C1) 🎯
+              Retos de Autoentrenamiento 🎯
             </NavLink>
           </li>
           <li>
@@ -162,7 +162,7 @@ export default function Sidebar({ isOpen, onClose }) {
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              Evaluaciones Alumnos
+              Mis Evaluaciones
             </NavLink>
           </li>
           {isAdmin && (
@@ -172,7 +172,7 @@ export default function Sidebar({ isOpen, onClose }) {
                 className={({ isActive }) => isActive ? "active text-gold" : "text-gold"}
                 onClick={onClose}
               >
-                👑 Panel CEO
+                ⚙️ Panel Administrativo
               </NavLink>
             </li>
           )}

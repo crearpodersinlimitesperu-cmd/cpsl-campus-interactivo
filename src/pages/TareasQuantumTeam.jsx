@@ -2,32 +2,32 @@ import { useState, useEffect, useMemo } from 'react';
 import { TAREAS_QT_C1 } from '../data/tareasQtData';
 import calendarioC1 from '../data/calendario_c1.json';
 
-// RETOS EN CONJUNTO PREDETERMINADOS (METAS COLECTIVAS DE EQUIPO SINCRONIZADAS AL C1)
+// RETOS PRÁCTICOS DE AUTOENTRENAMIENTO (METAS INDIVIDUALES EN MODO APRENDIZ SINCRONIZADAS AL C1)
 const RETOS_CONJUNTO_DEFAULT = [
   {
     id: "reto-01",
     tipo: "RETO_EQUIPO",
     fase: "ANTES",
-    faseTitulo: "Pre-C1: Blindaje y Convocatoria",
-    titulo: "🔥 Reto Colectivo: 100% de Confirmación y Llamadas de Alineación",
-    descripcion: "Todo el equipo de Aliados y QT debe contactar al 100% de sus participantes asignados antes del jueves a las 18:00 para garantizar cero ausencias en sala.",
-    metaColectiva: "100% Asistencia confirmada",
+    faseTitulo: "Pre-C1: Preparación y Compromiso",
+    titulo: "🔥 Reto de Autoentrenamiento: Alineación y Presencia Consciente",
+    descripcion: "Práctica personal de autoobservación, escucha atenta y revisión de intenciones para llegar con la mente en calma y el corazón abierto.",
+    metaColectiva: "100% Compromiso y puntualidad personal",
     offsetDays: -1,
     time: "18:00",
-    puntosXP: "+500 XP Equipo",
-    origen: "Regla de Convocatoria Masiva"
+    puntosXP: "+500 XP Aprendiz",
+    origen: "Autoentrenamiento Consciente"
   },
   {
     id: "reto-02",
     tipo: "RETO_EQUIPO",
     fase: "DURANTE",
     faseTitulo: "Día 1 Viernes: El Quiebre",
-    titulo: "⚡ Reto Colectivo: Cero Tardanzas y Retiro Hermético de Celulares",
-    descripcion: "Ningún participante ni miembro del equipo ingresa después de las 09:00 AM. Registro al 100% con celulares resguardados en sobres sellados.",
-    metaColectiva: "0 minutos de tardanza en todo el grupo",
+    titulo: "⚡ Reto de Autoentrenamiento: Desconexión Digital y Atención Plena",
+    descripcion: "Estar presente a tiempo sin distracciones. Apagar y resguardar el teléfono para entregarte al 100% al ejercicio vivencial.",
+    metaColectiva: "Cero distracciones digitales durante las sesiones",
     offsetDays: 0,
     time: "09:00",
-    puntosXP: "+350 XP Equipo",
+    puntosXP: "+350 XP Aprendiz",
     origen: "Estándar de Impecabilidad"
   },
   {
@@ -35,39 +35,39 @@ const RETOS_CONJUNTO_DEFAULT = [
     tipo: "RETO_EQUIPO",
     fase: "DURANTE",
     faseTitulo: "Día 2 Sábado: El Espejo",
-    titulo: "🛡️ Reto Colectivo: Sostenimiento de Cartas & Cero Abandono en Procesos",
-    descripcion: "Garantizar la recolección y entrega impecable del 100% de cartas confidenciales de familiares y sostenimiento perimetral sin fugas en sala.",
-    metaColectiva: "100% de cartas procesadas",
+    titulo: "🛡️ Reto de Autoentrenamiento: Honestidad Radical y Aceptación",
+    descripcion: "Reconocer las interpretaciones limitantes, aceptar los quiebres emocionales con compasión y sostener la palabra dada.",
+    metaColectiva: "100% Honestidad emocional y apertura",
     offsetDays: 1,
     time: "20:00",
-    puntosXP: "+600 XP Equipo",
-    origen: "Módulo 3: El Gran Traspaso"
+    puntosXP: "+600 XP Aprendiz",
+    origen: "Módulo de Responsabilidad Radical"
   },
   {
     id: "reto-04",
     tipo: "RETO_EQUIPO",
     fase: "DURANTE",
     faseTitulo: "Día 3 Domingo: Graduación & Enrolamiento",
-    titulo: "🏆 Reto Colectivo: Conversión Superior al 85% a Capítulo Dos (PP%)",
-    descripcion: "Acompañar y enrolar a los participantes hacia su siguiente nivel de liderazgo y transformación en Capítulo 2.",
-    metaColectiva: "PP% > 85% de graduados enrolados a C2",
+    titulo: "🏆 Reto de Autoentrenamiento: Compromiso con tu Siguiente Nivel",
+    descripcion: "Consolidar tu plan de acción de transformación continua y definir con claridad el para qué de tu evolución personal.",
+    metaColectiva: "Plan de liderazgo personal trazado",
     offsetDays: 2,
     time: "18:00",
-    puntosXP: "+1000 XP Equipo Máximo",
-    origen: "Métricas de Expansión Global"
+    puntosXP: "+1000 XP Aprendiz",
+    origen: "Maestría en Modo Aprendiz"
   },
   {
     id: "reto-05",
     tipo: "RETO_EQUIPO",
     fase: "DESPUÉS",
-    faseTitulo: "Post-C1: Continuidad & Reencuentro",
-    titulo: "🤝 Reto Colectivo: 100% de Graduados en la Noche de Reencuentro",
-    descripcion: "Llamada de seguimiento y presencia total de la hermandad del equipo en el primer taller de seguimiento post-C1.",
-    metaColectiva: "85%+ de presencia en Reencuentro",
+    faseTitulo: "Post-C1: Continuidad & Integración",
+    titulo: "🤝 Reto de Autoentrenamiento: Integración en la Vida Cotidiana",
+    descripcion: "Llevar la práctica consciente a tu familia, trabajo y relaciones, manteniendo vivo el hábito de la autoobservación.",
+    metaColectiva: "Práctica diaria sostenida",
     offsetDays: 5,
     time: "19:00",
-    puntosXP: "+400 XP Equipo",
-    origen: "Cadena de Continuidad"
+    puntosXP: "+400 XP Aprendiz",
+    origen: "Cadena de Hábitos Conscientes"
   }
 ];
 
@@ -106,7 +106,7 @@ export default function TareasQuantumTeam() {
     fase: 'ANTES',
     offsetDays: 0,
     time: '12:00',
-    rol: 'Todos los QT',
+    rol: 'Modo Aprendiz',
     entregable: '',
     metaColectiva: '',
     puntosXP: '+150 XP'
@@ -172,9 +172,10 @@ export default function TareasQuantumTeam() {
     const newItem = {
       id: 'custom-' + Date.now(),
       ...newItemForm,
+      rol: 'Modo Aprendiz',
       offsetDays: Number(newItemForm.offsetDays),
-      origenManual: 'Creado por el Equipo',
-      origen: 'Reto Creado por el Equipo'
+      origenManual: 'Reto Personal',
+      origen: 'Autoentrenamiento Personal'
     };
 
     const updated = [...customItems, newItem];
@@ -193,19 +194,19 @@ export default function TareasQuantumTeam() {
       fase: 'ANTES',
       offsetDays: 0,
       time: '12:00',
-      rol: 'Todos los QT',
+      rol: 'Modo Aprendiz',
       entregable: '',
       metaColectiva: '',
       puntosXP: '+150 XP'
     });
   };
 
-  // Unión de tareas maestras + retos en conjunto + personalizadas
+  // Unión de tareas maestras + retos en conjunto + personalizadas (todas en Modo Aprendiz)
   const allMasterItems = useMemo(() => {
     const combined = [
-      ...TAREAS_QT_C1.map(t => ({ ...t, tipo: 'TAREA' })),
-      ...RETOS_CONJUNTO_DEFAULT,
-      ...customItems
+      ...TAREAS_QT_C1.map(t => ({ ...t, tipo: 'TAREA', rol: 'Modo Aprendiz' })),
+      ...RETOS_CONJUNTO_DEFAULT.map(r => ({ ...r, rol: 'Modo Aprendiz' })),
+      ...customItems.map(c => ({ ...c, rol: 'Modo Aprendiz' }))
     ];
     return combined;
   }, [customItems]);
@@ -284,13 +285,13 @@ export default function TareasQuantumTeam() {
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(0, 210, 255, 0.12)', border: '1px solid rgba(0, 210, 255, 0.4)', padding: '0.35rem 0.85rem', borderRadius: '9999px', marginBottom: '0.75rem' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#00d2ff', boxShadow: '0 0 8px #00d2ff' }}></span>
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '1.5px', color: '#00d2ff', textTransform: 'uppercase' }}>Sistema Operativo QT — Tareas & Retos Vivos</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '1.5px', color: '#00d2ff', textTransform: 'uppercase' }}>Autoentrenamiento — Retos y Prácticas en Vivo</span>
             </div>
             <h1 style={{ fontSize: '2.2rem', fontWeight: 900, margin: 0, letterSpacing: '-0.5px' }}>
-              Tareas & Retos de Equipo en Vivo
+              Retos y Prácticas de Autoentrenamiento
             </h1>
             <p style={{ margin: '0.5rem 0 0', color: '#9ca3af', fontSize: '0.95rem', maxWidth: '650px' }}>
-              Metas colectivas y cronograma operacional sincronizado al minuto con el calendario oficial de Capítulo 1.
+              Plataforma abierta para personas en modo aprendiz. Fortalece tu presencia, disciplina y autoconocimiento sin roles ni jerarquías.
             </p>
           </div>
 
@@ -327,7 +328,7 @@ export default function TareasQuantumTeam() {
               }}
             >
               <span style={{ fontSize: '1.2rem', lineHeight: 1 }}>+</span>
-              <span>CREAR TAREA O RETO DE EQUIPO</span>
+              <span>CREAR RETO O PRÁCTICA PERSONAL</span>
             </button>
 
             {/* Contador de Tiempo */}
@@ -408,7 +409,7 @@ export default function TareasQuantumTeam() {
         </div>
       </div>
 
-      {/* PESTAÑAS: TODOS / TAREAS OPERATIVAS / RETOS COLECTIVOS */}
+      {/* PESTAÑAS: TODOS / PRÁCTICAS FORMATIVAS / RETOS DE AUTOENTRENAMIENTO */}
       <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.75rem' }}>
         <button
           onClick={() => setActiveTab('ALL')}
@@ -423,7 +424,7 @@ export default function TareasQuantumTeam() {
             cursor: 'pointer'
           }}
         >
-          📋 TODAS ({computedItems.length})
+          📋 TODOS ({computedItems.length})
         </button>
         <button
           onClick={() => setActiveTab('RETOS')}
@@ -438,7 +439,7 @@ export default function TareasQuantumTeam() {
             cursor: 'pointer'
           }}
         >
-          🏆 RETOS EN CONJUNTO DEL EQUIPO ({computedItems.filter(i => i.tipo === 'RETO_EQUIPO').length})
+          🏆 RETOS DE AUTOENTRENAMIENTO ({computedItems.filter(i => i.tipo === 'RETO_EQUIPO').length})
         </button>
         <button
           onClick={() => setActiveTab('TAREAS')}
@@ -453,7 +454,7 @@ export default function TareasQuantumTeam() {
             cursor: 'pointer'
           }}
         >
-          ⚙️ TAREAS DE SALA ({computedItems.filter(i => i.tipo === 'TAREA').length})
+          ⚙️ PRÁCTICAS FORMATIVAS ({computedItems.filter(i => i.tipo === 'TAREA').length})
         </button>
       </div>
 
@@ -461,7 +462,7 @@ export default function TareasQuantumTeam() {
       <div className="glass-panel" style={{ padding: '1rem 1.5rem', borderRadius: '1rem', marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
           <span style={{ fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', color: '#e5e7eb' }}>
-            Progreso del Equipo: <span style={{ color: '#00d2ff' }}>{completedCount} de {totalCount} completadas</span>
+            Tu Progreso en Modo Aprendiz: <span style={{ color: '#00d2ff' }}>{completedCount} de {totalCount} completados</span>
           </span>
           <span style={{ fontSize: '1rem', fontWeight: 900, color: progressPct === 100 ? '#4ade80' : 'var(--crear-gold, #ffb703)' }}>
             {progressPct}%
@@ -551,7 +552,7 @@ export default function TareasQuantumTeam() {
                         border: isReto ? '1px solid rgba(255,183,3,0.4)' : '1px solid rgba(0,210,255,0.3)'
                       }}
                     >
-                      {isReto ? '🏆 RETO COLECTIVO' : item.fase}
+                      {isReto ? '🏆 RETO DE AUTOENTRENAMIENTO' : item.fase}
                     </span>
                     <h3 style={{
                       fontSize: '1rem',
@@ -588,7 +589,7 @@ export default function TareasQuantumTeam() {
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.75rem', color: '#9ca3af' }}>
                   {item.metaColectiva && (
                     <span style={{ background: 'rgba(255, 183, 3, 0.1)', color: '#ffb703', padding: '0.15rem 0.5rem', borderRadius: '0.3rem', border: '1px solid rgba(255, 183, 3, 0.25)' }}>
-                      🎯 <strong>Meta de Equipo:</strong> {item.metaColectiva}
+                      🎯 <strong>Meta de Autoentrenamiento:</strong> {item.metaColectiva}
                     </span>
                   )}
                   {item.puntosXP && (
@@ -596,11 +597,9 @@ export default function TareasQuantumTeam() {
                       ⚡ {item.puntosXP}
                     </span>
                   )}
-                  {item.rol && (
-                    <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.15rem 0.5rem', borderRadius: '0.3rem' }}>
-                      👤 {item.rol}
-                    </span>
-                  )}
+                  <span style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#34d399', padding: '0.15rem 0.5rem', borderRadius: '0.3rem', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
+                    🌱 Modo Aprendiz
+                  </span>
                 </div>
               </div>
             </div>
@@ -608,13 +607,13 @@ export default function TareasQuantumTeam() {
         })}
       </div>
 
-      {/* MODAL PARA CREAR NUEVA TAREA / RETO DE EQUIPO */}
+      {/* MODAL PARA CREAR NUEVO RETO / PRÁCTICA */}
       {showNewTaskModal && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
           <div className="glass-panel" style={{ maxWidth: '550px', width: '100%', padding: '2rem', borderRadius: '1.5rem', border: '1px solid #00d2ff' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.3rem', fontWeight: 900, margin: 0, color: '#ffffff' }}>
-                🚀 Crear Tarea o Reto de Equipo
+                🚀 Crear Reto o Práctica de Autoentrenamiento
               </h2>
               <button onClick={() => setShowNewTaskModal(false)} style={{ background: 'none', border: 'none', color: '#9ca3af', fontSize: '1.5rem', cursor: 'pointer' }}>✕</button>
             </div>
@@ -628,24 +627,24 @@ export default function TareasQuantumTeam() {
                     onClick={() => setNewItemForm({ ...newItemForm, tipo: 'RETO_EQUIPO' })}
                     style={{ flex: 1, padding: '0.5rem', borderRadius: '0.5rem', background: newItemForm.tipo === 'RETO_EQUIPO' ? '#ffb703' : 'rgba(255,255,255,0.05)', color: newItemForm.tipo === 'RETO_EQUIPO' ? '#000' : '#fff', fontWeight: 800, border: 'none', cursor: 'pointer' }}
                   >
-                    🏆 RETO COLECTIVO
+                    🏆 RETO DE APRENDIZAJE
                   </button>
                   <button
                     type="button"
                     onClick={() => setNewItemForm({ ...newItemForm, tipo: 'TAREA' })}
                     style={{ flex: 1, padding: '0.5rem', borderRadius: '0.5rem', background: newItemForm.tipo === 'TAREA' ? '#00d2ff' : 'rgba(255,255,255,0.05)', color: newItemForm.tipo === 'TAREA' ? '#000' : '#fff', fontWeight: 800, border: 'none', cursor: 'pointer' }}
                   >
-                    ⚙️ TAREA OPERATIVA
+                    ⚙️ PRÁCTICA FORMATIVA
                   </button>
                 </div>
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#9ca3af', marginBottom: '0.3rem' }}>TÍTULO DE LA META O TAREA:</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#9ca3af', marginBottom: '0.3rem' }}>TÍTULO DEL RETO O PRÁCTICA:</label>
                 <input
                   type="text"
                   required
-                  placeholder="Ej: Reto de Confirmación de Asistencia al 100%"
+                  placeholder="Ej: Reto de Atención Plena y Desconexión Digital"
                   value={newItemForm.titulo}
                   onChange={e => setNewItemForm({ ...newItemForm, titulo: e.target.value })}
                   style={{ width: '100%', padding: '0.75rem', borderRadius: '0.6rem', background: '#0a0f1c', border: '1px solid rgba(255,255,255,0.15)', color: '#fff' }}
@@ -653,10 +652,10 @@ export default function TareasQuantumTeam() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#9ca3af', marginBottom: '0.3rem' }}>DESCRIPCIÓN / PROPÓSITO:</label>
+                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#9ca3af', marginBottom: '0.3rem' }}>DESCRIPCIÓN / PROPÓSITO PERSONAL:</label>
                 <textarea
                   rows="2"
-                  placeholder="Explica el acuerdo o la meta que debe cumplir el equipo..."
+                  placeholder="Explica el propósito de autoentrenamiento que buscas fortalecer..."
                   value={newItemForm.descripcion}
                   onChange={e => setNewItemForm({ ...newItemForm, descripcion: e.target.value })}
                   style={{ width: '100%', padding: '0.75rem', borderRadius: '0.6rem', background: '#0a0f1c', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', resize: 'none' }}
@@ -676,12 +675,12 @@ export default function TareasQuantumTeam() {
                   >
                     <option value="ANTES">Pre-C1 (Antes del Viernes)</option>
                     <option value="DURANTE">Durante C1 (Viernes/Sábado/Domingo)</option>
-                    <option value="DESPUÉS">Post-C1 (Reencuentro / Cierre)</option>
+                    <option value="DESPUÉS">Post-C1 (Integración / Cierre)</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#9ca3af', marginBottom: '0.3rem' }}>HORA DEADLINE:</label>
+                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#9ca3af', marginBottom: '0.3rem' }}>HORA LÍMITE / OBJETIVO:</label>
                   <input
                     type="time"
                     value={newItemForm.time}
@@ -693,10 +692,10 @@ export default function TareasQuantumTeam() {
 
               {newItemForm.tipo === 'RETO_EQUIPO' ? (
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#ffb703', marginBottom: '0.3rem' }}>META CUANTIFICABLE DE EQUIPO:</label>
+                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#ffb703', marginBottom: '0.3rem' }}>META DE AUTOENTRENAMIENTO:</label>
                   <input
                     type="text"
-                    placeholder="Ej: 100% de llamadas realizadas"
+                    placeholder="Ej: 100% de presencia y escucha activa"
                     value={newItemForm.metaColectiva}
                     onChange={e => setNewItemForm({ ...newItemForm, metaColectiva: e.target.value })}
                     style={{ width: '100%', padding: '0.75rem', borderRadius: '0.6rem', background: '#0a0f1c', border: '1px solid rgba(255,183,3,0.3)', color: '#fff' }}
@@ -704,10 +703,10 @@ export default function TareasQuantumTeam() {
                 </div>
               ) : (
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#00d2ff', marginBottom: '0.3rem' }}>ENTREGABLE / RESULTADO:</label>
+                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 800, color: '#00d2ff', marginBottom: '0.3rem' }}>RESULTADO ESPERADO:</label>
                   <input
                     type="text"
-                    placeholder="Ej: Acta de sala firmada"
+                    placeholder="Ej: Registro de autoobservación completo"
                     value={newItemForm.entregable}
                     onChange={e => setNewItemForm({ ...newItemForm, entregable: e.target.value })}
                     style={{ width: '100%', padding: '0.75rem', borderRadius: '0.6rem', background: '#0a0f1c', border: '1px solid rgba(0,210,255,0.3)', color: '#fff' }}
@@ -727,7 +726,7 @@ export default function TareasQuantumTeam() {
                   type="submit"
                   style={{ flex: 1, padding: '0.75rem', borderRadius: '0.6rem', background: '#00d2ff', color: '#000', border: 'none', cursor: 'pointer', fontWeight: 900 }}
                 >
-                  GUARDAR META
+                  GUARDAR RETO
                 </button>
               </div>
             </form>

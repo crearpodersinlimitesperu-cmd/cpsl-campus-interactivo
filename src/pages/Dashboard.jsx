@@ -23,7 +23,7 @@ export default function Dashboard() {
           {user?.photoURL && <img src={user.photoURL} alt="Foto de perfil del estudiante" style={{width: '60px', height: '60px', borderRadius: '50%', border: '2px solid var(--crear-gold)'}} />}
           <div>
             <h2 style={{fontSize: '2.5rem'}}>Hola, <span className="text-gold">{user?.displayName ? user.displayName.split(' ')[0] : 'Estudiante'}</span></h2>
-            <p className="text-muted" style={{fontSize: '1.25rem'}}>Continúa tu entrenamiento.</p>
+            <p className="text-muted" style={{fontSize: '1.25rem'}}>Continúa tu autoentrenamiento en modo aprendiz.</p>
           </div>
         </div>
         <button className="btn-logout" onClick={logout} aria-label="Cerrar sesión de tu cuenta">Cerrar sesión</button>
@@ -33,7 +33,6 @@ export default function Dashboard() {
         <article className="glass-panel" style={{ padding: '1.5rem', borderLeft: '4px solid var(--crear-blue)', background: 'rgba(23, 42, 69, 0.4)', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <div style={{ flex: 1 }}>
             <h3 className="text-blue" style={{ marginTop: 0, marginBottom: '0.5rem', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-
               Preparación y Presencia (Grounding)
             </h3>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.95rem' }}>
@@ -52,8 +51,8 @@ export default function Dashboard() {
         </article>
       </section>
 
-      {/* SECCIÓN MODO APRENDIZ & GAMIFICACIÓN STAFF (NODUS) */}
-      <section aria-label="Modo Aprendiz y Gamificación Staff" style={{ marginBottom: '1.5rem' }}>
+      {/* SECCIÓN MODO APRENDIZ & AUTOENTRENAMIENTO CONSCIENTE */}
+      <section aria-label="Modo Aprendiz y Autoentrenamiento Consciente" style={{ marginBottom: '1.5rem' }}>
         <article className="glass-panel" style={{
           padding: '1.6rem 2rem',
           border: '1px solid rgba(255, 183, 3, 0.4)',
@@ -68,14 +67,14 @@ export default function Dashboard() {
           <div style={{ flex: 1, minWidth: '280px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255, 183, 3, 0.2)', padding: '0.25rem 0.75rem', borderRadius: '9999px', marginBottom: '0.5rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 900, color: 'var(--crear-gold)', letterSpacing: '1px' }}>
-                🎮 MODO APRENDIZ & NEUROMARKETING ÉTICO
+                🎮 MODO APRENDIZ & AUTOENTRENAMIENTO
               </span>
             </div>
             <h3 style={{ margin: '0 0 0.4rem', fontSize: '1.4rem', fontWeight: 900, color: '#ffffff' }}>
-              Gamificación Staff & Fisonomía Nodus 2026
+              Autoentrenamiento Consciente & Fisonomía Nodus
             </h3>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.92rem', maxWidth: '650px' }}>
-              Los Tres Cerebros, la Ecuación de Valor en Sopa de Letras (Alex Hormozi), el Observador Causa y el Simulador de Decisiones en Sala con Trazabilidad Causa OS.
+              Los Tres Cerebros, la Ecuación de Valor (Alex Hormozi), el Observador Causa y ejercicios vivenciales de crecimiento personal para toda persona sin jerarquías.
             </p>
           </div>
 
@@ -110,7 +109,7 @@ export default function Dashboard() {
                 color: '#f59e0b'
               }}
             >
-              <span>📜 BRANDSCRIPT & GUIONES MJ</span>
+              <span>📜 COMUNICACIÓN & MENTORÍA EMPÁTICA</span>
             </button>
             <button
               onClick={() => navigate('/vende-sin-vender')}
@@ -128,7 +127,7 @@ export default function Dashboard() {
                 background: 'rgba(255, 183, 3, 0.1)'
               }}
             >
-              <span>📖 VENDE SIN VENDER (CAUSA OS)</span>
+              <span>📖 VENDE SIN VENDER (AUTOENTRENAMIENTO)</span>
             </button>
           </div>
         </article>
@@ -172,26 +171,26 @@ export default function Dashboard() {
         </article>
       </section>
 
-      {/* SECCIÓN OFICIAL: TAREAS & RETOS EN CONJUNTO DEL EQUIPO (DEADLINES C1) */}
-      <section aria-label="Tareas y Retos de Equipo" style={{ marginTop: '2rem' }}>
+      {/* SECCIÓN OFICIAL: RETOS PRÁCTICOS DE AUTOENTRENAMIENTO */}
+      <section aria-label="Retos de Autoentrenamiento" style={{ marginTop: '2rem' }}>
         <article className="glass-panel" style={{ padding: '2rem', border: '1px solid rgba(0, 210, 255, 0.3)', borderRadius: '1.25rem', position: 'relative', overflow: 'hidden' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1.5rem' }}>
             <div style={{ flex: 1, minWidth: '280px' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255, 183, 3, 0.15)', border: '1px solid rgba(255, 183, 3, 0.4)', padding: '0.25rem 0.75rem', borderRadius: '9999px', marginBottom: '0.6rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--crear-gold, #ffb703)', letterSpacing: '1px' }}>⚡ RETOS EN CONJUNTO & DEADLINES C1</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--crear-gold, #ffb703)', letterSpacing: '1px' }}>⚡ RETOS DE AUTOENTRENAMIENTO</span>
               </div>
               <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.5rem', fontWeight: 900, color: '#ffffff' }}>
-                Tareas y Retos Sincronizados de Equipo
+                Prácticas y Retos Diarios en Modo Aprendiz
               </h3>
               <p className="text-muted" style={{ margin: 0, fontSize: '0.95rem', maxWidth: '650px' }}>
-                Organiza las metas grupales antes, durante y después de Capítulo 1. Deadlines vivos calculados en tiempo real según la fecha de entrenamiento de tu sede.
+                Ejercicios vivenciales, hábitos de disciplina y retos individuales para consolidar tu autoconocimiento y aprendizaje continuo sin jerarquías ni roles.
               </p>
             </div>
 
-            {/* BOTÓN + TAREA / RETO DE ALTO CONTRASTE Y MÁXIMA VISIBILIDAD */}
+            {/* BOTÓN DE ALTO CONTRASTE Y MÁXIMA VISIBILIDAD */}
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <button 
-                onClick={() => navigate('/tareas-qt')}
+                onClick={() => navigate('/retos')}
                 style={{
                   background: 'linear-gradient(135deg, #00d2ff 0%, #1a75bc 100%)',
                   color: '#030712',
@@ -219,7 +218,7 @@ export default function Dashboard() {
                 }}
               >
                 <span style={{ fontSize: '1.2rem', lineHeight: 1 }}>+</span>
-                <span>TAREAS & RETOS QT</span>
+                <span>VER RETOS DE AUTOENTRENAMIENTO</span>
               </button>
             </div>
           </div>

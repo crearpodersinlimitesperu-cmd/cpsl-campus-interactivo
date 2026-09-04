@@ -31,7 +31,7 @@ export default function GamificacionStaff() {
     return {
       xp: 0,
       streak: 1,
-      currentRole: 'Aliado',
+      currentRole: 'Persona en Modo Aprendiz',
       completedLessons: [],
       unlockedBadges: [],
       simulationAnswers: {}
@@ -50,8 +50,8 @@ export default function GamificacionStaff() {
       {
         id: 'init-1',
         timestamp: new Date().toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'medium' }),
-        responsable: user?.displayName || user?.email?.split('@')[0] || 'Staff Operativo',
-        rol: 'Aliado',
+        responsable: user?.displayName || user?.email?.split('@')[0] || 'Persona en Modo Aprendiz',
+        rol: 'Modo Aprendiz',
         accion: 'Inicialización de Terminal Nodus Causa OS',
         resultado: 'Sesión activa y sincronizada',
         xpDelta: 0,
@@ -90,8 +90,8 @@ export default function GamificacionStaff() {
     const newEntry = {
       id: 'log-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6),
       timestamp: new Date().toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'medium' }),
-      responsable: user?.displayName || user?.email?.split('@')[0] || 'Staff Nodus',
-      rol: staffState.currentRole,
+      responsable: user?.displayName || user?.email?.split('@')[0] || 'Persona en Modo Aprendiz',
+      rol: 'Modo Aprendiz',
       accion,
       resultado,
       xpDelta,
@@ -100,27 +100,27 @@ export default function GamificacionStaff() {
     setAuditLogs(prev => [newEntry, ...prev.slice(0, 99)]); // Limitar a últimos 100 logs
   };
 
-  // Cálculo dinámico de Nivel de Fisonomía (cada 300 XP = 1 nivel, máximo 10)
+  // Nivel de Fisonomía (1 a 10) calculado por tramos de 300 XP
   const currentFisonomiaLevel = Math.min(10, Math.max(1, 1 + Math.floor(staffState.xp / 300)));
   const xpCurrentLevelBase = (currentFisonomiaLevel - 1) * 300;
   const xpInCurrentLevel = currentFisonomiaLevel === 10 ? 300 : staffState.xp - xpCurrentLevelBase;
   const levelProgressPercent = currentFisonomiaLevel === 10 ? 100 : Math.min(100, Math.round((xpInCurrentLevel / 300) * 100));
 
-  // Título ontológico de Fisonomía
+  // Título de progresión en Autoentrenamiento
   const getFisonomiaTitle = (lvl) => {
     const titles = {
-      1: 'Aprendiz Impecable (Puerta)',
-      2: 'Aliado Operativo (Caja / Registro)',
-      3: 'Guardián del Estándar',
-      4: 'Mánager de Contención',
-      5: 'Coordinador Táctico',
-      6: 'Quantum Team Sombra',
-      7: 'Líder de Interrupción',
-      8: 'Capitán de Sede',
-      9: 'Maestro de Protocolo',
-      10: 'Master Staff Causa OS'
+      1: 'Aprendiz Inicial (Escucha Activa)',
+      2: 'Observador Consciente (Presencia)',
+      3: 'Calibrador de Fisonomía (Calma)',
+      4: 'Arquitecto de Valor y Posibilidad',
+      5: 'Comunicador Empático y Límbico',
+      6: 'Facilitador de Transformación',
+      7: 'Integrador del Modo Causa',
+      8: 'Practicante de Impecabilidad',
+      9: 'Guardián de la Integridad Personal',
+      10: 'Maestro en Autoconocimiento y Causa'
     };
-    return titles[lvl] || 'Staff de Excelencia';
+    return titles[lvl] || 'Persona en Modo Aprendiz';
   };
 
   // Otorgar medalla si no la tiene
@@ -331,10 +331,10 @@ export default function GamificacionStaff() {
               </span>
             </div>
             <h1 style={{margin: '0 0 4px', fontSize: '1.8rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#fff'}}>
-              Gamificación Staff & Modo Aprendiz
+              Autoentrenamiento en Modo Aprendiz
             </h1>
             <p style={{margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)'}}>
-              Neuromarketing Ético, Toma de Decisiones en Sala y Certificación Oficial de Fisonomía Nodus 2026.
+              Neuromarketing Ético, Autoconsciencia y Práctica de Fisonomía Nodus (Plataforma para toda persona sin roles ni jerarquías).
             </p>
           </div>
         </div>
@@ -519,7 +519,7 @@ export default function GamificacionStaff() {
             <div>
               <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px'}}>
                 <span style={{background: 'var(--crear-gold)', color: '#000', fontWeight: 900, padding: '2px 8px', borderRadius: '6px', fontSize: '0.75rem'}}>
-                  GUÍA PRÁCTICA DEL ENROLADOR
+                  AUTOENTRENAMIENTO Y CRECIMIENTO PERSONAL
                 </span>
                 <span style={{color: '#34d399', fontSize: '0.85rem', fontWeight: 700}}>
                   v1.0 Oficial
@@ -529,7 +529,7 @@ export default function GamificacionStaff() {
                 Modo Aprendiz: Neuromarketing Ético y Causa OS
               </h3>
               <p style={{margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', maxWidth: '780px', lineHeight: '1.5'}}>
-                Micro-lecciones con lenguaje sencillo, analogías pedagógicas de plastilina y principios de neurociencia aplicados al servicio de sala en <strong>CREAR PODER SIN LÍMITES</strong>.
+                Micro-lecciones con lenguaje sencillo, analogías pedagógicas y principios de neurociencia aplicados al autoentrenamiento consciente en <strong>CREAR PODER SIN LÍMITES</strong>.
               </p>
             </div>
 
@@ -880,13 +880,13 @@ export default function GamificacionStaff() {
                 </div>
                 <div>
                   <div style={{fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--crear-gold)', fontWeight: 800, letterSpacing: '0.05em'}}>
-                    Fisonomía Operativa del Staff Nodus
+                    Autoentrenamiento & Fisonomía Nodus
                   </div>
                   <h2 style={{margin: '0.2rem 0', fontSize: '1.8rem', color: '#fff'}}>
                     Nivel {currentFisonomiaLevel}: {getFisonomiaTitle(currentFisonomiaLevel)}
                   </h2>
                   <div style={{fontSize: '0.88rem', color: 'var(--text-muted)'}}>
-                    Colaborador: <span style={{color: '#fff', fontWeight: 600}}>{user?.displayName || user?.email || 'Staff Operativo'}</span>
+                    Persona: <span style={{color: '#fff', fontWeight: 600}}>{user?.displayName || user?.email || 'Persona en Modo Aprendiz'}</span>
                   </div>
                 </div>
               </div>
@@ -919,45 +919,25 @@ export default function GamificacionStaff() {
                   </div>
                 </div>
 
-                {/* Selector de Rol Activo */}
+                {/* Estado Ontológico Sin Roles */}
                 <div style={{
                   background: 'rgba(0,0,0,0.5)',
-                  padding: '10px 16px',
+                  padding: '10px 18px',
                   borderRadius: '14px',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(16, 185, 129, 0.35)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center'
                 }}>
-                  <label htmlFor="perfil-role-select" style={{fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase'}}>
-                    Rol Asignado
-                  </label>
-                  <select
-                    id="perfil-role-select"
-                    value={staffState.currentRole}
-                    onChange={(e) => {
-                      const newRole = e.target.value;
-                      setStaffState(prev => ({ ...prev, currentRole: newRole }));
-                      logAudit(`Rol cambiado a ${newRole}`, 'Asignación manual en perfil');
-                    }}
-                    style={{
-                      background: 'rgba(255,255,255,0.08)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      color: '#fff',
-                      borderRadius: '8px',
-                      padding: '5px 8px',
-                      fontSize: '0.85rem',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <option value="Aliado" style={{background: '#070d1f'}}>Aliado</option>
-                    <option value="Mánager" style={{background: '#070d1f'}}>Mánager</option>
-                    <option value="Capitán" style={{background: '#070d1f'}}>Capitán</option>
-                    <option value="Quantum Team" style={{background: '#070d1f'}}>Quantum Team (QT)</option>
-                    <option value="CC1Y2" style={{background: '#070d1f'}}>CC1Y2</option>
-                    <option value="CMJ" style={{background: '#070d1f'}}>CMJ</option>
-                    <option value="Gerente Sede" style={{background: '#070d1f'}}>Gerente Sede</option>
-                  </select>
+                  <div style={{fontSize: '0.7rem', color: '#10b981', fontWeight: 800, marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.5px'}}>
+                    Estado en la Plataforma
+                  </div>
+                  <div style={{fontSize: '0.92rem', fontWeight: 900, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '6px'}}>
+                    <span>🌱 Modo Aprendiz</span>
+                  </div>
+                  <div style={{fontSize: '0.7rem', color: 'var(--text-muted)'}}>
+                    Sin roles ni jerarquías
+                  </div>
                 </div>
               </div>
 
@@ -986,13 +966,13 @@ export default function GamificacionStaff() {
             </div>
           </div>
 
-          {/* Roles Desbloqueados para Fin de Semana Real en Sala */}
+          {/* Competencias y Habilidades de Autoentrenamiento */}
           <div className="glass-panel" style={{padding: '1.8rem'}}>
             <h3 style={{fontSize: '1.3rem', margin: '0 0 0.4rem', color: '#fff'}}>
-              Roles Habilitados en Sala Real (Fines de Semana)
+              Competencias de Autoentrenamiento Desbloqueadas
             </h3>
             <p className="text-muted" style={{fontSize: '0.88rem', margin: '0 0 1.4rem'}}>
-              Autorizaciones operativas automáticas otorgadas según el Nivel de Fisonomía alcanzado en la plataforma.
+              Habilidades y niveles de consciencia desbloqueados según tu avance en las lecciones y simuladores.
             </p>
 
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem'}}>
@@ -1167,7 +1147,7 @@ export default function GamificacionStaff() {
               <thead>
                 <tr style={{borderBottom: '2px solid rgba(255,255,255,0.12)', textAlign: 'left', color: 'var(--text-muted)'}}>
                   <th style={{padding: '0.7rem 0.5rem'}}>Timestamp</th>
-                  <th style={{padding: '0.7rem 0.5rem'}}>Responsable & Rol</th>
+                  <th style={{padding: '0.7rem 0.5rem'}}>Persona en Modo Aprendiz</th>
                   <th style={{padding: '0.7rem 0.5rem'}}>Acción Registrada</th>
                   <th style={{padding: '0.7rem 0.5rem'}}>Resultado Ontológico</th>
                   <th style={{padding: '0.7rem 0.5rem', textAlign: 'right'}}>XP Delta</th>
@@ -1181,7 +1161,7 @@ export default function GamificacionStaff() {
                     </td>
                     <td style={{padding: '0.7rem 0.5rem'}}>
                       <span style={{color: '#fff', fontWeight: 600}}>{log.responsable}</span>
-                      <div style={{fontSize: '0.75rem', color: '#38bdf8'}}>{log.rol}</div>
+                      <div style={{fontSize: '0.75rem', color: '#10b981'}}>Modo Aprendiz</div>
                     </td>
                     <td style={{padding: '0.7rem 0.5rem', color: '#fde047', fontWeight: 500}}>
                       {log.accion}
