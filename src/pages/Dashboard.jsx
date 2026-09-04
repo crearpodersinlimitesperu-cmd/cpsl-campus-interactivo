@@ -112,6 +112,24 @@ export default function Dashboard() {
             >
               <span>📜 BRANDSCRIPT & GUIONES MJ</span>
             </button>
+            <button
+              onClick={() => navigate('/vende-sin-vender')}
+              className="btn-secondary"
+              style={{
+                padding: '0.85rem 1.5rem',
+                fontSize: '0.9rem',
+                fontWeight: 800,
+                borderRadius: '9999px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                borderColor: 'var(--crear-gold)',
+                color: 'var(--crear-gold)',
+                background: 'rgba(255, 183, 3, 0.1)'
+              }}
+            >
+              <span>📖 VENDE SIN VENDER (CAUSA OS)</span>
+            </button>
           </div>
         </article>
       </section>

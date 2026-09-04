@@ -75,6 +75,16 @@ export default function Sidebar({ isOpen, onClose }) {
           </li>
           <li>
             <NavLink 
+              to="/vende-sin-vender"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={onClose}
+              style={{ color: 'var(--crear-gold)' }}
+            >
+              📖 Vende Sin Vender (Causa OS)
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
               to="/modulo/modulo1"
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
