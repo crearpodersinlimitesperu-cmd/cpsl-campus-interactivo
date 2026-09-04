@@ -369,6 +369,54 @@ export const moduloStaff2 = [
         </div>
       </div>
     `
+  },
+  {
+    id: 'staff_2_3',
+    title: '2.3 BrandScript Oficial de Maestría del Juego (SB7-MJ) & Guiones de Llamada',
+    durationMinutes: 7,
+    content: `
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">Manual de Enrolamiento Narrativo — Edición Oficial V1.0 (2026)</h4>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
+          Unificación de la narrativa comercial bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong> para enrolar a graduados de C2 hacia la Maestría del Juego (MJ) de 90 días desde el amor y la libre elección.
+        </p>
+      </div>
+
+      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">1. Los 7 Elementos del BrandScript SB7-MJ</h3>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #3b82f6;">
+          <strong style="color: #60a5fa;">1. Un Personaje (El Héroe):</strong> Graduado de C2. Un líder que despertó su poder en sala y busca materializarlo en su vida diaria.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #ef4444;">
+          <strong style="color: #f87171;">2. Tiene un Problema (El Efecto Lunes):</strong> Externo (entorno inercial), Interno (miedo al auto-sabotaje y soledad) y Filosófico (inaceptable volver a vivir una vida promedio tras conocer su grandeza).
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #8b5cf6;">
+          <strong style="color: #a78bfa;">3. Encuentra un Guía:</strong> El Mánager y la Plataforma Nodus. Mentor empático con autoridad técnica.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #10b981;">
+          <strong style="color: #34d399;">4. Que le da un Plan de 3 Pasos:</strong> 1) Declara tu Futuro Imposible (FI), 2) Entrena en Integridad (28 entrenamientos sustentables), 3) Conquista El Viaje y gradúate en Gratitud.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #f59e0b;">
+          <strong style="color: #fbbf24;">5. Y lo llama a la Acción:</strong> CTA Directo en mesa Nodus del domingo o CTA Transicional agendando calibración de FI de 15 minutos.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #ec4899;">
+          <strong style="color: #f472b6;">6. Que evita el Fracaso:</strong> Evitar el marchitamiento de la palabra y caer en «la arena» de la víctima.
+        </div>
+        <div class="glass-panel" style="padding: 0.9rem; border-left: 4px solid #eab308;">
+          <strong style="color: #facc15;">7. Y termina en Éxito:</strong> Convertirse en un Líder IMO (coherencia y abundancia integral).
+        </div>
+      </div>
+
+      <h3 style="color: var(--crear-gold); margin-top: 1.5rem;">2. Neuromarketing Ético: Calmar al Perro Guardián</h3>
+      <p style="color: var(--text-muted);">
+        En llamadas telefónicas, desactiva la alerta del cerebro reptil en los primeros 15 segundos solicitando permiso de tiempo («¿estás en un espacio cómodo de 3 minutos para conversar?»), reconociendo la fisionomía de su Breakthrough y tratando la objeción de dinero con rigor de Causa OS (Alex Hormozi) sin manipulación ni culpa.
+      </p>
+
+      <div style="margin-top: 1.5rem; background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; padding: 1rem; border-radius: 8px; text-align: center;">
+        <p style="margin: 0 0 0.5rem 0; color: #fff; font-weight: 700;">¿Quieres entrenar con el simulador interactivo de llamadas y copiar las plantillas de WhatsApp?</p>
+        <a href="/guiones-mj" style="color: #f59e0b; font-weight: 900; text-decoration: underline;">➔ Ir a la Consola Interactiva BrandScript & Guiones MJ</a>
+      </div>
+    `
   }
 ];
 

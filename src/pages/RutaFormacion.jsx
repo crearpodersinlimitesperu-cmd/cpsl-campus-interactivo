@@ -234,6 +234,14 @@ export default function RutaFormacion() {
 
           <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
             <Link
+              to="/guiones-mj"
+              className="btn-secondary"
+              style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', borderColor: '#f59e0b', color: '#f59e0b'}}
+            >
+              <span>📜 BrandScript MJ</span>
+            </Link>
+
+            <Link
               to="/gamificacion"
               className="btn-primary"
               style={{fontSize: '0.85rem', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none'}}

@@ -66,6 +66,15 @@ export default function Sidebar({ isOpen, onClose }) {
           </li>
           <li>
             <NavLink 
+              to="/guiones-mj"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={onClose}
+            >
+              📜 BrandScript & Guiones MJ
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
               to="/modulo/modulo1"
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}

@@ -53,7 +53,7 @@ export default function Dashboard() {
       </section>
 
       {/* SECCIÓN MODO APRENDIZ & GAMIFICACIÓN STAFF (NODUS) */}
-      <section aria-label="Modo Aprendiz y Gamificación Staff" style={{ marginBottom: '2rem' }}>
+      <section aria-label="Modo Aprendiz y Gamificación Staff" style={{ marginBottom: '1.5rem' }}>
         <article className="glass-panel" style={{
           padding: '1.6rem 2rem',
           border: '1px solid rgba(255, 183, 3, 0.4)',
@@ -79,7 +79,7 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <button
               onClick={() => navigate('/gamificacion')}
               className="btn-primary"
@@ -94,6 +94,23 @@ export default function Dashboard() {
               }}
             >
               <span>EXPLORAR MODO APRENDIZ ➔</span>
+            </button>
+            <button
+              onClick={() => navigate('/guiones-mj')}
+              className="btn-secondary"
+              style={{
+                padding: '0.85rem 1.5rem',
+                fontSize: '0.9rem',
+                fontWeight: 800,
+                borderRadius: '9999px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                borderColor: '#f59e0b',
+                color: '#f59e0b'
+              }}
+            >
+              <span>📜 BRANDSCRIPT & GUIONES MJ</span>
             </button>
           </div>
         </article>

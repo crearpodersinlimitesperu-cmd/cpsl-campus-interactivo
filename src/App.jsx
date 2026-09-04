@@ -18,6 +18,7 @@ import AutoevaluacionCoach from './pages/AutoevaluacionCoach'
 import AdminDashboard from './pages/AdminDashboard'
 import TareasQuantumTeam from './pages/TareasQuantumTeam'
 import GamificacionStaff from './pages/GamificacionStaff'
+import BrandscriptGuionesMJ from './pages/BrandscriptGuionesMJ'
 import NotFound from './pages/NotFound'
 import Glosario from './pages/Glosario'
 import AdminRoute from './components/AdminRoute'
@@ -178,6 +179,8 @@ function App() {
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
           <Route path="/gamificacion" element={<ProtectedRoute><GamificacionStaff /></ProtectedRoute>} />
           <Route path="/modo-aprendiz" element={<ProtectedRoute><GamificacionStaff /></ProtectedRoute>} />
+          <Route path="/guiones-mj" element={<ProtectedRoute><BrandscriptGuionesMJ /></ProtectedRoute>} />
+          <Route path="/brandscript-mj" element={<ProtectedRoute><BrandscriptGuionesMJ /></ProtectedRoute>} />
           <Route path="/tareas-qt" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/superadmin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
