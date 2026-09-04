@@ -29,6 +29,11 @@ export default function EvaluacionContainer() {
       
       getUserProgress(user.uid).then(progress => {
         const prog = progress || {};
+        if (id.startsWith('modulo_staff_')) {
+          navigate('/ruta');
+          return;
+        }
+
         const moduleIndex = curriculum.findIndex(m => m.id === id);
         if (moduleIndex > 0) {
           const prevMod = curriculum[moduleIndex - 1];

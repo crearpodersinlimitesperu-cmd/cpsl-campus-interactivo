@@ -33,28 +33,16 @@ export const initializeUser = async (user) => {
 };
 
 export const getUserProgress = async (uid) => {
-  let progress = null;
   try {
     const userRef = doc(db, 'users', uid);
     const snap = await getDoc(userRef);
     if (snap.exists()) {
-      progress = snap.data().progress;
+      return snap.data().progress;
     }
   } catch (error) {
-    console.warn("Firebase falló, recuperando de localStorage", error);
+    console.error("Firebase falló al obtener progreso", error);
   }
-
-  // Fallback a localStorage
-  const localProgress = localStorage.getItem(`progress_${uid}`);
-  if (localProgress) {
-    const parsedLocal = JSON.parse(localProgress);
-    // Merge preferenciando localStorage si tiene más avance
-    if (!progress || (parsedLocal.globalPercentage > (progress.globalPercentage || 0))) {
-      progress = parsedLocal;
-    }
-  }
-
-  return progress;
+  return null;
 };
 
 export const updateLastVisited = async (uid, route) => {
@@ -149,16 +137,7 @@ export const getAllUsers = async () => {
   }
 };
 
-export const updateTimeSpent = async (uid, additionalMinutes) => {
-  try {
-    const userRef = doc(db, 'users', uid);
-    await updateDoc(userRef, {
-      'progress.totalTimeSpent': increment(additionalMinutes)
-    });
-  } catch (error) {
-    console.warn("Firebase falló al actualizar tiempo de sesión", error);
-  }
-};
+
 
 // --- AUDITORÍA DE SESIONES ---
 

@@ -15,6 +15,7 @@ export default function ModuloContainer() {
   
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
   const [completedLessons, setCompletedLessons] = useState([]);
+  const [isVerifying, setIsVerifying] = useState(true);
 
   useEffect(() => {
     setCurrentLessonIndex(0);
@@ -25,6 +26,12 @@ export default function ModuloContainer() {
         setCompletedLessons(prog.completedLessons || []);
         
         // Verificación de bloqueo secuencial
+        if (id.startsWith('modulo_staff_')) {
+          // Módulos de Nodus Staff son micro-learning accesibles directamente
+          setIsVerifying(false);
+          return;
+        }
+
         const moduleIndex = curriculum.findIndex(m => m.id === id);
         if (moduleIndex > 0) {
           const prevMod = curriculum[moduleIndex - 1];
@@ -34,13 +41,22 @@ export default function ModuloContainer() {
             
           if (!isPrevCompleted) {
             navigate('/ruta');
+            return;
           }
         }
+        setIsVerifying(false);
       });
+    } else {
+      setIsVerifying(false);
     }
   }, [user, id, navigate]);
 
-  const currentModuleData = modulesRegistry[id] || modulesRegistry['modulo1'];
+  const currentModuleData = modulesRegistry[id];
+  if (!currentModuleData) {
+    // Módulo no encontrado — redirigir a ruta en vez de cargar modulo1 en silencio
+    navigate('/ruta', { replace: true });
+    return null;
+  }
   const currentLesson = currentModuleData[currentLessonIndex];
 
   const handleNext = async () => {
@@ -61,11 +77,15 @@ export default function ModuloContainer() {
       window.scrollTo(0, 0);
     } else {
       // Modulo terminado, ir a evaluación o ruta
-      const currentModInfo = curriculum.find(m => m.id === id);
-      if (currentModInfo && !currentModInfo.tieneEvaluacion) {
+      if (id.startsWith('modulo_staff_')) {
         navigate('/ruta');
       } else {
-        navigate(`/evaluacion/${id}`);
+        const currentModInfo = curriculum.find(m => m.id === id);
+        if (currentModInfo && !currentModInfo.tieneEvaluacion) {
+          navigate('/ruta');
+        } else {
+          navigate(`/evaluacion/${id}`);
+        }
       }
     }
   };
@@ -77,12 +97,22 @@ export default function ModuloContainer() {
     }
   };
 
+  if (isVerifying) {
+    return (
+      <div className="module-container" style={{maxWidth: '800px', margin: '0 auto', paddingBottom: '4rem', paddingTop: '4rem', textAlign: 'center'}}>
+        <div className="text-gold" style={{fontSize: '1.2rem', opacity: 0.8}}>Verificando acceso...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="module-container" style={{maxWidth: '800px', margin: '0 auto', paddingBottom: '4rem'}}>
       <header style={{marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <p className="text-gold uppercase" style={{fontSize: '0.9rem', marginBottom: '0', fontWeight: 'bold'}}>
-            Módulo {id.replace('modulo', '')} • Lección {currentLessonIndex + 1} de {currentModuleData.length}
+            {id.startsWith('modulo_staff_')
+              ? `Nodus Staff • Módulo ${id.replace('modulo_staff_', '')}`
+              : `Módulo ${id.replace('modulo', '')}`} • Lección {currentLessonIndex + 1} de {currentModuleData.length}
           </p>
           
           {!isFocusMode && (

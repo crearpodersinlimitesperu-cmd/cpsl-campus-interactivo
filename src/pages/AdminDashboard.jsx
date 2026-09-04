@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { getAllUsers, getUserSessions } from '../services/db';
 import { generarDiagnosticoAlumno } from '../services/ai';
 import DOMPurify from 'dompurify';
+import { curriculum } from '../data/curriculum';
 
 export default function AdminDashboard() {
   const { user, isAdmin } = useAuth();
@@ -17,15 +18,20 @@ export default function AdminDashboard() {
   // Helper para mostrar nombres reales en lugar de URLs
   const formatModuleName = (route) => {
     if (!route) return 'Sin actividad';
-    if (route.includes('fundamentos')) return 'Módulo 1: Fundamentos';
-    if (route.includes('m1_eval')) return 'Evaluación Módulo 1';
-    if (route.includes('groundings')) return 'Groundings';
-    if (route.includes('dinamicas')) return 'Máquina de Dinámicas';
-    if (route.includes('quiebres')) return 'Máquina de Quiebres';
-    if (route.includes('entrenamiento')) return 'Programa 6 Semanas';
-    if (route.includes('autoevaluacion')) return 'Autoevaluación Coach';
+    if (route.includes('evaluacion/')) {
+      const modId = route.split('evaluacion/')[1]?.split('/')[0];
+      const match = curriculum.find(m => m.id === modId);
+      return match ? `Evaluación ${match.titulo}` : `Evaluación ${modId}`;
+    }
+    if (route.includes('modulo/')) {
+      const modId = route.split('modulo/')[1]?.split('/')[0];
+      const match = curriculum.find(m => m.id === modId);
+      return match ? match.titulo : `Módulo ${modId}`;
+    }
+    if (route.includes('glosario')) return 'Glosario Central';
     if (route.includes('dashboard')) return 'Dashboard Principal';
     if (route.includes('ruta')) return 'Ruta de Formación';
+    if (route.includes('admin')) return 'Panel CEO / Dirección';
     return route;
   };
 
