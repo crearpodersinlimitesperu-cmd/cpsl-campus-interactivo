@@ -662,7 +662,7 @@ export default function VendeSinVender() {
 
               <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#cbd5e1' }}>
                 <p>
-                  Para enrolar a un participante de forma fluida y profesional, el staff de mánagers debe guiarlo a través de un puente invisible de <strong>tres pasos sencillos</strong>. Si te saltas uno, la conversión se desploma.
+                  Para enrolar a un participante de forma fluida y profesional, el staff de coaches de soporte debe guiarlo a través de un puente invisible de <strong>tres pasos sencillos</strong>. Si te saltas uno, la conversión se desploma.
                 </p>
               </div>
 
@@ -689,7 +689,7 @@ export default function VendeSinVender() {
                       <strong style={{ color: '#c084fc' }}>Mostrar el Andamiaje</strong>
                     </div>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                      Disuelve el miedo a fallar solo. Presenta al Mánager de alineación, al Buddy y a Nodus como andamiaje libre de drama.
+                      Disuelve el miedo a fallar solo. Presenta al Accountability Coach de alineación, al Buddy y a Nodus como andamiaje libre de drama.
                     </p>
                   </div>
 

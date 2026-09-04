@@ -179,6 +179,9 @@ function App() {
           <Route path="/glosario" element={<ProtectedRoute><Glosario /></ProtectedRoute>} />
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
           <Route path="/gamificacion" element={<ProtectedRoute><GamificacionStaff /></ProtectedRoute>} />
+          <Route path="/crisol" element={<ProtectedRoute><GamificacionStaff defaultTab="simulador" /></ProtectedRoute>} />
+          <Route path="/simulador" element={<ProtectedRoute><GamificacionStaff defaultTab="simulador" /></ProtectedRoute>} />
+          <Route path="/liderazgo" element={<ProtectedRoute><GamificacionStaff defaultTab="perfil" /></ProtectedRoute>} />
           <Route path="/modo-aprendiz" element={<ProtectedRoute><GamificacionStaff /></ProtectedRoute>} />
           <Route path="/guiones-mj" element={<ProtectedRoute><BrandscriptGuionesMJ /></ProtectedRoute>} />
           <Route path="/brandscript-mj" element={<ProtectedRoute><BrandscriptGuionesMJ /></ProtectedRoute>} />

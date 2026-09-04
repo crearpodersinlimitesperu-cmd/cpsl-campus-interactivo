@@ -57,11 +57,21 @@ export default function Sidebar({ isOpen, onClose }) {
           </li>
           <li>
             <NavLink 
-              to="/gamificacion"
+              to="/gamificacion?tab=simulador"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={onClose}
+              style={{ color: 'var(--crear-gold, #ffb703)' }}
+            >
+              ⚡ El Crisol del Día (Simulador)
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to="/gamificacion?tab=perfil"
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              🎮 Modo Aprendiz (Nodus)
+              🛡️ Liderazgo Adaptativo (2 Ejes)
             </NavLink>
           </li>
           <li>

@@ -1,9 +1,19 @@
 // =========================================================================================
 // BLUEPRINT CURRICULAR & SISTEMA DE GAMIFICACIÓN: RUTA DE MAESTRÍA EN COMUNICACIÓN Y RETOS
+// MODO INVISIBLE (STEALTH MODE) — POLÍTICA DE CERO FILTRACIONES
 // =========================================================================================
 
 // INSIGNIAS Y MEDALLAS DE MAESTRÍA EN COMUNICACIÓN Y RETOS
 export const nodusStaffBadges = [
+  {
+    id: 'compliance_master',
+    code: 'MED-COMPLIANCE-MASTER',
+    name: 'Compliance Master (Aprobación Total)',
+    icon: '🛡️',
+    xpReward: 600,
+    requirement: 'Mantener un Rigor Score superior a 80 y un Empathy Score superior a 80 en el cuadrante de Liderazgo Adaptativo.',
+    color: '#10b981'
+  },
   {
     id: 'arquitecto_vision',
     code: 'MED-ARQUITECTO-VISION',
@@ -34,7 +44,7 @@ export const nodusStaffBadges = [
   {
     id: 'sombra_impecable',
     code: 'MED-SOMBRA-IMPECABLE',
-    name: 'Sombra Impecable',
+    name: 'Sombra Impecable (Presencia Neutral)',
     icon: '👤',
     xpReward: 400,
     requirement: 'Resolver con maestría las simulaciones de fisonomía, presencia neutral y escucha empática de vasija vacía.',
@@ -43,7 +53,7 @@ export const nodusStaffBadges = [
   {
     id: 'guardian_rigor',
     code: 'MED-GUARDIAN-RIGOR',
-    name: 'Guardián de la Integridad',
+    name: 'Guardián de la Integridad (Causa OS)',
     icon: '🛡️',
     xpReward: 500,
     requirement: 'Distinguir hechos objetivos de interpretaciones y sostener acuerdos firmes desde la responsabilidad radical (Causa OS).',
@@ -60,10 +70,10 @@ export const nodusStaffBadges = [
   }
 ];
 
-// MATRIZ DE COMPETENCIAS Y RETOS DE MAESTRÍA (NEUTRAL, SIN CARGOS NI RANGOS)
+// MATRIZ DE COMPETENCIAS Y RETOS DE MAESTRÍA (STEALTH MODE: SIN CARGOS NI JERARQUÍAS DE SALA)
 export const nodusStaffRoleCertifications = [
   {
-    role: 'Nivel 1: Escucha Activa y Vasija Vacía',
+    role: 'Nivel 1: Escucha Activa & Vasija Vacía (Phase 1: Discovery)',
     minFisonomia: 1,
     requiredBadge: 'mente_aprendiz',
     badgeName: 'Mente de Aprendiz',
@@ -71,7 +81,7 @@ export const nodusStaffRoleCertifications = [
     description: 'Capacidad para silenciar la agenda propia, generar seguridad psicológica y desactivar la alarma del cerebro reptiliano.'
   },
   {
-    role: 'Nivel 2: Arquitectura de la Ecuación de Valor',
+    role: 'Nivel 2: Arquitectura de la Ecuación de Valor (Phase 2: Core Breakthrough)',
     minFisonomia: 3,
     requiredBadge: 'arquitecto_valor',
     badgeName: 'Arquitecto de Valor',
@@ -79,37 +89,131 @@ export const nodusStaffRoleCertifications = [
     description: 'Capacidad para transformar obstáculos en soluciones de alto valor, reduciendo el esfuerzo a cero y acelerando victorias rápidas.'
   },
   {
-    role: 'Nivel 3: Narrativa y Conexión Límbica',
+    role: 'Nivel 3: Calibración de Estado & Contenedor Ético (State Calibration)',
     minFisonomia: 5,
     requiredBadge: 'sombra_impecable',
     badgeName: 'Sombra Impecable',
     moduleName: 'El Plan Maestro de Enrolamiento en 3 Pasos',
-    description: 'Capacidad para estructurar conversaciones bajo el marco del Viaje del Héroe (SB7) y utilizar los 7 atajos éticos de Cialdini.'
+    description: 'Capacidad para estructurar conversaciones bajo el marco del Viaje del Héroe (SB7) y sostener la neutralidad visual y conductual.'
   },
   {
-    role: 'Nivel 4: Responsabilidad Radical y Causa OS',
+    role: 'Nivel 4: Liderazgo Adaptativo & Causa OS (The 90-Day Performance Cycle)',
     minFisonomia: 7,
     requiredBadge: 'guardian_rigor',
     badgeName: 'Guardián de la Integridad',
     moduleName: 'Responsabilidad Radical y Kit de Acción',
-    description: 'Capacidad para separar hechos de juicios dramáticos, sostener acuerdos en integridad y estructurar invitaciones con el Método M-A-G-I-C.'
+    description: 'Capacidad para sostenerse en el cuadrante de Alto Rigor y Alta Empatía, sostener acuerdos en integridad y eliminar justificaciones dramáticas.'
   }
 ];
 
-// SIMULADOR INTERACTIVO DE RETOS SITUACIONALES DE COMUNICACIÓN
+// SIMULADOR INTERACTIVO DE RETOS SITUACIONALES DE COMUNICACIÓN (STEALTH MODE)
+// INCORPORA ESC-001 Y ESC-002 SEGÚN EL MANUAL MAESTRO CON EVALUACIÓN RIGOR/EMPATÍA Y AVATAR REACTIVO
 export const nodusStaffSimulations = [
+  {
+    id: 'ESC-001',
+    category: 'Ecuación de Valor & Neurociencia',
+    modulo: 'Ecuación de Valor y Calibración de Objeciones',
+    title: 'ESC-001: Ecuación de Valor y Calibración de Objeciones',
+    badgeEligible: 'arquitecto_valor',
+    scenario: 'Es el día previo al inicio del programa de 90 días (The 90-Day Performance Cycle). Un participante te llama muy angustiado porque se enteró de que el entrenamiento exige subir reportes digitales diarios y teme no tener tiempo suficiente debido a su trabajo corporativo.',
+    avatar_estado_inicial: 'tenso',
+    options: [
+      {
+        id: 'OPT-A',
+        text: '«No te preocupes por los reportes, lo importante es que asistas. El sistema de registro digital es solo una formalidad y no pasa nada si te saltas algunos días si estás muy ocupado.»',
+        isCorrect: false,
+        classification: 'Error de Rigor (Complacencia / Sympathy)',
+        puntos_rigor: -50,
+        puntos_empatia: 40,
+        avatar_reaccion: 'aliviado_pero_descomprometido',
+        xpDelta: -50,
+        feedback: 'ERROR DE RIGOR: Caíste en complicidad (Sympathy). Al devaluar la importancia de la estructura digital de la app, redujiste su probabilidad percibida de logro y debilitaste el contenedor de rendición de cuentas que asegura su transformación.'
+      },
+      {
+        id: 'OPT-B',
+        text: '«Si no estás dispuesto a cumplir con los reportes diarios de 5 minutos, significa que no estás comprometido con tu meta y estás buscando excusas cómodas para no estirar tu mente.»',
+        isCorrect: false,
+        classification: 'Error de Empatía (Autoritarismo / Agresión)',
+        puntos_rigor: 50,
+        puntos_empatia: -100,
+        avatar_reaccion: 'defensivo_molesto',
+        xpDelta: -80,
+        feedback: 'ERROR DE EMPATÍA: Activaste al "perro guardián" (Cerebro Reptiliano) de su mente mediante un ataque directo a su identidad. Al juzgarlo en lugar de couchear la objeción, aumentaste de forma drástica su resistencia cognitiva y emocional.'
+      },
+      {
+        id: 'OPT-C',
+        text: '«Comprendo perfectamente que tu agenda sea demandante. Justamente porque tu tiempo es escaso, necesitas una estructura que automatice tu enfoque. El sistema de registro digital toma menos de 3 minutos diarios y actúa como un andamiaje para que no dependas de tu fuerza de voluntad. ¿Te hace sentido usar la tecnología para simplificar tu avance en lugar de cargarte con más tareas?»',
+        isCorrect: true,
+        classification: 'Liderazgo Adaptativo (Alto Rigor + Alta Empatía)',
+        puntos_rigor: 80,
+        puntos_empatia: 80,
+        avatar_reaccion: 'receptivo',
+        xpDelta: 160,
+        feedback: '¡EXCELENTE TOMA DE DECISIÓN! Calmaste al cerebro reptil mostrando empatía, aplicaste la Ecuación de Valor reduciendo el esfuerzo percibido y presentaste la plataforma tecnológica como una herramienta de apoyo, no de vigilancia.'
+      }
+    ]
+  },
+  {
+    id: 'ESC-002',
+    category: 'Rigor & Calibración de Estado',
+    modulo: 'Gestión de Desviaciones de Compromiso (Rigor en Sala)',
+    title: 'ESC-002: Gestión de Desviaciones de Compromiso (Rigor en Sala)',
+    badgeEligible: 'guardian_rigor',
+    scenario: 'Un colaborador de tu equipo de soporte llega a la sesión de State Calibration (calibración matutina) con una sudadera deportiva negra que tiene un gran logotipo comercial impreso en el pecho, lo cual rompe el estándar visual de neutralidad corporativa.',
+    avatar_estado_inicial: 'neutral',
+    options: [
+      {
+        id: 'OPT-A',
+        text: '«Como la sudadera es negra, no hay problema por el logotipo. Comencemos la jornada para no retrasar la agenda.»',
+        isCorrect: false,
+        classification: 'Error de Control (Complacencia Pasiva)',
+        puntos_rigor: -80,
+        puntos_empatia: 20,
+        avatar_reaccion: 'aliviado_pero_descomprometido',
+        xpDelta: -60,
+        feedback: 'ERROR DE CONTROL: Permitir pequeñas desviaciones del código de honor en el staff degrada de forma silenciosa el estándar y la autoridad moral del equipo de control frente a los participantes de la sala.'
+      },
+      {
+        id: 'OPT-B',
+        text: '«Te pido que te quites esa prenda de inmediato. Rompe el código de vestimenta y das un mal ejemplo frente a toda la sede.»',
+        isCorrect: false,
+        classification: 'Error de Comunicación (Juicio Público Destructivo)',
+        puntos_rigor: 40,
+        puntos_empatia: -80,
+        avatar_reaccion: 'humillado',
+        xpDelta: -70,
+        feedback: 'ERROR DE COMUNICACIÓN: Corregir en público y de forma autoritaria ataca la identidad de tu colaborador, rompe la seguridad psicológica de tu propio equipo y genera resentimiento interno en lugar de fisonomía de alineación.'
+      },
+      {
+        id: 'OPT-C',
+        text: '«Reconozco que el clima de hoy es frío. Sostener nuestra neutralidad visual impecable es lo que nos da la autoridad moral para guiar la fisionomía de la sala. Vamos a reemplazar esa prenda por una casaca negra lisa del baúl de soporte antes de que abramos las puertas de registro. ¿Te parece bien?»',
+        isCorrect: true,
+        classification: 'Liderazgo Adaptativo (Alto Rigor + Alta Empatía)',
+        puntos_rigor: 100,
+        puntos_empatia: 90,
+        avatar_reaccion: 'alineado_y_agradecido',
+        xpDelta: 180,
+        feedback: '¡PERFECTO! Sostuviste el rigor visual innegociable de la fisonomía del staff de soporte sin atacar la identidad del colaborador, ofreciendo una alternativa viable de inmediato con total empatía.'
+      }
+    ]
+  },
   {
     id: 'sim_caso_1',
     category: 'Neuromarketing Ético',
+    modulo: 'Biología de la Decisión y Calibración',
     title: 'Reto 1: Calmar al Perro Guardián ante el Miedo al Esfuerzo',
     badgeEligible: 'mente_aprendiz',
     scenario: 'Durante una conversación de acompañamiento, una persona interesada en un proceso de transformación te dice con tono defensivo y los brazos cruzados: «Todo suena muy bonito, pero ya sé cómo son estas cosas. Seguro me van a pedir horas de tareas absurdas, despertarme de madrugada y pagar un dineral que no tengo. No tengo tiempo para agotarme más de lo que ya estoy».',
+    avatar_estado_inicial: 'tenso',
     options: [
       {
         id: 'opt_a',
         text: '«Si de verdad quisieras cambiar tu vida encontrarías el tiempo. Quien quiere busca motivos y quien no busca excusas. Si no te inscribes hoy perderás el beneficio del descuento especial.»',
         isCorrect: false,
         classification: 'Discurso que Altera (Agresión y Falsa Escasez)',
+        puntos_rigor: 40,
+        puntos_empatia: -90,
+        avatar_reaccion: 'defensivo_molesto',
         xpDelta: -80,
         feedback: 'El Perro Guardián detecta una amenaza directa a su estatus, peligro biológico y manipulación. Se activará la respuesta de huida o ataque, cerrando completamente la puerta a la confianza.'
       },
@@ -118,6 +222,9 @@ export const nodusStaffSimulations = [
         text: '«Tienes toda la razón, la verdad es que sí es agotador y difícil. Si quieres no hagamos nada ahora y descansa, luego vemos el próximo mes si te animas.»',
         isCorrect: false,
         classification: 'Complacencia Pasiva (Validación del Miedo)',
+        puntos_rigor: -60,
+        puntos_empatia: 40,
+        avatar_reaccion: 'aliviado_pero_descomprometido',
         xpDelta: -40,
         feedback: 'Validas la resignación sin ofrecer ninguna estructura de apoyo. Abandonas el rol de guía y dejas a la persona atrapada en la misma inercia de dolor.'
       },
@@ -125,7 +232,10 @@ export const nodusStaffSimulations = [
         id: 'opt_c',
         text: '«Reconozco profundamente el valor de tu energía y es completamente natural que cuides tu tiempo. No se trata de sobrecargarte ni de que tomes una decisión apresurada hoy. ¿Te abrirías a que conversemos solo 15 minutos para mapear cuál es tu verdadero sueño y ver si un plan simplificado de 10 minutos al día te daría más tiempo y paz, sin ningún compromiso de continuar si sientes que no es para ti?»',
         isCorrect: true,
-        classification: 'Discurso que Calma (Neuromarketing Ético)',
+        classification: 'Liderazgo Adaptativo (Neuromarketing Ético)',
+        puntos_rigor: 85,
+        puntos_empatia: 95,
+        avatar_reaccion: 'receptivo',
         xpDelta: 150,
         feedback: '¡Impecable! Aplicas las 3 estrategias: 1) Vacías la vasija reconociendo su cansancio, 2) Hablas al «Para Qué» (más tiempo y paz) ocultando el esfuerzo abrumador, y 3) Ofreces una rampa de bajo compromiso (15 minutos) que neutraliza la alarma biológica.'
       }
@@ -134,15 +244,20 @@ export const nodusStaffSimulations = [
   {
     id: 'sim_caso_2',
     category: 'Rigor & Integridad',
+    modulo: 'Responsabilidad Radical y Hechos Objetivos',
     title: 'Reto 2: Compromiso Pendiente: Hechos Objetivos vs. Juicios y Drama',
     badgeEligible: 'guardian_rigor',
-    scenario: 'Un participante acordó entregar un informe clave antes de las 14:00 horas como parte de su compromiso de integridad. Son las 14:30 horas y no hay registro del documento. Al llamarlo para calibrar la situación, te dice alterado: «¡Es que el sistema falló, la red estuvo pésima y ustedes son muy intransigentes, no es mi culpa!»',
+    scenario: 'Un participante acordó entregar un informe clave antes de las 14:00 horas como parte de su compromiso de integridad (Moonshot KPI). Son las 14:30 horas y no hay registro del documento. Al llamarlo para calibrar la situación, te dice alterado: «¡Es que el sistema falló, la red estuvo pésima y ustedes son muy intransigentes, no es mi culpa!»',
+    avatar_estado_inicial: 'tenso',
     options: [
       {
         id: 'opt_a',
         text: '«No te preocupes en absoluto, comprendo perfectamente lo de la red. Tómate el tiempo que necesites y entrégalo cuando puedas a lo largo del día.»',
         isCorrect: false,
         classification: 'Simpatía Complaciente (Quiebre del Contenedor)',
+        puntos_rigor: -70,
+        puntos_empatia: 30,
+        avatar_reaccion: 'aliviado_pero_descomprometido',
         xpDelta: -60,
         feedback: 'Rompes el rigor del acuerdo. Alimentas la narrativa del espectador en la arena, debilitando la fuerza de la palabra del participante.'
       },
@@ -151,6 +266,9 @@ export const nodusStaffSimulations = [
         text: '«El plazo venció a las 14:00 en punto. No hay excusas que valgan: si no puedes cumplir un horario tan simple, estás saboteando todo tu proceso y no podrás continuar.»',
         isCorrect: false,
         classification: 'Ataque y Confrontación Destructiva',
+        puntos_rigor: 60,
+        puntos_empatia: -90,
+        avatar_reaccion: 'defensivo_molesto',
         xpDelta: -100,
         feedback: 'Atacas la identidad de la persona en lugar de examinar el hecho objetivo. Provocas reactividad defensiva y destruyes el espacio de aprendizaje.'
       },
@@ -158,7 +276,10 @@ export const nodusStaffSimulations = [
         id: 'opt_c',
         text: '«Reconozco la frustración técnica que me describes. Distingamos el hecho del evento: el hecho objetivo es que son las 14:30 y el informe no está en el registro. Tu palabra fue entregarlo a las 14:00. Desde el modo Causa: ¿qué acción concreta en tus manos puedes ejecutar en los próximos 10 minutos para restaurar la integridad de tu acuerdo?»',
         isCorrect: true,
-        classification: 'Responsabilidad Radical (Modo Causa OS)',
+        classification: 'Liderazgo Adaptativo (Responsabilidad Radical Causa OS)',
+        puntos_rigor: 95,
+        puntos_empatia: 85,
+        avatar_reaccion: 'alineado_y_agradecido',
         xpDelta: 150,
         feedback: 'Extraordinario. Separas el hecho medible de la queja emocional, no compras la justificación del «efecto» y colocas al interlocutor como el protagonista capaz de restaurar su palabra.'
       }
@@ -167,15 +288,20 @@ export const nodusStaffSimulations = [
   {
     id: 'sim_caso_3',
     category: 'Ecuación de Valor',
+    modulo: 'Alquimia de Valor y Estructuración',
     title: 'Reto 3: Desarmar la Objeción de «No Tengo Tiempo ni Dinero»',
     badgeEligible: 'arquitecto_valor',
     scenario: 'Al presentarle un programa de desarrollo personal, la persona te responde: «Me parece valiosísimo, de verdad lo quiero. Pero honestamente no me alcanza el dinero para pagarlo completo y llego a mi casa a las 9 de la noche sin tiempo para nada».',
+    avatar_estado_inicial: 'tenso',
     options: [
       {
         id: 'opt_a',
         text: '«Si no inviertes en ti nunca vas a tener dinero ni tiempo. Pídele prestado a un amigo o tarjetéalo todo hoy mismo porque el que no arriesga no gana.»',
         isCorrect: false,
         classification: 'Presión Coercitiva e Invasiva',
+        puntos_rigor: 30,
+        puntos_empatia: -85,
+        avatar_reaccion: 'defensivo_molesto',
         xpDelta: -90,
         feedback: 'Transfiere un riesgo desmedido al participante sin modificar la ecuación de valor. El neocórtex se alarma y el reptil rechaza la propuesta.'
       },
@@ -183,7 +309,10 @@ export const nodusStaffSimulations = [
         id: 'opt_b',
         text: '«Te entiendo, el dinero es un obstáculo para todos. El valor de este programa es darte herramientas para multiplicar tus ingresos y gobernar tu agenda. Miremos la ecuación: desfragmentemos el programa en micro-cápsulas de 10 minutos de consumo flexible y diseñemos un plan de pagos escalonado en 3 cuotas sin intereses para que el esfuerzo financiero sea nulo mes a mes. ¿Te permitiría eso avanzar con certeza y tranquilidad?»',
         isCorrect: true,
-        classification: 'Alquimia de Valor (Hormozi)',
+        classification: 'Liderazgo Adaptativo (Alquimia de Valor Hormozi)',
+        puntos_rigor: 85,
+        puntos_empatia: 90,
+        avatar_reaccion: 'receptivo',
         xpDelta: 160,
         feedback: '¡Brillante! Redujiste el esfuerzo y sacrificio a cero (10 minutos diarios) y disminuiste el riesgo financiero (pagos escalonados), haciendo que el valor percibido supere con creces el costo percibido.'
       },
@@ -192,6 +321,9 @@ export const nodusStaffSimulations = [
         text: '«Por ser tú, te voy a dar un 60% de descuento si firmas ahora mismo.»',
         isCorrect: false,
         classification: 'Devaluación de la Oferta',
+        puntos_rigor: -60,
+        puntos_empatia: 20,
+        avatar_reaccion: 'aliviado_pero_descomprometido',
         xpDelta: -70,
         feedback: 'Regalar descuentos indiscriminados devalúa el proceso y destruye la percepción de calidad. No resuelve la causa raíz de la objeción (el tiempo y la certeza).'
       }
@@ -200,15 +332,20 @@ export const nodusStaffSimulations = [
   {
     id: 'sim_caso_4',
     category: 'Coaching No Violento',
+    modulo: 'Consentimiento y Libre Albedrío',
     title: 'Reto 4: Preservación del Libre Albedrío y Consentimiento Radical',
     badgeEligible: 'sombra_impecable',
     scenario: 'A mitad de una sesión de entrenamiento, una persona se muestra desbordada emocionalmente y manifiesta: «Esto es demasiado para mí. Me siento abrumado por mis propias limitaciones y quiero abandonar el proceso ahora mismo».',
+    avatar_estado_inicial: 'tenso',
     options: [
       {
         id: 'opt_a',
         text: '«Si renuncias ahora estarás repitiendo el patrón de huida de toda tu vida. ¿Quieres volver a ser alguien que se rinde en el primer obstáculo?»',
         isCorrect: false,
         classification: 'Manipulación por Culpa (Coaching Coercitivo)',
+        puntos_rigor: 40,
+        puntos_empatia: -100,
+        avatar_reaccion: 'humillado',
         xpDelta: -120,
         feedback: 'Infracción ética absoluta. Usar la culpa y las etiquetas para retener a alguien es manipulación psicológica y vulnera el principio de dignidad.'
       },
@@ -217,6 +354,9 @@ export const nodusStaffSimulations = [
         text: '«De acuerdo, si te quieres ir nadie te detiene. Firma tu retiro voluntario y que te vaya bien.»',
         isCorrect: false,
         classification: 'Abandono del Contenedor',
+        puntos_rigor: 20,
+        puntos_empatia: -60,
+        avatar_reaccion: 'defensivo_molesto',
         xpDelta: -50,
         feedback: 'Falta de empatía y contención. Desaprovecha la oportunidad de ofrecer una pausa reflexiva y un acompañamiento compasivo.'
       },
@@ -224,83 +364,18 @@ export const nodusStaffSimulations = [
         id: 'opt_c',
         text: '«Honro y respeto profundamente tu libre elección; tu bienestar y tu ritmo están por encima de todo. Antes de que tomes una decisión definitiva, ¿me permites que respiremos 5 minutos en calma y miremos qué emoción se está moviendo en ti, con la certeza total de que si decides pausar o marcharte, contarás con mi apoyo incondicional?»',
         isCorrect: true,
-        classification: 'Consentimiento Radical y Contenedor Seguro',
+        classification: 'Liderazgo Adaptativo (Consentimiento Radical)',
+        puntos_rigor: 90,
+        puntos_empatia: 95,
+        avatar_reaccion: 'receptivo',
         xpDelta: 150,
         feedback: 'Maestría pura. Respeta la autonomía del ser, desactiva el estado de alerta del sistema nervioso, valida la emoción y sostiene el contenedor desde la seguridad psicológica.'
-      }
-    ]
-  },
-  {
-    id: 'sim_caso_5',
-    category: 'Fisonomía & Presencia',
-    title: 'Reto 5: Fisonomía, Presencia y Cuidado del Entorno',
-    badgeEligible: 'sombra_impecable',
-    scenario: 'En un espacio formativo presencial donde se acordó neutralidad visual para no distraer la atención de los participantes, un facilitador de soporte se presenta con prendas de colores brillantes y logotipos comerciales llamativos.',
-    options: [
-      {
-        id: 'opt_a',
-        text: '«No importa la ropa, lo que cuenta es la actitud interior. No seamos exagerados con las normas.»',
-        isCorrect: false,
-        classification: 'Negligencia del Estándar',
-        xpDelta: -50,
-        feedback: 'Ignora el impacto psicológico del entorno visual en el foco atencional del grupo.'
-      },
-      {
-        id: 'opt_b',
-        text: '«Estás violando el código del espacio delante de todos. Cámbiate inmediatamente o te retiras del equipo.»',
-        isCorrect: false,
-        classification: 'Agresión Autoritária',
-        xpDelta: -90,
-        feedback: 'Rompe la seguridad psicológica y utiliza la intimidación en lugar del liderazgo pedagógico.'
-      },
-      {
-        id: 'opt_c',
-        text: '«Sostener nuestra neutralidad visual permite que el único protagonista sea el participante y su proceso interior. Reconozco tu disposición de estar aquí; te pido que reemplacemos esa prenda por una neutra que tenemos en el espacio antes de iniciar, para cuidar el estándar colectivo.»',
-        isCorrect: true,
-        classification: 'Autoridad Moral con Empatía',
-        xpDelta: 140,
-        feedback: 'Ejemplar. Comunica el propósito ontológico del estándar, cuida la dignidad de la persona y ofrece una alternativa práctica sin conflicto.'
-      }
-    ]
-  },
-  {
-    id: 'sim_caso_6',
-    category: 'Transformación de Obstáculos',
-    title: 'Reto 6: Aplicación del Método Grand Slam de 5 Pasos',
-    badgeEligible: 'lider_imo',
-    scenario: 'Diseñas un programa de acompañamiento donde el principal obstáculo identificado de los participantes es: «No sé qué publicar ni cómo hablar ante la cámara, me bloqueo por completo y abandono».',
-    options: [
-      {
-        id: 'opt_a',
-        text: 'Decirles que practiquen 100 horas frente al espejo y contraten un productor audiovisual costoso.',
-        isCorrect: false,
-        classification: 'Aumento de Fricción',
-        xpDelta: -60,
-        feedback: 'Multiplica el esfuerzo y sacrificio en el denominador de la ecuación de valor, provocando deserción.'
-      },
-      {
-        id: 'opt_b',
-        text: 'Diseñar un banco de 30 guiones estructurados «llena los espacios», una guía de calibración de 3 pasos y sesiones grupales de práctica guiada de 15 minutos semanales.',
-        isCorrect: true,
-        classification: 'Solución Grand Slam Apalancada',
-        xpDelta: 160,
-        feedback: '¡Excelente! Conviertes el obstáculo en una solución apalancada de alto valor: reduce el esfuerzo a minutos y eleva la probabilidad de logro al 100%.'
-      },
-      {
-        id: 'opt_c',
-        text: 'Eliminar el módulo de comunicación en video para que nadie se frustre.',
-        isCorrect: false,
-        classification: 'Reducción del Resultado Anhelado',
-        xpDelta: -40,
-        feedback: 'Mutila el valor del programa reduciendo el resultado anhelado en el numerador de la fórmula.'
       }
     ]
   }
 ];
 
-// =========================================================================================
-// MÓDULO I: BIOLOGÍA DE LA DECISIÓN Y NEUROMARKETING ÉTICO
-// =========================================================================================
+
 export const moduloStaff1 = [
   {
     id: 'staff_1_1',

@@ -92,7 +92,7 @@ CREAR PODER SIN LÍMITES`;
     {
       num: 3,
       titulo: '3. Encuentra un Guía',
-      definicion: 'El equipo de Mánagers y la Plataforma Nodus.',
+      definicion: 'El equipo de Accountability Coaches y la Plataforma Nodus.',
       lenguajeCpsl: 'Un mentor empático (que ya recorrió los 90 días) y con autoridad técnica (respaldado por la telemetría de Nodus).',
       color: '#8b5cf6',
       icon: '🧭'
@@ -223,7 +223,7 @@ CREAR PODER SIN LÍMITES`;
             </div>
             <div>
               <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Guía</div>
-              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Mánager + Nodus</div>
+              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Accountability Coach + Nodus</div>
             </div>
           </div>
 
@@ -482,7 +482,7 @@ CREAR PODER SIN LÍMITES`;
                 </div>
 
                 <button
-                  onClick={() => copyToClipboard(`Paso 1: "Hola [Nombre], te saluda [Mánager], tu mánager de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?"
+                  onClick={() => copyToClipboard(`Paso 1: "Hola [Nombre], te saluda [Accountability Coach], tu Accountability Coach de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?"
 Paso 2: "Aún vibra en mí el espacio del domingo de Capítulo Dos. Quiero reconocer la fisonomía y la entrega que mostraste en tu Breakthrough. Vi a un creador absoluto en la sala. ¿Cómo se ha sentido apagar el micrófono y regresar a la rutina estos dos días?"
 Paso 3: "Es completamente natural, [Nombre]. La inercia del día a día es fuerte y volver al 'mundo real' sin una estructura puede sentirse como tratar de nadar contracorriente en la arena. Sabes que tienes el potencial, pero sostener la autodisciplina solo es sumamente retador."
 Paso 4: "Por eso creamos la Maestría del Juego de 90 días. No es más teoría; es la pista de entrenamiento física para consolidar tu resultado. El plan es muy sencillo: primero, declaramos un Futuro Imposible en salud, finanzas o relaciones; segundo, entrenamos diariamente en integridad con el soporte de tu mánager y la Plataforma Nodus; y tercero, nos graduamos juntos en Gratitud. Tú pones la visión, nosotros la estructura de bajo riesgo."
@@ -503,7 +503,7 @@ Paso 5: "[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiram
                     <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>0 - 15 seg</span>
                   </div>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #3b82f6' }}>
-                    «Hola [Nombre del Participante], te saluda [Nombre del Mánager], tu mánager de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?»
+                    «Hola [Nombre del Participante], te saluda [Nombre del Accountability Coach], tu Accountability Coach de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?»
                   </blockquote>
                 </div>
 
@@ -574,15 +574,15 @@ Paso 5: "[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiram
                 <button
                   onClick={() => copyToClipboard(`Participante: "De verdad quiero hacer la Maestría, pero el dinero es mi límite en este momento. No tengo cómo cubrir la inversión."
 
-Mánager (Guía): "Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?"
+Coach (Guía): "Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?"
 
 Participante: "No, el entrenamiento sé que es increíble y me sirve, es solo que físicamente no tengo el dinero hoy."
 
-Mánager (Causa OS): "Perfecto. Gracias por aclarar que la fisionomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?"
+Coach (Causa OS): "Perfecto. Gracias por aclarar que la fisionomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?"
 
 Participante: "Podría dar una parte este viernes y el saldo en dos cuotas los fines de semana de módulo."
 
-Mánager: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus bajo aprobación de la Gerencia para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días."`, 'guionB')}
+Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus bajo aprobación de la Gerencia para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días."`, 'guionB')}
                   className="btn-secondary"
                   style={{ fontSize: '0.85rem' }}
                 >
