@@ -97,6 +97,14 @@ export default function GlobalSearch() {
         path: '/guiones-mj'
       },
       {
+        id: 'p-masterclass',
+        title: 'Masterclass Canónica de Distinciones (Video MP4)',
+        desc: 'Video de alta resolución: Seguridad Psicológica (Amy Edmondson), Hechos vs Opiniones y Rigor Directivo.',
+        category: 'Páginas & Video',
+        icon: '🎬',
+        path: '/masterclass'
+      },
+      {
         id: 'p-vende',
         title: 'Vende Sin Vender & Ecuación de Valor',
         desc: 'Metodología ética de negociación y arquitectura de ofertas de bajo riesgo.',
