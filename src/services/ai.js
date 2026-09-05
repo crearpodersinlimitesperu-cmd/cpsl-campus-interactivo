@@ -2,7 +2,7 @@ import { auth } from '../lib/firebase';
 
 /**
  * SISTEMA DE DIAGNÓSTICO CONDUCTUAL Y ALTO RENDIMIENTO (SISTEMA INTERRUPCIÓN)
- * Evaluador de Comportamiento, Rigor y Rendición de Cuentas (Causa OS / Interrupción Analytics)
+ * Evaluador de Comportamiento, Rigor y Rendición de Cuentas (Sistema Interrupción Analytics)
  */
 export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHistory) => {
   const user = auth.currentUser;
@@ -23,7 +23,7 @@ export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHis
 
 ROLE:
 You are the Master Socratic Coach, Rigor Auditor, and Behavioral Analyst for Sistema Interrupción.
-Your function is to audit the operational telemetry, connection patterns, and behavioral commitment of leaders training in Causa OS (Operating System of Ultimate Responsibility), Ethical Neuromarketing, and Alex Hormozi's Value Equation.
+Your function is to audit the operational telemetry, connection patterns, and behavioral commitment of leaders training in Agencia Radical (Ultimate Responsibility Framework), Ethical Neuromarketing, and Alex Hormozi's Value Equation.
 
 OPERATING FRAMEWORK:
 - Strictly professional, high-level corporate and regional managerial standard.
@@ -41,7 +41,7 @@ OPERATING FRAMEWORK:
   * "Action Required (Alerta Roja / Acceso Restringido)"
   * "Calibración de Estado (State Calibration)"
   * "Efecto Mandela (Falsos Recuerdos Colectivos en Comités)"
-  * "Causa OS" and "Sistema Interrupción"
+  * "Agencia Radical" and "Sistema Interrupción"
 
 EVALUATION METHODOLOGY (TWO CONTINUOUS AXES):
 1. Rigor Score (-100 to +100): Mantenimiento de acuerdos, firmeza, cero justificaciones o drama, congruencia operacional.
@@ -57,7 +57,7 @@ You MUST respond with a JSON object (no markdown code blocks, pure JSON) with th
   "neuromarketing_alert": "Reptilian Calm" | "Reptilian Attack" | "Neocortex Aligned",
   "compliance_status": "Compliance Clearance" | "Action Required",
   "analisis_patron": "1 párrafo conciso analizando el ritmo de conexión, horas vs lecciones, y si existe procrastinación o intelectualización.",
-  "estado_cognitivo": "1 párrafo evaluando el estado mental, fricción cognitiva o nivel de responsabilidad ontológica (Causa OS).",
+  "estado_cognitivo": "1 párrafo evaluando el estado mental, fricción cognitiva o nivel de responsabilidad ontológica (Agencia Radical).",
   "directiva_ejecutiva": "1 párrafo con 2 directivas tácticas inmediatas para el Director de Operaciones / Accountability Coach.",
   "traceability_log": "Resumen socrático sintético de la fisonomía del estudiante."
 }`;
@@ -138,7 +138,7 @@ Genera el análisis JSON de alto rendimiento:`;
 
 /**
  * EVALUADOR CONDUCTUAL SOCRÁTICO PARA CASOS PRÁCTICOS
- * Evalúa respuestas bajo los ejes de Rigor, Empatía y Causa OS.
+ * Evalúa respuestas bajo los ejes de Rigor, Empatía y Agencia Radical.
  */
 export const evaluarRespuestaAlumno = async (moduleTitle, question, studentAnswer) => {
   const user = auth.currentUser;
@@ -148,7 +148,7 @@ export const evaluarRespuestaAlumno = async (moduleTitle, question, studentAnswe
 
 ROLE:
 You evaluate practical case responses for organizational leaders in The Academy.
-Framework: Causa OS, Neuromarketing, and Value Equation. NOT personal development.
+Framework: Agencia Radical (Sistema Interrupción), Neuromarketing, and Value Equation. NOT personal development.
 
 CRITERIA:
 - The leader must show deep behavioral competence, not theoretical recitation.

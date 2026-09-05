@@ -65,7 +65,7 @@ export default function VendeSinVender() {
                 SISTEMA INTERRUPCIÓN
               </span>
               <span style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800 }}>
-                CAUSA OS EXECUTIVE
+                ALTO RENDIMIENTO EJECUTIVO
               </span>
             </div>
             <h1 style={{ margin: '4px 0 0', fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
@@ -132,7 +132,7 @@ export default function VendeSinVender() {
           </div>
 
           <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-            💡 <strong>Rigor Causa OS:</strong> «Enrolar no es convencer; es sostener el contenedor sagrado para que otro ser humano elija despertar».
+            💡 <strong>Rigor Ontológico:</strong> «Enrolar no es convencer; es sostener el contenedor sagrado para que otro ser humano elija despertar».
           </div>
         </div>
 
@@ -198,7 +198,7 @@ export default function VendeSinVender() {
                   <div style={{ background: 'rgba(168, 85, 247, 0.08)', border: '1px solid rgba(168, 85, 247, 0.25)', borderRadius: '12px', padding: '1.4rem' }}>
                     <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⚡</div>
                     <strong style={{ color: '#c084fc', fontSize: '1rem', display: 'block', marginBottom: '0.4rem' }}>
-                      3. Causa OS
+                      3. Agencia Radical
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.88rem', color: '#cbd5e1', lineHeight: '1.6' }}>
                       El interruptor mental para salir de la queja ("la arena" de la vida) y asumir que tú eres la fuente absoluta de tus resultados.
@@ -285,7 +285,7 @@ export default function VendeSinVender() {
                       <span style={{ fontSize: '2rem' }}>🧙‍♂️</span>
                       <div>
                         <strong style={{ color: '#34d399', fontSize: '1.1rem' }}>Maestro Yoda</strong>
-                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Tu Marca / El Enrolador Causa OS (El Guía)</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Tu Marca / El Enrolador Estratégico (El Guía)</div>
                       </div>
                     </div>
                     <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.9rem', color: '#e2e8f0', lineHeight: '1.7' }}>
@@ -728,7 +728,7 @@ export default function VendeSinVender() {
                     <div style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(0,0,0,0.6) 100%)', border: '2px dashed #10b981', borderRadius: '10px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                       <div>
                         <div style={{ fontSize: '0.75rem', color: '#34d399', fontWeight: 800, letterSpacing: '0.05em' }}>
-                          SISTEMA INTERRUPCIÓN • CAUSA OS
+                          SISTEMA INTERRUPCIÓN • ALTO RENDIMIENTO
                         </div>
                         <h4 style={{ margin: '0.2rem 0', color: '#fff', fontSize: '1.2rem' }}>
                           CLEARANCE DE COMPROMISO: ACUERDO SELLADO
@@ -1012,7 +1012,7 @@ export default function VendeSinVender() {
                 </p>
                 <ul>
                   <li>El <strong>Sistema Interrupción</strong> audita los hechos fríos y objetivos (registros de quiebres, acuerdos firmados, telemetría de ejecución).</li>
-                  <li><strong>Causa OS</strong> orienta las conversaciones estratégicas basándose únicamente en evidencia factual, erradicando el sesgo de confirmación y el Efecto Mandela corporativo.</li>
+                  <li><strong>La Agencia Radical</strong> orienta las conversaciones estratégicas basándose únicamente en evidencia factual, erradicando el sesgo de confirmación y el Efecto Mandela corporativo.</li>
                 </ul>
                 <p>
                   Cuando un líder une la precisión de la telemetría con la responsabilidad radical de sus declaraciones, genera un entorno de alta confianza y certidumbre.
@@ -1051,7 +1051,7 @@ export default function VendeSinVender() {
             <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
               <div>
                 <span style={{ color: '#f472b6', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
-                  CAPÍTULO 7 • CAUSA OS MASTER PROTOCOL
+                  CAPÍTULO 7 • SISTEMA INTERRUPCIÓN PROTOCOLO MAESTRO
                 </span>
                 <h2 style={{ fontSize: '2.2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
                   CONSTRUIR DESDE LA NADA: LA VISIÓN COLECTIVA
@@ -1241,7 +1241,7 @@ export default function VendeSinVender() {
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Acuerdos en Firme</div>
                   </div>
                   <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div style={{ color: '#c084fc', fontWeight: 800 }}>⚡ CAUSA OS</div>
+                    <div style={{ color: '#c084fc', fontWeight: 800 }}>⚡ AGENCIA RADICAL</div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>100% Responsabilidad</div>
                   </div>
                 </div>
@@ -1249,7 +1249,7 @@ export default function VendeSinVender() {
 
               <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#cbd5e1' }}>
                 <p>
-                  Regula la respuesta de amenaza biológica, diseña con la Ecuación de Valor, guía con el Plan de 3 Pasos y opera siempre desde la Causa. La estrategia está clara, los datos están medidos y los acuerdos están firmes.
+                  Regula la respuesta de amenaza biológica, diseña con la Ecuación de Valor, guía con el Plan de 3 Pasos y opera siempre desde la Agencia Radical. La estrategia está clara, los datos están medidos y los acuerdos están firmes.
                 </p>
                 <div style={{ margin: '1.5rem 0', textAlign: 'center' }}>
                   <h3 style={{ fontSize: '1.6rem', color: '#38bdf8', fontWeight: 900 }}>

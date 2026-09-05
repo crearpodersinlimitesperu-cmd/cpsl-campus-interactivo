@@ -1,6 +1,6 @@
 /**
  * neuroAudio.js - Neurofeedback & Dopamine Engineering for Interrupción
- * CREAR PODER SIN LÍMITES
+ * SISTEMA INTERRUPCIÓN
  * 
  * Implementa estímulos sensoriales nativos (Web Audio API armónico + partículas Canvas)
  * para generar refuerzo positivo inmediato en evaluaciones, retos y superación de quiebres.
@@ -81,7 +81,7 @@ class AudioNeuroFeedback {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Colores corporativos CREAR PODER SIN LÍMITES
+      // Colores de diseño del campus
       const colors = ['#ffb703', '#00d4ff', '#34A853', '#ffffff', '#ff9e00'];
       const particles = [];
       const count = 65;

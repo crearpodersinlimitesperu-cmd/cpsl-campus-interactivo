@@ -31,7 +31,7 @@ export default function MasterclassDistinciones() {
 
         <div className="mt-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400 pt-2 border-t border-white/5">
           <span className="flex items-center gap-1">
-            <span>🛡️</span> <strong>Marco Científico:</strong> Seguridad Psicológica (Amy Edmondson) & Causa OS.
+            <span>🛡️</span> <strong>Marco Científico:</strong> Seguridad Psicológica (Amy Edmondson) & Agencia Radical.
           </span>
           <span className="font-semibold text-cyan-300">
             Telemetría Activa en Sistema Interrupción
@@ -111,7 +111,7 @@ export default function MasterclassDistinciones() {
 
 <h2 className="text-2xl font-black mt-8 mb-4 border-b border-gray-700 pb-2 text-indigo-400">MÓDULO 2: CAUSA vs. EFECTO (El Marco de Agencia Radical)</h2>
 <p className="mb-4 text-gray-300 leading-relaxed">El victimismo corporativo se disfraza frecuentemente de análisis sofisticado. Los comités que operan en <em>Efecto</em> dedican el 80% de sus reuniones a elaborar diagnósticos floridos de por qué el entorno macroeconómico impidió alcanzar los resultados.</p>
-<p className="mb-4 text-gray-300 leading-relaxed">Bajo el marco de <strong>Causa OS</strong>, el líder directivo no pierde tiempo en el lamento. Asume que toda omisión de seguimiento, falta de contingencia o ambigüedad contractual fue tolerada por él mismo. La pregunta generativa del líder en Causa no es <em>"¿Por qué nos pasa esto?"</em>, sino <strong>"¿Qué acuerdo no especificado toleré y qué nueva acción voy a detonar ahora?"</strong>.</p>
+<p className="mb-4 text-gray-300 leading-relaxed">Bajo el marco de <strong>Agencia Radical</strong>, el líder directivo no pierde tiempo en el lamento. Asume que toda omisión de seguimiento, falta de contingencia o ambigüedad contractual fue tolerada por él mismo. La pregunta generativa del líder en Causa no es <em>"¿Por qué nos pasa esto?"</em>, sino <strong>"¿Qué acuerdo no especificado toleré y qué nueva acción voy a detonar ahora?"</strong>.</p>
 
 <hr className="my-8 border-gray-800" />
 
@@ -138,7 +138,7 @@ export default function MasterclassDistinciones() {
   <p className="text-sm text-gray-400 mb-4">Antes de dar por concluida una junta o negociación estratégica, audita estos 4 criterios:</p>
   <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300">
     <li><strong>¿El acuerdo se basa en datos duros o en interpretaciones subjetivas?</strong> (Inmunidad al Efecto Mandela).</li>
-    <li><strong>¿Hay un único responsable con nombre y apellido para cada entregable?</strong> (Causa OS instalada).</li>
+    <li><strong>¿Hay un único responsable con nombre y apellido para cada entregable?</strong> (Agencia Radical instalada).</li>
     <li><strong>¿Se ha preservado la seguridad psicológica del equipo durante la confrontación del problema?</strong> (Rigor sin agresión).</li>
     <li><strong>¿La fecha y métrica de éxito están registradas en el sistema de trazabilidad operativa?</strong> (Compliance inmutable).</li>
   </ol>

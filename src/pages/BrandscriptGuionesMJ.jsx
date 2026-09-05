@@ -124,7 +124,7 @@ Sistema Interrupción`;
       num: 7,
       titulo: '7. Y culmina en Éxito',
       definicion: 'Organización Antifrágil y Claridad Ejecutiva.',
-      lenguajeCpsl: 'Líderes que operan desde Causa OS (autoría incondicional), gobernanza transparente con datos duros y una cultura empresarial capaz de prosperar en entornos de alta presión.',
+      lenguajeCpsl: 'Líderes que operan desde la Agencia Radical (autoría incondicional), gobernanza transparente con datos duros y una cultura empresarial capaz de prosperar en entornos de alta presión.',
       color: '#eab308',
       icon: '🏆'
     }
@@ -333,7 +333,7 @@ Sistema Interrupción`;
               <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
                 <strong style={{ color: '#34d399', display: 'block', marginBottom: '0.35rem' }}>🕊️ Acuerdo Consciente</strong>
                 <span style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.6' }}>
-                  La alineación genuina nace del acuerdo voluntario y la responsabilidad radical (Causa OS). La imposición genera resistencia pasiva; la claridad ontológica genera tracción inquebrantable.
+                  La alineación genuina nace del acuerdo voluntario y la responsabilidad incondicional (Agencia Radical). La imposición genera resistencia pasiva; la claridad ontológica genera tracción inquebrantable.
                 </span>
               </div>
             </div>
@@ -543,7 +543,7 @@ Paso 5: "[Nombre], el objetivo sigue en juego. ¿Optamos por intervenir el proce
                 <div style={{ background: 'rgba(15, 23, 42, 0.7)', borderRadius: '10px', padding: '1.25rem', borderLeft: '4px solid #f59e0b' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                     <strong style={{ color: '#fbbf24' }}>Paso 5: Llamado a la Decisión Ejecutiva (Elección Consciente)</strong>
-                    <span style={{ fontSize: '0.75rem', color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Causa OS</span>
+                    <span style={{ fontSize: '0.75rem', color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Agencia Radical</span>
                   </div>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #f59e0b' }}>
                     «[Nombre], el objetivo sigue en juego. ¿Optamos por intervenir el proceso ahora de forma proactiva, o dejaremos que la inercia del día a día decida el resultado del trimestre por nosotros?»
@@ -574,7 +574,7 @@ Estratega (Guía): "Comprendo el celo presupuestal, [Nombre]; en un entorno vol�
 
 Directivo: "No, claramente el equipo necesita alinearse y elevar el estándar de ejecución; la preocupación es justificar el retorno de inversión ante el comité de finanzas."
 
-Estratega (Causa OS & Ecuación de Valor): "Excelente. La discusión entonces no es si se necesita la intervención, sino cómo demostrar certidumbre de retorno. Si calculamos el costo de un retraso de 3 semanas en el lanzamiento de tu iniciativa clave frente a la inversión requerida, la inacción cuesta 5 veces más. Además, podemos estructurar un despliegue por fases enfocado en victorias rápidas cuantificables antes del desembolso integral. ¿Tiene sentido evaluar esta propuesta de bajo riesgo en una sesión de 20 minutos con Finanzas?"
+Estratega (Agencia Radical & Ecuación de Valor): "Excelente. La discusión entonces no es si se necesita la intervención, sino cómo demostrar certidumbre de retorno. Si calculamos el costo de un retraso de 3 semanas en el lanzamiento de tu iniciativa clave frente a la inversión requerida, la inacción cuesta 5 veces más. Además, podemos estructurar un despliegue por fases enfocado en victorias rápidas cuantificables antes del desembolso integral. ¿Tiene sentido evaluar esta propuesta de bajo riesgo en una sesión de 20 minutos con Finanzas?"
 
 Directivo: "Bajo ese esquema de hitos medibles, sí es viable revisarlo."
 
@@ -860,7 +860,7 @@ Estratega: "Perfecto. Agendemos la sesión técnica para calibrar el caso de neg
               },
               {
                 id: 'item5',
-                titulo: '5. Acuerdo Voluntario e Inmutable (Causa OS)',
+                titulo: '5. Acuerdo Voluntario e Inmutable (Agencia Radical)',
                 desc: '¿El acuerdo final fue elegido explícitamente por el directivo con fecha, responsable y registro inmutable en el sistema?'
               }
             ].map(item => (
@@ -908,7 +908,7 @@ Estratega: "Perfecto. Agendemos la sesión técnica para calibrar el caso de neg
                 Estándar Oficial: Manual de Negociación y Resistencia al Cambio V1.0
               </h3>
               <p style={{ margin: '0.25rem 0 0 0', color: '#94a3b8', fontSize: '0.9rem' }}>
-                Documento de consulta ejecutiva basado en StoryBrand, Neurobiología y Causa OS.
+                Documento de consulta ejecutiva basado en StoryBrand, Neurobiología y Agencia Radical.
               </p>
             </div>
 

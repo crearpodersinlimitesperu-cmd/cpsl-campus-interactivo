@@ -17,7 +17,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const storageKey = useMemo(() => `nodus_staff_state_${user?.uid || 'guest'}`, [user?.uid]);
-  const auditKey = useMemo(() => `causa_os_traceability_${user?.uid || 'guest'}`, [user?.uid]);
+  const auditKey = useMemo(() => `interrupcion_audit_traceability_${user?.uid || 'guest'}`, [user?.uid]);
 
   // Pestaña activa: 'aprendiz' | 'simulador' | 'perfil' | 'trazabilidad'
   const urlTab = searchParams.get('tab');
@@ -74,7 +74,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
     }
   }, [staffState, storageKey]);
 
-  // Historial de auditoría Causa OS (persistente)
+  // Historial de auditoría y trazabilidad (persistente)
   const [auditLogs, setAuditLogs] = useState(() => {
     try {
       const saved = localStorage.getItem(auditKey);
@@ -87,7 +87,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
         id: 'init-1',
         timestamp: new Date().toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'medium' }),
         responsable: user?.displayName || user?.email?.split('@')[0] || 'Líder en Aprendizaje',
-        accion: 'Calibración de Estado & Terminal Causa OS',
+        accion: 'Calibración de Estado & Terminal de Desempeño',
         resultado: 'Compliance Clearance Activado (Alto Rigor + Alta Empatía)',
         xpDelta: 0,
         puntos_rigor: 0,
@@ -112,7 +112,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
     setTimeout(() => setToastMessage(null), 4000);
   };
 
-  // Función para registrar auditoría Causa OS
+  // Función para registrar auditoría de desempeño
   const logAudit = (accion, resultado, xpDelta = 0, puntos_rigor = 0, puntos_empatia = 0) => {
     const newEntry = {
       id: 'log-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6),
@@ -123,7 +123,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
       xpDelta,
       puntos_rigor,
       puntos_empatia,
-      origen: 'Sistema Interrupción — Causa OS'
+      origen: 'Sistema Interrupción — Desempeño'
     };
     setAuditLogs(prev => [newEntry, ...prev.slice(0, 99)]);
   };
@@ -142,7 +142,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
       4: 'Comunicación Ética & Conexión Límbica',
       5: 'Facilitador de Acuerdos sin Coerción',
       6: 'Alquimia de Obstáculos & Método Grand Slam',
-      7: 'Integrador de Modo Causa & Cero Drama',
+      7: 'Integrador de Agencia Radical & Cero Drama',
       8: 'Maestro de Neutralidad & Presencia Sombra',
       9: 'Guardián del Contenedor & Alto Rigor',
       10: 'Liderazgo Adaptativo Integral (Alto Rigor + Alta Empatía)'
@@ -288,7 +288,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
   const handleCopyLog = () => {
     const payload = JSON.stringify({
       plataforma: 'SISTEMA INTERRUPCIÓN',
-      sistema: 'Causa OS & Liderazgo Adaptativo',
+      sistema: 'Agencia Radical & Liderazgo Adaptativo',
       usuario: user?.email || 'lider@academy.net',
       rigor_score: staffState.rigorScore,
       empathy_score: staffState.empathyScore,
@@ -334,7 +334,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
         </div>
       )}
 
-      {/* Cabecera Principal Institucional (Regla Marca CREAR PODER SIN LÍMITES) */}
+      {/* Cabecera Principal Institucional (Sistema Interrupción) */}
       <header className="glass-panel" style={{
         padding: '1.8rem 2.2rem',
         marginBottom: '2rem',
@@ -529,7 +529,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
             transition: 'all 0.2s ease'
           }}
         >
-          <span>🗃️ Trazabilidad Causa OS</span>
+          <span>🗃️ Trazabilidad de Auditoría</span>
           <span style={{
             background: activeTab === 'trazabilidad' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.1)',
             padding: '2px 7px',
@@ -567,7 +567,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                   El Crisol del Día: Calibración Situacional
                 </h2>
                 <p style={{ margin: '0.2rem 0 0', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                  Aprende el comportamiento del cerebro humano (Neuromarketing Ético) y la responsabilidad radical (Causa OS) sin sesgos de complacencia ni violencia.
+                  Aprende el comportamiento del cerebro humano (Neuromarketing Ético) y la responsabilidad incondicional (Agencia Radical) sin sesgos de complacencia ni violencia.
                 </p>
               </div>
 
@@ -1136,7 +1136,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
       )}
 
       {/* ============================================================== */}
-      {/* PESTAÑA 4: TRAZABILIDAD CAUSA OS (AUDITORÍA EN TIEMPO REAL)     */}
+      {/* PESTAÑA 4: TRAZABILIDAD Y AUDITORÍA (AUDITORÍA EN TIEMPO REAL)  */}
       {/* ============================================================== */}
       {activeTab === 'trazabilidad' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -1163,10 +1163,10 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                 RIGOR ONTOLÓGICO INMUTABLE
               </span>
               <h2 style={{ margin: '0.4rem 0 0.2rem', fontSize: '1.5rem' }}>
-                Trazabilidad y Auditoría en Tiempo Real Causa OS
+                Trazabilidad y Auditoría en Tiempo Real
               </h2>
               <p style={{ margin: 0, fontSize: '0.92rem', color: '#e2e8f0', fontStyle: 'italic' }}>
-                «Causa OS no altera la evidencia. Todo cambio es registrable y auditable.»
+                «El Sistema Interrupción no altera la evidencia. Todo cambio es registrable y auditable.»
               </p>
             </div>
 

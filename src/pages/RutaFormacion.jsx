@@ -285,15 +285,15 @@ export default function RutaFormacion() {
           <div>
             <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
               <span style={{
-                background: 'rgba(255, 183, 3, 0.15)',
-                color: 'var(--crear-gold)',
+                background: 'rgba(56, 189, 248, 0.15)',
+                color: 'var(--crear-cyan, #38bdf8)',
                 padding: '4px 12px',
                 borderRadius: '20px',
                 fontSize: '0.8rem',
                 fontWeight: 'bold',
                 letterSpacing: '0.05em'
               }}>
-                CREAR PODER SIN LÍMITES
+                SISTEMA INTERRUPCIÓN
               </span>
               <span style={{
                 background: 'rgba(16, 185, 129, 0.15)',
@@ -1323,10 +1323,10 @@ export default function RutaFormacion() {
               <div>
                 <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.6rem'}}>
                   <span style={{background: 'rgba(236,72,153,0.2)', color: '#f472b6', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 800}}>
-                    CAUSA OS • PROTOCOLO MAESTRO
+                    SISTEMA INTERRUPCIÓN • PROTOCOLO MAESTRO
                   </span>
-                  <span style={{background: 'rgba(255,183,3,0.15)', color: 'var(--crear-gold)', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 800}}>
-                    CREAR PODER SIN LÍMITES
+                  <span style={{background: 'rgba(56, 189, 248, 0.15)', color: 'var(--crear-cyan, #38bdf8)', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 800}}>
+                    ALTO IMPACTO ONTOLÓGICO
                   </span>
                 </div>
                 <h2 style={{fontSize: '2.2rem', margin: '0 0 0.5rem', fontWeight: 800, color: '#fff'}}>

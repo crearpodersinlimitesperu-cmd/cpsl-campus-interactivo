@@ -502,7 +502,7 @@ export default function AdminDashboard() {
         </table>
       </div>
 
-      {/* MODAL DE HISTORIAL Y AUDITORÍA DE ALTO RENDIMIENTO (SUPERIOR A CAUSA OS) */}
+      {/* MODAL DE HISTORIAL Y AUDITORÍA DE ALTO RENDIMIENTO */}
       {selectedUser && (
         <div 
           onClick={(e) => { if (e.target === e.currentTarget) closeHistory(); }}
@@ -615,7 +615,7 @@ export default function AdminDashboard() {
               </button>
             </div>
 
-            {/* Fila de Tarjetas KPI de Telemetría (Igual o superior a Causa OS) */}
+            {/* Fila de Tarjetas KPI de Telemetría */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
               <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px 16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>TIEMPO EN PLATAFORMA</span>
@@ -979,7 +979,7 @@ export default function AdminDashboard() {
 
                       <div className="glass-panel" style={{ padding: '1.25rem', borderLeft: '4px solid #a855f7' }}>
                         <h4 style={{ margin: '0 0 0.5rem 0', color: '#c084fc', fontSize: '0.95rem' }}>
-                          2. Estado Mental & Responsabilidad Radical (Causa OS)
+                          2. Estado Mental & Responsabilidad Incondicional (Agencia Radical)
                         </h4>
                         <p style={{ margin: 0, color: 'var(--text-main)', fontSize: '0.92rem', lineHeight: '1.5' }}>
                           {aiReport.estado_cognitivo}

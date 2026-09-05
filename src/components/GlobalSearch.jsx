@@ -172,8 +172,8 @@ export default function GlobalSearch() {
       },
       {
         id: 'm-mod4',
-        title: 'Módulo 4: Liderazgo Adaptativo & Causa OS',
-        desc: 'Responsabilidad radical, acuerdos inmutables y trazabilidad de desempeño.',
+        title: 'Módulo 4: Liderazgo Adaptativo & Agencia Radical',
+        desc: 'Responsabilidad incondicional, acuerdos inmutables y trazabilidad de desempeño.',
         category: 'Módulos & Lecciones',
         icon: '🏆',
         path: '/modulo/modulo4'
@@ -366,7 +366,7 @@ export default function GlobalSearch() {
                   <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🔎</div>
                   <div style={{ fontWeight: '600', color: '#f1f5f9' }}>No se encontraron coincidencias para "{query}"</div>
                   <div style={{ fontSize: '0.85rem', marginTop: '0.25rem' }}>
-                    Prueba buscando "Efecto Mandela", "Causa OS", "Simulador", "Kahneman" o "Valor".
+                    Prueba buscando "Efecto Mandela", "Agencia Radical", "Simulador", "Kahneman" o "Valor".
                   </div>
                 </div>
               ) : (

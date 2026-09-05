@@ -37,13 +37,14 @@ export default function Glosario() {
       tags: ["Heidegger", "Echeverría", "Transparencia", "Acción Generativa"]
     },
     {
-      key: 'causa os',
-      termino: "Causa OS (Operating System of Radical Agency)",
+      key: 'agencia radical',
+      alias: ['locus de control', 'responsabilidad incondicional', 'causa y efecto'],
+      termino: "Agencia Radical (Locus de Control Interno)",
       categoria: "Liderazgo & Conducta",
       baseCientifica: "Filosofía Estoica (Epicteto, Marco Aurelio - Dicotomía del Control) y Teoría del Locus de Control Interno (Julian Rotter).",
-      definicion: "Sistema operativo de responsabilidad incondicional. Postura mental donde el líder se asume como origen generativo de sus circunstancias y resultados, desmantelando la inercia del victimismo, la queja defensiva y la delegación de agencia a factores externos.",
-      ejemplo: "Bajo Causa OS, el líder sustituye el reactivo '¿por qué la filial no entrega?' por el generativo '¿qué acuerdo ambiguo o falta de seguimiento toleré aquí?'.",
-      tags: ["Estoicismo", "Agencia Radical", "Locus de Control", "Accountability"]
+      definicion: "Marco ontológico de responsabilidad incondicional. Postura mental donde el líder se asume como origen generativo de sus circunstancias y resultados, desmantelando la inercia del victimismo, la queja defensiva y la delegación de agencia a factores externos.",
+      ejemplo: "Bajo la Agencia Radical, el líder sustituye el reactivo '¿por qué la filial no entrega?' por el generativo '¿qué acuerdo ambiguo o falta de seguimiento toleré aquí?'.",
+      tags: ["Estoicismo", "Agencia Radical", "Locus de Control", "Accountability", "Responsabilidad Incondicional"]
     },
     {
       key: 'secuestro amigdalino',

@@ -16,10 +16,10 @@ export const GLOSSARY_TERMS = {
     body: 'Juicio declarativo (Heidegger, Echeverría) que interrumpe la transparencia cotidiana ante una discrepancia con el estándar deseado, abriendo un espacio generativo de diseño de nuevas acciones.',
     example: 'Declarar un quiebre no es quejarse del problema, sino abrir la conversación para crear un nuevo futuro.'
   },
-  'causa os': {
-    title: 'Causa OS (Operating System of Radical Agency)',
+  'agencia radical': {
+    title: 'Agencia Radical (Locus de Control Interno)',
     body: 'Postura ontológica y de economía conductual donde el líder se asume como origen generativo de sus circunstancias y resultados, desmantelando la inercia del victimismo.',
-    example: 'Al instalar Causa OS, sustituimos "¿por qué el equipo no responde?" por "¿qué acuerdo ambiguo toleré aquí?".'
+    example: 'Al operar desde la Agencia Radical, sustituimos "¿por qué el equipo no responde?" por "¿qué acuerdo ambiguo toleré aquí?".'
   },
   'secuestro amigdalino': {
     title: 'Secuestro Amigdalino (Amygdala Hijack)',

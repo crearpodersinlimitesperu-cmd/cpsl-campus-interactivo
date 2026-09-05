@@ -53,10 +53,10 @@ export const nodusStaffBadges = [
   {
     id: 'guardian_rigor',
     code: 'MED-GUARDIAN-RIGOR',
-    name: 'Guardián de la Integridad (Causa OS)',
+    name: 'Guardián de la Integridad (Agencia Radical)',
     icon: '🛡️',
     xpReward: 500,
-    requirement: 'Distinguir hechos objetivos de interpretaciones y sostener acuerdos firmes desde la responsabilidad radical (Causa OS).',
+    requirement: 'Distinguir hechos objetivos de interpretaciones y sostener acuerdos firmes desde la responsabilidad incondicional (Agencia Radical).',
     color: '#8b5cf6'
   },
   {
@@ -97,7 +97,7 @@ export const nodusStaffRoleCertifications = [
     description: 'Capacidad para estructurar conversaciones bajo el marco del Viaje del Héroe (SB7) y sostener la neutralidad visual y conductual.'
   },
   {
-    role: 'Nivel 4: Liderazgo Adaptativo & Causa OS (The 90-Day Performance Cycle)',
+    role: 'Nivel 4: Liderazgo Adaptativo & Agencia Radical (The 90-Day Performance Cycle)',
     minFisonomia: 7,
     requiredBadge: 'guardian_rigor',
     badgeName: 'Guardián de la Integridad',
@@ -274,9 +274,9 @@ export const nodusStaffSimulations = [
       },
       {
         id: 'opt_c',
-        text: '«Reconozco la frustración técnica que me describes. Distingamos el hecho del evento: el hecho objetivo es que son las 14:30 y el informe no está en el registro. Tu palabra fue entregarlo a las 14:00. Desde el modo Causa: ¿qué acción concreta en tus manos puedes ejecutar en los próximos 10 minutos para restaurar la integridad de tu acuerdo?»',
+        text: '«Reconozco la frustración técnica que me describes. Distingamos el hecho del evento: el hecho objetivo es que son las 14:30 y el informe no está en el registro. Tu palabra fue entregarlo a las 14:00. Desde la Agencia Radical: ¿qué acción concreta en tus manos puedes ejecutar en los próximos 10 minutos para restaurar la integridad de tu acuerdo?»',
         isCorrect: true,
-        classification: 'Liderazgo Adaptativo (Responsabilidad Radical Causa OS)',
+        classification: 'Liderazgo Adaptativo (Responsabilidad Incondicional / Agencia Radical)',
         puntos_rigor: 95,
         puntos_empatia: 85,
         avatar_reaccion: 'alineado_y_agradecido',
@@ -851,7 +851,7 @@ export const moduloStaff4 = [
         </div>
 
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #8b5cf6;">
-          <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Causa OS)</h4>
+          <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Agencia Radical)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem;">
             Asume la autoría del 100% de lo que ocurre en su espacio de influencia y en sus conversaciones.
           </p>
@@ -1061,7 +1061,7 @@ export const moduloStaff5 = [
 
 export const orientacionData = {
   titulo: 'Esqueleto de la Orientación: «Construir desde la Nada»',
-  subtitulo: 'Protocolo Maestro de Alineación, Ruptura de Contexto y Visión Colectiva (Causa OS)',
+  subtitulo: 'Protocolo Maestro de Alineación, Ruptura de Contexto y Visión Colectiva (Agencia Radical)',
   frasesAncla: [
     { id: 'fa1', texto: 'Construir desde la nada.', contexto: 'Punto cero de creación ontológica' },
     { id: 'fa2', texto: 'Esto no es un club vacacional. Esto es la Legión Extranjera.', contexto: 'Estándar innegociable de compromiso y juego grande' },
@@ -1343,7 +1343,7 @@ export const moduloAprendiz = [
         </div>
 
         <div class="glass-panel" style="padding: 1.2rem; border-left: 4px solid #8b5cf6;">
-          <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Causa OS)</h4>
+          <h4 style="margin: 0 0 0.5rem; color: #a78bfa;">⚡ El Creador de Contexto (Agencia Radical)</h4>
           <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
             Asume la autoría del 100% de lo que ocurre en sus acuerdos. Ante un quiebre se pregunta: <em>«¿Qué acción responsable puedo tomar yo para transformar esta situación ahora mismo?»</em>.
           </p>
