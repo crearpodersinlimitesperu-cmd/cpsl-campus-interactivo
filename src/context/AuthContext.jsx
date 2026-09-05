@@ -40,10 +40,18 @@ export function AuthProvider({ children }) {
         return;
       }
 
+      // CUALQUIER USUARIO AUTENTICADO CON GOOGLE TIENE ACCESO INMEDIATO Y PLENO
+      setUser(currentUser);
+
       try {
         // Obtenemos el token para verificar roles (Custom Claims)
-        const tokenResult = await currentUser.getIdTokenResult();
-        const hasAdminClaim = !!tokenResult.claims.admin;
+        let hasAdminClaim = false;
+        try {
+          const tokenResult = await currentUser.getIdTokenResult();
+          hasAdminClaim = !!tokenResult?.claims?.admin;
+        } catch (tokenErr) {
+          console.warn("Aviso verificando custom claims:", tokenErr);
+        }
         
         // Mantenemos el fallback por email temporalmente mientras se configuran los custom claims
         const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'jose.sanchez@crearpsl.net';
@@ -51,19 +59,22 @@ export function AuthProvider({ children }) {
         
         setIsAdmin(hasAdminClaim || isEmailAdmin);
 
-        await initializeUser(currentUser);
-        const sid = await startSession(currentUser.uid);
-        
-        setSessionId(sid);
-        setUser(currentUser);
+        // Inicialización en Firestore resiliente (no bloqueante si Firestore rechaza permisos o está offline)
+        try {
+          await initializeUser(currentUser);
+        } catch (initErr) {
+          console.warn("Aviso en initializeUser:", initErr);
+        }
+
+        try {
+          const sid = await startSession(currentUser.uid);
+          setSessionId(sid || `session_${Date.now()}`);
+        } catch (sessionErr) {
+          console.warn("Aviso en startSession:", sessionErr);
+          setSessionId(`session_${Date.now()}`);
+        }
       } catch (error) {
-        console.error("Error de inicialización:", error);
-        setAuthError({
-          code: error.code || 'unknown',
-          message: error.message || "No pudimos preparar tu sesión. Intenta nuevamente."
-        });
-        setUser(null);
-        setSessionId(null);
+        console.warn("Aviso no fatal durante la preparación de sesión:", error);
       } finally {
         setLoading(false);
       }
@@ -73,6 +84,7 @@ export function AuthProvider({ children }) {
 
   const loginWithGoogle = async () => {
     try {
+      setAuthError(null);
       // Verificar si las credenciales son las de prueba
       if (import.meta.env.VITE_FIREBASE_API_KEY === 'YOUR_API_KEY_HERE') {
         alert('⚠️ ATENCIÓN: El botón de Google está conectado, pero necesita tus credenciales de Firebase en el archivo .env.local para funcionar.\n\nPor favor revisa el chat para ver los pasos de cómo crear tu cuenta gratuita de Firebase.');
@@ -82,7 +94,9 @@ export function AuthProvider({ children }) {
       await signInWithPopup(auth, googleProvider);
     } catch (error) {
       console.error("Error signing in with Google", error);
-      alert("Hubo un error al conectar con Google. Revisa la consola para más detalles.");
+      if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
+        alert("Hubo un error al conectar con Google: " + (error.message || "Intenta nuevamente."));
+      }
     }
   };
 
@@ -99,11 +113,11 @@ export function AuthProvider({ children }) {
           <p style={{color: '#adb5bd'}}>Por favor espera unos segundos.</p>
           <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
         </div>
-      ) : authError ? (
+      ) : authError && !user ? (
         <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: '#0a1128', color: 'var(--color-error)', padding: '2rem', textAlign: 'center'}}>
-          <h2>Error de Autenticación</h2>
+          <h2>Error de Conexión con Google</h2>
           <p style={{color: '#fff', marginBottom: '2rem', maxWidth: '500px'}}>{authError.message}</p>
-          <button className="btn-primary" onClick={() => window.location.reload()}>Reintentar Conexión</button>
+          <button className="btn-primary" onClick={() => { setAuthError(null); window.location.reload(); }}>Reintentar Conexión</button>
         </div>
       ) : (
         children

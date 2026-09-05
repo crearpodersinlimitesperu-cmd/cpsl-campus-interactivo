@@ -4,7 +4,7 @@ service cloud.firestore {
     
     // Función auxiliar para verificar si el usuario es admin basado en Custom Claims
     function isAdmin() {
-      return request.auth != null && request.auth.token.admin == true;
+      return request.auth != null && (request.auth.token.admin == true || request.auth.token.email == 'jose.sanchez@crearpsl.net');
     }
 
     // Reglas para la colección 'users'

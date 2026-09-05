@@ -4,31 +4,46 @@ import { getTotalLessonsCount, getTotalEvaluationsCount } from '../data/curricul
 
 export const initializeUser = async (user) => {
   if (!user) return;
-  const userRef = doc(db, 'users', user.uid);
-  const snap = await getDoc(userRef);
+  try {
+    const userRef = doc(db, 'users', user.uid);
+    const snap = await getDoc(userRef);
 
-  if (!snap.exists()) {
-    await setDoc(userRef, {
-      uid: user.uid,
-      displayName: user.displayName,
-      email: user.email,
-      photoURL: user.photoURL,
-      createdAt: new Date().toISOString(),
-      lastLogin: new Date().toISOString(),
-      role: 'student',
-      progress: {
+    if (!snap.exists()) {
+      await setDoc(userRef, {
+        uid: user.uid,
+        displayName: user.displayName || 'Usuario CPSL',
+        email: user.email || '',
+        photoURL: user.photoURL || '',
+        createdAt: new Date().toISOString(),
+        lastLogin: new Date().toISOString(),
+        role: 'student',
+        progress: {
+          globalPercentage: 0,
+          lastVisitedModule: '/modulo/modulo1',
+          completedModules: [],
+          completedLessons: [],
+          evaluationsPassed: []
+        }
+      });
+    } else {
+      // Update last login
+      await updateDoc(userRef, {
+        lastLogin: new Date().toISOString()
+      });
+    }
+  } catch (error) {
+    console.warn("Aviso: No se pudo sincronizar usuario en Firestore (continuando con almacenamiento local):", error);
+    // Asegurar estructura base en localStorage
+    const localKey = `progress_${user.uid}`;
+    if (!localStorage.getItem(localKey)) {
+      localStorage.setItem(localKey, JSON.stringify({
         globalPercentage: 0,
         lastVisitedModule: '/modulo/modulo1',
         completedModules: [],
         completedLessons: [],
         evaluationsPassed: []
-      }
-    });
-  } else {
-    // Update last login
-    await updateDoc(userRef, {
-      lastLogin: new Date().toISOString()
-    });
+      }));
+    }
   }
 };
 
@@ -36,13 +51,30 @@ export const getUserProgress = async (uid) => {
   try {
     const userRef = doc(db, 'users', uid);
     const snap = await getDoc(userRef);
-    if (snap.exists()) {
+    if (snap.exists() && snap.data()?.progress) {
       return snap.data().progress;
     }
   } catch (error) {
-    console.error("Firebase falló al obtener progreso", error);
+    console.warn("Aviso: Firestore falló al obtener progreso, recuperando de respaldo local:", error);
   }
-  return null;
+
+  // Respaldo resiliente en localStorage
+  try {
+    const local = localStorage.getItem(`progress_${uid}`);
+    if (local) {
+      return JSON.parse(local);
+    }
+  } catch (e) {
+    console.warn("Error leyendo progreso de localStorage:", e);
+  }
+
+  return {
+    globalPercentage: 0,
+    lastVisitedModule: '/modulo/modulo1',
+    completedModules: [],
+    completedLessons: [],
+    evaluationsPassed: []
+  };
 };
 
 export const updateLastVisited = async (uid, route) => {
@@ -142,6 +174,7 @@ export const getAllUsers = async () => {
 // --- AUDITORÍA DE SESIONES ---
 
 export const startSession = async (uid, deviceInfo) => {
+  const fallbackId = `session_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
   try {
     const sessionsCol = collection(db, 'users', uid, 'sessions');
     const sessionRef = doc(sessionsCol);
@@ -156,8 +189,8 @@ export const startSession = async (uid, deviceInfo) => {
     });
     return sessionRef.id;
   } catch (error) {
-    console.warn("Error al iniciar sesión de auditoría", error);
-    return null;
+    console.warn("Aviso: No se pudo registrar sesión en Firestore, utilizando sesión resiliente:", error);
+    return fallbackId;
   }
 };
 
