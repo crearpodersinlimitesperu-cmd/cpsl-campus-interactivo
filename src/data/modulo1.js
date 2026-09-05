@@ -54,7 +54,7 @@ export const modulo1 = [
       <p>El modelo de <strong>"Coaching de Alto Rendimiento"</strong> es un marco heurístico innovador que transpone, de manera analógica y metafórica, algunas ideas al campo del desarrollo humano y la ontología del lenguaje.</p>
       <div class="glass-panel" style="padding: 1.5rem; margin-top: 1.5rem;">
         <p><strong>El observador y el contexto:</strong> Nuestras preguntas, categorías, interpretaciones y decisiones influyen en la manera en que experimentamos una situación y en las posibilidades de acción que identificamos.</p>
-        <p><strong>Definición Operativa:</strong> Consiste en un proceso sistémico de expansión perceptual que utiliza la metáfora de cambio no lineal, la reestructuración del lenguaje, el diseño de promesas y la habituación estratégica para catalizar saltos cualitativos en el desarrollo personal.</p>
+        <p><strong>Definición Operativa:</strong> Consiste en un proceso sistémico de expansión perceptual que utiliza la metáfora de cambio no lineal, la reestructuración del lenguaje, el diseño de promesas y la habituación estratégica para catalizar saltos cualitativos en el desempeño, la postura ontológica y el liderazgo de alto rendimiento.</p>
       </div>
       
       <h3>1.3.2 Principios de la Transformación Profunda</h3>

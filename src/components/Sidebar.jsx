@@ -112,7 +112,7 @@ export default function Sidebar({ isOpen, onClose }) {
               className={({ isActive }) => isActive ? "active" : ""}
               onClick={onClose}
             >
-              Groundings
+              State Calibration
             </NavLink>
           </li>
           <li>

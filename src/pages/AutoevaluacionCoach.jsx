@@ -144,7 +144,7 @@ export default function AutoevaluacionCoach() {
           ))}
         </ul>
         <div className="alert-warning" style={{ marginTop: '1.5rem' }}>
-          <strong>Llamado a la Acción:</strong> Revisa tu Plan de Desarrollo Personal si no estás alcanzando el 80% de coachees con quiebres reales.
+          <strong>Llamado a la Acción:</strong> Revisa tu Plan de Alto Rendimiento y Rigor Conductual si no estás alcanzando el 80% de coachees con quiebres reales.
         </div>
       </div>
 

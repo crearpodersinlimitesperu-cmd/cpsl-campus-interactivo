@@ -171,11 +171,38 @@ export const getAllUsers = async () => {
 
 
 
-// --- AUDITORÍA DE SESIONES ---
+// --- AUDITORÍA DE SESIONES Y RASTREO DE CONEXIÓN ---
+
+export const fetchNetworkInfo = async () => {
+  try {
+    const res = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) });
+    if (res.ok) {
+      const data = await res.json();
+      return {
+        ip: data.ip || 'Desconocida',
+        location: data.city && data.country_name ? `${data.city}, ${data.country_name}` : (data.country_name || 'Ubicación Segura')
+      };
+    }
+  } catch (e) {
+    try {
+      const res2 = await fetch('https://api.ipify.org?format=json', { signal: AbortSignal.timeout(2000) });
+      const data2 = await res2.json();
+      return { ip: data2.ip || '127.0.0.1', location: 'Acceso Conectado' };
+    } catch (e2) {}
+  }
+  return { ip: 'IP Directa', location: 'Conexión Segura' };
+};
 
 export const startSession = async (uid, deviceInfo) => {
   const fallbackId = `session_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
   try {
+    let netInfo = { ip: 'IP Directa', location: 'Conexión Segura' };
+    try {
+      netInfo = await fetchNetworkInfo();
+    } catch (netErr) {
+      console.warn("Aviso obteniendo IP:", netErr);
+    }
+
     const sessionsCol = collection(db, 'users', uid, 'sessions');
     const sessionRef = doc(sessionsCol);
     const now = new Date().toISOString();
@@ -184,9 +211,22 @@ export const startSession = async (uid, deviceInfo) => {
       startedAt: now,
       lastActiveAt: now,
       device: deviceInfo || navigator.userAgent,
+      ip: netInfo.ip,
+      location: netInfo.location,
       durationMinutes: 0,
       history: []
     });
+
+    // Actualizar también en el perfil del usuario para acceso rápido
+    try {
+      const userRef = doc(db, 'users', uid);
+      await updateDoc(userRef, {
+        lastIp: netInfo.ip,
+        lastLocation: netInfo.location,
+        lastDevice: deviceInfo || navigator.userAgent
+      });
+    } catch (uErr) {}
+
     return sessionRef.id;
   } catch (error) {
     console.warn("Aviso: No se pudo registrar sesión en Firestore, utilizando sesión resiliente:", error);

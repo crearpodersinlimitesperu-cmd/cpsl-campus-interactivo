@@ -32,8 +32,8 @@ export const curriculum = [
   },
   {
     id: 'modulo3',
-    titulo: 'Módulo 3: Maestría en Groundings',
-    descripcion: 'Metodología para el diseño y aplicación de protocolos somáticos.',
+    titulo: 'Módulo 3: Calibración de Estado y Dominio Somático (State Calibration)',
+    descripcion: 'Metodología neuro-somática para el diseño y aplicación de protocolos de regulación atencional y presencia ejecutiva.',
     estado: 'disponible',
     duracionSemanas: 1,
     lecciones: modulo3,

@@ -76,9 +76,11 @@ export default function Groundings() {
             </button>
           )}
         </div>
-        <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', marginTop: 0 }}>Herramienta Maestra: Groundings</h1>
-        <p className="text-muted" style={{ fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto' }}>
-          Un <strong>grounding</strong> NO es meditación ni relajación. Es una intervención breve diseñada para generar un <strong>quiebre</strong> y prepararte para la acción.
+        <h1 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', marginTop: 0 }}>
+          State Calibration: Calibración de Estado
+        </h1>
+        <p className="text-muted" style={{ fontSize: '1.05rem', maxWidth: '850px', margin: '0 auto', lineHeight: '1.6' }}>
+          Una <strong>Calibración de Estado (State Calibration)</strong> NO es meditación pasiva, autoayuda ni relajación complaciente. Es una intervención neuro-somática breve (1 a 3 min) diseñada para regular la activación del sistema nervioso, enfocar el neocórtex y preparar al líder para la toma de decisiones innegociable.
         </p>
       </header>
 

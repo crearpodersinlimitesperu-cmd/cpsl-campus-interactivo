@@ -291,7 +291,7 @@ export const nodusStaffSimulations = [
     modulo: 'Alquimia de Valor y Estructuración',
     title: 'Reto 3: Desarmar la Objeción de «No Tengo Tiempo ni Dinero»',
     badgeEligible: 'arquitecto_valor',
-    scenario: 'Al presentarle un programa de desarrollo personal, la persona te responde: «Me parece valiosísimo, de verdad lo quiero. Pero honestamente no me alcanza el dinero para pagarlo completo y llego a mi casa a las 9 de la noche sin tiempo para nada».',
+    scenario: 'Al presentarle un programa de alto rendimiento e ingeniería conductual, la persona te responde: «Me parece valiosísimo, de verdad lo quiero. Pero honestamente no me alcanza el dinero para pagarlo completo y llego a mi casa a las 9 de la noche sin tiempo para nada».',
     avatar_estado_inicial: 'tenso',
     options: [
       {
