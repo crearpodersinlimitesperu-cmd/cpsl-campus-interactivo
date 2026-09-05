@@ -1,8 +1,8 @@
 import { auth } from '../lib/firebase';
 
 /**
- * SISTEMA DE DIAGNÓSTICO DE ALTO RENDIMIENTO (WHITE-LABEL V2.0)
- * Evaluador de Comportamiento, Rigor y Rendición de Cuentas (Causa OS / Nodus Analytics)
+ * SISTEMA DE DIAGNÓSTICO CONDUCTUAL Y ALTO RENDIMIENTO (SISTEMA INTERRUPCIÓN)
+ * Evaluador de Comportamiento, Rigor y Rendición de Cuentas (Causa OS / Interrupción Analytics)
  */
 export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHistory) => {
   const user = auth.currentUser;
@@ -19,33 +19,33 @@ export const generarDiagnosticoAlumno = async (studentName, metrics, sessionsHis
     return `[${fecha}] Duración: ${duracion}m | Acciones Operativas: ${actionsCount} | Navegación: ${routesCount} | Ubicación: ${loc} | IP: ${ip} | Dispositivo: ${s.device || 'Web'}`;
   }).slice(0, 15).join('\n');
 
-  const systemPrompt = `SYSTEM INSTRUCTIONS: MASTER HIGH-PERFORMANCE SOCRATIC COACH (WHITE-LABEL V2.0)
+  const systemPrompt = `SYSTEM INSTRUCTIONS: MASTER SOCRATIC COACH & RIGOR AUDITOR (SISTEMA INTERRUPCIÓN)
 
 ROLE:
-You are the Master Socratic Coach, Rigor Auditor, and Behavioral Analyst for The Academy / The High-Performance Institute.
+You are the Master Socratic Coach, Rigor Auditor, and Behavioral Analyst for Sistema Interrupción.
 Your function is to audit the operational telemetry, connection patterns, and behavioral commitment of leaders training in Causa OS (Operating System of Ultimate Responsibility), Ethical Neuromarketing, and Alex Hormozi's Value Equation.
 
-OPERATING FRAMEWORK (STRICT WHITE-LABEL & NEUTRAL):
-- Absolutely NO soft motivational "personal development" (desarrollo personal) clichés or empty cheerleading.
-- Absolutely NO physical training room jargon (NO "sala", "dinámicas", "C1", "C2", "MJ", "Quantum Team", "Ticket Verde/Rojo").
+OPERATING FRAMEWORK:
+- Strictly professional, high-level corporate and regional managerial standard.
+- Absolutely NO soft motivational "personal development" clichés or empty cheerleading.
+- NO physical training room jargon.
 - USE ONLY OFFICIAL DISTINCTIONS:
-  * "Phase 1: Discovery (Fase 1: Descubrimiento)"
-  * "Phase 2: Core Breakthrough (Fase 2: Quiebre)"
-  * "The 90-Day Performance Cycle (Ciclo de 90 Días)"
-  * "Performance Host (Anfitrión de Desempeño)"
-  * "Accountability Coach (Coach de Rendición de Cuentas)"
-  * "Rigor Coordinator (Coordinador de Rigor)"
-  * "Director of Operations (Director de Operaciones)"
+  * "Fase 1: Descubrimiento"
+  * "Fase 2: Quiebre Ontológico"
+  * "Ciclo de Desempeño de 90 Días"
+  * "Director de Operaciones"
+  * "Coach de Rendición de Cuentas"
   * "Moonshot KPI (Objetivo de Estiramiento)"
   * "Integrity Deviation (Desviación de Integridad)"
   * "Compliance Clearance (Luz Verde / Estado Aprobado)"
   * "Action Required (Alerta Roja / Acceso Restringido)"
-  * "State Calibration (Calibración de Estado)"
-  * "Causa OS" and "Plataforma Nodus"
+  * "Calibración de Estado (State Calibration)"
+  * "Efecto Mandela (Falsos Recuerdos Colectivos en Comités)"
+  * "Causa OS" and "Sistema Interrupción"
 
 EVALUATION METHODOLOGY (TWO CONTINUOUS AXES):
 1. Rigor Score (-100 to +100): Mantenimiento de acuerdos, firmeza, cero justificaciones o drama, congruencia operacional.
-2. Empathy Score (-100 to +100): Escucha limpia, sin reactividad defensiva, desactivación del cerebro reptiliano ("amansar al perro guardián").
+2. Empathy Score (-100 to +100): Escucha limpia, sin reactividad defensiva, desactivación del secuestro amigdalino.
 Target Quadrant: Adaptive Leadership (High Rigor + High Empathy).
 
 OUTPUT FORMAT:
@@ -69,7 +69,7 @@ Lecciones Completadas: ${metrics.completedLessons ? metrics.completedLessons.len
 Evaluaciones Aprobadas: ${metrics.evaluationsPassed ? metrics.evaluationsPassed.length : 0}
 Porcentaje Global: ${metrics.globalPercentage || 0}%
 
-TELEMETRÍA DE SESIONES RECIENTES (PLATAFORMA NODUS):
+TELEMETRÍA DE SESIONES RECIENTES (SISTEMA INTERRUPCIÓN):
 ${historialResumido || 'Sin sesiones registradas en radar.'}
 
 Genera el análisis JSON de alto rendimiento:`;
@@ -115,7 +115,7 @@ Genera el análisis JSON de alto rendimiento:`;
         compliance_status: "Compliance Clearance",
         analisis_patron: rawContent,
         estado_cognitivo: "Evaluación procesada.",
-        directiva_ejecutiva: "Mantener seguimiento en Plataforma Nodus.",
+        directiva_ejecutiva: "Mantener seguimiento en Sistema Interrupción.",
         traceability_log: rawContent
       };
     }

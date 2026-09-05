@@ -5,11 +5,11 @@ export default function BrandscriptGuionesMJ() {
   const [activeTab, setActiveTab] = useState('sb7'); // 'sb7' | 'guiones' | 'whatsapp' | 'checklist' | 'manual'
   const [copiedKey, setCopiedKey] = useState(null);
 
-  // Variables dinámicas para el generador de WhatsApp
-  const [waName, setWaName] = useState('Carlos');
-  const [waSede, setWaSede] = useState('Lima');
-  const [waManager, setWaManager] = useState('Equipo de Mentoría Empática');
-  const [waLink, setWaLink] = useState('https://calendly.com/crearpsl-mj/calibracion-fi');
+  // Variables dinámicas para el generador de mensajes ejecutivos
+  const [waName, setWaName] = useState('Carlos Mendoza');
+  const [waCargo, setWaCargo] = useState('Director de Operaciones');
+  const [waManager, setWaManager] = useState('Dirección de Estrategia');
+  const [waLink, setWaLink] = useState('https://interrupcion.app/calibracion-estrategica');
 
   // Estado del Checklist de Impecabilidad
   const [checkedItems, setCheckedItems] = useState({
@@ -36,96 +36,95 @@ export default function BrandscriptGuionesMJ() {
   const completedChecks = Object.values(checkedItems).filter(Boolean).length;
   const auditScore = (completedChecks / 5) * 100;
 
-  // Plantillas formateadas de WhatsApp
-  const mensaje1Text = `¡Felicidades, Creador! 🦅✨
+  // Plantillas formateadas de Comunicación Ejecutiva (Teams / Slack / WhatsApp)
+  const mensaje1Text = `Estimado(a) ${waName},
 
-Aún resuena en la sede la fisionomía y la fuerza de tu palabra declarada este fin de semana en Capítulo Dos. Has salido de "la arena" y hoy tienes en tus manos la posibilidad de diseñar tu propio destino.
+Tras la sesión de alineación estratégica, hemos consolidado los compromisos clave para la gestión de este trimestre. 
 
-El lunes ha llegado, y con él, la oportunidad de elegir: ¿volver a la inercia cotidiana o entrenar para consolidar tu Breakthrough?
+El mayor desafío no es el diseño del plan, sino superar la inercia operacional y los sesgos de confirmación que suelen desviar la ejecución en los primeros 14 días.
 
-La comunidad de personas en modo aprendiz y Maestría del Juego ya está lista para recibirte en el contenedor de los 90 días. Tu espacio de estiramiento está guardado.
+Para asegurar la continuidad del estándar acordado:
+1. Accede a tu entorno en el Sistema Interrupción.
+2. Agenda tu sesión de Calibración Estratégica (15 min) aquí: ${waLink}
+3. Revisa la matriz de acuerdos inmutables de tu unidad de negocio.
 
-Paso 1: Ingresa a tu App Nodus 📱
-Paso 2: Agenda tu sesión de calibración de Futuro Imposible (FI) de 15 minutos aquí: ${waLink}
-Paso 3: Sostiene tu palabra.
-
-Sostener la fisionomía del Ser es el juego de los grandes. Nos vemos en la cancha. 
+La consistencia en la ejecución es la única ventaja competitiva sostenible.
 
 Atentamente,
-Equipo de Mentoría Empática de ${waSede}
-CREAR PODER SIN LÍMITES 2026.`;
+${waManager}
+Sistema Interrupción — Alto Rendimiento y Neurociencia Decisional.`;
 
-  const mensaje2Text = `Hola, ${waName} 👋
+  const mensaje2Text = `Estimado(a) ${waName},
 
-Te saludamos desde la sede ${waSede}. Hoy es viernes de Capítulo Dos, un día clave para cuidar el contenedor de integridad que declaraste el jueves por la noche.
+Te contactamos desde la Dirección de Seguimiento Operativo. De cara al cierre del ciclo de reporte y evaluación de impacto de esta semana:
 
-Para asegurar que tu ingreso al bloque vivencial de las 15:00 PM sea fluido y libre de distracciones logísticas:
+📌 Tu registro de compromisos y métricas de fricción cognitiva en la plataforma requiere validación final.
+⏰ El cierre de la ventana de auditoría se ejecutará a las 17:00 hrs.
 
-📌 Tu estado actual en Nodus requiere conciliación de caja.
-⏰ El cierre automático de registros de la plataforma se ejecutará a las 14:00 PM.
+Para garantizar que el reporte consolidado de tu división refleje con exactitud la efectividad del plan y evitar distorsiones retrospectivas (Efecto Mandela en comités):
 
-Queremos cuidar tu experiencia y tu palabra. Por favor, acércate a la mesa externa de registro antes de la hora límite o envíanos tu comprobante digital por esta vía para validar tu "Ticket Verde" en el sistema.
+Por favor, confirma tus métricas en el sistema antes de la hora límite o notifícanos cualquier bloqueo técnico o de recursos para diseñar la contramedida oportuna.
 
-Si tienes algún quiebre técnico o financiero de última hora, avísanos de inmediato para diseñar juntos una solución oportuna antes del cierre.
+El rigor en los datos sustenta la credibilidad estratégica.
 
-¡Sostener tu palabra es tu mayor poder! Nos vemos en sala. 🛡️
-CREAR PODER SIN LÍMITES`;
+Dirección de Desempeño y Estrategia
+Sistema Interrupción`;
 
-  // Matriz SB7 Oficial
+  // Matriz SB7 Oficial para Alta Dirección
   const sb7Elements = [
     {
       num: 1,
       titulo: '1. Un Personaje (El Héroe)',
-      definicion: 'Graduado de Capítulo Dos (C2).',
-      lenguajeCpsl: 'Un líder que ha despertado su poder en sala y busca materializarlo en la fisionomía de su vida diaria.',
+      definicion: 'El Gerente Regional o Tomador de Decisiones.',
+      lenguajeCpsl: 'Un líder corporativo responsable de resultados medibles que enfrenta incertidumbre, volatilidad de mercado y resistencia interna al cambio.',
       color: '#3b82f6',
       icon: '👤'
     },
     {
       num: 2,
       titulo: '2. Tiene un Problema',
-      definicion: 'El "Efecto Lunes" y el entorno inercial.',
-      lenguajeCpsl: '• Externo: Volver a un entorno que no comprende su transformación.\n• Interno: Miedo al auto-sabotaje y a quedarse solo.\n• Filosófico: Es inaceptable regresar a vivir una vida promedio tras haber conocido su grandeza.',
+      definicion: 'Fricción cognitiva e inercia organizacional.',
+      lenguajeCpsl: '• Externo: Metas agresivas, presión de directorio y volatilidad económica.\n• Interno: Fatiga decisional, parálisis por análisis y desgaste en alineación de equipos.\n• Filosófico: Es inaceptable operar empresas de alto calibre con modelos mentales reactivos del siglo pasado.',
       color: '#ef4444',
       icon: '⚡'
     },
     {
       num: 3,
       titulo: '3. Encuentra un Guía',
-      definicion: 'El equipo de Accountability Coaches y la Plataforma Nodus.',
-      lenguajeCpsl: 'Un mentor empático (que ya recorrió los 90 días) y con autoridad técnica (respaldado por la telemetría de Nodus).',
+      definicion: 'El Marco Metodológico de Interrupción.',
+      lenguajeCpsl: 'Un marco de referencia riguroso sustentado en neurobiología del comportamiento, economía conductual (Kahneman & Tversky) y telemetría inmutable de desempeño.',
       color: '#8b5cf6',
       icon: '🧭'
     },
     {
       num: 4,
       titulo: '4. Que le da un Plan',
-      definicion: 'La estructura de los 90 días de MJ.',
-      lenguajeCpsl: 'Paso 1: Declara tu Futuro Imposible (FI).\nPaso 2: Entrena en Integridad (28 Entrenamientos Sustentables).\nPaso 3: Conquista "El Viaje" y gradúate en Gratitud.',
+      definicion: 'Estructura de 3 Fases de Despliegue.',
+      lenguajeCpsl: 'Fase 1: Interrupción del automatismo reactivo y desactivación amigdalina.\nFase 2: Aplicación de la Ecuación de Valor para reducir costos de fricción.\nFase 3: Auditoría inmutable de acuerdos y trazabilidad de ejecución.',
       color: '#10b981',
       icon: '📋'
     },
     {
       num: 5,
       titulo: '5. Y lo llama a la Acción',
-      definicion: 'El registro y la inscripción voluntaria.',
-      lenguajeCpsl: '• CTA Directo: Registrarse en Nodus en la mesa de conversión del domingo.\n• CTA Transicional: Agendar sesión de calibración de FI de 15 minutos.',
+      definicion: 'Compromiso explícito y voluntario.',
+      lenguajeCpsl: '• Llamado Directo: Implementar el protocolo de acuerdos innegociables en el comité directivo.\n• Llamado Transicional: Realizar un diagnóstico de sesgos cognitivos y calibración de estado.',
       color: '#f59e0b',
       icon: '🎯'
     },
     {
       num: 6,
       titulo: '6. Que evita el Fracaso',
-      definicion: 'Evitar el marchitamiento de la palabra.',
-      lenguajeCpsl: 'Caer de vuelta en la anestesia de la víctima ("la arena"), perdiendo el impulso de su Breakthrough de jueves.',
+      definicion: 'Mitigar la complacencia y la distorsión colectiva.',
+      lenguajeCpsl: 'Evitar la trampa del Efecto Mandela directivo (recordar consensos ilusorios), la erosión del margen operativo y la pérdida de tracción estratégica frente a competidores ágiles.',
       color: '#ec4899',
       icon: '🛡️'
     },
     {
       num: 7,
-      titulo: '7. Y termina en Éxito',
-      definicion: 'Convertirse en un Líder IMO.',
-      lenguajeCpsl: 'Vivir en coherencia, manifestando abundancia física, emocional y financiera como una consecuencia natural de su Ser.',
+      titulo: '7. Y culmina en Éxito',
+      definicion: 'Organización Antifrágil y Claridad Ejecutiva.',
+      lenguajeCpsl: 'Líderes que operan desde Causa OS (autoría incondicional), gobernanza transparente con datos duros y una cultura empresarial capaz de prosperar en entornos de alta presión.',
       color: '#eab308',
       icon: '🏆'
     }
@@ -158,7 +157,7 @@ CREAR PODER SIN LÍMITES`;
                 border: '1px solid rgba(245, 158, 11, 0.3)',
                 letterSpacing: '1px'
               }}>
-                EDICIÓN OFICIAL V1.0 — 2026
+                ESTÁNDAR DE ALTA DIRECCIÓN V1.0
               </span>
               <span style={{
                 background: 'rgba(16, 185, 129, 0.15)',
@@ -169,7 +168,7 @@ CREAR PODER SIN LÍMITES`;
                 fontWeight: '700',
                 border: '1px solid rgba(16, 185, 129, 0.3)'
               }}>
-                AUTOENTRENAMIENTO: COMUNICACIÓN & MENTORÍA EMPÁTICA
+                NEUROCIENCIA & NEGOCIACIÓN ESTRATÉGICA
               </span>
             </div>
             <h1 style={{
@@ -181,19 +180,19 @@ CREAR PODER SIN LÍMITES`;
               WebkitTextFillColor: 'transparent',
               letterSpacing: '0.5px'
             }}>
-              Manual de Enrolamiento Narrativo: BrandScript & Guiones MJ
+              Manual de Comunicación Estratégica, Negociación y Resistencia al Cambio
             </h1>
             <p style={{ margin: 0, color: '#94a3b8', fontSize: '1rem', maxWidth: '850px', lineHeight: '1.6' }}>
-              Herramienta oficial de <strong>CREAR PODER SIN LÍMITES</strong> para personas en modo aprendiz que desarrollan habilidades de comunicación empática y mentoría bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong> para la Maestría del Juego (MJ) de 90 días.
+              Metodología ejecutiva para directores y gerentes regionales diseñada bajo el <strong>StoryBrand Framework (SB7)</strong>, la <strong>Neurobiología de la Negociación</strong> y la <strong>Economía Conductual</strong> para alinear equipos, reducir fricción cognitiva y erradicar la complacencia.
             </p>
           </div>
 
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <NavLink to="/ruta" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              🧭 Volver a Ruta
+              🧭 Ruta Estratégica
             </NavLink>
-            <NavLink to="/gamificacion" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', borderColor: '#10b981' }}>
-              🎮 Modo Aprendiz (Nodus)
+            <NavLink to="/glosario" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', borderColor: '#38bdf8', color: '#38bdf8' }}>
+              📖 Glosario Oficial
             </NavLink>
           </div>
         </div>
@@ -212,8 +211,8 @@ CREAR PODER SIN LÍMITES`;
               🦸
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Héroe</div>
-              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Graduado C2</div>
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Protagonista</div>
+              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Gerente Regional</div>
             </div>
           </div>
 
@@ -222,18 +221,18 @@ CREAR PODER SIN LÍMITES`;
               🧭
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Guía</div>
-              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Accountability Coach + Nodus</div>
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Marco Guía</div>
+              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Sistema Interrupción</div>
             </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(16, 185, 129, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}>
-              🕊️
+              ⚖️
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Combustible</div>
-              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Elección Voluntaria</div>
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>El Principio Clave</div>
+              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Acuerdo Voluntario</div>
             </div>
           </div>
 
@@ -242,8 +241,8 @@ CREAR PODER SIN LÍMITES`;
               🎯
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Destino Final</div>
-              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Líder IMO (90 Días)</div>
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Objetivo Final</div>
+              <div style={{ fontWeight: '700', color: '#f8fafc', fontSize: '0.95rem' }}>Antifragilidad & Tracción</div>
             </div>
           </div>
         </div>
@@ -259,10 +258,10 @@ CREAR PODER SIN LÍMITES`;
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
       }}>
         {[
-          { id: 'sb7', label: '🗺️ BrandScript SB7-MJ', badge: '7 Elementos' },
-          { id: 'guiones', label: '📞 Guiones Telefónicos', badge: 'Escenarios A & B' },
-          { id: 'whatsapp', label: '💬 Generador WhatsApp', badge: '2 Plantillas' },
-          { id: 'checklist', label: '🛡️ Checklist de Impecabilidad', badge: `${auditScore}%` },
+          { id: 'sb7', label: '🗺️ BrandScript SB7 Directivo', badge: '7 Elementos' },
+          { id: 'guiones', label: '📞 Guiones de Negociación', badge: 'Escenarios A & B' },
+          { id: 'whatsapp', label: '💬 Mensajería Ejecutiva', badge: '2 Plantillas' },
+          { id: 'checklist', label: '🛡️ Checklist de Rigor', badge: `${auditScore}%` },
           { id: 'manual', label: '📄 Documento Oficial Completo', badge: 'Markdown' },
         ].map(tab => (
           <button
@@ -299,7 +298,7 @@ CREAR PODER SIN LÍMITES`;
         ))}
       </div>
 
-      {/* TAB 1: BRANDSCRIPT SB7-MJ */}
+      {/* TAB 1: BRANDSCRIPT SB7 DIRECTIVO */}
       {activeTab === 'sb7' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
@@ -311,30 +310,30 @@ CREAR PODER SIN LÍMITES`;
             borderLeft: '5px solid #f59e0b'
           }}>
             <h3 style={{ margin: '0 0 0.75rem 0', color: '#f59e0b', fontSize: '1.3rem' }}>
-              1. El Marco Ontológico: El Viaje del Héroe en la Maestría
+              1. El Marco Ontológico: El Viaje del Líder hacia la Antifragilidad
             </h3>
             <p style={{ color: '#cbd5e1', lineHeight: '1.7', margin: '0 0 1rem 0' }}>
-              En la cultura de alto rendimiento de <strong>CREAR PODER SIN LÍMITES (CPSL)</strong>, no operamos desde la venta tradicional ni desde el empuje comercial invasivo. Operamos desde la <strong>creación de contexto</strong>:
+              En la cultura de alto rendimiento corporativo, no operamos desde la persuasión superficial ni la coacción burocrática. Operamos desde la <strong>creación de contexto y claridad deliberada</strong>:
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
               <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
-                <strong style={{ color: '#60a5fa', display: 'block', marginBottom: '0.35rem' }}>🦸 El Participante es el Héroe</strong>
+                <strong style={{ color: '#60a5fa', display: 'block', marginBottom: '0.35rem' }}>🦸 El Directivo es el Protagonista</strong>
                 <span style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.6' }}>
-                  El graduado de Capítulo Dos (C2) es el único protagonista de su propia película. Él es quien debe enfrentar a sus «dragones cotidianos» (la inercia, la zona de confort, el escepticismo de su entorno).
+                  El gerente regional es el único responsable de la ejecución en su territorio. Él enfrenta los sesgos organizacionales, la inercia del mercado y la complacencia de los procesos heredados.
                 </span>
               </div>
 
               <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
-                <strong style={{ color: '#c084fc', display: 'block', marginBottom: '0.35rem' }}>🧭 La Organización es el Guía</strong>
+                <strong style={{ color: '#c084fc', display: 'block', marginBottom: '0.35rem' }}>🧭 La Metodología es el Guía</strong>
                 <span style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.6' }}>
-                  En modo aprendiz no buscamos protagonismo. Nuestro propósito es encarnar el arquetipo del Mentor empático (el Guía), proveyendo escucha activa, presencia ontológica, un plan simplificado y un llamado consciente a la acción.
+                  El marco de Interrupción no impone dogmas; provee lentes epistemológicos y herramientas neurocognitivas para desactivar la reactividad y estructurar planes de bajo riesgo y alto retorno.
                 </span>
               </div>
 
               <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-                <strong style={{ color: '#34d399', display: 'block', marginBottom: '0.35rem' }}>🕊️ Elección Voluntaria</strong>
+                <strong style={{ color: '#34d399', display: 'block', marginBottom: '0.35rem' }}>🕊️ Acuerdo Consciente</strong>
                 <span style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.6' }}>
-                  El enrolamiento es un acto de amor y estiramiento. Todo acuerdo financiero o de asistencia debe nacer de la libre elección del participante, erradicando cualquier forma de coacción, manipulación o culpa.
+                  La alineación genuina nace del acuerdo voluntario y la responsabilidad radical (Causa OS). La imposición genera resistencia pasiva; la claridad ontológica genera tracción inquebrantable.
                 </span>
               </div>
             </div>
@@ -343,10 +342,10 @@ CREAR PODER SIN LÍMITES`;
           {/* Matriz 7 Elementos SB7 */}
           <div className="glass-panel" style={{ background: 'rgba(28, 37, 65, 0.7)', padding: '1.75rem', borderRadius: '14px' }}>
             <h3 style={{ margin: '0 0 1rem 0', color: '#f8fafc', fontSize: '1.3rem' }}>
-              2. Matriz del BrandScript Oficial (SB7-MJ)
+              2. Matriz del BrandScript Oficial para Alta Dirección (SB7)
             </h3>
             <p style={{ color: '#94a3b8', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-              Estructura del viaje cognitivo y emocional de un graduado al transicionar de C2 al ciclo avanzado de 90 días:
+              Estructura secuencial del proceso decisional ante transformaciones corporativas:
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
@@ -399,11 +398,11 @@ CREAR PODER SIN LÍMITES`;
         </div>
       )}
 
-      {/* TAB 2: GUIONES TELEFÓNICOS */}
+      {/* TAB 2: GUIONES DE NEGOCIACIÓN */}
       {activeTab === 'guiones' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
-          {/* Banner de Neuromarketing */}
+          {/* Banner de Neurobiología Decisional */}
           <div className="glass-panel" style={{
             background: 'rgba(28, 37, 65, 0.7)',
             padding: '1.25rem 1.75rem',
@@ -417,10 +416,10 @@ CREAR PODER SIN LÍMITES`;
             <div style={{ fontSize: '2rem' }}>🧠</div>
             <div style={{ flex: 1, minWidth: '280px' }}>
               <strong style={{ color: '#a78bfa', fontSize: '1rem', display: 'block', marginBottom: '0.2rem' }}>
-                Premisa de Neuromarketing Ético: «Calmar al Perro Guardián» (Reptil)
+                Neurobiología de la Negociación: Desactivar la Alarma Amigdalina
               </strong>
               <span style={{ fontSize: '0.9rem', color: '#cbd5e1' }}>
-                En los primeros 15 segundos de llamada, el cerebro reptil está en modo defensa. Desactiva la alerta mediante simpatía genuina, tono pausado y respetando estrictamente su tiempo (pedir permiso de 3 minutos).
+                En situaciones de negociación o conversaciones de rendimiento, la amígdala interpreta la crítica o el cambio como una amenaza de estatus (David Rock, SCARF). Desactiva la resistencia validando la perspectiva ajena, modulando la prosodia y haciendo preguntas abiertas reflexivas (Kahneman / Chris Voss).
               </span>
             </div>
           </div>
@@ -443,7 +442,7 @@ CREAR PODER SIN LÍMITES`;
             >
               <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', opacity: 0.8 }}>Escenario A</div>
               <div style={{ fontSize: '1.05rem', color: '#f8fafc', marginTop: '0.2rem' }}>
-                Graduado Indeciso / Miedo al «Efecto Lunes»
+                Alineación Estratégica ante Resistencia al Cambio y Fricción de Equipo
               </div>
             </button>
 
@@ -463,7 +462,7 @@ CREAR PODER SIN LÍMITES`;
             >
               <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', opacity: 0.8 }}>Escenario B</div>
               <div style={{ fontSize: '1.05rem', color: '#f8fafc', marginTop: '0.2rem' }}>
-                Tratamiento Ético ante Objeción «No tengo dinero»
+                Tratamiento Racional de Objeción «No hay presupuesto / recursos»
               </div>
             </button>
           </div>
@@ -474,23 +473,23 @@ CREAR PODER SIN LÍMITES`;
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
                 <div>
                   <h3 style={{ margin: 0, color: '#60a5fa', fontSize: '1.3rem' }}>
-                    Escenario A: Reactivación de Visión y Desmantelamiento del «Efecto Lunes»
+                    Escenario A: Desmantelamiento de la Inercia y Reencuadre de Compromisos
                   </h3>
                   <p style={{ margin: '0.25rem 0 0 0', color: '#94a3b8', fontSize: '0.9rem' }}>
-                    Estructura secuencial en 5 pasos para sostener la palabra de jueves y el Breakthrough.
+                    Protocolo de 5 pasos para reenfocar directores o gerentes atrapados en la urgencia operativa diaria.
                   </p>
                 </div>
 
                 <button
-                  onClick={() => copyToClipboard(`Paso 1: "Hola [Nombre], te saluda [Accountability Coach], tu Accountability Coach de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?"
-Paso 2: "Aún vibra en mí el espacio del domingo de Capítulo Dos. Quiero reconocer la fisonomía y la entrega que mostraste en tu Breakthrough. Vi a un creador absoluto en la sala. ¿Cómo se ha sentido apagar el micrófono y regresar a la rutina estos dos días?"
-Paso 3: "Es completamente natural, [Nombre]. La inercia del día a día es fuerte y volver al 'mundo real' sin una estructura puede sentirse como tratar de nadar contracorriente en la arena. Sabes que tienes el potencial, pero sostener la autodisciplina solo es sumamente retador."
-Paso 4: "Por eso creamos la Maestría del Juego de 90 días. No es más teoría; es la pista de entrenamiento física para consolidar tu resultado. El plan es muy sencillo: primero, declaramos un Futuro Imposible en salud, finanzas o relaciones; segundo, entrenamos diariamente en integridad con el soporte de tu mánager y la Plataforma Nodus; y tercero, nos graduamos juntos en Gratitud. Tú pones la visión, nosotros la estructura de bajo riesgo."
-Paso 5: "[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiramiento y dar el paso a tu Maestría este fin de semana, o vas a permitir que la inercia del lunes tome las decisiones por ti?"`, 'guionA')}
+                  onClick={() => copyToClipboard(`Paso 1: "Hola [Nombre], te agradezco el espacio. Sé que la agenda operativa es densa. ¿Podemos tomarnos 3 minutos para revisar la dirección estratégica sin la urgencia del día a día?"
+Paso 2: "Revisando el desempeño del último comité, reconozco el esfuerzo de tu división por mantener los números en un contexto complejo. Sin embargo, observo que la fricción interna está frenando la velocidad de entrega. ¿Cómo percibes el impacto de esta inercia en tus resultados?"
+Paso 3: "Es comprensible. La tendencia natural de toda estructura corporativa es volver a los hábitos conocidos cuando la presión aumenta (sesgo de statu quo). Pero tú y yo sabemos que mantener el proceso actual nos costará el cumplimiento del objetivo anual."
+Paso 4: "El marco de Interrupción nos ofrece una alternativa ágil: primero, aislamos la fricción crítica; segundo, establecemos acuerdos inmutables de ejecución sin burocracia añadida; y tercero, auditamos el avance semanalmente con datos objetivos. Tú lideras la operación, nosotros aportamos la estructura de gobernanza."
+Paso 5: "[Nombre], el objetivo sigue en juego. ¿Optamos por intervenir el proceso ahora de forma proactiva, o dejaremos que la inercia del día a día decida el resultado del trimestre por nosotros?"`, 'guionA')}
                   className="btn-secondary"
                   style={{ fontSize: '0.85rem' }}
                 >
-                  {copiedKey === 'guionA' ? '✅ ¡Copiado!' : '📋 Copiar Guión Completo A'}
+                  {copiedKey === 'guionA' ? '✅ ¡Copiado!' : '📋 Copiar Protocolo A'}
                 </button>
               </div>
 
@@ -499,58 +498,55 @@ Paso 5: "[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiram
                 {/* Paso 1 */}
                 <div style={{ background: 'rgba(15, 23, 42, 0.7)', borderRadius: '10px', padding: '1.25rem', borderLeft: '4px solid #3b82f6' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <strong style={{ color: '#60a5fa' }}>Paso 1: Apertura y Conexión (Calmar al Reptil)</strong>
-                    <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>0 - 15 seg</span>
+                    <strong style={{ color: '#60a5fa' }}>Paso 1: Apertura y Contrato de Tiempo (Baja Fricción)</strong>
+                    <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>0 - 20 seg</span>
                   </div>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #3b82f6' }}>
-                    «Hola [Nombre del Participante], te saluda [Nombre del Accountability Coach], tu Accountability Coach de soporte. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?»
+                    «Hola [Nombre], te agradezco el espacio. Sé que la agenda operativa es densa. ¿Podemos tomarnos 3 minutos para revisar la dirección estratégica sin la urgencia del día a día?»
                   </blockquote>
                 </div>
 
                 {/* Paso 2 */}
                 <div style={{ background: 'rgba(15, 23, 42, 0.7)', borderRadius: '10px', padding: '1.25rem', borderLeft: '4px solid #8b5cf6' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <strong style={{ color: '#a78bfa' }}>Paso 2: Validación de Fisionomía</strong>
-                    <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Reconocimiento</span>
+                    <strong style={{ color: '#a78bfa' }}>Paso 2: Reconocimiento Objetivo de Hechos (Desactivar Amenaza)</strong>
+                    <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Diagnóstico</span>
                   </div>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #8b5cf6' }}>
-                    «Aún vibra en mí el espacio del domingo de Capítulo Dos. Quiero reconocer la fisonomía y la entrega que mostraste en tu Breakthrough. Vi a un creador absoluto en la sala. ¿Cómo se ha sentido apagar el micrófono y regresar a la rutina estos dos días?»
+                    «Revisando el desempeño del último comité, reconozco el esfuerzo de tu división por mantener los números en un contexto complejo. Sin embargo, observo que la fricción interna está frenando la velocidad de entrega. ¿Cómo percibes el impacto de esta inercia en tus resultados?»
                   </blockquote>
                 </div>
 
                 {/* Paso 3 */}
                 <div style={{ background: 'rgba(15, 23, 42, 0.7)', borderRadius: '10px', padding: '1.25rem', borderLeft: '4px solid #ef4444' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <strong style={{ color: '#f87171' }}>Paso 3: Identificación del Problema Interno (StoryBrand)</strong>
-                    <span style={{ fontSize: '0.75rem', color: '#f87171', background: 'rgba(239, 68, 68, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Escucha Activa</span>
+                    <strong style={{ color: '#f87171' }}>Paso 3: Identificación del Costo de la Inacción (Aversión a la Pérdida)</strong>
+                    <span style={{ fontSize: '0.75rem', color: '#f87171', background: 'rgba(239, 68, 68, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Economía Conductual</span>
                   </div>
-                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0 0 0.5rem 0' }}>
-                    [Escuchar activamente sin interrumpir; dejar que exprese la fricción del entorno]
-                  </p>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #ef4444' }}>
-                    «Es completamente natural, [Nombre]. La inercia del día a día es fuerte y volver al 'mundo real' sin una estructura puede sentirse como tratar de nadar contracorriente en la arena. Sabes que tienes el potencial, pero sostener la autodisciplina solo es sumamente retador.»
+                    «Es comprensible. La tendencia natural de toda estructura corporativa es volver a los hábitos conocidos cuando la presión aumenta (sesgo de statu quo). Pero tú y yo sabemos que mantener el proceso actual nos costará el cumplimiento del objetivo anual.»
                   </blockquote>
                 </div>
 
                 {/* Paso 4 */}
                 <div style={{ background: 'rgba(15, 23, 42, 0.7)', borderRadius: '10px', padding: '1.25rem', borderLeft: '4px solid #10b981' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <strong style={{ color: '#34d399' }}>Paso 4: Presentación del Plan de 3 Pasos</strong>
+                    <strong style={{ color: '#34d399' }}>Paso 4: Presentación del Plan de 3 Fases (Ecuación de Valor)</strong>
                     <span style={{ fontSize: '0.75rem', color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Bajo Riesgo</span>
                   </div>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #10b981' }}>
-                    «Por eso creamos la Maestría del Juego de 90 días. No es más teoría; es la pista de entrenamiento física para consolidar tu resultado. El plan es muy sencillo: primero, declaramos un Futuro Imposible en salud, finanzas o relaciones; segundo, entrenamos diariamente en integridad con el soporte de tu mánager y la Plataforma Nodus; y tercero, nos graduamos juntos en Gratitud. Tú pones la visión, nosotros la estructura de bajo riesgo.»
+                    «El marco de Interrupción nos ofrece una alternativa ágil: primero, aislamos la fricción crítica; segundo, establecemos acuerdos inmutables de ejecución sin burocracia añadida; y tercero, auditamos el avance semanalmente con datos objetivos. Tú lideras la operación, nosotros aportamos la estructura de gobernanza.»
                   </blockquote>
                 </div>
 
                 {/* Paso 5 */}
                 <div style={{ background: 'rgba(15, 23, 42, 0.7)', borderRadius: '10px', padding: '1.25rem', borderLeft: '4px solid #f59e0b' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <strong style={{ color: '#fbbf24' }}>Paso 5: Llamado a la Acción Directo (CTA)</strong>
-                    <span style={{ fontSize: '0.75rem', color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Elección</span>
+                    <strong style={{ color: '#fbbf24' }}>Paso 5: Llamado a la Decisión Ejecutiva (Elección Consciente)</strong>
+                    <span style={{ fontSize: '0.75rem', color: '#f59e0b', background: 'rgba(245, 158, 11, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>Causa OS</span>
                   </div>
                   <blockquote style={{ margin: 0, padding: '0.75rem', background: 'rgba(0,0,0,0.25)', borderRadius: '6px', color: '#e2e8f0', fontStyle: 'italic', borderLeft: '3px solid #f59e0b' }}>
-                    «[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiramiento y dar el paso a tu Maestría este fin de semana, o vas a permitir que la inercia del lunes tome las decisiones por ti?»
+                    «[Nombre], el objetivo sigue en juego. ¿Optamos por intervenir el proceso ahora de forma proactiva, o dejaremos que la inercia del día a día decida el resultado del trimestre por nosotros?»
                   </blockquote>
                 </div>
 
@@ -564,53 +560,53 @@ Paso 5: "[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiram
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
                 <div>
                   <h3 style={{ margin: 0, color: '#34d399', fontSize: '1.3rem' }}>
-                    Escenario B: Tratamiento Ético ante la Objeción «No tengo dinero»
+                    Escenario B: Tratamiento Racional de Objeción «No hay presupuesto / recursos»
                   </h3>
                   <p style={{ margin: '0.25rem 0 0 0', color: '#94a3b8', fontSize: '0.9rem' }}>
-                    Rigor de Causa OS y Ecuación de Valor (Hormozi): elevar el valor percibido y reencuadrar la inversión en el Ser.
+                    Aplicación de la Ecuación de Valor (Hormozi) y el Costo de Oportunidad de la Inacción en Finanzas Corporativas.
                   </p>
                 </div>
 
                 <button
-                  onClick={() => copyToClipboard(`Participante: "De verdad quiero hacer la Maestría, pero el dinero es mi límite en este momento. No tengo cómo cubrir la inversión."
+                  onClick={() => copyToClipboard(`Directivo: "Entiendo el beneficio del programa de Interrupción, pero en este momento no tenemos presupuesto asignado para nuevas iniciativas."
 
-Coach (Guía): "Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?"
+Estratega (Guía): "Comprendo el celo presupuestal, [Nombre]; en un entorno volátil, proteger el flujo de caja es la primera prioridad. Permíteme hacerte una pregunta honesta: dejando de lado la partida contable por un segundo... ¿la falta de alineación y la lentitud decisional de los mandos medios representan un riesgo crítico para tu meta de este año, o consideras que el modelo actual puede absorber el desafío sin cambios?"
 
-Participante: "No, el entrenamiento sé que es increíble y me sirve, es solo que físicamente no tengo el dinero hoy."
+Directivo: "No, claramente el equipo necesita alinearse y elevar el estándar de ejecución; la preocupación es justificar el retorno de inversión ante el comité de finanzas."
 
-Coach (Causa OS): "Perfecto. Gracias por aclarar que la fisionomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?"
+Estratega (Causa OS & Ecuación de Valor): "Excelente. La discusión entonces no es si se necesita la intervención, sino cómo demostrar certidumbre de retorno. Si calculamos el costo de un retraso de 3 semanas en el lanzamiento de tu iniciativa clave frente a la inversión requerida, la inacción cuesta 5 veces más. Además, podemos estructurar un despliegue por fases enfocado en victorias rápidas cuantificables antes del desembolso integral. ¿Tiene sentido evaluar esta propuesta de bajo riesgo en una sesión de 20 minutos con Finanzas?"
 
-Participante: "Podría dar una parte este viernes y el saldo en dos cuotas los fines de semana de módulo."
+Directivo: "Bajo ese esquema de hitos medibles, sí es viable revisarlo."
 
-Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus bajo aprobación de la Gerencia para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días."`, 'guionB')}
+Estratega: "Perfecto. Agendemos la sesión técnica para calibrar el caso de negocio."`, 'guionB')}
                   className="btn-secondary"
                   style={{ fontSize: '0.85rem' }}
                 >
-                  {copiedKey === 'guionB' ? '✅ ¡Copiado!' : '📋 Copiar Diálogo B'}
+                  {copiedKey === 'guionB' ? '✅ ¡Copiado!' : '📋 Copiar Protocolo B'}
                 </button>
               </div>
 
-              {/* Comparativa Ética: Manipulación vs Coaching */}
+              {/* Comparativa Ética: Presión Manipulativa vs Negociación Racional */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
                 <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', padding: '1rem' }}>
                   <strong style={{ color: '#f87171', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                    ⛔ Acción Incorrecta (Manipulación / Prohibida)
+                    ⛔ Enfoque Inadecuado (Presión Emocional)
                   </strong>
                   <ul style={{ margin: 0, paddingLeft: '1.2rem', color: '#fca5a5', fontSize: '0.85rem', lineHeight: '1.6' }}>
-                    <li>«Si no entras, es porque no te amas a ti mismo».</li>
-                    <li>«Consíguete una tarjeta prestada si de verdad te importa tu familia».</li>
-                    <li><em>Efecto:</em> Genera rechazo, quiebra la seguridad psicológica y desacredita la empresa.</li>
+                    <li>«Si no inviertes, estás demostrando falta de visión».</li>
+                    <li>Forzar decisiones sin sustento de retorno financiero.</li>
+                    <li><em>Efecto:</em> Genera rechazo defensivo, rompe la confianza y desacredita la autoridad profesional.</li>
                   </ul>
                 </div>
 
                 <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '10px', padding: '1rem' }}>
                   <strong style={{ color: '#34d399', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                    ✅ Acción Correcta (Coaching Ético CPSL)
+                    ✅ Enfoque Ejecutivo Riguroso (Economía Conductual)
                   </strong>
                   <ul style={{ margin: 0, paddingLeft: '1.2rem', color: '#a7f3d0', fontSize: '0.85rem', lineHeight: '1.6' }}>
-                    <li>Separar el hecho objetivo («dinero en cuenta») de la interpretación.</li>
-                    <li>Verificar si el deseo ontológico es un «SÍ» rotundo.</li>
-                    <li>Tratar el dinero como una circunstancia a diseñar desde Causa OS con planes de bajo riesgo.</li>
+                    <li>Aislar el hecho objetivo contable de la necesidad estratégica.</li>
+                    <li>Comparar el costo del servicio contra el costo oculto de la inacción.</li>
+                    <li>Proponer esquemas escalonados de bajo riesgo basados en hitos medibles.</li>
                   </ul>
                 </div>
               </div>
@@ -618,37 +614,37 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
               {/* Diálogo Paso a Paso */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #94a3b8' }}>
-                  <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: '700', textTransform: 'uppercase' }}>1. Objeción del Participante</div>
+                  <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: '700', textTransform: 'uppercase' }}>1. Planteamiento de la Objeción Presupuestal</div>
                   <p style={{ margin: '0.4rem 0 0 0', color: '#e2e8f0', fontStyle: 'italic' }}>
-                    «De verdad quiero hacer la Maestría, pero el dinero es mi límite en este momento. No tengo cómo cubrir la inversión.»
+                    «Entiendo el beneficio del programa de Interrupción, pero en este momento no tenemos presupuesto asignado para nuevas iniciativas.»
                   </p>
                 </div>
 
                 <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #8b5cf6' }}>
-                  <div style={{ fontSize: '0.8rem', color: '#c084fc', fontWeight: '700', textTransform: 'uppercase' }}>2. Respuesta Mánager (Guía - Aislar la Objeción)</div>
+                  <div style={{ fontSize: '0.8rem', color: '#c084fc', fontWeight: '700', textTransform: 'uppercase' }}>2. Aislamiento del Problema Real (Estrategia de Kahneman / Voss)</div>
                   <p style={{ margin: '0.4rem 0 0 0', color: '#e2e8f0' }}>
-                    «Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?»
+                    «Comprendo el celo presupuestal, [Nombre]; en un entorno volátil, proteger el flujo de caja es la primera prioridad. Permíteme hacerte una pregunta honesta: dejando de lado la partida contable por un segundo... ¿la falta de alineación y la lentitud decisional de los mandos medios representan un riesgo crítico para tu meta de este año, o consideras que el modelo actual puede absorber el desafío sin cambios?»
                   </p>
                 </div>
 
                 <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #94a3b8' }}>
-                  <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: '700', textTransform: 'uppercase' }}>3. Respuesta del Participante</div>
+                  <div style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: '700', textTransform: 'uppercase' }}>3. Reconocimiento de la Necesidad por el Interlocutor</div>
                   <p style={{ margin: '0.4rem 0 0 0', color: '#e2e8f0', fontStyle: 'italic' }}>
-                    «No, el entrenamiento sé que es increíble y me sirve, es solo que físicamente no tengo el dinero hoy.»
+                    «No, claramente el equipo necesita alinearse y elevar el estándar de ejecución; la preocupación es justificar el retorno de inversión ante el comité de finanzas.»
                   </p>
                 </div>
 
                 <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #10b981' }}>
-                  <div style={{ fontSize: '0.8rem', color: '#34d399', fontWeight: '700', textTransform: 'uppercase' }}>4. Respuesta Mánager (Causa OS - Propuesta de Bajo Riesgo)</div>
+                  <div style={{ fontSize: '0.8rem', color: '#34d399', fontWeight: '700', textTransform: 'uppercase' }}>4. Reencuadre de Valor y Despliegue por Hitos de Bajo Riesgo</div>
                   <p style={{ margin: '0.4rem 0 0 0', color: '#e2e8f0' }}>
-                    «Perfecto. Gracias por aclarar que la fisionomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?»
+                    «Excelente. La discusión entonces no es si se necesita la intervención, sino cómo demostrar certidumbre de retorno. Si calculamos el costo de un retraso de 3 semanas en el lanzamiento de tu iniciativa clave frente a la inversión requerida, la inacción cuesta 5 veces más. Además, podemos estructurar un despliegue por fases enfocado en victorias rápidas cuantificables antes del desembolso integral. ¿Tiene sentido evaluar esta propuesta de bajo riesgo en una sesión de 20 minutos con Finanzas?»
                   </p>
                 </div>
 
                 <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #f59e0b' }}>
-                  <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: '700', textTransform: 'uppercase' }}>5. Cierre con Ticket Verde en Nodus</div>
+                  <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: '700', textTransform: 'uppercase' }}>5. Cierre con Compromiso Concreto</div>
                   <p style={{ margin: '0.4rem 0 0 0', color: '#e2e8f0' }}>
-                    «Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus bajo aprobación de la Gerencia para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días.»
+                    «Perfecto. Agendemos la sesión técnica para calibrar el caso de negocio con indicadores clave de desempeño.»
                   </p>
                 </div>
               </div>
@@ -658,19 +654,19 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
         </div>
       )}
 
-      {/* TAB 3: GENERADOR WHATSAPP */}
+      {/* TAB 3: MENSAJERÍA EJECUTIVA */}
       {activeTab === 'whatsapp' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
           {/* Panel de Personalización de Variables */}
           <div className="glass-panel" style={{ background: 'rgba(28, 37, 65, 0.7)', padding: '1.5rem', borderRadius: '14px' }}>
             <h3 style={{ margin: '0 0 1rem 0', color: '#f59e0b', fontSize: '1.15rem' }}>
-              ⚙️ Personalizar Variables del Mensaje en Vivo
+              ⚙️ Personalizar Variables de Comunicación Ejecutiva
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.3rem' }}>
-                  Nombre del Participante:
+                  Nombre del Directivo / Líder:
                 </label>
                 <input
                   type="text"
@@ -690,11 +686,12 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.3rem' }}>
-                  Sede Oficial:
+                  Rol / Cargo Corporativo:
                 </label>
-                <select
-                  value={waSede}
-                  onChange={(e) => setWaSede(e.target.value)}
+                <input
+                  type="text"
+                  value={waCargo}
+                  onChange={(e) => setWaCargo(e.target.value)}
                   style={{
                     width: '100%',
                     padding: '0.6rem 0.8rem',
@@ -704,19 +701,12 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
                     color: '#fff',
                     fontSize: '0.9rem'
                   }}
-                >
-                  <option value="Lima">Lima</option>
-                  <option value="Quito">Quito</option>
-                  <option value="Cuenca">Cuenca</option>
-                  <option value="Medellín">Medellín</option>
-                  <option value="Guayaquil">Guayaquil</option>
-                  <option value="México">México</option>
-                </select>
+                />
               </div>
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.3rem' }}>
-                  Enlace de Calibración FI (Calendly / Form):
+                  Enlace de Calibración Estratégica:
                 </label>
                 <input
                   type="text"
@@ -736,121 +726,81 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
             </div>
           </div>
 
-          {/* Plantilla 1: Bienvenida e Invitación */}
+          {/* Plantilla 1: Continuidad y Ejecución */}
           <div className="glass-panel" style={{ background: 'rgba(28, 37, 65, 0.7)', padding: '1.75rem', borderRadius: '14px', borderLeft: '4px solid #10b981' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ fontSize: '1.2rem' }}>🦅</span>
+                  <span style={{ fontSize: '1.2rem' }}>📈</span>
                   <h4 style={{ margin: 0, color: '#34d399', fontSize: '1.15rem' }}>
-                    Plantilla 1: Bienvenida e Invitación Inmediata (Post-Graduación C2)
+                    Plantilla 1: Seguimiento Post-Alineación y Compromiso Operativo
                   </h4>
                 </div>
                 <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-                  Principio de «Unidad» de Cialdini para pertenencia instantánea. Enviar lunes por la mañana.
+                  Enfoque en reducción de inercia en las primeras 48 horas tras una junta directiva.
                 </span>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button
-                  onClick={() => copyToClipboard(mensaje1Text, 'wa1')}
-                  className="btn-secondary"
-                  style={{ fontSize: '0.85rem' }}
-                >
-                  {copiedKey === 'wa1' ? '✅ ¡Copiado!' : '📋 Copiar Mensaje'}
-                </button>
-                <a
-                  href={`https://wa.me/?text=${encodeURIComponent(mensaje1Text)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    background: '#25D366',
-                    color: '#0d152d',
-                    padding: '0.5rem 0.9rem',
-                    borderRadius: '8px',
-                    fontWeight: '700',
-                    fontSize: '0.85rem',
-                    textDecoration: 'none'
-                  }}
-                >
-                  💬 Abrir WhatsApp
-                </a>
-              </div>
+              <button
+                onClick={() => copyToClipboard(mensaje1Text, 'wa1')}
+                className="btn-primary"
+                style={{ fontSize: '0.85rem' }}
+              >
+                {copiedKey === 'wa1' ? '✅ ¡Copiado!' : '📋 Copiar Mensaje 1'}
+              </button>
             </div>
 
             <pre style={{
-              background: 'rgba(15, 23, 42, 0.8)',
+              background: 'rgba(15, 23, 42, 0.9)',
               padding: '1.25rem',
               borderRadius: '10px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               color: '#e2e8f0',
-              fontSize: '0.9rem',
+              fontFamily: 'monospace',
+              fontSize: '0.88rem',
               whiteSpace: 'pre-wrap',
               lineHeight: '1.6',
-              fontFamily: 'inherit',
-              border: '1px solid rgba(255, 255, 255, 0.08)'
+              margin: 0
             }}>
               {mensaje1Text}
             </pre>
           </div>
 
-          {/* Plantilla 2: Recordatorio Preventivo de Integridad */}
+          {/* Plantilla 2: Recordatorio Preventivo de Rigor */}
           <div className="glass-panel" style={{ background: 'rgba(28, 37, 65, 0.7)', padding: '1.75rem', borderRadius: '14px', borderLeft: '4px solid #f59e0b' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ fontSize: '1.2rem' }}>⏰</span>
+                  <span style={{ fontSize: '1.2rem' }}>⏱️</span>
                   <h4 style={{ margin: 0, color: '#fbbf24', fontSize: '1.15rem' }}>
-                    Plantilla 2: Recordatorio Preventivo de Integridad (Viernes de C2 — 12:00 PM)
+                    Plantilla 2: Prevención de Distorsión de Reportes y Validación de Datos
                   </h4>
                 </div>
                 <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-                  Neuromarketing Ético: Sustituye el estrés de la penalización de «Palabra Rota» por un llamado preventivo al orden y cuidado de su palabra.
+                  Evita la confabulación retrospectiva (Efecto Mandela) en comités mediante auditoría de hechos.
                 </span>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button
-                  onClick={() => copyToClipboard(mensaje2Text, 'wa2')}
-                  className="btn-secondary"
-                  style={{ fontSize: '0.85rem' }}
-                >
-                  {copiedKey === 'wa2' ? '✅ ¡Copiado!' : '📋 Copiar Mensaje'}
-                </button>
-                <a
-                  href={`https://wa.me/?text=${encodeURIComponent(mensaje2Text)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    background: '#25D366',
-                    color: '#0d152d',
-                    padding: '0.5rem 0.9rem',
-                    borderRadius: '8px',
-                    fontWeight: '700',
-                    fontSize: '0.85rem',
-                    textDecoration: 'none'
-                  }}
-                >
-                  💬 Abrir WhatsApp
-                </a>
-              </div>
+              <button
+                onClick={() => copyToClipboard(mensaje2Text, 'wa2')}
+                className="btn-primary"
+                style={{ fontSize: '0.85rem' }}
+              >
+                {copiedKey === 'wa2' ? '✅ ¡Copiado!' : '📋 Copiar Mensaje 2'}
+              </button>
             </div>
 
             <pre style={{
-              background: 'rgba(15, 23, 42, 0.8)',
+              background: 'rgba(15, 23, 42, 0.9)',
               padding: '1.25rem',
               borderRadius: '10px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               color: '#e2e8f0',
-              fontSize: '0.9rem',
+              fontFamily: 'monospace',
+              fontSize: '0.88rem',
               whiteSpace: 'pre-wrap',
               lineHeight: '1.6',
-              fontFamily: 'inherit',
-              border: '1px solid rgba(255, 255, 255, 0.08)'
+              margin: 0
             }}>
               {mensaje2Text}
             </pre>
@@ -859,109 +809,69 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
         </div>
       )}
 
-      {/* TAB 4: CHECKLIST DE IMPECABILIDAD */}
+      {/* TAB 4: CHECKLIST DE RIGOR */}
       {activeTab === 'checklist' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          
-          {/* Barra de Auditoría de Impecabilidad */}
-          <div className="glass-panel" style={{
-            background: 'rgba(28, 37, 65, 0.7)',
-            padding: '1.75rem',
-            borderRadius: '14px',
-            borderLeft: auditScore === 100 ? '5px solid #10b981' : '5px solid #f59e0b'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
-              <div>
-                <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '1.3rem' }}>
-                  Checklist de Impecabilidad del Enrolador Narrativo
-                </h3>
-                <p style={{ margin: '0.3rem 0 0 0', color: '#94a3b8', fontSize: '0.95rem' }}>
-                  Antes de realizar una llamada o entablar una conversación, toda persona en modo aprendiz debe auditar su propia fisionomía frente a esta rúbrica de integridad.
-                </p>
-              </div>
-
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.8rem', color: '#94a3b8', textTransform: 'uppercase' }}>Nivel de Calibración</div>
-                <div style={{
-                  fontSize: '1.8rem',
-                  fontWeight: '800',
-                  color: auditScore === 100 ? '#10b981' : auditScore >= 60 ? '#f59e0b' : '#ef4444'
-                }}>
-                  {auditScore}%
-                </div>
-              </div>
+        <div className="glass-panel" style={{ background: 'rgba(28, 37, 65, 0.7)', padding: '2rem', borderRadius: '14px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div>
+              <h3 style={{ margin: 0, color: '#f59e0b', fontSize: '1.3rem' }}>
+                🛡️ Checklist de Impecabilidad en la Negociación y Alineación
+              </h3>
+              <p style={{ margin: '0.25rem 0 0 0', color: '#94a3b8', fontSize: '0.9rem' }}>
+                Criterios innegociables para evaluar la calidad de una conversación estratégica con directivos.
+              </p>
             </div>
 
-            {/* Barra de progreso */}
-            <div style={{ height: '8px', background: 'rgba(0,0,0,0.3)', borderRadius: '4px', overflow: 'hidden', marginBottom: '1rem' }}>
-              <div style={{
-                height: '100%',
-                width: `${auditScore}%`,
-                background: auditScore === 100 ? 'linear-gradient(90deg, #10b981, #34d399)' : 'linear-gradient(90deg, #f59e0b, #fbbf24)',
-                transition: 'width 0.4s ease'
-              }} />
+            <div style={{
+              background: auditScore === 100 ? 'rgba(16, 185, 129, 0.2)' : 'rgba(245, 158, 11, 0.2)',
+              border: `1px solid ${auditScore === 100 ? '#10b981' : '#f59e0b'}`,
+              padding: '0.5rem 1rem',
+              borderRadius: '10px',
+              textAlign: 'center'
+            }}>
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Índice de Rigor</div>
+              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: auditScore === 100 ? '#34d399' : '#fbbf24' }}>
+                {auditScore}%
+              </div>
             </div>
-
-            {auditScore === 100 ? (
-              <div style={{ background: 'rgba(16, 185, 129, 0.15)', padding: '0.75rem 1rem', borderRadius: '8px', color: '#34d399', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span>🛡️</span>
-                <span><strong>¡Fisionomía de Alto Rendimiento Impecable!</strong> Tu presencia ontológica está limpia de ego, libre de simpatía al drama y lista para sostener al creador en la llamada.</span>
-              </div>
-            ) : (
-              <div style={{ background: 'rgba(245, 158, 11, 0.1)', padding: '0.75rem 1rem', borderRadius: '8px', color: '#fbbf24', fontSize: '0.85rem' }}>
-                Audita cada uno de los 5 puntos antes de iniciar la gestión telefónica para garantizar que no haya coacción ni culpa.
-              </div>
-            )}
           </div>
 
-          {/* Rúbrica de 5 Items */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            
             {[
               {
                 id: 'item1',
-                title: '1. Cero Simpatía al Drama',
-                pregunta: '¿Estoy escuchando la justificación del participante con lástima, o lo estoy sosteniendo en su grandeza y capacidad de resolver?',
-                rigor: 'La simpatía debilita al participante; la compasión y el rigor lo empoderan.',
-                icon: '🦅'
+                titulo: '1. Desactivación Amigdalina Inicial',
+                desc: '¿Se solicitó permiso explícito de tiempo (2-3 min) y se validó el estatus del interlocutor sin confrontación directa?'
               },
               {
                 id: 'item2',
-                title: '2. Datos vs. Interpretaciones',
-                pregunta: '¿La objeción del participante es un hecho duro comprobable o es una interpretación basada en el miedo?',
-                rigor: 'Hecho duro: «no tengo saldo disponible en esta tarjeta». Interpretación: «es que nunca voy a poder pagar eso». No compres historias.',
-                icon: '📊'
+                titulo: '2. Enfoque en el Protagonista (El Héroe)',
+                desc: '¿Se mantuvo el foco en las metas y dolores de la operación del gerente, evitando auto-promociones del marco metodológico?'
               },
               {
                 id: 'item3',
-                title: '3. Respeto Absoluto a la Autonomía',
-                pregunta: '¿Estoy permitiendo que la decisión final y el plan de abono nazcan de la elección voluntaria del participante?',
-                rigor: 'Erradicación total de argumentos de culpa, chantaje o escasez falsa. El estiramiento es voluntario.',
-                icon: '🕊️'
+                titulo: '3. Aislamiento de Hechos vs. Interpretaciones',
+                desc: '¿Se separaron los números duros (presupuesto, plazos) de los sesgos y suposiciones subjetivas del equipo?'
               },
               {
                 id: 'item4',
-                title: '4. Fisionomía de Voz y Corporalidad',
-                pregunta: 'Aunque la conversación sea telefónica o por chat, ¿mi postura física refleja la fisionomía de un líder cuántico?',
-                rigor: 'Espalda erguida, sonrisa telefónica, tono firme y amoroso. La vibración corporal se transmite a través del auricular.',
-                icon: '🧘'
+                titulo: '4. Presentación de Plan de Bajo Riesgo (Ecuación de Valor)',
+                desc: '¿Se estructuró una propuesta de implementación por fases con certidumbre de entregables y métricas de control?'
               },
               {
                 id: 'item5',
-                title: '5. Trazabilidad en Nodus',
-                pregunta: '¿He registrado de manera limpia y sin suposiciones cada acuerdo de pago, fecha límite y avance de Futuro Imposible?',
-                rigor: 'Garantizar que la Gerencia de Sede cuente con datos de control impecables en Causa OS.',
-                icon: '💾'
+                titulo: '5. Acuerdo Voluntario e Inmutable (Causa OS)',
+                desc: '¿El acuerdo final fue elegido explícitamente por el directivo con fecha, responsable y registro inmutable en el sistema?'
               }
             ].map(item => (
               <div
                 key={item.id}
                 onClick={() => handleToggleCheck(item.id)}
                 style={{
-                  background: checkedItems[item.id] ? 'rgba(16, 185, 129, 0.12)' : 'rgba(28, 37, 65, 0.6)',
-                  border: checkedItems[item.id] ? '1px solid #10b981' : '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  padding: '1.25rem',
+                  background: checkedItems[item.id] ? 'rgba(16, 185, 129, 0.1)' : 'rgba(15, 23, 42, 0.6)',
+                  border: `1px solid ${checkedItems[item.id] ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255, 255, 255, 0.1)'}`,
+                  padding: '1.2rem',
+                  borderRadius: '10px',
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: '1rem',
@@ -972,48 +882,19 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
                 <input
                   type="checkbox"
                   checked={checkedItems[item.id]}
-                  onChange={() => {}} // controlado por onClick del padre
-                  style={{
-                    width: '20px',
-                    height: '20px',
-                    accentColor: '#10b981',
-                    marginTop: '0.2rem',
-                    cursor: 'pointer'
-                  }}
+                  onChange={() => {}}
+                  style={{ marginTop: '0.25rem', width: '18px', height: '18px', cursor: 'pointer' }}
                 />
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
-                    <span style={{ fontSize: '1.1rem' }}>{item.icon}</span>
-                    <strong style={{ color: checkedItems[item.id] ? '#34d399' : '#f8fafc', fontSize: '1rem' }}>
-                      {item.title}
-                    </strong>
-                  </div>
-                  <p style={{ margin: '0 0 0.4rem 0', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                    {item.pregunta}
+                <div>
+                  <h4 style={{ margin: 0, color: checkedItems[item.id] ? '#34d399' : '#f8fafc', fontSize: '1rem' }}>
+                    {item.titulo}
+                  </h4>
+                  <p style={{ margin: '0.25rem 0 0 0', color: '#94a3b8', fontSize: '0.88rem', lineHeight: '1.5' }}>
+                    {item.desc}
                   </p>
-                  <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontStyle: 'italic', display: 'block' }}>
-                    Rigor: {item.rigor}
-                  </span>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-            <button
-              onClick={() => setCheckedItems({ item1: false, item2: false, item3: false, item4: false, item5: false })}
-              className="btn-secondary"
-              style={{ fontSize: '0.85rem' }}
-            >
-              🔄 Resetear Auditoría
-            </button>
-            <button
-              onClick={() => setCheckedItems({ item1: true, item2: true, item3: true, item4: true, item5: true })}
-              className="btn-primary"
-              style={{ fontSize: '0.85rem' }}
-            >
-              ✅ Marcar Todo Calibrado
-            </button>
           </div>
         </div>
       )}
@@ -1024,190 +905,56 @@ Coach: "Excelente. Eso es un creador en acción. Vamos a registrar ese plan de p
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
             <div>
               <h3 style={{ margin: 0, color: '#f59e0b', fontSize: '1.3rem' }}>
-                Documento Oficial Fuente: brandscript-y-guiones-mj-v1.md
+                Estándar Oficial: Manual de Negociación y Resistencia al Cambio V1.0
               </h3>
               <p style={{ margin: '0.25rem 0 0 0', color: '#94a3b8', fontSize: '0.9rem' }}>
-                Versión íntegra e inmutable cargada desde el repositorio de CREAR PODER SIN LÍMITES 2026.
+                Documento de consulta ejecutiva basado en StoryBrand, Neurobiología y Causa OS.
               </p>
             </div>
 
             <button
-              onClick={() => copyToClipboard(`# MANUAL DE AUTOENTRENAMIENTO NARRATIVO: BRANDSCRIPT Y GUIONES DE COMUNICACIÓN EMPÁTICA
-## EDICIÓN V1.0 — CREAR PODER SIN LÍMITES 2026
+              onClick={() => copyToClipboard(`# MANUAL DE COMUNICACIÓN ESTRATÉGICA Y NEGOCIACIÓN DE ALTO NIVEL
+## SISTEMA INTERRUPCIÓN — ESTÁNDAR PARA GERENTES REGIONALES Y DIRECTIVOS
 
-Este manual constituye la herramienta de autoentrenamiento para que las personas en modo aprendiz desarrollen su capacidad de comunicación empática y mentoría bajo el **StoryBrand Framework (SB7)** y el **Neuromarketing Ético**. Su propósito es estructurar mensajes de alto impacto y conversaciones conscientes que reduzcan el esfuerzo y sacrificio percibidos por los graduados de Capítulo Dos (C2), guiándolos hacia un compromiso voluntario y de alta integridad con la **Maestría del Juego (MJ)** de 90 días.
+### 1. EL MARCO ONTOLÓGICO: EL LÍDER COMO PROTAGONISTA
+En la toma de decisiones de alta dirección, operamos desde la claridad de acuerdos y el rigor científico:
+- El Directivo es el Protagonista: Enfrenta la resistencia estructural y los sesgos del mercado.
+- La Metodología es el Guía: Provee arquitectura decisional y reducción de fricción cognitiva.
+- El Acuerdo es Voluntario: Ninguna transformación perdura por coacción burocrática; la adherencia nace de la convicción fundamentada.
 
----
-
-## 1. EL MARCO ONTOLÓGICO: EL VIAJE DEL HÉROE EN LA MAESTRÍA
-En la cultura de alto rendimiento de **Crear Poder Sin Límites (CPSL)**, no operamos desde la venta tradicional ni desde el empuje comercial invasivo. Operamos desde la **creación de contexto**. 
-
-*   **El Participante es el Héroe:** El graduado de Capítulo Dos (C2) es el único protagonista de su propia película. Él es quien debe enfrentar a sus "dragones cotidianos" (la inercia, la zona de confort, el escepticismo de su entorno).
-*   **La Organización es el Guía:** En modo aprendiz no buscamos protagonismo. Nuestro propósito es encarnar el arquetipo del Mentor empático (el Guía), proveyendo escucha activa, presencia ontológica, un plan simplificado y un llamado consciente a la acción.
-*   **El Combustible es la Elección Voluntaria:** El enrolamiento es un acto de amor y estiramiento. Todo acuerdo financiero o de asistencia debe nacer de la libre elección del participante, erradicando cualquier forma de coacción, manipulación o culpa.
-
----
-
-## 2. EL BRANDSCRIPT OFICIAL DE MAESTRÍA DEL JUEGO (SB7-MJ)
-
-| Elemento SB7 | Definición Narrativa en MJ | Traducción en Lenguaje CPSL |
-| :--- | :--- | :--- |
-| **1. Un Personaje (El Héroe)** | Graduado de Capítulo Dos (C2). | Un líder que ha despertado su poder en sala y busca materializarlo en la fisionomía de su vida diaria. |
-| **2. Tiene un Problema** | El "Efecto Lunes" y el entorno inercial. | **Externo:** Volver a un entorno que no comprende su transformación.<br>**Interno:** Miedo al auto-sabotaje y a quedarse solo.<br>**Filosófico:** Es inaceptable regresar a vivir una vida promedio tras haber conocido su grandeza. |
-| **3. Encuentra un Guía** | La comunidad en modo aprendiz y la Plataforma Nodus. | Un mentor empático (que ya recorrió los 90 días) y con autoridad ética (respaldado por la telemetría de Nodus). |
-| **4. Que le da un Plan** | La estructura de los 90 días de MJ. | **Paso 1:** Declara tu Futuro Imposible (FI).<br>**Paso 2:** Entrena en Integridad (28 Entrenamientos Sustentables).<br>**Paso 3:** Conquista "El Viaje" y gradúate en Gratitud. |
-| **5. Y lo llama a la Acción** | El registro y la inscripción voluntaria. | **CTA Directo:** Registrarse en Nodus en la mesa de conversión del domingo.<br>**CTA Transicional:** Agendar sesión de calibración de FI de 15 minutos. |
-| **6. Que evita el Fracaso** | Evitar el marchitamiento de la palabra. | Caer de vuelta en la anestesia de la víctima ("la arena"), perdiendo el impulso de su Breakthrough de jueves. |
-| **7. Y termina en Éxito** | Convertirse en un Líder IMO. | Vivir en coherencia, manifestando abundancia física, emocional y financiera como una consecuencia natural de su Ser. |
-
----
-
-## 3. GUIONES DE CONVERSACIÓN EMPÁTICA
-*Nota técnica: Aplica la premisa de Neuromarketing de "Calmar al Perro Guardián" (Reptil) en los primeros 15 segundos mediante la empatía y el respeto a su tiempo.*
-
-### Escenario A: El graduado de C2 indeciso o con miedo al "efecto lunes"
-*   **Paso 1: Apertura y Conexión (Calmar al Reptil):**
-    > *"Hola [Nombre del Participante], te saluda [Tu Nombre], en modo aprendiz y acompañamiento. Qué gusto saludarte. Te llamo brevemente, ¿estás en un espacio cómodo de 3 minutos para conversar?"*
-*   **Paso 2: Validación de fisionomía:**
-    > *"Aún vibra en mí el espacio del domingo de Capítulo Dos. Quiero reconocer la fisonomía y la entrega que mostraste en tu Breakthrough. Vi a un creador absoluto en la sala. ¿Cómo se ha sentido apagar el micrófono y regresar a la rutina estos dos días?"*
-*   **Paso 3: Identificación del Problema Interno (StoryBrand):**
-    > *[Escuchar activamente sin interrumpir]. "Es completamente natural, [Nombre]. La inercia del día a día es fuerte y volver al 'mundo real' sin una estructura puede sentirse como tratar de nadar contracorriente en la arena. Sabes que tienes el potencial, pero sostener la autodisciplina solo es sumamente retador."*
-*   **Paso 4: Presentación del Plan de 3 Pasos:**
-    > *"Por eso creamos la Maestría del Juego de 90 días. No es más teoría; es la pista de entrenamiento física para consolidar tu resultado. El plan es muy sencillo: primero, declaramos un Futuro Imposible en salud, finanzas o relaciones; segundo, entrenamos diariamente en integridad con el soporte del contenedor y la Plataforma Nodus; y tercero, nos graduamos juntos en Gratitud. Tú pones la visión, nosotros la estructura de bajo riesgo."*
-*   **Paso 5: Llamado a la Acción Directo (CTA):**
-    > *"[Nombre], tu palabra de jueves sigue viva. ¿Eliges sostener tu estiramiento y dar el paso a tu Maestría este fin de semana, o vas a permitir que la inercia del lunes tome las decisiones por ti?"*
-
----
-
-### Escenario B: Tratamiento ético ante la objeción "No tengo dinero"
-*Rigor de Causa OS: No debatir el dinero como un problema absoluto; elevar el valor percibido usando la Ecuación de Valor (Hormozi) para reencuadrar la inversión en el Ser.*
-
-*   **El Enfoque Ontológico:**
-    *   **Hecho objetivo:** El dinero es una variable de prioridades.
-    *   **Acción incorrecta (Manipulación):** *"Si no entras, es porque no te amas"* o *"Consíguete una tarjeta prestada si de verdad te importa tu familia"*. (Esto genera rechazo y quiebra la seguridad psicológica).
-    *   **Acción correcta (Coaching Ético):** Separar el hecho de la interpretación y explorar soluciones de bajo riesgo.
-*   **Guión de Aplicación:**
-    > **Participante:** *"De verdad quiero hacer la Maestría, pero el dinero es mi límite en este momento. No tengo cómo cubrir la inversión."*
-    >
-    > **Mentor (Guía):** *"Reconozco tu honestidad, [Nombre]. El dinero es un factor real. Si dejamos la inversión a un lado por un instante... en tu corazón, ¿la Maestría representa un 'sí' rotundo para tu vida, o tienes alguna duda sobre el valor que este entrenamiento aportará a tus metas?"*
-    >
-    > **Participante:** *"No, el entrenamiento sé que es increíble y me sirve, es solo que físicamente no tengo el dinero hoy."*
-    >
-    > **Mentor (Causa OS):** *"Perfecto. Gracias por aclarar que la fisonomía del entrenamiento es un 'sí' para ti. En la cultura de Crear, operamos desde la Causa: si tú eres el creador de tu realidad, el dinero es una circunstancia a diseñar, no un límite inamovible. Si la Plataforma Nodus nos permite estructurar un plan de abono de bajo riesgo y pasos progresivos que se adapte a tus flujos actuales, ¿qué opciones ves viables para generar tu primer aporte de reserva antes de que cerremos el registro este viernes?"*
-    >
-    > **Participante:** *"Podría dar una parte este viernes y el saldo en dos cuotas los fines de semana de módulo."*
-    >
-    > **Mentor:** *"Excelente. Eso es un creador en acción. Vamos a registrar ese plan de pago en Nodus para activar tu 'Ticket Verde' de inmediato. Bienvenido al juego de los 90 días."*
-
----
-
-## 4. PLANTILLAS DE MENSAJES DE WHATSAPP DE ALTO IMPACTO
-
-### Mensaje 1: Bienvenida e Invitación Inmediata (Post-Graduación C2)
-*Diseñado bajo el principio de "Unidad" de Cialdini para generar sentido de pertenencia instantáneo.*
-
-\`\`\`text
-¡Felicidades, Creador! 🦅✨
-
-Aún resuena en la sede la fisonomía y la fuerza de tu palabra declarada este fin de semana en Capítulo Dos. Has salido de "la arena" y hoy tienes en tus manos la posibilidad de diseñar tu propio destino.
-
-El lunes ha llegado, y con él, la oportunidad de elegir: ¿volver a la inercia cotidiana o entrenar para consolidar tu Breakthrough?
-
-La comunidad de personas en modo aprendiz y Maestría del Juego ya está lista para recibirte en el contenedor de los 90 días. Tu espacio de estiramiento está guardado.
-
-Paso 1: Ingresa a tu App Nodus 📱
-Paso 2: Agenda tu sesión de calibración de Futuro Imposible (FI) de 15 minutos aquí: [Enlace_Calendly]
-Paso 3: Sostiene tu palabra.
-
-Sostener la fisionomía del Ser es el juego de los grandes. Nos vemos en la cancha. 
-
-Atentamente,
-Equipo de Mentoría Empática de [Sede]
-CREAR PODER SIN LÍMITES 2026.
-\`\`\`
-
----
-
-### Mensaje 2: Recordatorio Preventivo de Integridad (Viernes de C2 — 12:00 PM)
-*Neuromarketing Ético: Sustituye el estrés de la penalización de "Palabra Rota" por un llamado preventivo al orden y cuidado de su palabra.*
-
-\`\`\`text
-Hola, [Nombre] 👋
-
-Te saludamos desde la sede. Hoy es viernes de Capítulo Dos, un día clave para cuidar el contenedor de integridad que declaraste el jueves por la noche.
-
-Para asegurar que tu ingreso al bloque vivencial de las 15:00 PM sea fluido y libre de distracciones logísticas:
-
-📌 Tu estado actual en Nodus requiere conciliación de caja.
-⏰ El cierre automático de registros de la plataforma se ejecutará a las 14:00 PM.
-
-Queremos cuidar tu experiencia y tu palabra. Por favor, acércate a la mesa externa de registro antes de la hora límite o envíanos tu comprobante digital por esta vía para validar tu "Ticket Verde" en el sistema.
-
-Si tienes algún quiebre técnico o financiero de última hora, avísanos de inmediato para diseñar juntos una solución oportuna antes del cierre.
-
-¡Sostener tu palabra es tu mayor poder! Nos vemos en sala. 🛡️
-CREAR PODER SIN LÍMITES
-\`\`\`
-
----
-
-## 5. CHECKLIST DE IMPECABILIDAD DEL ENROLADOR NARRATIVO
-
-Antes de realizar una llamada o entablar una conversación, toda persona en modo aprendiz debe auditar su propia fisonomía frente a esta rúbrica de integridad:
-
-*   [ ] **Cero Simpatía al Drama:** ¿Estoy escuchando la justificación del participante con lástima, o lo estoy sosteniendo en su grandeza y capacidad de resolver? (La simpatía debilita al participante; la compasión y el rigor lo empoderan).
-*   [ ] **Datos vs. Interpretaciones:** ¿La objeción del participante es un hecho duro comprobable (ej. "no tengo saldo disponible en esta tarjeta") o es una interpretación basada en el miedo (ej. "es que nunca voy a poder pagar eso")?
-*   [ ] **Respeto Absoluto a la Autonomía:** ¿Estoy permitiendo que la decisión final y el plan de abono nazcan de la elección voluntaria del participante, o lo estoy presionando usando argumentos de culpa o escasez falsa?
-*   [ ] **Fisonomía de Voz y Corporalidad:** Aunque la conversación sea telefónica o por chat, ¿mi postura física refleja la fisonomía de un creador (espalda erguida, sonrisa telefónica, tono firme y amoroso)?
-*   [ ] **Trazabilidad en Nodus:** ¿He registrado de manera limpia y sin suposiciones cada acuerdo de pago, fecha límite y avance de Futuro Imposible en la plataforma para contar con datos de control impecables?
-
----
-*Este manual constituye el estándar oficial de comunicación empática y autoentrenamiento de CREAR PODER SIN LÍMITES.*
-*Edición 2026 | Autoentrenamiento para Personas en Modo Aprendiz.*
-`, 'markdownFull')}
-              className="btn-primary"
+### 2. MATRIZ STORYBRAND DIRECTIVA (SB7)
+1. Un Personaje: Gerente Regional responsable de unidades de negocio.
+2. Tiene un Problema: Inercia organizacional, sesgo de confirmación y complacencia de procesos.
+3. Encuentra un Guía: Marco de Interrupción y telemetría de rendimiento.
+4. Que le da un Plan: Interrupción de reactividad -> Ecuación de Valor -> Auditoría de Acuerdos.
+5. Y lo llama a la Acción: Decisión informada y despliegue por fases medibles.
+6. Que evita el Fracaso: Efecto Mandela en comités, parálisis decisional y pérdida de ventaja competitiva.
+7. Y culmina en Éxito: Equipos antifrágiles, trazabilidad operativa y alto retorno de inversión.`, 'manualCompleto')}
+              className="btn-secondary"
               style={{ fontSize: '0.85rem' }}
             >
-              {copiedKey === 'markdownFull' ? '✅ ¡Markdown Copiado!' : '📥 Copiar Markdown Completo'}
+              {copiedKey === 'manualCompleto' ? '✅ ¡Copiado!' : '📋 Copiar Manual Completo'}
             </button>
           </div>
 
-          <div style={{
-            background: 'rgba(15, 23, 42, 0.8)',
-            padding: '1.5rem',
-            borderRadius: '10px',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            lineHeight: '1.8',
-            color: '#cbd5e1'
-          }}>
-            <h2 style={{ color: '#f59e0b', fontSize: '1.4rem', borderBottom: '1px solid rgba(245, 158, 11, 0.3)', paddingBottom: '0.5rem' }}>
-              MANUAL DE AUTOENTRENAMIENTO: BRANDSCRIPT Y GUIONES DE COMUNICACIÓN EMPÁTICA
-            </h2>
-            <p style={{ color: '#94a3b8', fontStyle: 'italic' }}>
-              EDICIÓN V1.0 — CREAR PODER SIN LÍMITES 2026
-            </p>
+          <div style={{ background: 'rgba(15, 23, 42, 0.85)', padding: '1.5rem', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)', color: '#cbd5e1', lineHeight: '1.7', fontSize: '0.92rem' }}>
+            <h4 style={{ color: '#f59e0b', marginTop: 0 }}>1. Principios de Neurobiología Decisional en Comités</h4>
             <p>
-              Este manual constituye la herramienta definitiva para que las personas en modo aprendiz desarrollen una comunicación consciente bajo el <strong>StoryBrand Framework (SB7)</strong> y el <strong>Neuromarketing Ético</strong>. Su propósito es estructurar mensajes de alto impacto y guiones formativos que reduzcan el esfuerzo y sacrificio percibidos por los graduados de Capítulo Dos (C2), guiándolos hacia un compromiso voluntario y de alta integridad con la <strong>Maestría del Juego (MJ)</strong> de 90 días.
+              Toda propuesta de transformación activa instintos de defensa en la estructura directiva. Según la teoría de los marcadores somáticos de Antonio Damasio y el modelo SCARF de neurociencia del liderazgo, el cerebro evalúa el cambio como una posible merma de certidumbre y autonomía. El protocolo de Interrupción permite pausar la reacción automática del circuito límbico y devolver el procesamiento analítico al córtex prefrontal dorsolateral.
             </p>
 
-            <h3 style={{ color: '#60a5fa', marginTop: '1.5rem' }}>1. EL MARCO ONTOLÓGICO: EL VIAJE DEL HÉROE EN LA MAESTRÍA</h3>
+            <h4 style={{ color: '#38bdf8', marginTop: '1.5rem' }}>2. Mitigación de Sesgos Colectivos y Efecto Mandela en la Empresa</h4>
             <p>
-              En la cultura de alto rendimiento de <strong>CREAR PODER SIN LÍMITES (CPSL)</strong>, no operamos desde la venta tradicional ni desde el empuje comercial invasivo. Operamos desde la <strong>creación de contexto</strong>:
-            </p>
-            <ul>
-              <li><strong>El Participante es el Héroe:</strong> El graduado de Capítulo Dos (C2) es el único protagonista de su propia película. Él es quien debe enfrentar a sus «dragones cotidianos» (la inercia, la zona de confort, el escepticismo de su entorno).</li>
-              <li><strong>La Organización es el Guía:</strong> En modo aprendiz no buscamos protagonismo. Nuestro propósito es encarnar el arquetipo del Mentor empático (el Guía), proveyendo empatía, autoridad ética, un plan simplificado y un llamado consciente a la acción.</li>
-              <li><strong>El Combustible es la Elección Voluntaria:</strong> El enrolamiento es un acto de amor y estiramiento. Todo acuerdo financiero o de asistencia debe nacer de la libre elección del participante, erradicando cualquier forma de coacción, manipulación o culpa.</li>
-            </ul>
-
-            <h3 style={{ color: '#a78bfa', marginTop: '1.5rem' }}>2. EL BRANDSCRIPT OFICIAL DE MAESTRÍA DEL JUEGO (SB7-MJ)</h3>
-            <p>
-              Estructura el mapa de 7 puntos que guía al participante en su tránsito hacia el ciclo avanzado de 90 días, erradicando el miedo al «efecto lunes».
+              Uno de los mayores drenajes de valor en comités ejecutivos es el Efecto Mandela corporativo: la tendencia de los directivos a recordar acuerdos inexistentes, interpretar métricas pasadas de forma distorsionada o confabular consensos que jamás se formalizaron por escrito. La regla de oro del Sistema Interrupción es: <em>si no está registrado con responsable, plazo inmutable y criterio de cumplimiento verificable, el acuerdo no existe</em>.
             </p>
 
-            <h3 style={{ color: '#34d399', marginTop: '1.5rem' }}>3. ESTÁNDAR DE RIGOR</h3>
+            <h4 style={{ color: '#34d399', marginTop: '1.5rem' }}>3. La Ecuación de Valor en las Decisiones de Inversión</h4>
             <p>
-              Toda comunicación telefónica o digital debe cumplir estrictamente con el principio ontológico de no manipulación y respeto irrestricto a la autonomía del ser.
+              Basado en el modelo de Alex Hormozi adaptado a la gestión corporativa:
+              <br />
+              <strong>Valor Percibido = (Impacto en la Meta × Certidumbre de Ejecución) ÷ (Tiempo de Implementación × Fricción de Equipo)</strong>
+              <br />
+              Para lograr aprobación y tracción ejecutiva, el líder no aumenta las promesas de impacto; reduce drásticamente el tiempo de primera victoria y minimiza la fricción cognitiva y operativa.
             </p>
           </div>
         </div>

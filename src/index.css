@@ -806,9 +806,54 @@ h1, h2, h3, h4, h5, h6 {
   color: #475569 !important;
 }
 
-[data-theme="light"] span[style*="color: #ffffff"],
-.theme-light span[style*="color: #ffffff"] {
+/* Reglas maestras anti-texto blanco en Modo Claro */
+[data-theme="light"] [style*="color: #fff"],
+[data-theme="light"] [style*="color:#fff"],
+[data-theme="light"] [style*="color: #ffffff"],
+[data-theme="light"] [style*="color:#ffffff"],
+[data-theme="light"] [style*="color: white"],
+.theme-light [style*="color: #fff"],
+.theme-light [style*="color:#fff"],
+.theme-light [style*="color: #ffffff"],
+.theme-light [style*="color:#ffffff"],
+.theme-light [style*="color: white"] {
   color: #0f172a !important;
+}
+
+[data-theme="light"] [style*="color: rgba(255, 255, 255"],
+[data-theme="light"] [style*="color: rgba(255,255,255"],
+.theme-light [style*="color: rgba(255, 255, 255"],
+.theme-light [style*="color: rgba(255,255,255"] {
+  color: #334155 !important;
+}
+
+/* Ajustes de legibilidad para acentos rosas/violetas en modo claro */
+[data-theme="light"] [style*="color: #f472b6"],
+.theme-light [style*="color: #f472b6"] {
+  color: #be185d !important;
+}
+
+[data-theme="light"] [style*="color: #a78bfa"],
+.theme-light [style*="color: #a78bfa"] {
+  color: #6d28d9 !important;
+}
+
+/* Ajuste de contenedores oscuros transparentes en modo claro */
+[data-theme="light"] div[style*="background: rgba(0, 0, 0"],
+[data-theme="light"] div[style*="background: rgba(0,0,0"],
+.theme-light div[style*="background: rgba(0, 0, 0"],
+.theme-light div[style*="background: rgba(0,0,0"] {
+  background: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] input[type="text"],
+[data-theme="light"] input[type="search"],
+.theme-light input[type="text"],
+.theme-light input[type="search"] {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 [data-theme="light"] div[style*="background: rgba(255,255,255,0.08)"],

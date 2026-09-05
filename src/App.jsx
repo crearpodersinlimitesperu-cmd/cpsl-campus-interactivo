@@ -4,6 +4,7 @@ import './App.css'
 
 import Sidebar from './components/Sidebar'
 import GlobalHUDWidget from './components/GlobalHUDWidget'
+import GlobalSearch from './components/GlobalSearch'
 import ThemeToggle from './components/ThemeToggle'
 import ProtectedRoute from './components/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
@@ -24,6 +25,7 @@ import VendeSinVender from './pages/VendeSinVender'
 import NotFound from './pages/NotFound'
 import Glosario from './pages/Glosario'
 import MasterclassDistinciones from './pages/MasterclassDistinciones'
+import LaboratorioSintergico from './pages/LaboratorioSintergico'
 import AdminRoute from './components/AdminRoute'
 import { useAuth } from './context/AuthContext'
 import { useUI } from './context/UIContext'
@@ -111,6 +113,15 @@ function App() {
               <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPTION</h2>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <button 
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-global-search'))}
+                style={{ background: 'none', border: 'none', color: 'var(--crear-gold, #f59e0b)', fontSize: '1.2rem', cursor: 'pointer', padding: '4px' }}
+                title="Buscador Global (Ctrl + K)"
+                aria-label="Abrir buscador global"
+              >
+                🔍
+              </button>
               <ThemeToggle />
               <button 
                 type="button"
@@ -132,7 +143,12 @@ function App() {
         </>
       )}
 
-      {user && <GlobalHUDWidget />}
+      {user && (
+        <>
+          <GlobalHUDWidget />
+          <GlobalSearch />
+        </>
+      )}
 
       <main className="main-content animate-fade-in">
         {isFocusMode && (
@@ -185,6 +201,8 @@ function App() {
           <Route path="/entrenamiento" element={<ProtectedRoute><ProgramaEntrenamiento /></ProtectedRoute>} />
           <Route path="/autoevaluacion" element={<ProtectedRoute><AutoevaluacionCoach /></ProtectedRoute>} />
           <Route path="/glosario" element={<ProtectedRoute><Glosario /></ProtectedRoute>} />
+          <Route path="/laboratorio-sintergico" element={<ProtectedRoute><LaboratorioSintergico /></ProtectedRoute>} />
+          <Route path="/sintergia" element={<ProtectedRoute><LaboratorioSintergico /></ProtectedRoute>} />
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
           <Route path="/masterclass" element={<ProtectedRoute><MasterclassDistinciones /></ProtectedRoute>} />
           <Route path="/masterclass-distinciones" element={<ProtectedRoute><MasterclassDistinciones /></ProtectedRoute>} />

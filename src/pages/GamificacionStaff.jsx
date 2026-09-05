@@ -123,7 +123,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
       xpDelta,
       puntos_rigor,
       puntos_empatia,
-      origen: 'Plataforma Nodus — Causa OS'
+      origen: 'Sistema Interrupción — Causa OS'
     };
     setAuditLogs(prev => [newEntry, ...prev.slice(0, 99)]);
   };
@@ -287,8 +287,8 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
   const [copiedLog, setCopiedLog] = useState(false);
   const handleCopyLog = () => {
     const payload = JSON.stringify({
-      plataforma: 'INTERRUPTION — CREAR PODER SIN LÍMITES',
-      sistema: 'Causa OS & Liderazgo Adaptativo (Stealth Mode)',
+      plataforma: 'SISTEMA INTERRUPCIÓN',
+      sistema: 'Causa OS & Liderazgo Adaptativo',
       usuario: user?.email || 'lider@academy.net',
       rigor_score: staffState.rigorScore,
       empathy_score: staffState.empathyScore,
@@ -351,7 +351,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.4rem' }}>
           <img 
             src="/interrupcion_logo.jpg" 
-            alt="Logo Interrupción - CREAR PODER SIN LÍMITES" 
+            alt="Logo Interrupción" 
             style={{
               width: '68px',
               height: '68px',
@@ -366,17 +366,17 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
               display: 'inline-flex', 
               alignItems: 'center', 
               gap: '8px', 
-              background: 'rgba(255,183,3,0.15)', 
+              background: 'rgba(56, 189, 248, 0.15)', 
               padding: '3px 10px', 
               borderRadius: '8px', 
               marginBottom: '6px'
             }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--crear-gold, #ffb703)', letterSpacing: '0.05em' }}>
-                CREAR PODER SIN LÍMITES
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '0.05em' }}>
+                SISTEMA INTERRUPCIÓN
               </span>
               <span style={{ color: 'rgba(255,255,255,0.4)' }}>•</span>
               <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 700 }}>
-                LIDERAZGO ADAPTATIVO (STEALTH MODE)
+                LIDERAZGO ADAPTATIVO & ALTO RENDIMIENTO
               </span>
             </div>
             <h1 style={{ margin: '0 0 4px', fontSize: '1.8rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#fff' }}>
@@ -1058,10 +1058,10 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.4rem' }}>
               <div>
                 <h3 style={{ fontSize: '1.3rem', margin: 0, color: '#fff' }}>
-                  Vitrina de Medallas Oficiales Nodus
+                  Vitrina de Competencias & Medallas Oficiales
                 </h3>
                 <p className="text-muted" style={{ fontSize: '0.88rem', margin: 0 }}>
-                  Insignias del estándar de excelencia en <strong>CREAR PODER SIN LÍMITES</strong>.
+                  Insignias del estándar de excelencia en el <strong>Sistema Interrupción</strong>.
                 </p>
               </div>
               <span style={{ fontSize: '0.85rem', color: 'var(--crear-gold, #ffb703)', fontWeight: 700 }}>

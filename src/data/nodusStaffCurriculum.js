@@ -156,8 +156,8 @@ export const nodusStaffSimulations = [
   {
     id: 'ESC-002',
     category: 'Rigor & Calibración de Estado',
-    modulo: 'Gestión de Desviaciones de Compromiso (Rigor en Sala)',
-    title: 'ESC-002: Gestión de Desviaciones de Compromiso (Rigor en Sala)',
+    modulo: 'Gestión de Desviaciones de Compromiso (Rigor Operativo)',
+    title: 'ESC-002: Gestión de Desviaciones de Compromiso (Rigor Operativo)',
     badgeEligible: 'guardian_rigor',
     scenario: 'Un colaborador de tu equipo de soporte llega a la sesión de State Calibration (calibración matutina) con una sudadera deportiva negra que tiene un gran logotipo comercial impreso en el pecho, lo cual rompe el estándar visual de neutralidad corporativa.',
     avatar_estado_inicial: 'neutral',
@@ -1046,9 +1046,9 @@ export const moduloStaff5 = [
       </div>
 
       <div class="glass-panel" style="padding: 1.2rem; border: 1px solid rgba(255, 183, 3, 0.3); background: rgba(0,0,0,0.4); margin: 1rem 0;">
-        <h4 style="margin: 0 0 0.5rem; color: var(--crear-gold);">🎙️ Guion Maestro del Entrenador</h4>
+        <h4 style="margin: 0 0 0.5rem; color: var(--crear-gold);">🎙️ Guion de Alineación Directiva</h4>
         <blockquote style="margin: 0; font-size: 0.95rem; color: #fff; font-style: italic; border-left: 3px solid var(--crear-gold); padding-left: 1rem;">
-          «Mi nombre es [tu nombre]. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»
+          «Mi nombre es [tu nombre]. Asumo la dirección operativa de esta iniciativa. A partir de ahora, lo que queda es alinear los acuerdos con la ejecución y resultados inmutables.»
         </blockquote>
       </div>
 
@@ -1111,7 +1111,7 @@ export const orientacionData = {
       fraseClave: '«Yo soy porque nosotros somos.»',
       mensajeCentral: 'No es un jugador solitario corriendo a la canasta para que lo aplaudan; es el equipo jugando al unísono para ganar el juego.',
       imagenPotente: 'Partículas cuánticas entrelazadas: conectadas instantáneamente sin necesidad de cables ni palabras.',
-      advertencia: 'El individualismo es una ilusión óptica del ego. En la sala, los cimientos son columnas colectivas.',
+      advertencia: 'El individualismo es una ilusión óptica del ego. En la organización, los cimientos son columnas colectivas.',
       citaMantra: '«Conectados por instinto, por visión y por juego.»',
       icono: '⚛️'
     },
@@ -1132,9 +1132,9 @@ export const orientacionData = {
       fraseClave: '«Aquí no hay jugadores en la banca. O eres protagonista o eres espectador.»',
       mensajeCentral: 'Filtro radical: distinguimos a los que operan desde la sobrevivencia de los que eligen el juego grande con compromiso inquebrantable.',
       imagenPotente: 'La puerta del vestidor de las Grandes Ligas: solo cruzan quienes están dispuestos a darlo todo en la cancha.',
-      advertencia: '«Si estás dudando, después de este break no vuelvas. Si regresas, es para jugar en las Grandes Ligas.»',
-      citaMantra: '«Alinear la letra con la música.»',
-      guionEntrenador: '«Mi nombre es [tu nombre]. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»',
+      advertencia: '«Si estás dudando, evalúa con honestidad tu nivel de energía. Si decides continuar, es para liderar con los más altos estándares.»',
+      citaMantra: '«Alinear la promesa con la ejecución.»',
+      guionEntrenador: '«Mi nombre es [tu nombre]. Asumo la dirección estratégica de este programa. A partir de ahora, lo que queda es alinear los acuerdos con los resultados.»',
       icono: '⚔️'
     },
     {
@@ -1142,12 +1142,12 @@ export const orientacionData = {
       titulo: 'Construcción: Quiénes Elegimos Ser como Equipo',
       fraseClave: '«¿Quiénes elegimos ser como equipo?»',
       mensajeCentral: 'No es una lista de expectativas pasivas ni buenas intenciones. Es una declaración de compromiso puro en acción.',
-      imagenPotente: '«Bienvenido a la cancha donde se meten los goles llamada [Visión del Participante].»',
-      advertencia: 'Confundir una declaración ontológica con un deseo cósmico sin fechas ni acciones verificables.',
+      imagenPotente: '«Bienvenido a la cancha donde se consiguen los objetivos llamada [Visión Estratégica].»',
+      advertencia: 'Confundir una declaración ontológica con un deseo abstracto sin fechas ni acciones verificables.',
       citaMantra: '«El compromiso no negocia con el estado de ánimo.»',
       ejemplosDeclaraciones: [
-        '«Estoy comprometido a crear poder y liderazgo en mi vida y entorno.»',
-        '«Estoy comprometido a crear familias unidas y trascendentes.»'
+        '«Estoy comprometido a liderar con alto impacto y rigor en mi organización y entorno.»',
+        '«Estoy comprometido a consolidar equipos de alto desempeño y transparencia operativa.»'
       ],
       icono: '🎯'
     },

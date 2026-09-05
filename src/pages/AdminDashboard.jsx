@@ -40,9 +40,65 @@ export default function AdminDashboard() {
     if (route.includes('ruta')) return 'Ruta de Formación (Discovery)';
     if (route.includes('groundings')) return 'State Calibration';
     if (route.includes('quiebres')) return 'Simulador de Quiebres';
-    if (route.includes('admin')) return 'Centro de Comando Nodus';
+    if (route.includes('admin')) return 'Centro de Comando y Auditoría';
     return route;
   };
+
+  // Filtros y ordenamiento de la tabla principal de líderes
+  const [tableSearch, setTableSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all'); // 'all' | 'cleared' | 'required'
+  const [sortBy, setSortBy] = useState('lastActive'); // 'lastActive' | 'progressDesc' | 'progressAsc' | 'nameAsc' | 'timeDesc'
+
+  // Helper para extraer timestamp válido de última actividad/conexión
+  const getUserTimestamp = (u) => {
+    const candidate = u.lastLogin || u.lastActiveAt || u.updatedAt || u.createdAt;
+    if (!candidate) return 0;
+    if (typeof candidate === 'number') return candidate;
+    if (candidate.seconds) return candidate.seconds * 1000;
+    if (candidate.toDate) return candidate.toDate().getTime();
+    const parsed = new Date(candidate).getTime();
+    return isNaN(parsed) ? 0 : parsed;
+  };
+
+  // Filtrado y ordenamiento en tiempo real (por defecto: última conexión descendente)
+  const processedUsers = useMemo(() => {
+    return users
+      .filter((u) => {
+        const query = tableSearch.toLowerCase().trim();
+        const matchesQuery = !query || 
+          (u.displayName && u.displayName.toLowerCase().includes(query)) ||
+          (u.email && u.email.toLowerCase().includes(query));
+        
+        if (!matchesQuery) return false;
+
+        const pct = u.progress?.globalPercentage || 0;
+        const isCleared = pct >= 30 || (u.progress?.completedLessons?.length || 0) > 2;
+
+        if (statusFilter === 'cleared') return isCleared;
+        if (statusFilter === 'required') return !isCleared;
+        return true;
+      })
+      .sort((a, b) => {
+        if (sortBy === 'lastActive') {
+          return getUserTimestamp(b) - getUserTimestamp(a);
+        }
+        if (sortBy === 'progressDesc') {
+          return (b.progress?.globalPercentage || 0) - (a.progress?.globalPercentage || 0);
+        }
+        if (sortBy === 'progressAsc') {
+          return (a.progress?.globalPercentage || 0) - (b.progress?.globalPercentage || 0);
+        }
+        if (sortBy === 'nameAsc') {
+          const nameA = a.displayName || a.email || '';
+          const nameB = b.displayName || b.email || '';
+          return nameA.localeCompare(nameB);
+        }
+        if (sortBy === 'timeDesc') {
+          return (b.progress?.totalTimeSpent || 0) - (a.progress?.totalTimeSpent || 0);
+        }
+        return 0;
+      });
+  }, [users, tableSearch, statusFilter, sortBy]);
 
   useEffect(() => {
     if (isAdmin) {
@@ -141,7 +197,7 @@ export default function AdminDashboard() {
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     const cleanName = (selectedUser.displayName || 'estudiante').replace(/\s+/g, '_');
-    link.setAttribute("download", `auditoria_nodus_${cleanName}_${Date.now()}.csv`);
+    link.setAttribute("download", `auditoria_interrupcion_${cleanName}_${Date.now()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -167,7 +223,7 @@ export default function AdminDashboard() {
     return (
       <div className="p-8 text-center" style={{ color: 'var(--crear-gold)' }}>
         <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>⚡</div>
-        <p>Cargando telemetría de estudiantes en Plataforma Nodus...</p>
+        <p>Cargando telemetría de líderes en el Sistema Interrupción...</p>
       </div>
     );
   }
@@ -183,13 +239,13 @@ export default function AdminDashboard() {
 
   return (
     <div className="animate-fade-in p-8" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <header style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+      <header style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.25rem' }}>
             <span style={{ background: 'rgba(14, 165, 233, 0.15)', color: '#38bdf8', padding: '3px 8px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 800 }}>
-              PLATAFORMA NODUS
+              SISTEMA INTERRUPCIÓN
             </span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Módulo de Telemetría y Rigor Ontológico</span>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Módulo de Telemetría y Rigor Operativo</span>
           </div>
           <h1 className="text-gold" style={{ fontSize: '2.4rem', margin: '0 0 0.5rem 0', letterSpacing: '-0.02em' }}>
             CENTRO DE COMANDO Y AUDITORÍA
@@ -199,13 +255,122 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <div className="glass-panel" style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>{users.length} Líderes en Radar</span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>{users.length} Líderes Registrados</span>
           </div>
         </div>
       </header>
+
+      {/* Barra de Filtros y Ordenamiento */}
+      <div className="glass-panel" style={{ padding: '1.25rem 1.5rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', border: '1px solid rgba(255, 183, 3, 0.2)' }}>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flex: 1, minWidth: '280px', maxWidth: '450px' }}>
+          <div style={{ position: 'relative', width: '100%' }}>
+            <input 
+              type="text"
+              placeholder="Buscar por nombre o correo..."
+              value={tableSearch}
+              onChange={(e) => setTableSearch(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '9px 14px 9px 36px',
+                borderRadius: '8px',
+                border: '1px solid rgba(255,255,255,0.15)',
+                background: 'rgba(0,0,0,0.25)',
+                color: 'var(--text-main)',
+                fontSize: '0.88rem'
+              }}
+            />
+            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', opacity: 0.6, fontSize: '0.9rem' }}>🔍</span>
+          </div>
+          {tableSearch && (
+            <button 
+              onClick={() => setTableSearch('')}
+              className="btn-secondary"
+              style={{ padding: '6px 10px', fontSize: '0.75rem' }}
+            >
+              Limpiar
+            </button>
+          )}
+        </div>
+
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+          {/* Píldoras de Estado */}
+          <div style={{ display: 'flex', background: 'rgba(0,0,0,0.3)', padding: '3px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <button
+              onClick={() => setStatusFilter('all')}
+              style={{
+                padding: '5px 12px',
+                borderRadius: '6px',
+                border: 'none',
+                background: statusFilter === 'all' ? 'var(--crear-gold)' : 'transparent',
+                color: statusFilter === 'all' ? '#000' : 'var(--text-muted)',
+                fontWeight: 700,
+                fontSize: '0.78rem',
+                cursor: 'pointer'
+              }}
+            >
+              Todos ({users.length})
+            </button>
+            <button
+              onClick={() => setStatusFilter('cleared')}
+              style={{
+                padding: '5px 12px',
+                borderRadius: '6px',
+                border: 'none',
+                background: statusFilter === 'cleared' ? '#22c55e' : 'transparent',
+                color: statusFilter === 'cleared' ? '#fff' : 'var(--text-muted)',
+                fontWeight: 700,
+                fontSize: '0.78rem',
+                cursor: 'pointer'
+              }}
+            >
+              🟢 Clearance
+            </button>
+            <button
+              onClick={() => setStatusFilter('required')}
+              style={{
+                padding: '5px 12px',
+                borderRadius: '6px',
+                border: 'none',
+                background: statusFilter === 'required' ? '#ef4444' : 'transparent',
+                color: statusFilter === 'required' ? '#fff' : 'var(--text-muted)',
+                fontWeight: 700,
+                fontSize: '0.78rem',
+                cursor: 'pointer'
+              }}
+            >
+              🔴 Action Req.
+            </button>
+          </div>
+
+          {/* Selector de Ordenamiento */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Ordenar:</label>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              style={{
+                padding: '7px 12px',
+                borderRadius: '8px',
+                border: '1px solid rgba(255, 183, 3, 0.3)',
+                background: 'rgba(0,0,0,0.4)',
+                color: 'var(--text-main)',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
+            >
+              <option value="lastActive">⚡ Última Conexión (Recientes)</option>
+              <option value="progressDesc">📈 Mayor Progreso</option>
+              <option value="progressAsc">📉 Menor Progreso</option>
+              <option value="nameAsc">🔤 Nombre (A - Z)</option>
+              <option value="timeDesc">⏱️ Mayor Tiempo Total</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       {/* Tabla Principal de Estudiantes */}
       <div className="glass-panel" style={{ padding: '1.5rem', overflowX: 'auto', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -218,11 +383,19 @@ export default function AdminDashboard() {
               <th style={{ padding: '1rem', color: 'var(--crear-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Lecciones</th>
               <th style={{ padding: '1rem', color: 'var(--crear-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Última Actividad</th>
               <th style={{ padding: '1rem', color: 'var(--crear-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tiempo Total</th>
-              <th style={{ padding: '1rem', color: 'var(--crear-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', textAlign: 'center' }}>Auditoría Nodus</th>
+              <th style={{ padding: '1rem', color: 'var(--crear-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', textAlign: 'center' }}>Auditoría de Desempeño</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((u) => {
+            {processedUsers.length === 0 ? (
+              <tr>
+                <td colSpan={7} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                  <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>🔍</div>
+                  <div style={{ fontWeight: 600 }}>No se encontraron líderes con los filtros aplicados.</div>
+                  <div style={{ fontSize: '0.82rem', marginTop: '4px' }}>Prueba con otro término de búsqueda o cambia el estado.</div>
+                </td>
+              </tr>
+            ) : processedUsers.map((u) => {
               const pct = u.progress?.globalPercentage || 0;
               const isCleared = pct >= 30 || (u.progress?.completedLessons?.length || 0) > 2;
 
@@ -325,13 +498,6 @@ export default function AdminDashboard() {
                 </tr>
               );
             })}
-            {users.length === 0 && (
-              <tr>
-                <td colSpan="7" style={{ padding: '3rem', textAlign: 'center' }} className="text-muted">
-                  No hay líderes registrados en el radar aún.
-                </td>
-              </tr>
-            )}
           </tbody>
         </table>
       </div>
@@ -527,7 +693,7 @@ export default function AdminDashboard() {
                   cursor: 'pointer'
                 }}
               >
-                📋 Trazabilidad Nodus & Exportar
+                📋 Trazabilidad de Auditoría & Exportar
               </button>
             </div>
 
@@ -845,12 +1011,12 @@ export default function AdminDashboard() {
               </div>
             )}
 
-            {/* CONTENIDO DE PESTAÑA 3: TRAZABILIDAD NODUS & EXPORTACIÓN */}
+            {/* CONTENIDO DE PESTAÑA 3: TRAZABILIDAD DE AUDITORÍA & EXPORTACIÓN */}
             {activeModalTab === 'trazabilidad' && (
               <div>
                 <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
                   <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--text-main)' }}>
-                    Exportación de Bitácora Inmutable (Compliance Nodus)
+                    Exportación de Bitácora Inmutable (Compliance Interrupción)
                   </h3>
                   <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1.5rem' }}>
                     Descarga en formato CSV estructurado para respaldos legales, comités de rigor y validación de estándares de Alto Rendimiento.

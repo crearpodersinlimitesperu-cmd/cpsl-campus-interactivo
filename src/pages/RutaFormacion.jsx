@@ -1387,7 +1387,7 @@ export default function RutaFormacion() {
           <section className="glass-panel" style={{padding: '1.8rem'}}>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem', flexWrap: 'wrap', gap: '0.5rem'}}>
               <div>
-                <h3 style={{margin: 0, fontSize: '1.3rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                <h3 style={{margin: 0, fontSize: '1.3rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px'}}>
                   <span>⚓</span> Frases Ancla para Repetir durante la Orientación
                 </h3>
                 <p style={{margin: '0.2rem 0 0', fontSize: '0.85rem', color: 'var(--text-muted)'}}>
@@ -1407,8 +1407,8 @@ export default function RutaFormacion() {
                     key={fa.id}
                     onClick={() => handleCopyAnchor(fa.texto, fa.id)}
                     style={{
-                      background: isCopied ? 'rgba(16,185,129,0.15)' : 'rgba(255,255,255,0.02)',
-                      border: isCopied ? '1px solid #10b981' : '1px solid rgba(255,255,255,0.08)',
+                      background: isCopied ? 'rgba(16,185,129,0.15)' : 'var(--bg-card)',
+                      border: isCopied ? '1px solid #10b981' : '1px solid var(--border-subtle, rgba(255,255,255,0.08))',
                       borderRadius: '14px',
                       padding: '1.2rem',
                       cursor: 'pointer',
@@ -1419,13 +1419,13 @@ export default function RutaFormacion() {
                       gap: '0.8rem'
                     }}
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#ec4899'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = isCopied ? '#10b981' : 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = isCopied ? '#10b981' : 'var(--border-subtle, rgba(255,255,255,0.08))'; e.currentTarget.style.transform = 'translateY(0)'; }}
                   >
                     <div>
-                      <div style={{fontSize: '0.75rem', color: '#f472b6', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
+                      <div style={{fontSize: '0.75rem', color: '#db2777', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
                         {fa.contexto}
                       </div>
-                      <div style={{fontSize: '1.1rem', fontWeight: 800, color: '#fff', fontStyle: 'italic', lineHeight: 1.4}}>
+                      <div style={{fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', fontStyle: 'italic', lineHeight: 1.4}}>
                         «{fa.texto}»
                       </div>
                     </div>
@@ -1434,7 +1434,7 @@ export default function RutaFormacion() {
                         fontSize: '0.78rem',
                         padding: '4px 10px',
                         borderRadius: '8px',
-                        background: isCopied ? '#10b981' : 'rgba(255,255,255,0.08)',
+                        background: isCopied ? '#10b981' : 'rgba(125,125,125,0.12)',
                         color: isCopied ? '#000' : 'var(--text-muted)',
                         fontWeight: 700
                       }}>
@@ -1450,10 +1450,10 @@ export default function RutaFormacion() {
           {/* NAVEGADOR DE LOS 8 PASOS DE LA ORIENTACIÓN */}
           <section className="glass-panel" style={{padding: '1.8rem'}}>
             <div style={{marginBottom: '1.5rem'}}>
-              <div style={{fontSize: '0.85rem', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em'}}>
+              <div style={{fontSize: '0.85rem', color: '#db2777', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em'}}>
                 Ruta Paso a Paso de Transformación
               </div>
-              <h3 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: '#fff'}}>
+              <h3 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: 'var(--text-main)'}}>
                 Los 8 Pasos del Esqueleto de Orientación
               </h3>
               <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0}}>
@@ -1477,9 +1477,9 @@ export default function RutaFormacion() {
                     style={{
                       padding: '12px 8px',
                       borderRadius: '12px',
-                      border: isSelected ? '2px solid #ec4899' : '1px solid rgba(255,255,255,0.08)',
-                      background: isSelected ? 'linear-gradient(135deg, rgba(236,72,153,0.25) 0%, rgba(139,92,246,0.15) 100%)' : 'rgba(255,255,255,0.02)',
-                      color: isSelected ? '#fff' : 'var(--text-muted)',
+                      border: isSelected ? '2px solid #ec4899' : '1px solid var(--border-subtle, rgba(255,255,255,0.08))',
+                      background: isSelected ? 'linear-gradient(135deg, rgba(236,72,153,0.25) 0%, rgba(139,92,246,0.15) 100%)' : 'var(--bg-card)',
+                      color: isSelected ? 'var(--text-main)' : 'var(--text-muted)',
                       cursor: 'pointer',
                       display: 'flex',
                       flexDirection: 'column',
@@ -1489,10 +1489,10 @@ export default function RutaFormacion() {
                     }}
                   >
                     <span style={{fontSize: '1.4rem'}}>{p.icono}</span>
-                    <span style={{fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', color: isSelected ? '#f472b6' : 'var(--text-muted)'}}>
+                    <span style={{fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', color: isSelected ? '#db2777' : 'var(--text-muted)'}}>
                       Paso {p.paso}
                     </span>
-                    <span style={{fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', lineHeight: 1.2, color: isSelected ? '#fff' : 'rgba(255,255,255,0.7)'}}>
+                    <span style={{fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', lineHeight: 1.2, color: isSelected ? 'var(--text-main)' : 'var(--text-muted)'}}>
                       {p.titulo.split(':')[0]}
                     </span>
                   </button>
@@ -1505,7 +1505,7 @@ export default function RutaFormacion() {
               const currentPaso = orientacionData.pasos.find(p => p.paso === orientacionStep) || orientacionData.pasos[0];
               return (
                 <div className="fade-in" style={{
-                  background: 'rgba(0,0,0,0.4)',
+                  background: 'var(--bg-card)',
                   border: '1px solid rgba(236,72,153,0.3)',
                   borderRadius: '18px',
                   padding: '2rem',
@@ -1524,15 +1524,16 @@ export default function RutaFormacion() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        fontSize: '1.8rem'
+                        fontSize: '1.8rem',
+                        color: '#fff'
                       }}>
                         {currentPaso.icono}
                       </div>
                       <div>
-                        <span style={{fontSize: '0.8rem', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em'}}>
+                        <span style={{fontSize: '0.8rem', color: '#db2777', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em'}}>
                           Paso {currentPaso.paso} de 8
                         </span>
-                        <h4 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: '#fff'}}>
+                        <h4 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: 'var(--text-main)'}}>
                           {currentPaso.titulo}
                         </h4>
                       </div>
@@ -1551,7 +1552,7 @@ export default function RutaFormacion() {
                         disabled={orientacionStep >= 8}
                         onClick={() => setOrientacionStep(prev => Math.min(8, prev + 1))}
                         className="btn-secondary"
-                        style={{padding: '8px 14px', fontSize: '0.82rem', opacity: orientacionStep >= 8 ? 0.4 : 1, borderColor: '#ec4899', color: '#f472b6'}}
+                        style={{padding: '8px 14px', fontSize: '0.82rem', opacity: orientacionStep >= 8 ? 0.4 : 1, borderColor: '#ec4899', color: '#db2777'}}
                       >
                         Siguiente →
                       </button>
@@ -1565,10 +1566,10 @@ export default function RutaFormacion() {
                     padding: '1.2rem 1.6rem',
                     borderRadius: '10px'
                   }}>
-                    <div style={{fontSize: '0.78rem', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
+                    <div style={{fontSize: '0.78rem', color: '#db2777', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
                       {currentPaso.paso === 2 ? 'Pregunta Disruptiva' : 'Frase Clave Ontológica'}
                     </div>
-                    <div style={{fontSize: '1.25rem', fontWeight: 800, color: '#fff', fontStyle: 'italic', lineHeight: 1.4}}>
+                    <div style={{fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)', fontStyle: 'italic', lineHeight: 1.4}}>
                       {currentPaso.fraseClave}
                     </div>
                   </div>
@@ -1578,7 +1579,7 @@ export default function RutaFormacion() {
                     <h5 style={{fontSize: '1rem', color: 'var(--crear-gold)', margin: '0 0 0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em'}}>
                       💡 Mensaje Central & Propósito Ontológico
                     </h5>
-                    <p style={{fontSize: '1.05rem', color: '#fff', lineHeight: 1.7, margin: 0}}>
+                    <p style={{fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: 1.7, margin: 0}}>
                       {currentPaso.mensajeCentral}
                     </p>
                   </div>
@@ -1593,11 +1594,11 @@ export default function RutaFormacion() {
                     }}>
                       <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem'}}>
                         <span style={{fontSize: '1.2rem'}}>🌌</span>
-                        <h6 style={{margin: 0, fontSize: '0.92rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 800}}>
+                        <h6 style={{margin: 0, fontSize: '0.92rem', color: '#0284c7', textTransform: 'uppercase', fontWeight: 800}}>
                           Imagen Potente / Metáfora
                         </h6>
                       </div>
-                      <p style={{margin: 0, fontSize: '0.92rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.6}}>
+                      <p style={{margin: 0, fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6}}>
                         {currentPaso.imagenPotente}
                       </p>
                     </div>
@@ -1610,11 +1611,11 @@ export default function RutaFormacion() {
                     }}>
                       <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem'}}>
                         <span style={{fontSize: '1.2rem'}}>⚠️</span>
-                        <h6 style={{margin: 0, fontSize: '0.92rem', color: '#f87171', textTransform: 'uppercase', fontWeight: 800}}>
+                        <h6 style={{margin: 0, fontSize: '0.92rem', color: '#dc2626', textTransform: 'uppercase', fontWeight: 800}}>
                           Advertencia / Riesgo del Ego
                         </h6>
                       </div>
-                      <p style={{margin: 0, fontSize: '0.92rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.6}}>
+                      <p style={{margin: 0, fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6}}>
                         {currentPaso.advertencia}
                       </p>
                     </div>
@@ -1648,8 +1649,8 @@ export default function RutaFormacion() {
                       </h5>
                       <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem'}}>
                         {currentPaso.ejemplos.map((ej, idx) => (
-                          <div key={idx} style={{background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)'}}>
-                            <div style={{fontWeight: 800, color: '#fff', fontSize: '1rem', marginBottom: '0.4rem'}}>
+                          <div key={idx} style={{background: 'var(--bg-dark)', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-subtle, rgba(255,255,255,0.06))'}}>
+                            <div style={{fontWeight: 800, color: 'var(--text-main)', fontSize: '1rem', marginBottom: '0.4rem'}}>
                               {ej.figura}
                             </div>
                             <div style={{fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5}}>
@@ -1664,19 +1665,19 @@ export default function RutaFormacion() {
                   {/* CASO PASO 4: UBUNTU Y FÍSICA CUÁNTICA */}
                   {currentPaso.paso === 4 && (
                     <div style={{background: 'rgba(139,92,246,0.08)', border: '1px solid rgba(139,92,246,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
-                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#a78bfa', textTransform: 'uppercase'}}>
+                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#7c3aed', textTransform: 'uppercase'}}>
                         ⚛️ Resonancia Cuántica en Sala
                       </h5>
-                      <p style={{fontSize: '0.92rem', color: '#fff', lineHeight: 1.6, margin: '0 0 1rem'}}>
+                      <p style={{fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6, margin: '0 0 1rem'}}>
                         En física cuántica, dos partículas entrelazadas comparten el mismo estado sin importar la distancia física. En la orientación, los participantes dejan de ser islas desconectadas y se transforman en un único organismo coherente.
                       </p>
                       <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
-                        <div style={{flex: 1, background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '10px'}}>
+                        <div style={{flex: 1, background: 'var(--bg-dark)', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-subtle, rgba(255,255,255,0.06))'}}>
                           <div style={{color: '#10b981', fontWeight: 800, marginBottom: '0.3rem'}}>🌍 Ubuntu</div>
                           <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>«Yo soy porque nosotros somos». La victoria solo es real cuando es del equipo entero.</div>
                         </div>
-                        <div style={{flex: 1, background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '10px'}}>
-                          <div style={{color: '#38bdf8', fontWeight: 800, marginBottom: '0.3rem'}}>⚡ Instinto & Juego</div>
+                        <div style={{flex: 1, background: 'var(--bg-dark)', padding: '1rem', borderRadius: '10px', border: '1px solid var(--border-subtle, rgba(255,255,255,0.06))'}}>
+                          <div style={{color: '#0284c7', fontWeight: 800, marginBottom: '0.3rem'}}>⚡ Instinto & Juego</div>
                           <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>No hace falta hablar todo el tiempo: el equipo se mueve por mirada, por presencia y por foco inquebrantable.</div>
                         </div>
                       </div>
@@ -1686,7 +1687,7 @@ export default function RutaFormacion() {
                   {/* CASO PASO 5: PELELE Y HÁBITOS DE JAMES CLEAR */}
                   {currentPaso.paso === 5 && (
                     <div style={{background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
-                      <h5 style={{margin: '0 0 0.5rem', fontSize: '1rem', color: '#fbbf24', textTransform: 'uppercase'}}>
+                      <h5 style={{margin: '0 0 0.5rem', fontSize: '1rem', color: '#d97706', textTransform: 'uppercase'}}>
                         ⚽ El Gimnasio de Sinapsis: Práctica Constante
                       </h5>
                       <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 1rem'}}>
@@ -1713,8 +1714,8 @@ export default function RutaFormacion() {
                         >
                           <span>⚽ Patear la Pelota una vez más</span>
                         </button>
-                        <span style={{fontSize: '0.95rem', color: '#fff'}}>
-                          Repeticiones acumuladas en sala: <strong style={{color: '#fbbf24', fontSize: '1.2rem'}}>{peleleCount}</strong>
+                        <span style={{fontSize: '0.95rem', color: 'var(--text-main)'}}>
+                          Repeticiones acumuladas en sala: <strong style={{color: '#d97706', fontSize: '1.2rem'}}>{peleleCount}</strong>
                         </span>
                       </div>
                     </div>
@@ -1723,7 +1724,7 @@ export default function RutaFormacion() {
                   {/* CASO PASO 6: SIMULADOR DEL GUION DEL ENTRENADOR */}
                   {currentPaso.paso === 6 && (
                     <div style={{background: 'rgba(236,72,153,0.08)', border: '1px solid rgba(236,72,153,0.3)', borderRadius: '14px', padding: '1.6rem'}}>
-                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#f472b6', textTransform: 'uppercase'}}>
+                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#db2777', textTransform: 'uppercase'}}>
                         🎙️ Simulador del Guion del Entrenador (Personalizado)
                       </h5>
                       <div style={{marginBottom: '1rem'}}>
@@ -1740,22 +1741,25 @@ export default function RutaFormacion() {
                             maxWidth: '300px',
                             padding: '8px 14px',
                             borderRadius: '8px',
-                            border: '1px solid rgba(255,255,255,0.2)',
-                            background: '#070d1f',
-                            color: '#fff',
+                            border: '1px solid var(--border-card)',
+                            background: 'var(--bg-card)',
+                            color: 'var(--text-main)',
                             fontSize: '0.95rem'
                           }}
                         />
                       </div>
 
                       <div style={{
-                        background: '#040714',
+                        background: 'var(--bg-card)',
                         borderLeft: '4px solid #ec4899',
+                        border: '1px solid var(--border-subtle)',
+                        borderLeftWidth: '4px',
+                        borderLeftColor: '#ec4899',
                         padding: '1.2rem',
                         borderRadius: '10px',
                         marginBottom: '1rem'
                       }}>
-                        <div style={{fontSize: '1.1rem', color: '#fff', fontStyle: 'italic', lineHeight: 1.6}}>
+                        <div style={{fontSize: '1.1rem', color: 'var(--text-main)', fontStyle: 'italic', lineHeight: 1.6}}>
                           «Mi nombre es <span style={{color: 'var(--crear-gold)', fontWeight: 800}}>{trainerName || '[tu nombre]'}</span>. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»
                         </div>
                       </div>
@@ -1763,7 +1767,7 @@ export default function RutaFormacion() {
                       <button
                         onClick={() => handleCopyAnchor(`Mi nombre es ${trainerName || '[tu nombre]'}. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.`, 'guion_entrenador')}
                         className="btn-secondary"
-                        style={{fontSize: '0.85rem', padding: '6px 14px', borderColor: '#ec4899', color: '#f472b6'}}
+                        style={{fontSize: '0.85rem', padding: '6px 14px', borderColor: '#ec4899', color: '#db2777'}}
                       >
                         📋 Copiar Guion del Entrenador
                       </button>
@@ -1773,18 +1777,19 @@ export default function RutaFormacion() {
                   {/* CASO PASO 7: DECLARACIÓN DE COMPROMISO */}
                   {currentPaso.paso === 7 && (
                     <div style={{background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: '14px', padding: '1.4rem'}}>
-                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#34d399', textTransform: 'uppercase'}}>
+                      <h5 style={{margin: '0 0 0.8rem', fontSize: '1rem', color: '#059669', textTransform: 'uppercase'}}>
                         🎯 Laboratorio de Declaración de Visión Colectiva
                       </h5>
                       <div style={{display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '1.2rem'}}>
                         {currentPaso.ejemplosDeclaraciones?.map((dec, idx) => (
                           <div key={idx} style={{
-                            background: 'rgba(0,0,0,0.3)',
+                            background: 'var(--bg-card)',
                             padding: '0.8rem 1.2rem',
                             borderRadius: '8px',
-                            color: '#fff',
+                            color: 'var(--text-main)',
                             fontSize: '0.95rem',
                             fontStyle: 'italic',
+                            border: '1px solid var(--border-subtle)',
                             borderLeft: '3px solid #10b981'
                           }}>
                             {dec}
@@ -1803,9 +1808,9 @@ export default function RutaFormacion() {
                             minWidth: '260px',
                             padding: '10px 14px',
                             borderRadius: '8px',
-                            border: '1px solid rgba(255,255,255,0.2)',
-                            background: '#070d1f',
-                            color: '#fff',
+                            border: '1px solid var(--border-card)',
+                            background: 'var(--bg-card)',
+                            color: 'var(--text-main)',
                             fontSize: '0.92rem'
                           }}
                         />
@@ -1829,7 +1834,7 @@ export default function RutaFormacion() {
                         </button>
                       </div>
                       {visionSaved && (
-                        <div style={{marginTop: '0.8rem', color: '#34d399', fontSize: '0.9rem'}}>
+                        <div style={{marginTop: '0.8rem', color: '#059669', fontSize: '0.9rem', fontWeight: 600}}>
                           ⚽ ¡Bienvenido a la cancha donde se meten los goles llamada: <strong>«{customVision}»</strong>!
                         </div>
                       )}
@@ -1839,7 +1844,7 @@ export default function RutaFormacion() {
                   {/* CASO PASO 8: LA PREGUNTA FINAL */}
                   {currentPaso.paso === 8 && (
                     <div style={{
-                      background: 'radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(0,0,0,0.7) 100%)',
+                      background: 'var(--bg-card)',
                       border: '2px solid var(--crear-gold)',
                       borderRadius: '16px',
                       padding: '2rem',
@@ -1852,7 +1857,7 @@ export default function RutaFormacion() {
                       <p style={{fontSize: '1rem', color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto 1.5rem', lineHeight: 1.6}}>
                         La plataforma de visión se aterriza el sábado, antes del llamado a la acción. Si tienes claro tu <em>Para Qué</em>, cualquier obstáculo en la arena se vuelve irrelevante.
                       </p>
-                      <div style={{fontSize: '0.95rem', color: '#fff', fontStyle: 'italic'}}>
+                      <div style={{fontSize: '0.95rem', color: 'var(--text-main)', fontStyle: 'italic'}}>
                         «La orientación es lo más importante. Aquí los preparo para todo lo que viene. Lo demás son manejos.»
                       </div>
                     </div>

@@ -60,6 +60,15 @@ export default function GlobalHUDWidget() {
       <div className="global-hud-widget animate-fade-in">
         <audio ref={audioRef} src="/Magic.mp3" loop />
         <ThemeToggle />
+
+        <button 
+          className="hud-music-btn"
+          onClick={() => window.dispatchEvent(new CustomEvent('open-global-search'))}
+          title="Buscador Global (Ctrl + K)"
+          style={{ fontSize: '0.95rem' }}
+        >
+          🔍
+        </button>
         
         <button 
           className={`hud-music-btn ${isPlaying ? 'playing' : ''}`}

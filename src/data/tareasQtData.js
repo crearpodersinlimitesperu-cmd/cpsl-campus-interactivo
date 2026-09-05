@@ -1,21 +1,21 @@
 /**
- * REPOSITORIO DE RETOS Y PRÁCTICAS FORMATIVAS DE AUTOENTRENAMIENTO (CAPÍTULO 1)
- * Diseñado para toda persona en Modo Aprendiz - CREAR PODER SIN LÍMITES
+ * REPOSITORIO DE RETOS Y PRÁCTICAS FORMATIVAS DE ALTO RENDIMIENTO
+ * Diseñado para Líderes y Gestores — SISTEMA INTERRUPCIÓN
  * 
- * Reglas de cálculo de fechas relativas al inicio del C1 (Viernes 09:00 AM):
- * - offsetDays: días relativos al viernes de inicio (negativo = antes, 0 = viernes, 1 = sábado, 2 = domingo, positivo = después)
+ * Reglas de cálculo de fechas relativas al Ciclo Operativo (Semana 1):
+ * - offsetDays: días relativos al inicio
  * - hour: hora exacta (formato 24h)
  * - minute: minuto
  */
 
 export const TAREAS_QT_C1 = [
   // ==========================================
-  // FASE 1: ANTES DE CAPÍTULO 1 (PRE-SALA)
+  // FASE 1: DESUBRIMIENTO & CALIBRACIÓN
   // ==========================================
   {
     id: "pre-01",
     fase: "ANTES",
-    faseTitulo: "Fase 1: Preparación & Convocatoria Pre-Sala",
+    faseTitulo: "Fase 1: Preparación & Diagnóstico Inicial",
     titulo: "Alineación y Práctica de Presencia Consciente",
     descripcion: "Alinear el compromiso personal, foco de servicio y presencia: atención plena, calibración de fisonomía y disponibilidad para aportar valor.",
     rol: "Modo Aprendiz",

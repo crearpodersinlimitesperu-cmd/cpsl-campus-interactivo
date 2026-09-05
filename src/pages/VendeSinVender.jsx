@@ -39,11 +39,11 @@ export default function VendeSinVender() {
     { id: 'cap1', num: 'CAP 1', title: 'El Despertar del Guía', subtitle: 'No eres Luke, eres Yoda', icon: '🧭' },
     { id: 'cap2', num: 'CAP 2', title: 'Anatomía de la Mente Humana', subtitle: 'Cómo amansar al Perro Guardián', icon: '🧠' },
     { id: 'cap3', num: 'CAP 3', title: 'La Ecuación de Valor en Plastilina', subtitle: 'Alex Hormozi y el Deseo Irresistible', icon: '⚖️' },
-    { id: 'cap4', num: 'CAP 4', title: 'El Mapa de Ruta en 3 Pasos', subtitle: 'Del Sueño al Ticket Verde de Integridad', icon: '🎯' },
-    { id: 'cap5', num: 'CAP 5', title: 'El Rescate de los Olvidados', subtitle: 'Protocolo de Rezagados de C1', icon: '🛡️' },
-    { id: 'cap6', num: 'CAP 6', title: 'La Bitácora del Guerrero Cuántico', subtitle: 'Causa vs. Espectador en la Arena', icon: '⚡' },
-    { id: 'orientacion', num: 'CAP 7', title: 'Construir desde la Nada', subtitle: 'Esqueleto de la Orientación y Visión Colectiva', icon: '🌌' },
-    { id: 'epilogo', num: 'FINAL', title: 'Epílogo & Manifiesto IMO', subtitle: 'La Promesa del Líder Transformacional', icon: '🏆' },
+    { id: 'cap4', num: 'CAP 4', title: 'El Mapa de Ruta en 3 Pasos', subtitle: 'Del Quiebre al Acuerdo de Integridad', icon: '🎯' },
+    { id: 'cap5', num: 'CAP 5', title: 'El Rescate de Cuentas Congeladas', subtitle: 'Protocolo de Reactivación & Negociación', icon: '🛡️' },
+    { id: 'cap6', num: 'CAP 6', title: 'La Bitácora del Liderazgo Estratégico', subtitle: 'Causa vs. Espectador en la Operación', icon: '⚡' },
+    { id: 'orientacion', num: 'CAP 7', title: 'Construir desde la Nada', subtitle: 'Alineación Estratégica y Visión Compartida', icon: '🌌' },
+    { id: 'epilogo', num: 'FINAL', title: 'Epílogo & Manifiesto de Rendición de Cuentas', subtitle: 'El Compromiso del Líder de Alto Rendimiento', icon: '🏆' },
   ];
 
   return (
@@ -61,15 +61,15 @@ export default function VendeSinVender() {
           </button>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ background: 'rgba(255, 183, 3, 0.15)', color: 'var(--crear-gold)', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.05em' }}>
-                CREAR PODER SIN LÍMITES
+              <span style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.05em' }}>
+                SISTEMA INTERRUPCIÓN
               </span>
               <span style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800 }}>
-                CAUSA OS BEST-SELLER
+                CAUSA OS EXECUTIVE
               </span>
             </div>
             <h1 style={{ margin: '4px 0 0', fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
-              Vende Sin Vender: El Arte de Enrolar y Despertar Gigantes
+              Vende Sin Vender: El Arte de la Negociación y el Enrolamiento Estratégico
             </h1>
           </div>
         </div>
@@ -590,7 +590,7 @@ export default function VendeSinVender() {
                       <span>{valEsfuerzo}/10</span>
                     </div>
                     <input type="range" min="1" max="10" value={valEsfuerzo} onChange={e => setValEsfuerzo(Number(e.target.value))} style={{ width: '100%', accentColor: '#ec4899' }} />
-                    <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Nodus absorbe la fricción técnica.</span>
+                    <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>El Sistema Interrupción absorbe la fricción operativa.</span>
                   </div>
                 </div>
               </div>
@@ -602,10 +602,10 @@ export default function VendeSinVender() {
                 </h3>
                 <ul>
                   <li>
-                    <strong>Resultado Anhelado (Dream Outcome):</strong> Deja de vender "fines de semana en un hotel". Vende el destino: recuperar la paz familiar, duplicar las ventas de su negocio o liberarse de la ansiedad financiera. Pinta esa imagen con palabras vivas.
+                    <strong>Resultado Anhelado (Dream Outcome):</strong> Deja de vender características abstractas. Vende el destino: recuperar la rentabilidad operativa, liderar sin desgaste y estructurar acuerdos inmutables.
                   </li>
                   <li>
-                    <strong>Probabilidad Percibida de Logro (Certeza):</strong> Al participante le aterra pagar y volver a fallar. Para elevar la certeza, muéstrale los testimonios reales del equipo y la infraestructura de soporte tecnológico de la <strong>Plataforma Nodus</strong>. Introduce la poderosa <strong>Garantía Condicionada de Integridad</strong>: <em>«Si tú sigues el sistema al 100% y no logras tu meta, te devolvemos tu dinero. El riesgo es nuestro, no tuyo»</em>.
+                    <strong>Probabilidad Percibida de Logro (Certeza):</strong> Al tomador de decisiones le aterra comprometer recursos y fallar. Para elevar la certeza, muéstrale casos reales de éxito directivo y la infraestructura de telemetría del <strong>Sistema Interrupción</strong>. Introduce la poderosa <strong>Garantía Condicionada de Integridad</strong>: <em>«Si tú sigues el sistema al 100% y no logras tu meta pactada, restituimos tu inversión. El riesgo está de nuestro lado»</em>.
                   </li>
                 </ul>
 
@@ -614,16 +614,16 @@ export default function VendeSinVender() {
                 </h3>
                 <ul>
                   <li>
-                    <strong>Retraso Temporal (Time Delay):</strong> ¿Cuánto tiempo pasa entre que pago e inicio a experimentar el valor? Si es mucho, la mente se enfría. Ofrece un <strong>Fast Win (Victoria Rápida)</strong> instantáneo: una llamada de onboarding en menos de 24 horas o un kit digital de herramientas de Causa OS el mismo domingo en su celular.
+                    <strong>Retraso Temporal (Time Delay):</strong> ¿Cuánto tiempo pasa entre la firma del acuerdo y la primera victoria tangible? Ofrece un <strong>Fast Win (Victoria Rápida)</strong> en menos de 24 horas: diagnóstico de cuellos de botella inmediato o tablero de control operativo en tiempo real.
                   </li>
                   <li>
-                    <strong>Esfuerzo y Sacrificio:</strong> El enemigo silencioso. Si el participante piensa que la Maestría será un calvario de tareas difíciles, su cerebro reptil huirá. Muéstrale que la <strong>Plataforma Nodus</strong> simplifica todo: registrará sus evidencias y metas de los <em>28 Entrenamientos Sustentables</em> en un par de toques rápidos desde su teléfono móvil. No le pedimos más esfuerzo, le damos un andamiaje que absorbe la fricción cotidiana.
+                    <strong>Esfuerzo y Sacrificio:</strong> El enemigo silencioso. Si el directivo percibe que la implementación será un calvario burocrático, su amígdala bloqueará la decisión. Demuestra cómo el <strong>Sistema Interrupción</strong> simplifica la toma de decisiones con telemetría limpia y tableros automatizados.
                   </li>
                 </ul>
 
                 <div style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '0.95rem' }}>
-                    «No le pedimos más esfuerzo al participante; le damos un andamiaje tecnológico que absorbe la fricción cotidiana».
+                    «No le pedimos más esfuerzo al líder; le damos un andamiaje estratégico que absorbe la fricción cotidiana».
                   </div>
                   <button 
                     onClick={() => handleCopy('No le pedimos más esfuerzo al participante; le damos un andamiaje tecnológico que absorbe la fricción cotidiana.', 'quote_hormozi')}
@@ -689,30 +689,30 @@ export default function VendeSinVender() {
                       <strong style={{ color: '#c084fc' }}>Mostrar el Andamiaje</strong>
                     </div>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                      Disuelve el miedo a fallar solo. Presenta al Accountability Coach de alineación, al Buddy y a Nodus como andamiaje libre de drama.
+                      Disuelve el miedo a la fricción operativa. Presenta al Director de Operaciones y al Sistema Interrupción como andamiaje libre de burocracia.
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.25)', borderRadius: '12px', padding: '1.2rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
                       <span style={{ background: '#34d399', color: '#000', fontWeight: 900, borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem' }}>3</span>
-                      <strong style={{ color: '#34d399' }}>Sellar la Palabra</strong>
+                      <strong style={{ color: '#34d399' }}>Sellar la Integridad</strong>
                     </div>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                      Acción física en caja. El abono o reserva emite el Ticket Verde en el sistema activando el principio de consistencia.
+                      Firma de acuerdos y telemetría. El compromiso formal emite el Clearance de Aprobación en el sistema activando el principio de consistencia.
                     </p>
                   </div>
                 </div>
 
-                {/* Simulador Interactivo del Ticket Verde de la Integridad */}
+                {/* Simulador Interactivo del Clearance de la Integridad */}
                 <div style={{ background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '1.2rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
                     <div>
                       <strong style={{ color: '#34d399', fontSize: '0.95rem' }}>
-                        Simulador del «Ticket Verde de la Integridad»
+                        Simulador del «Clearance de Aprobación & Integridad»
                       </strong>
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                        Prueba en vivo la emisión de palabra y compromiso para caja
+                        Prueba en vivo la emisión de palabra y compromiso formal
                       </div>
                     </div>
                     <button
@@ -720,7 +720,7 @@ export default function VendeSinVender() {
                       className="btn-primary"
                       style={{ background: '#10b981', color: '#000', fontWeight: 800, padding: '8px 18px', fontSize: '0.82rem' }}
                     >
-                      Emitir Ticket Verde
+                      Emitir Clearance de Aprobación
                     </button>
                   </div>
 
@@ -728,18 +728,18 @@ export default function VendeSinVender() {
                     <div style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(0,0,0,0.6) 100%)', border: '2px dashed #10b981', borderRadius: '10px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                       <div>
                         <div style={{ fontSize: '0.75rem', color: '#34d399', fontWeight: 800, letterSpacing: '0.05em' }}>
-                          CREAR PODER SIN LÍMITES • PLATAFORMA NODUS
+                          SISTEMA INTERRUPCIÓN • CAUSA OS
                         </div>
                         <h4 style={{ margin: '0.2rem 0', color: '#fff', fontSize: '1.2rem' }}>
-                          TICKET VERDE: COMPROMISO OFICIAL SELLADO
+                          CLEARANCE DE COMPROMISO: ACUERDO SELLADO
                         </h4>
                         <div style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
-                          Participante: <strong>{ticketPxName}</strong> | Estado: <span style={{ color: '#34d399', fontWeight: 800 }}>RESERVA VALIDADA EN CAJA</span>
+                          Líder / Cliente: <strong>{ticketPxName}</strong> | Estado: <span style={{ color: '#34d399', fontWeight: 800 }}>ACUERDO AUDITADO & EN FIRME</span>
                         </div>
                       </div>
                       <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontSize: '2rem' }}>🎟️✅</div>
-                        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Código: VERDE-MJ-2026</span>
+                        <div style={{ fontSize: '2rem' }}>📋✅</div>
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Código: CLEARANCE-INT-2026</span>
                       </div>
                     </div>
                   )}
@@ -755,10 +755,10 @@ export default function VendeSinVender() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
                   <div style={{ background: 'rgba(0,0,0,0.3)', borderLeft: '4px solid #38bdf8', padding: '1rem', borderRadius: '8px' }}>
                     <strong style={{ color: '#38bdf8', fontSize: '0.9rem', display: 'block', marginBottom: '4px' }}>
-                      Paso 1 (Calibración del Sueño):
+                      Paso 1 (Calibración del Objetivo):
                     </strong>
                     <div style={{ fontStyle: 'italic', color: '#fff', fontSize: '0.95rem' }}>
-                      «Si tuvieras la certeza absoluta de que el tiempo o el dinero no fueran un obstáculo, ¿qué resultado extraordinario diseñarías para ti en los siguientes 3 meses?»
+                      «Si tuvieras la certeza absoluta de contar con la metodología y los datos auditados, ¿qué quiebre operativo o directivo resolverías en los siguientes 90 días?»
                     </div>
                   </div>
 
@@ -767,16 +767,16 @@ export default function VendeSinVender() {
                       Paso 2 (Andamiaje sin Fricción):
                     </strong>
                     <div style={{ fontStyle: 'italic', color: '#fff', fontSize: '0.95rem' }}>
-                      «Sostener una meta grande solo es casi imposible. Por eso diseñamos un andamiaje digital. Con Nodus y tu buddy, reportarás tus retos en segundos desde tu celular, asegurando que tu avance sea constante y libre de frustración.»
+                      «Sostener una meta directiva compleja sin una arquitectura de soporte genera desgaste. Por eso integramos el Sistema Interrupción: telemetría en tiempo real y gobernanza limpia que eliminan las opiniones subjetivas.»
                     </div>
                   </div>
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', borderLeft: '4px solid #34d399', padding: '1rem', borderRadius: '8px' }}>
                     <strong style={{ color: '#34d399', fontSize: '0.9rem', display: 'block', marginBottom: '4px' }}>
-                      Paso 3 (El Ticket Verde de la Integridad):
+                      Paso 3 (El Clearance de la Integridad):
                     </strong>
                     <div style={{ fontStyle: 'italic', color: '#fff', fontSize: '0.95rem' }}>
-                      «Sellar tu reserva hoy en caja es la acción física concreta que le demuestra a tu mente que estás jugando en serio con tu palabra. Registremos tu abono para que el sistema emita tu Ticket Verde y el juego de tu transformación comience oficialmente hoy.»
+                      «Formalizar este acuerdo con fecha y métrica de éxito es la acción concreta que sella tu liderazgo. Activemos tu Clearance de Aprobación para que el despliegue comience formalmente hoy.»
                     </div>
                   </div>
                 </div>
@@ -794,7 +794,7 @@ export default function VendeSinVender() {
           )}
 
           {/* ============================================================== */}
-          {/* CAPÍTULO 5: EL RESCATE DE LOS OLVIDADOS (REZAGADOS C1)         */}
+          {/* CAPÍTULO 5: EL RESCATE DE CUENTAS CONGELADAS & NEGOCIACIÓN     */}
           {/* ============================================================== */}
           {activeChapter === 'cap5' && (
             <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
@@ -803,59 +803,59 @@ export default function VendeSinVender() {
                   CAPÍTULO 5
                 </span>
                 <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
-                  EL RESCATE DE LOS OLVIDADOS (Los Rezagados de C1)
+                  EL RESCATE DE CUENTAS CONGELADAS (Negociación Táctica)
                 </h2>
               </div>
 
               <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#cbd5e1' }}>
                 <h3 style={{ color: 'var(--crear-gold)', fontSize: '1.3rem', margin: '0 0 0.8rem' }}>
-                  ¿Quiénes son y por qué están congelados?
+                  ¿Quiénes son y por qué se congelan las decisiones?
                 </h3>
                 <p>
-                  Los <strong>Rezagados de C1</strong> son participantes que ya pagaron su entrenamiento pero, por miedo o inercia, no se han sentado en el salón de Capítulo Uno. Se encuentran atrapados en "la arena" de la rutina diaria. Su cerebro reptil ha congelado su acción.
+                  Las <strong>cuentas y compromisos congelados</strong> son aquellos prospectos o líderes que manifestaron intención genuina o realizaron un primer acuerdo, pero quedan atrapados en la inercia del día a día o sufren un <em>secuestro amigdalino</em> por miedo a la disrupción. La clave no es la presión agresiva, sino la <strong>empatía táctica (Chris Voss)</strong>.
                 </p>
               </div>
 
               {/* GRÁFICA NARRATIVA 6: PROTOCOLO OPERATIVO MILITAR Y AMOROSO */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
                 <h4 style={{ margin: '0 0 1.2rem', fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span>🛡️</span> Protocolo Militar y Amoroso de Rescate de Rezagados
+                  <span>🛡️</span> Protocolo de Reactivación & Negociación Táctica
                 </h4>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.2rem' }}>
                   <div style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.25)', borderRadius: '12px', padding: '1.2rem' }}>
                     <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#f87171', textTransform: 'uppercase', marginBottom: '4px' }}>
-                      1. Cronograma
+                      1. Auditoría de Acusaciones
                     </div>
                     <strong style={{ color: '#fff', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
-                      La Llamada del Martes
+                      Nombrar el Elefante
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                      El Coordinador de C1/C2 (CC1Y2) debe realizar las llamadas de recuperación los <strong>martes de la Semana de Preparación</strong> y los <strong>martes de la Semana de Ejecución</strong> de C1.
+                      Antes de argumentar, desarma su resistencia anticipándote a sus temores: <em>«Probablemente pienses que te estoy llamando para forzarte o que no entiendo tu carga operativa actual...»</em>
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.25)', borderRadius: '12px', padding: '1.2rem' }}>
                     <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', marginBottom: '4px' }}>
-                      2. Deadline Innegociable
+                      2. Calibración y Deadline
                     </div>
                     <strong style={{ color: '#fff', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
-                      Miércoles 13:00 PM
+                      Preguntas Calibradas
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                      Todas las confirmaciones deben registrarse en Nodus antes de los <strong>miércoles a las 13:00 PM</strong>. Pasada esa hora, las listas se cierran para cuidar la fisonomía y logística del salón.
+                      Evita preguntas de «Sí/No». Utiliza preguntas de «Cómo» y «Qué»: <em>«¿Cómo afectará a tu equipo postergar esta decisión otro trimestre?»</em>.
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.25)', borderRadius: '12px', padding: '1.2rem' }}>
                     <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', marginBottom: '4px' }}>
-                      3. Código de Honor
+                      3. Sostener la Integridad
                     </div>
                     <strong style={{ color: '#fff', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
-                      No Hay Devoluciones
+                      Cuidado de la Palabra
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                      Sostén con firmeza y amor la inversión ya realizada. El dinero ya está trabajando en su transformación; reubica su fecha sin ceder a la postergación.
+                      Sostén con firmeza el valor acordado. El compromiso no se negocia a la baja; se reestructura el calendario sin ceder a la postergación.
                     </p>
                   </div>
                 </div>
@@ -864,15 +864,15 @@ export default function VendeSinVender() {
               {/* GUIÓN OFICIAL DE NO DEVOLUCIONES */}
               <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#cbd5e1' }}>
                 <h3 style={{ color: 'var(--crear-gold)', fontSize: '1.3rem', margin: '0 0 0.8rem' }}>
-                  El Guión de Firmeza y Amor ante Solicitudes de Reembolso
+                  El Guión de Firmeza y Empatía Estratégica
                 </h3>
                 <div style={{ background: 'rgba(0,0,0,0.4)', borderLeft: '4px solid var(--crear-gold)', borderRadius: '10px', padding: '1.2rem', position: 'relative' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '1rem', lineHeight: '1.7' }}>
-                    «Por políticas de sustentabilidad, no realizamos devoluciones de dinero. Sin embargo, mi mayor compromiso de servicio es ayudarte a honrar la inversión que ya hiciste. El dinero ya está trabajando para ti, busquemos de inmediato la fecha que mejor se adapte para que dejes de postergar tu liderazgo.»
+                    «Entiendo perfectamente la fricción que sientes y que tu primer instinto sea postergar. Sin embargo, mi mayor compromiso profesional es ayudarte a honrar el objetivo de transformación que definiste. Los recursos y la metodología ya están dispuestos; definamos hoy el cronograma ejecutable para que no te quedes en la inercia.»
                   </div>
                   <div style={{ marginTop: '0.8rem', display: 'flex', justifyContent: 'flex-end' }}>
                     <button 
-                      onClick={() => handleCopy('Por políticas de sustentabilidad, no realizamos devoluciones de dinero. Sin embargo, mi mayor compromiso de servicio es ayudarte a honrar la inversión que ya hiciste. El dinero ya está trabajando para ti, busquemos de inmediato la fecha que mejor se adapte para que dejes de postergar tu liderazgo.', 'quote_rezagados')}
+                      onClick={() => handleCopy('Entiendo perfectamente la fricción que sientes y que tu primer instinto sea postergar. Sin embargo, mi mayor compromiso profesional es ayudarte a honrar el objetivo de transformación que definiste. Los recursos y la metodología ya están dispuestos; definamos hoy el cronograma ejecutable para que no te quedes en la inercia.', 'quote_rezagados')}
                       className="btn-secondary"
                       style={{ padding: '6px 12px', fontSize: '0.8rem', cursor: 'pointer' }}
                     >
@@ -903,7 +903,7 @@ export default function VendeSinVender() {
                   CAPÍTULO 6
                 </span>
                 <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
-                  LA BITÁCORA DEL GUERRERO CUÁNTICO (Causa vs. Espectador)
+                  LA BITÁCORA DEL LIDERAZGO ESTRATÉGICO (Causa vs. Espectador)
                 </h2>
               </div>
 
@@ -912,14 +912,14 @@ export default function VendeSinVender() {
                   La Distinción Fundamental: Causa vs. Efecto
                 </h3>
                 <p>
-                  En la cultura de alto rendimiento de <strong>CREAR PODER SIN LÍMITES</strong>, eliminamos las excusas del vocabulario:
+                  En la cultura de alto rendimiento del <strong>SISTEMA INTERRUPCIÓN</strong>, erradicamos las excusas del vocabulario directivo:
                 </p>
                 <ul>
                   <li>
-                    <strong>El Espectador (Efecto):</strong> Se queja en "la arena" de la vida. Culpa al tráfico, al clima, al participante indeciso o al sistema por su falta de resultados. Vive en la resignación.
+                    <strong>El Espectador (Efecto):</strong> Se queja de la coyuntura. Culpa a la economía, al cliente o a los equipos por la falta de entregables. Opera desde el victimismo.
                   </li>
                   <li>
-                    <strong>El Creador (Causa):</strong> Se asume como la <strong>fuente absoluta de su realidad</strong>. Si un participante no se inscribe, el enrolador no dice <em>«es que el cliente es difícil»</em>; se pregunta: <em>¿Qué faltó en mi fisonomía de voz, en mi escucha o en mi nivel de presencia para despertar su compromiso?</em>
+                    <strong>El Líder Estratégico (Causa):</strong> Se asume como la <strong>fuente y diseño de su realidad operativa</strong>. Si un acuerdo no se concreta, el líder no dice <em>«es que el cliente es complicado»</em>; se pregunta: <em>¿Qué faltó en mi calibración de estado, en mi escucha activa o en mi propuesta de valor para generar certeza absoluta?</em>
                   </li>
                 </ul>
               </div>
@@ -947,7 +947,7 @@ export default function VendeSinVender() {
                         fontWeight: 700
                       }}
                     >
-                      🌫️ La Arena (Efecto)
+                      🌫️ Modo Efecto (Victimismo)
                     </button>
                     <button
                       onClick={() => setArenaMode(false)}
@@ -963,7 +963,7 @@ export default function VendeSinVender() {
                         fontWeight: 700
                       }}
                     >
-                      ⚡ El Contexto (Causa OS)
+                      ⚡ Modo Causa (Responsabilidad Radical)
                     </button>
                   </div>
                 </div>
@@ -975,28 +975,28 @@ export default function VendeSinVender() {
                       ESTADO ONTOLÓGICO: MODO EFECTO / VÍCTIMA
                     </div>
                     <h4 style={{ margin: '0 0 0.8rem', color: '#fff', fontSize: '1.2rem' }}>
-                      «La Arena de la Vida» — Quejas, Drama y Suposiciones
+                      «La Inercia Reactiva» — Quejas, Justificaciones y Suposiciones
                     </h4>
                     <p style={{ margin: 0, fontSize: '0.92rem', color: '#fca5a5', lineHeight: '1.7' }}>
-                      • Culpa al clima, a la economía o al prospecto por no contestar.<br />
-                      • Conclusiones basadas en el estado emocional del momento («la gente no tiene plata»).<br />
-                      • Cero registro en plataforma: las metas se pierden en el olvido.<br />
-                      • <strong>Resultado:</strong> Desgaste biológico masivo, fricción y estancamiento.
+                      • Culpa al mercado, a la inflación o al prospecto por no contestar.<br />
+                      • Conclusiones basadas en el sesgo de confirmación y el estado emocional del momento.<br />
+                      • Cero registro sistemático: los compromisos se diluyen en acuerdos verbales ambiguos.<br />
+                      • <strong>Resultado:</strong> Desgaste biológico masivo, fricción de equipo y parálisis por análisis.
                     </p>
                   </div>
                 ) : (
                   <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '1.5rem' }}>
                     <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
-                      ESTADO ONTOLÓGICO: MODO CAUSA / CREADOR
+                      ESTADO ONTOLÓGICO: MODO CAUSA / PROTAGONISTA
                     </div>
                     <h4 style={{ margin: '0 0 0.8rem', color: '#fff', fontSize: '1.2rem' }}>
-                      «El Contexto» — Hechos Duros y Datos Registrados en Nodus
+                      «El Contexto de Causa» — Hechos Duros y Datos Auditados en el Sistema
                     </h4>
                     <p style={{ margin: 0, fontSize: '0.92rem', color: '#a7f3d0', lineHeight: '1.7' }}>
-                      • <strong>Sin datos registrados, no hay conclusiones.</strong> Cero drama.<br />
-                      • Asistencias validadas con QR, transacciones monetarias frías y evidencias auditadas.<br />
-                      • Si algo no funciona, el líder pregunta: <em>¿Qué diseño en mi fisonomía y en mi oferta para cambiar el resultado hoy?</em><br />
-                      • <strong>Resultado:</strong> Transformación continua, certeza matemática y enrolamiento fluido.
+                      • <strong>Sin datos registrados, no hay conclusiones.</strong> Cero interpretaciones dramáticas.<br />
+                      • Compromisos auditados con entregable, responsable y fecha límite inmutable.<br />
+                      • Si un hito falla, el líder se pregunta: <em>¿Qué ajuste en mi sistema o en mi comunicación cambiará el resultado hoy?</em><br />
+                      • <strong>Resultado:</strong> Claridad meridiana, certeza ejecutiva y tracción constante.
                     </p>
                   </div>
                 )}
@@ -1005,25 +1005,25 @@ export default function VendeSinVender() {
               {/* INTEGRACIÓN EN SEDE */}
               <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#cbd5e1' }}>
                 <h3 style={{ color: 'var(--crear-gold)', fontSize: '1.3rem', margin: '0 0 0.8rem' }}>
-                  Integración en la Sede: Datos vs. Suposiciones
+                  Gobernanza Operativa: Datos vs. Suposiciones
                 </h3>
                 <p>
-                  Para operar como verdaderos guerreros cuánticos, todo el staff debe regirse por la premisa de que <strong>"sin datos registrados, no hay conclusiones"</strong>:
+                  Para operar con rigor directivo, los líderes se rigen por la premisa de que <strong>"sin datos registrados, no existen conclusiones válidas"</strong>:
                 </p>
                 <ul>
-                  <li>La <strong>Plataforma Nodus</strong> registra los hechos fríos y objetivos (asistencias con código QR, transacciones monetarias reales, evidencias cargadas de Futuros Imposibles).</li>
-                  <li><strong>Causa OS</strong> organiza las acciones y las conversaciones de coaching basándose únicamente en esos datos reales, erradicando el drama y las interpretaciones subjetivas.</li>
+                  <li>El <strong>Sistema Interrupción</strong> audita los hechos fríos y objetivos (registros de quiebres, acuerdos firmados, telemetría de ejecución).</li>
+                  <li><strong>Causa OS</strong> orienta las conversaciones estratégicas basándose únicamente en evidencia factual, erradicando el sesgo de confirmación y el Efecto Mandela corporativo.</li>
                 </ul>
                 <p>
-                  Cuando un líder une la precisión de la tecnología con la responsabilidad radical de su Ser, se convierte en un imán de abundancia y transformación, logrando resultados extraordinarios de manera predecible y constante.
+                  Cuando un líder une la precisión de la telemetría con la responsabilidad radical de sus declaraciones, genera un entorno de alta confianza y certidumbre.
                 </p>
 
                 <div style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '0.95rem' }}>
-                    «Cuando un líder une la precisión de la tecnología con la responsabilidad radical de su Ser, se convierte en un imán de abundancia y transformación».
+                    «Cuando un líder une la precisión de los datos con la responsabilidad radical de su Ser, transforma la incertidumbre en resultados predecibles».
                   </div>
                   <button 
-                    onClick={() => handleCopy('Cuando un líder une la precisión de la tecnología con la responsabilidad radical de su Ser, se convierte en un imán de abundancia y transformación.', 'quote_causa')}
+                    onClick={() => handleCopy('Cuando un líder une la precisión de los datos con la responsabilidad radical de su Ser, transforma la incertidumbre en resultados predecibles.', 'quote_causa')}
                     className="btn-secondary"
                     style={{ padding: '6px 12px', fontSize: '0.8rem', cursor: 'pointer' }}
                   >
@@ -1109,7 +1109,7 @@ export default function VendeSinVender() {
               {/* 8 PILARES DEL ESQUELETO */}
               <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <h3 style={{ fontSize: '1.2rem', margin: 0, color: 'var(--crear-gold)' }}>
-                  🧭 Los 8 Pasos de la Orientación en Sala
+                  🧭 Los 8 Pasos de la Alineación Estratégica Directiva
                 </h3>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
@@ -1125,7 +1125,7 @@ export default function VendeSinVender() {
                     <div style={{ color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>PASO 2: INCERTIDUMBRE</div>
                     <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Certeza en lo desconocido</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      En el «no sé que no sé» desaparece el miedo y la expectativa. Estás en la nave: no hay mapa, hay creación.
+                      En el «no sé que no sé» desaparece el miedo y la expectativa. Estás en la vanguardia: no hay mapa inerte, hay creación activa.
                     </p>
                   </div>
 
@@ -1133,47 +1133,47 @@ export default function VendeSinVender() {
                     <div style={{ color: '#fbbf24', fontWeight: 800, fontSize: '0.85rem' }}>PASO 3: VISIÓN COLECTIVA</div>
                     <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>De lo individual a la causa común</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      Como los Niños Héroes o Miguel Hidalgo: dejaron su identidad ordinaria y se construyeron desde la nada por una patria.
+                      Trascender el ego individual: construir objetivos organizacionales que unifiquen el propósito de todos los involucrados.
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #10b981' }}>
-                    <div style={{ color: '#10b981', fontWeight: 800, fontSize: '0.85rem' }}>PASO 4: UBUNTU Y FÍSICA CUÁNTICA</div>
+                    <div style={{ color: '#10b981', fontWeight: 800, fontSize: '0.85rem' }}>PASO 4: UBUNTU & SISTEMAS COMPLEJOS</div>
                     <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>«Yo soy porque nosotros somos»</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      Partículas entrelazadas conectadas por instinto. Columnas colectivas sostienen el edificio de la transformación.
+                      Equipos de alto desempeño integrados por interdependencia. La solidez del conjunto sostiene la transformación.
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #a78bfa' }}>
-                    <div style={{ color: '#a78bfa', fontWeight: 800, fontSize: '0.85rem' }}>PASO 5: PELELE</div>
+                    <div style={{ color: '#a78bfa', fontWeight: 800, fontSize: '0.85rem' }}>PASO 5: DISCIPLINA OPERATIVA</div>
                     <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Práctica constante (James Clear)</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      Patear la pelota una y otra vez. La repetición sin drama forja sinapsis. En la sala se viene a entrenar la vida, no a teorizar.
+                      La repetición sistemática forja hábitos organizacionales inquebrantables. En la operación se viene a ejecutar resultados inmutables, no a teorizar.
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #f87171' }}>
-                    <div style={{ color: '#f87171', fontWeight: 800, fontSize: '0.85rem' }}>PASO 6: ENROLAMIENTO</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Elegir soldados, no espectadores</div>
+                    <div style={{ color: '#f87171', fontWeight: 800, fontSize: '0.85rem' }}>PASO 6: ALINEACIÓN</div>
+                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Elegir protagonistas, no espectadores</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      «No hay jugadores en la banca». Si dudas, no vuelvas tras el receso. Si regresas, es a Grandes Ligas.
+                      «No hay jugadores pasivos». El estándar de rigor requiere profesionales 100% involucrados con los objetivos estratégicos.
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #34d399' }}>
                     <div style={{ color: '#34d399', fontWeight: 800, fontSize: '0.85rem' }}>PASO 7: CONSTRUCCIÓN</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>¿Quiénes elegimos ser como equipo?</div>
+                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>¿Quiénes elegimos ser como organización?</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      Compromiso en acción: «Bienvenido a la cancha donde se meten los goles llamada [Tu Visión]».
+                      Compromiso en acción: «Bienvenidos al ecosistema de alto impacto donde se materializa [Tu Visión]».
                     </p>
                   </div>
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid var(--crear-gold)' }}>
                     <div style={{ color: 'var(--crear-gold)', fontWeight: 800, fontSize: '0.85rem' }}>PASO 8: CIERRE</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>¿Para qué vives?</div>
+                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>¿Para qué lideras?</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
-                      La plataforma de visión aterriza el sábado antes del llamado a la acción. La orientación prepara el terreno para todo lo que viene.
+                      La plataforma de visión aterriza con métricas claras y entregables definidos. La alineación prepara el terreno para la ejecución de alto rendimiento.
                     </p>
                   </div>
                 </div>
@@ -1181,10 +1181,10 @@ export default function VendeSinVender() {
                 {/* GUION DEL ENTRENADOR INTERACTIVO */}
                 <div style={{ background: '#040714', border: '1px solid rgba(236,72,153,0.3)', padding: '1.2rem', borderRadius: '12px', marginTop: '1rem' }}>
                   <div style={{ color: '#f472b6', fontWeight: 800, fontSize: '0.85rem', marginBottom: '0.4rem' }}>
-                    🎙️ GUION DEL ENTRENADOR EN SALA
+                    🎙️ GUION DE DIRECCIÓN OPERATIVA
                   </div>
                   <div style={{ color: '#fff', fontStyle: 'italic', fontSize: '1rem', lineHeight: 1.6 }}>
-                    «Mi nombre es [tu nombre]. Les pido permiso de ser su entrenador este fin de semana. Aunque no me elijan, yo soy el entrenador. A partir de ahora, lo que queda es alinear la letra con la música.»
+                    «Mi nombre es [tu nombre]. Asumo la dirección estratégica de este proceso. A partir de ahora, lo que queda es alinear los acuerdos formales con la ejecución impecable.»
                   </div>
                 </div>
               </div>
@@ -1193,15 +1193,15 @@ export default function VendeSinVender() {
                 <button onClick={() => setActiveChapter('cap6')} className="btn-secondary" style={{ padding: '8px 18px' }}>
                   ← Capítulo 6
                 </button>
-                <button onClick={() => setActiveChapter('orientacion')} className="btn-primary" style={{ padding: '8px 24px' }}>
-                  Capítulo 7: Construir desde la Nada →
+                <button onClick={() => setActiveChapter('epilogo')} className="btn-primary" style={{ padding: '8px 24px' }}>
+                  Epílogo: Manifiesto Final →
                 </button>
               </div>
             </div>
           )}
 
           {/* ============================================================== */}
-          {/* EPÍLOGO: LA PROMESA DEL LÍDER IMO                              */}
+          {/* EPÍLOGO: LA PROMESA DEL LÍDER                                  */}
           {/* ============================================================== */}
           {activeChapter === 'epilogo' && (
             <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
@@ -1210,58 +1210,58 @@ export default function VendeSinVender() {
                   EPÍLOGO
                 </span>
                 <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
-                  LA PROMESA DEL LÍDER IMO
+                  EL MANIFIESTO DEL LIDERAZGO DE ALTO RENDIMIENTO
                 </h2>
               </div>
 
-              {/* GRÁFICA NARRATIVA 8: EL MEDALLÓN Y MANIFIESTO DEL LÍDER IMO */}
-              <div className="glass-panel" style={{ background: 'linear-gradient(135deg, rgba(255, 183, 3, 0.15) 0%, rgba(0,0,0,0.8) 100%)', border: '2px solid var(--crear-gold)', borderRadius: '20px', padding: '2.5rem', textAlign: 'center', boxShadow: '0 15px 40px rgba(255, 183, 3, 0.2)' }}>
+              {/* GRÁFICA NARRATIVA 8: EL MEDALLÓN Y MANIFIESTO */}
+              <div className="glass-panel" style={{ background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(0,0,0,0.8) 100%)', border: '2px solid #38bdf8', borderRadius: '20px', padding: '2.5rem', textAlign: 'center', boxShadow: '0 15px 40px rgba(56, 189, 248, 0.2)' }}>
                 <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🏆✨</div>
-                <span style={{ background: 'var(--crear-gold)', color: '#000', padding: '4px 16px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 900, letterSpacing: '0.05em' }}>
-                  CREAR PODER SIN LÍMITES
+                <span style={{ background: '#38bdf8', color: '#000', padding: '4px 16px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 900, letterSpacing: '0.05em' }}>
+                  SISTEMA INTERRUPCIÓN
                 </span>
                 <h3 style={{ fontSize: '1.8rem', margin: '1rem 0 0.5rem', fontWeight: 800, color: '#fff' }}>
                   MANIFIESTO DEL LÍDER DE ALTO RENDIMIENTO
                 </h3>
-                <p style={{ maxWidth: '780px', margin: '0 auto', fontSize: '1.15rem', color: '#fef08a', lineHeight: '1.8', fontStyle: 'italic' }}>
-                  «Enrolar es el acto de amor y servicio más grande que existe. No estás vendiendo un producto; estás sosteniendo un contenedor seguro para que otro ser humano despierte del sueño anestésico de la víctima y se adueñe de su propio destino.»
+                <p style={{ maxWidth: '780px', margin: '0 auto', fontSize: '1.15rem', color: '#bae6fd', lineHeight: '1.8', fontStyle: 'italic' }}>
+                  «Enrolar es el acto de claridad y liderazgo estratégico más poderoso que existe. No estás vendiendo una promesa vacía; estás sosteniendo un contenedor de certidumbre para que otro líder despierte de la inercia reactiva y tome el control de sus resultados.»
                 </p>
 
                 <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
                   <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div style={{ color: '#34d399', fontWeight: 800 }}>🐶 PERRO CALMO</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Cero Fricción Biológica</div>
+                    <div style={{ color: '#34d399', fontWeight: 800 }}>🧠 CÓRTEX CALMO</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Cero Amenaza Biológica</div>
                   </div>
                   <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#fbbf24', fontWeight: 800 }}>⚖️ VALOR HORMOZI</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Oferta Irresistible</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Certeza Insuperable</div>
                   </div>
                   <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#38bdf8', fontWeight: 800 }}>🗺️ 3 PASOS</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Ticket Verde en Caja</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Acuerdos en Firme</div>
                   </div>
                   <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#c084fc', fontWeight: 800 }}>⚡ CAUSA OS</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>100% Creador</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>100% Responsabilidad</div>
                   </div>
                 </div>
               </div>
 
               <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#cbd5e1' }}>
                 <p>
-                  Calma al Perro Guardián, diseña con la Ecuación de Valor, guía con el Plan de 3 Pasos y opera siempre desde la Causa. El salón está listo, las luces están bajas, la música está en fisonomía de poder...
+                  Regula la respuesta de amenaza biológica, diseña con la Ecuación de Valor, guía con el Plan de 3 Pasos y opera siempre desde la Causa. La estrategia está clara, los datos están medidos y los acuerdos están firmes.
                 </p>
                 <div style={{ margin: '1.5rem 0', textAlign: 'center' }}>
-                  <h3 style={{ fontSize: '1.6rem', color: 'var(--crear-gold)', fontWeight: 900 }}>
-                    ¿Estás listo para salir al salón y crear magia?
+                  <h3 style={{ fontSize: '1.6rem', color: '#38bdf8', fontWeight: 900 }}>
+                    ¿Estás listo para liderar la interrupción estratégica?
                   </h3>
                 </div>
               </div>
 
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                 <div>
-                  *Este libro forma parte del estándar de capacitación unificado de Crear Poder Sin Límites Global.*<br />
-                  *Edición 2026 | Clasificación: REVELACIÓN - PARA USO OPERATIVO DE SEDES.*
+                  *Este manual forma parte del estándar formativo del Sistema Interrupción.*<br />
+                  *Edición 2026 | Clasificación: PROTOCOLO DIRECTIVO.*
                 </div>
                 <button
                   onClick={() => setActiveChapter('bienvenida')}

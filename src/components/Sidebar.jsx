@@ -35,9 +35,38 @@ export default function Sidebar({ isOpen, onClose }) {
           
           <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '150px', height: '150px', marginBottom: '0.5rem' }} />
           <h2 className="text-gold" style={{fontSize: '1.4rem', margin: 0, letterSpacing: '1px'}}>INTERRUPTION</h2>
-          <div style={{ marginTop: '0.8rem' }}>
+          <div style={{ marginTop: '0.8rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
             <ThemeToggle />
           </div>
+          <button 
+            type="button"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('open-global-search'));
+              onClose();
+            }}
+            style={{
+              marginTop: '0.75rem',
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '0.55rem 0.85rem',
+              borderRadius: '10px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+              color: 'var(--text-main, #f8f9fa)',
+              cursor: 'pointer',
+              fontSize: '0.85rem'
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>🔍</span>
+              <span>Buscador Global</span>
+            </span>
+            <kbd style={{ fontSize: '0.7rem', padding: '0.1rem 0.35rem', background: 'rgba(0,0,0,0.4)', borderRadius: '4px', color: '#94a3b8' }}>
+              Ctrl K
+            </kbd>
+          </button>
         </div>
         <nav>
         <ul>
@@ -113,6 +142,16 @@ export default function Sidebar({ isOpen, onClose }) {
               onClick={onClose}
             >
               State Calibration
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to="/laboratorio-sintergico"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={onClose}
+              style={{ color: '#38bdf8' }}
+            >
+              🌌 Laboratorio Sintérgico (Grinberg)
             </NavLink>
           </li>
           <li>

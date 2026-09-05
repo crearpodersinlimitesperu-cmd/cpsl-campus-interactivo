@@ -6,6 +6,7 @@
 
 export const CATEGORIAS_RETOS = [
   { id: 'TODAS', label: 'Todos los Retos', icon: '📋' },
+  { id: 'SINTERGIA', label: 'Coherencia Sintérgica (Grinberg)', icon: '🌌' },
   { id: 'ACCION', label: 'Antiprocrastinación', icon: '⚡' },
   { id: 'INTEGRIDAD', label: 'Integridad & Palabra', icon: '🛡️' },
   { id: 'EMOCIONES', label: 'Gestión Emocional (Cero Drama)', icon: '🧘' },
@@ -294,5 +295,79 @@ export const RETOS_AUTOENTRENAMIENTO_DEFAULT = [
     principioDidactico: "La propiocepción corporal modula la química cerebral. La postura colapsada eleva la sensación subjetiva de agotamiento y reduce la oxigenación.",
     practicaConcreta: "Ponte de pie, abre el pecho, haz 5 respiraciones diafragmáticas lentas y camina 3 minutos mirando al horizonte.",
     criterioExito: "Realizar al menos dos pausas activas de reinicio postural durante tu jornada."
+  },
+
+  // ==========================================
+  // CATEGORÍA: COHERENCIA SINTÉRGICA (DR. JACOBO GRINBERG)
+  // ==========================================
+  {
+    id: "reto-sint-01",
+    categoria: "SINTERGIA",
+    categoriaLabel: "Coherencia Sintérgica",
+    icono: "🌌",
+    titulo: "Sincronía Autoalusiva (5 Minutos de Alta Sintergia Pre-Junta)",
+    dificultad: "Intermedio",
+    tiempoEstimado: "5 min",
+    puntosXP: 250,
+    sintomaComico: "Entrar a la junta directiva con taquicardia por el tráfico y comenzar a tomar decisiones estratégicas como si estuvieras huyendo de un depredador.",
+    principioDidactico: "La Meditación Autoalusiva de Grinberg integra los micropotenciales dendríticos de los 12 mil millones de neuronas, sincronizando ambos hemisferios y reduciendo microdistorsiones de estrés antes de comités críticos.",
+    practicaConcreta: "Abre el Calibrador en el Laboratorio Sintérgico, selecciona 3 o 5 minutos y observa pensamientos y ruidos simultáneamente sin emitir juicio ni reactividad.",
+    criterioExito: "Completar la sesión de calibración autoalusiva en el Laboratorio Sintérgico y registrar el nivel de coherencia obtenido."
+  },
+  {
+    id: "reto-sint-02",
+    categoria: "SINTERGIA",
+    categoriaLabel: "Coherencia Sintérgica",
+    icono: "🎯",
+    titulo: "Factor de Direccionalidad en Neuromarketing: Poda Quirúrgica de Ruido",
+    dificultad: "Avanzado",
+    tiempoEstimado: "15 min",
+    puntosXP: 300,
+    sintomaComico: "Enviar una propuesta comercial de 48 diapositivas con tablas ilegibles y luego quejarte de que el cliente 'no tiene visión de futuro'.",
+    principioDidactico: "El Factor de Direccionalidad de la Teoría Sintérgica establece que el procesador central del cerebro solo puede colapsar la atención en un foco a la vez. Menos densidad superflua equivale a mayor sintergia y conversión inmediata.",
+    practicaConcreta: "Toma tu última propuesta o memorando ejecutivo y poda el 40% del texto accesorio: deja únicamente 1 problema nuclear, 1 solución medible y 1 llamado a la acción ineludible.",
+    criterioExito: "Rediseñar y enviar una versión de alta sintergia informacional de tu propuesta comercial o reporte ejecutivo."
+  },
+  {
+    id: "reto-sint-03",
+    categoria: "SINTERGIA",
+    categoriaLabel: "Coherencia Sintérgica",
+    icono: "🌐",
+    titulo: "Auditoría de Microdistorsiones en el Hipercampo del Equipo",
+    dificultad: "Intermedio",
+    tiempoEstimado: "10 min",
+    puntosXP: 250,
+    sintomaComico: "Tener a un gerente envenenando la sala con comentarios pasivo-agresivos mientras todos los demás fingen mirar sus laptops para no involucrarse.",
+    principioDidactico: "El Hipercampo es la matriz colectiva de campos neuronales. Un solo cerebro polarizado en queja defensiva desorganiza la coherencia decisional de todo el comité.",
+    practicaConcreta: "En tu próxima reunión, aplica la 'Pausa Táctica de Interrupción' de 60 segundos ante la primera queja abstracta y reconduce al equipo a hechos auditables: '¿Cuál es el dato verificable y qué acción propones?'.",
+    criterioExito: "Neutralizar una queja improductiva y transformar el diálogo en un compromiso formal con responsable y fecha."
+  },
+  {
+    id: "reto-sint-04",
+    categoria: "SINTERGIA",
+    categoriaLabel: "Coherencia Sintérgica",
+    icono: "⚡",
+    titulo: "Potencial Transferido: Sintonización Somática en Conflicto",
+    dificultad: "Avanzado",
+    tiempoEstimado: "10 min",
+    puntosXP: 300,
+    sintomaComico: "Querer calmar a un cliente furioso gritándole por teléfono que 'se calme inmediatamente que las políticas son muy claras'.",
+    principioDidactico: "Los estudios de Grinberg demostraron correlación electrofisiológica no local (EEG) entre cerebros sintonizados. Tu frecuencia cardíaca y tono de voz modulan directamente la amígdala de tu interlocutor.",
+    practicaConcreta: "Ante un cliente o colega enojado, baja tu tono de voz medio octavo, mantén postura abierta y utiliza 3 segundos de silencio deliberado antes de responder con empatía táctica.",
+    criterioExito: "Registrar una negociación tensa donde desactivaste la agresividad del interlocutor mediante presencia y sintonía somática."
+  },
+  {
+    id: "reto-sint-05",
+    categoria: "SINTERGIA",
+    categoriaLabel: "Coherencia Sintérgica",
+    icono: "👑",
+    titulo: "Conciencia de Unidad: Negociación desde el Sistema Total",
+    dificultad: "Avanzado",
+    tiempoEstimado: "20 min",
+    puntosXP: 300,
+    sintomaComico: "Celebrar que tu departamento ahorró presupuesto mientras la línea de producción de la empresa se detuvo por falta de insumos que tú cancelaste.",
+    principioDidactico: "La Conciencia de Unidad disuelve la ilusión de separación del ego. En alta dirección, una victoria departamental que perjudique el resultado global de la organización es una derrota técnica.",
+    practicaConcreta: "Convoca una reunión con el área de mayor fricción y cede un recurso secundario a cambio de alinear un objetivo estratégico común que impulse la facturación o margen de toda la empresa.",
+    criterioExito: "Firmar o acordar una alianza interdepartamental resolviendo un cuello de botella sistémico."
   }
 ];

@@ -368,6 +368,25 @@ export default function Dashboard() {
           </div>
 
           <div 
+            onClick={() => navigate('/masterclass')}
+            className="glass-panel" 
+            style={{ padding: '1.5rem', cursor: 'pointer', border: '1px solid rgba(139, 92, 246, 0.35)', background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(0,0,0,0.5) 100%)', transition: 'all 0.25s ease' }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = '#a78bfa'}
+            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.35)'}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '1.8rem' }}>🎬</span>
+              <span style={{ fontSize: '0.7rem', fontWeight: 900, background: 'rgba(139, 92, 246, 0.25)', color: '#c4b5fd', padding: '2px 8px', borderRadius: '9999px', border: '1px solid rgba(139, 92, 246, 0.4)' }}>
+                VIDEO MASTERCLASS
+              </span>
+            </div>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Masterclass: 5 Distinciones</h4>
+            <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
+              Video oficial y marco científico: Seguridad Psicológica (Edmondson), Voss, Rotter y Efecto Mandela.
+            </p>
+          </div>
+
+          <div 
             onClick={() => navigate('/retos')}
             className="glass-panel" 
             style={{ padding: '1.5rem', cursor: 'pointer', border: '1px solid rgba(56, 189, 248, 0.25)', transition: 'all 0.25s ease' }}
@@ -381,6 +400,24 @@ export default function Dashboard() {
             </p>
           </div>
 
+          <div 
+            onClick={() => navigate('/laboratorio-sintergico')}
+            className="glass-panel" 
+            style={{ padding: '1.5rem', cursor: 'pointer', border: '1px solid rgba(56, 189, 248, 0.35)', background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(0,0,0,0.5) 100%)', transition: 'all 0.25s ease' }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = '#38bdf8'}
+            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.35)'}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '1.8rem' }}>🌌</span>
+              <span style={{ fontSize: '0.7rem', fontWeight: 900, background: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8', padding: '2px 8px', borderRadius: '9999px', border: '1px solid rgba(56, 189, 248, 0.4)' }}>
+                PSICOFISIOLOGÍA GRINBERG
+              </span>
+            </div>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Laboratorio Sintérgico</h4>
+            <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
+              Calibrador de Coherencia EEG, Lattice, Hipercampo de comités y neuromarketing decisional con recompensas de XP.
+            </p>
+          </div>
         </div>
       </section>
 
