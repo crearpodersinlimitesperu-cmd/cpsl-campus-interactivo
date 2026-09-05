@@ -748,6 +748,31 @@ export default function LaboratorioSintergico() {
             </p>
           </div>
 
+          {/* VIDEO EXPLICATIVO OFICIAL: ENFOQUE SINTÉRGICO */}
+          <div style={{ marginBottom: '2rem', padding: '1.25rem', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase' }}>
+                  Videocápsula de Rigor • Teoría Sintérgica & Coherencia Interhemisférica
+                </span>
+              </div>
+              <span style={{ fontSize: '0.72rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: '9999px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                ⏱️ 1:42 • Dr. Jacobo Grinberg
+              </span>
+            </div>
+            <div style={{ position: 'relative', width: '100%', maxHeight: '420px', borderRadius: '12px', overflow: 'hidden', background: '#000', display: 'flex', justifyContent: 'center' }}>
+              <video 
+                controls 
+                preload="metadata" 
+                style={{ width: '100%', maxHeight: '420px', objectFit: 'contain' }}
+              >
+                <source src="/videos/enfoque_sintergico.mp4" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+          </div>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
             
             <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.25rem', borderRadius: '12px', borderLeft: '4px solid #38bdf8' }}>

@@ -363,6 +363,31 @@ export default function VendeSinVender() {
                 </p>
               </div>
 
+              {/* VIDEO DE ENTRENAMIENTO: BIOLOGÍA DE LA DECISIÓN & AMÍGDALA */}
+              <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '0.5rem', borderRadius: '16px', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+                    <span style={{ fontSize: '0.8rem', color: '#f87171', fontWeight: 800, textTransform: 'uppercase' }}>
+                      Videocápsula Oficial • Biología de la Decisión & Secuestro Amigdalino
+                    </span>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: '9999px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    ⏱️ 1:40 • Joseph LeDoux & Kahneman
+                  </span>
+                </div>
+                <div style={{ position: 'relative', width: '100%', maxHeight: '420px', borderRadius: '12px', overflow: 'hidden', background: '#000', display: 'flex', justifyContent: 'center' }}>
+                  <video 
+                    controls 
+                    preload="metadata" 
+                    style={{ width: '100%', maxHeight: '420px', objectFit: 'contain' }}
+                  >
+                    <source src="/videos/decision_y_amigdala.mp4" type="video/mp4" />
+                    Tu navegador no soporta video HTML5.
+                  </video>
+                </div>
+              </div>
+
               {/* GRÁFICA NARRATIVA 3: EL TEMPLO DE LA DECISIÓN Y SELECTOR DE ALARMA */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -529,6 +554,31 @@ export default function VendeSinVender() {
                 <p>
                   El genio de los negocios Alex Hormozi resumió por qué la gente compra (o se enrola) en una fórmula matemática brillante. Si aprendes a dominar esta balanza, nunca más tendrás que suplicar una inscripción.
                 </p>
+              </div>
+
+              {/* VIDEO DE ENTRENAMIENTO: LA ARQUITECTURA DEL VALOR */}
+              <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.8rem', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--crear-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                      Videocápsula Oficial • La Ecuación de Valor & Vende Sin Vender
+                    </span>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: '9999px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    ⏱️ 1:45 • Alex Hormozi Framework
+                  </span>
+                </div>
+                <div style={{ position: 'relative', width: '100%', maxHeight: '420px', borderRadius: '12px', overflow: 'hidden', background: '#000', display: 'flex', justifyContent: 'center' }}>
+                  <video 
+                    controls 
+                    preload="metadata" 
+                    style={{ width: '100%', maxHeight: '420px', objectFit: 'contain' }}
+                  >
+                    <source src="/videos/la_arquitectura_del_valor.mp4" type="video/mp4" />
+                    Tu navegador no soporta video HTML5.
+                  </video>
+                </div>
               </div>
 
               {/* GRÁFICA NARRATIVA 4: BALANZA INTERACTIVA DE HORMOZI */}
