@@ -15,6 +15,20 @@ export function AuthProvider({ children }) {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
+    const mockStr = localStorage.getItem('cpsl_mock_user');
+    if (mockStr) {
+      try {
+        const mock = JSON.parse(mockStr);
+        setUser(mock);
+        setIsAdmin(true);
+        setSessionId('mock-session-dev');
+        setLoading(false);
+        return;
+      } catch (e) {
+        console.error("Error parseando mock user:", e);
+      }
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setLoading(true);
       setAuthError(null);

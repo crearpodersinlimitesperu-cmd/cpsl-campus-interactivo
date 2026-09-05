@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import ThemeToggle from './ThemeToggle'
 
 import { useEffect } from 'react'
 
@@ -24,7 +25,7 @@ export default function Sidebar({ isOpen, onClose }) {
         className={`sidebar glass-panel ${isOpen ? 'open' : ''}`}
         aria-label="Navegación principal"
       >
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem', position: 'relative' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.8rem', position: 'relative' }}>
           <button className="close-sidebar-btn" onClick={onClose} aria-label="Cerrar menú" style={{ position: 'absolute', right: '-10px', top: '-10px' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -32,8 +33,11 @@ export default function Sidebar({ isOpen, onClose }) {
             </svg>
           </button>
           
-          <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '160px', height: '160px', marginBottom: '0.5rem' }} />
+          <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '150px', height: '150px', marginBottom: '0.5rem' }} />
           <h2 className="text-gold" style={{fontSize: '1.4rem', margin: 0, letterSpacing: '1px'}}>INTERRUPTION</h2>
+          <div style={{ marginTop: '0.8rem' }}>
+            <ThemeToggle />
+          </div>
         </div>
         <nav>
         <ul>

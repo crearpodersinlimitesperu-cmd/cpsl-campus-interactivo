@@ -3,6 +3,7 @@ import { maquinaQuiebres } from '../data/maquinaQuiebres';
 import { useUI } from '../context/UIContext';
 import { useAuth } from '../context/AuthContext';
 import { logUserAction } from '../services/db';
+import { celebrateBreakthrough } from '../utils/neuroAudio';
 
 export default function MaquinaQuiebres() {
   const [patronActivo, setPatronActivo] = useState(null);
@@ -139,7 +140,19 @@ export default function MaquinaQuiebres() {
 
               <div className="highlight-blue" style={{ textAlign: 'center', padding: '1.5rem' }}>
                 <span style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '2px', marginBottom: '0.5rem', color: 'var(--crear-blue)' }}>Pregunta de Quiebre</span>
-                <strong style={{ fontSize: '1.2rem', color: '#fff' }}>"{mq.pregunta_quiebre}"</strong>
+                <strong style={{ fontSize: '1.2rem', color: 'var(--text-main, #fff)' }}>"{mq.pregunta_quiebre}"</strong>
+                <div style={{ marginTop: '1.5rem' }}>
+                  <button
+                    onClick={() => {
+                      celebrateBreakthrough();
+                      if (user) logUserAction(user.uid, sessionId, 'Rompió Patrón (Quiebre)', `Patrón: ${mq.patron}`);
+                    }}
+                    className="btn-primary"
+                    style={{ fontSize: '0.95rem', padding: '12px 28px', cursor: 'pointer' }}
+                  >
+                    ⚡ ¡Superar Patrón y Declarar Victoria!
+                  </button>
+                </div>
               </div>
 
             </div>

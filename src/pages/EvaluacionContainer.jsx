@@ -8,6 +8,7 @@ import { evaluarRespuestaAlumno } from '../services/ai';
 import DOMPurify from 'dompurify';
 import { curriculum } from '../data/curriculum';
 import { getUserProgress } from '../services/db';
+import { celebrateBreakthrough } from '../utils/neuroAudio';
 
 export default function EvaluacionContainer() {
   const { id } = useParams();
@@ -71,6 +72,10 @@ export default function EvaluacionContainer() {
       setPassed(result.passed);
       setIsFinished(true);
       
+      if (result.passed) {
+        celebrateBreakthrough();
+      }
+
       if (user) {
         logUserAction(user.uid, sessionId, 'Finalizó Evaluación IA', `Aprobó: ${result.passed ? 'Sí' : 'No'}`);
         // Consider a "score" of 100 if passed, 0 if not passed for the DB layer

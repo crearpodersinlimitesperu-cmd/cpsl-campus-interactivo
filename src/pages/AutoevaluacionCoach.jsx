@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { dimensionesAutoevaluacion, checklistCoach } from '../data/autoevaluacionCoach';
 import { useAuth } from '../context/AuthContext';
 import { logUserAction } from '../services/db';
+import { playSuccessChime } from '../utils/neuroAudio';
 
 export default function AutoevaluacionCoach() {
   const [dimensionActiva, setDimensionActiva] = useState(null);
@@ -14,8 +15,11 @@ export default function AutoevaluacionCoach() {
   const handleCheck = (index) => {
     setCheckedDiario(prev => {
       const isChecking = !prev[index];
-      if (isChecking && user) {
-        logUserAction(user.uid, sessionId, 'Marcó Checkbox', `Checklist: ${checklistCoach.diario[index]}`);
+      if (isChecking) {
+        playSuccessChime();
+        if (user) {
+          logUserAction(user.uid, sessionId, 'Marcó Checkbox', `Checklist: ${checklistCoach.diario[index]}`);
+        }
       }
       return {...prev, [index]: isChecking};
     });

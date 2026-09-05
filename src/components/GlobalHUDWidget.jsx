@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { getUserProgress } from '../services/db';
+import ThemeToggle from './ThemeToggle';
 
 export default function GlobalHUDWidget() {
   const { user } = useAuth();
@@ -58,6 +59,7 @@ export default function GlobalHUDWidget() {
     <>
       <div className="global-hud-widget animate-fade-in">
         <audio ref={audioRef} src="/Magic.mp3" loop />
+        <ThemeToggle />
         
         <button 
           className={`hud-music-btn ${isPlaying ? 'playing' : ''}`}

@@ -101,7 +101,7 @@ export default function Dashboard() {
 
       {/* SECCIÓN 1: CENTRO DE COMANDO & ACCIÓN PRINCIPAL "ENTRAR AL CRISOL DEL DÍA" */}
       <section aria-label="El Crisol del Día" style={{ marginBottom: '2rem' }}>
-        <article className="glass-panel" style={{
+        <article className="glass-panel hero-banner-crisol" style={{
           padding: '2rem',
           border: '1.5px solid rgba(255, 183, 3, 0.5)',
           background: 'linear-gradient(135deg, rgba(255, 183, 3, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%)',

@@ -4,6 +4,7 @@ import './App.css'
 
 import Sidebar from './components/Sidebar'
 import GlobalHUDWidget from './components/GlobalHUDWidget'
+import ThemeToggle from './components/ThemeToggle'
 import ProtectedRoute from './components/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
 import RutaFormacion from './pages/RutaFormacion'
@@ -74,7 +75,10 @@ function App() {
 
   if (!user) {
     return (
-      <div className="login-container">
+      <div className="login-container" style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', zIndex: 100 }}>
+          <ThemeToggle />
+        </div>
         <div className="glass-panel login-card animate-fade-in" style={{padding: '4rem 3rem'}}>
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
             <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{width: '300px', height: '300px', maxWidth: '100%'}} />
@@ -106,20 +110,23 @@ function App() {
               <img src="/interrupcion_logo.jpg" alt="Logo Interruption" className="logo-holographic" style={{ width: '45px', height: '45px' }} />
               <h2 className="text-gold" style={{ fontSize: '1.2rem', margin: 0, letterSpacing: '1px' }}>INTERRUPTION</h2>
             </div>
-            <button 
-              type="button"
-              className="mobile-menu-btn" 
-              onClick={toggleMobileMenu}
-              aria-label="Abrir menú principal"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="main-navigation"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <ThemeToggle />
+              <button 
+                type="button"
+                className="mobile-menu-btn" 
+                onClick={toggleMobileMenu}
+                aria-label="Abrir menú principal"
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="main-navigation"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crear-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+            </div>
           </div>
           <Sidebar isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
         </>
