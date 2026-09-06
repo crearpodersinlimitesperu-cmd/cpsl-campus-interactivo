@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useUI } from '../context/UIContext';
 import { useNavigate } from 'react-router-dom';
+import { sintergiaAudio } from '../utils/sintergiaAudio';
 
 export default function LaboratorioSintergico() {
   const { user } = useAuth();
@@ -55,6 +56,77 @@ export default function LaboratorioSintergico() {
   const [autoalusionFase, setAutoalusionFase] = useState('Fase 1: Reducción de Microdistorsiones');
   const [sesionFinalizada, setSesionFinalizada] = useState(false);
 
+  // Estados de Estimulación Neuroacústica (Web Audio API)
+  const [audioMuted, setAudioMuted] = useState(false);
+  const [audioVolume, setAudioVolume] = useState(0.7);
+  const [audioPreset, setAudioPreset] = useState('binaural'); // 'binaural' | 'cuencos' | 'respiracion'
+
+  // Controladores de Audio
+  const handleToggleMute = () => {
+    const nextMuted = !audioMuted;
+    setAudioMuted(nextMuted);
+    sintergiaAudio.setMuted(nextMuted);
+  };
+
+  const handleVolumeChange = (vol) => {
+    setAudioVolume(vol);
+    if (audioMuted) {
+      setAudioMuted(false);
+      sintergiaAudio.setMuted(false);
+    }
+    sintergiaAudio.setVolume(vol);
+  };
+
+  const handlePresetChange = (preset) => {
+    setAudioPreset(preset);
+    sintergiaAudio.setPreset(preset);
+  };
+
+  const handleStartCalibration = () => {
+    setIsRunning(true);
+    setSesionFinalizada(false);
+    sintergiaAudio.startSession({
+      duration: timerSeconds,
+      volume: audioVolume,
+      preset: audioPreset,
+      isMuted: audioMuted
+    });
+  };
+
+  const handlePauseCalibration = () => {
+    setIsRunning(false);
+    sintergiaAudio.pauseSession();
+  };
+
+  const handleResumeCalibration = () => {
+    setIsRunning(true);
+    sintergiaAudio.resumeSession();
+  };
+
+  const handleResetCalibration = () => {
+    setIsRunning(false);
+    sintergiaAudio.stopSession();
+    setTimerSeconds(selectedDuration);
+    setCoherenciaScore(72);
+    setAutoalusionFase('Fase 1: Reducción de Microdistorsiones');
+    setFrecuenciaOnda('Alfa (10.5 Hz)');
+    setSesionFinalizada(false);
+  };
+
+  // Limpieza al desmontar o cambiar de pestaña
+  useEffect(() => {
+    return () => {
+      sintergiaAudio.stopSession();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (activeTab !== 'calibrador' && isRunning) {
+      setIsRunning(false);
+      sintergiaAudio.pauseSession();
+    }
+  }, [activeTab]);
+
   // Formulario de Evidencia
   const [dinamicaSeleccionada, setDinamicaSeleccionada] = useState('Hipercampo en Comités');
   const [textoEvidencia, setTextoEvidencia] = useState('');
@@ -65,7 +137,7 @@ export default function LaboratorioSintergico() {
     setTimeout(() => setFeedbackToast(null), 4000);
   };
 
-  // Temporizador interactivo de Meditación Autoalusiva
+  // Temporizador interactivo de Meditación Autoalusiva con Modulación Sonora en Tiempo Real
   useEffect(() => {
     let interval = null;
     if (isRunning && timerSeconds > 0) {
@@ -79,20 +151,28 @@ export default function LaboratorioSintergico() {
           setCoherenciaScore(Math.min(99, variacion));
 
           // Fases de Meditación Autoalusiva (Dr. Grinberg)
+          let phaseNum = 1;
           if (progreso < 0.33) {
+            phaseNum = 1;
             setAutoalusionFase('Fase 1: Observación Somática (Disolución de Microdistorsiones de Estrés)');
             setFrecuenciaOnda('Alfa Rápido (12 Hz) — Desaceleración Neocortical');
           } else if (progreso < 0.7) {
+            phaseNum = 2;
             setAutoalusionFase('Fase 2: Integración Simultánea (Percepción del Campo Neuronal Unificado)');
             setFrecuenciaOnda('Alfa Puro (10 Hz) — Coherencia Interhemisférica Elevada');
           } else {
+            phaseNum = 3;
             setAutoalusionFase('Fase 3: Autoalusión Pura (El Observador mimetizando la Lattice)');
             setFrecuenciaOnda('Theta Sincronizado (7.5 Hz) — Alta Sintergia Directiva');
           }
 
+          // Modular frecuencia binaural según la fase
+          sintergiaAudio.updateProgress(progreso, phaseNum);
+
           if (nuevo <= 0) {
             setIsRunning(false);
             setSesionFinalizada(true);
+            sintergiaAudio.finishSession();
             return 0;
           }
           return nuevo;
@@ -107,6 +187,7 @@ export default function LaboratorioSintergico() {
   // Manejo de duración
   const handleSelectDuration = (segundos) => {
     if (isRunning) return;
+    sintergiaAudio.stopSession();
     setSelectedDuration(segundos);
     setTimerSeconds(segundos);
     setSesionFinalizada(false);
@@ -129,6 +210,8 @@ export default function LaboratorioSintergico() {
     }));
 
     setSesionFinalizada(false);
+    sintergiaAudio.stopSession();
+    setTimerSeconds(selectedDuration);
     showToast(`¡Sesión de Autoalusión Verificada! +${xpAñadida} XP y Coherencia Registrada.`);
   };
 
@@ -317,6 +400,123 @@ export default function LaboratorioSintergico() {
             </div>
           </div>
 
+          {/* BARRA DE ESTIMULACIÓN NEUROACÚSTICA (SONIDO DE SINCRONÍA SINTÉRGICA) */}
+          <div style={{
+            background: 'rgba(15, 23, 42, 0.75)',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
+            borderRadius: '14px',
+            padding: '0.85rem 1.25rem',
+            marginBottom: '1.5rem',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1rem',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+              <div style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                background: isRunning && !audioMuted ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                border: isRunning && !audioMuted ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.15rem'
+              }}>
+                {isRunning && !audioMuted ? '🎧' : (audioMuted ? '🔇' : '🎵')}
+              </div>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#f8fafc' }}>
+                    Estimulación Neuroacústica Binaural • 432 Hz
+                  </span>
+                  {isRunning && !audioMuted && (
+                    <span style={{
+                      fontSize: '0.68rem',
+                      padding: '0.15rem 0.5rem',
+                      borderRadius: '9999px',
+                      background: 'rgba(16, 185, 129, 0.2)',
+                      color: '#34d399',
+                      fontWeight: 700,
+                      border: '1px solid rgba(16, 185, 129, 0.4)'
+                    }}>
+                      ● EMITIENDO SONIDO
+                    </span>
+                  )}
+                </div>
+                <p style={{ margin: 0, fontSize: '0.75rem', color: '#94a3b8' }}>
+                  Ondas alfa/theta dinámicas y cuencos de resonancia para sincronizar ambos hemisferios (Recomendado con audífonos estéreo).
+                </p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+              {/* Selector de Preset */}
+              <select
+                value={audioPreset}
+                onChange={(e) => handlePresetChange(e.target.value)}
+                style={{
+                  background: 'rgba(2, 6, 23, 0.85)',
+                  border: '1px solid rgba(56, 189, 248, 0.3)',
+                  borderRadius: '8px',
+                  color: '#e2e8f0',
+                  padding: '0.4rem 0.7rem',
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  outline: 'none'
+                }}
+              >
+                <option value="binaural">🧠 Sincronía Binaural (12Hz → 10Hz → 7.5Hz)</option>
+                <option value="cuencos">🔔 Cuencos Tibetanos & Campanas Zen</option>
+                <option value="respiracion">🌊 Respiración Coherente (0.1 Hz / Lattice)</option>
+              </select>
+
+              {/* Botón Silencio / Mute */}
+              <button
+                onClick={handleToggleMute}
+                title={audioMuted ? 'Activar Sonido' : 'Silenciar'}
+                style={{
+                  background: audioMuted ? 'rgba(239, 68, 68, 0.2)' : 'rgba(56, 189, 248, 0.15)',
+                  border: audioMuted ? '1px solid rgba(239, 68, 68, 0.4)' : '1px solid rgba(56, 189, 248, 0.3)',
+                  borderRadius: '8px',
+                  color: audioMuted ? '#f87171' : '#38bdf8',
+                  padding: '0.4rem 0.7rem',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.35rem'
+                }}
+              >
+                {audioMuted ? '🔇 Silenciado' : '🔊 Con Sonido'}
+              </button>
+
+              {/* Slider de Volumen */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Vol:</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.05"
+                  value={audioMuted ? 0 : audioVolume}
+                  onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+                  style={{
+                    width: '65px',
+                    accentColor: '#38bdf8',
+                    cursor: 'pointer'
+                  }}
+                  title={`Volumen: ${Math.round(audioVolume * 100)}%`}
+                />
+              </div>
+            </div>
+          </div>
+
           {/* MONITOR HUD INTERACTIVO DE ONDAS & COHERENCIA */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
             
@@ -366,18 +566,35 @@ export default function LaboratorioSintergico() {
               </div>
               
               {!isRunning && !sesionFinalizada && (
-                <button
-                  onClick={() => setIsRunning(true)}
-                  className="btn-primary"
-                  style={{ width: '100%', maxWidth: '200px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 800 }}
-                >
-                  ▶ Iniciar Calibración
-                </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', alignItems: 'center' }}>
+                  <button
+                    onClick={timerSeconds < selectedDuration ? handleResumeCalibration : handleStartCalibration}
+                    className="btn-primary"
+                    style={{ width: '100%', maxWidth: '220px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 800 }}
+                  >
+                    {timerSeconds < selectedDuration ? '▶ Reanudar Calibración' : '▶ Iniciar Calibración'}
+                  </button>
+                  {timerSeconds < selectedDuration && (
+                    <button
+                      onClick={handleResetCalibration}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: '#94a3b8',
+                        fontSize: '0.75rem',
+                        cursor: 'pointer',
+                        textDecoration: 'underline'
+                      }}
+                    >
+                      ↺ Reiniciar tiempo ({formatearTiempo(selectedDuration)})
+                    </button>
+                  )}
+                </div>
               )}
 
               {isRunning && (
                 <button
-                  onClick={() => setIsRunning(false)}
+                  onClick={handlePauseCalibration}
                   className="btn-secondary"
                   style={{ width: '100%', maxWidth: '200px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', color: '#f87171', borderColor: '#f87171' }}
                 >
