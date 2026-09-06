@@ -972,5 +972,278 @@ h1, h2, h3, h4, h5, h6 {
   border-top-color: #e2e8f0;
 }
 
+/* ==========================================================================
+   Masterclass & Videoteca Canónica
+   ========================================================================== */
 
+.masterclass-container {
+  padding-bottom: 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
+.masterclass-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .masterclass-header-left {
+    max-width: calc(100% - 240px);
+  }
+}
+
+.masterclass-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.masterclass-badge-cyan {
+  background: rgba(0, 212, 255, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.masterclass-badge-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.masterclass-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0.4rem 0 0.5rem 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.masterclass-subtitle {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+
+.masterclass-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.masterclass-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.6rem 2.2rem 0.6rem 2.2rem;
+  color: #f8fafc;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.masterclass-search-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.masterclass-categories-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.masterclass-cat-btn {
+  padding: 0.45rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  transition: all 0.2s;
+}
+
+.masterclass-cat-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.masterclass-cat-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+}
+
+.masterclass-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .masterclass-main-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.masterclass-player-card {
+  background: #090d16;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.masterclass-speed-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.masterclass-speed-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.masterclass-speed-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 700;
+  border-color: #38bdf8;
+}
+
+.masterclass-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+.masterclass-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.masterclass-playlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.masterclass-playlist-scroll {
+  max-height: 600px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-right: 0.35rem;
+}
+
+.masterclass-playlist-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.masterclass-playlist-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.masterclass-playlist-item {
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.masterclass-playlist-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.masterclass-playlist-item.active {
+  background: linear-gradient(135deg, rgba(8, 47, 73, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 4px 15px rgba(8, 47, 73, 0.5);
+}
+
+.masterclass-study-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+
+.masterclass-study-table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  background: #0f172a;
+  border-bottom: 2px solid #1e293b;
+  font-weight: 700;
+}
+
+.masterclass-study-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #1e293b;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.masterclass-study-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Masterclass Reading Content Utilities */
+.text-cyan-400 { color: #38bdf8 !important; }
+.text-rose-400 { color: #fb7185 !important; }
+.text-emerald-400 { color: #34d399 !important; }
+.text-indigo-400 { color: #818cf8 !important; }
+.text-amber-400 { color: #fbbf24 !important; }
+.text-gray-300 { color: #cbd5e1 !important; }
+.text-gray-400 { color: #94a3b8 !important; }
+.bg-gray-800 { background: #1e293b !important; }
+.border-gray-800 { border-color: #1e293b !important; }
+.border-gray-700 { border-color: #334155 !important; }
+.space-y-2 > * + * { margin-top: 0.5rem !important; }

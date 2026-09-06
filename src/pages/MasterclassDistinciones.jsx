@@ -212,35 +212,64 @@ export default function MasterclassDistinciones() {
   }, [filterCategory, searchQuery]);
 
   return (
-    <div className="p-4 md:p-8 max-w-7xl mx-auto text-slate-300">
+    <div className="masterclass-container animate-fade-in">
       
       {/* HEADER DE LA SECCIÓN */}
-      <header className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
-        <div>
-          <div className="flex items-center gap-2 mb-2">
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+      <header className="masterclass-header">
+        <div className="masterclass-header-left">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.5rem' }}>
+            <span className="masterclass-badge-pill masterclass-badge-cyan">
               SISTEMA INTERRUPCIÓN • VIDEOTECA MASTERCLASS
             </span>
-            <span className="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+            <span className="masterclass-badge-pill masterclass-badge-emerald">
               12 Cápsulas Disponibles
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400">
+
+          <h1 className="masterclass-title">
             Masterclass Canónica & Video-Cápsulas de Rigor
           </h1>
-          <p className="text-slate-400 text-sm md:text-base mt-1">
+
+          <p className="masterclass-subtitle">
             Fundamentos ontológicos, neurobiológicos y decisionales para directores y líderes de alto rendimiento.
           </p>
-          <div className="flex items-center gap-2 flex-wrap mt-2">
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginTop: '0.6rem' }}>
             <Link 
               to="/recursos?tab=blueprint" 
-              className="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.45rem 0.85rem',
+                borderRadius: '8px',
+                background: 'rgba(245, 158, 11, 0.15)',
+                color: '#fcd34d',
+                border: '1px solid rgba(245, 158, 11, 0.3)',
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'all 0.2s'
+              }}
             >
               <span>📐</span> Visor Blueprint (20 Láminas)
             </Link>
             <Link 
               to="/recursos?tab=documentos" 
-              className="px-3 py-1 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border border-blue-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.45rem 0.85rem',
+                borderRadius: '8px',
+                background: 'rgba(56, 189, 248, 0.15)',
+                color: '#7dd3fc',
+                border: '1px solid rgba(56, 189, 248, 0.3)',
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'all 0.2s'
+              }}
             >
               <span>📄</span> Manuales Canónicos (PDF & DOCX)
             </Link>
@@ -248,205 +277,244 @@ export default function MasterclassDistinciones() {
         </div>
 
         {/* Buscador Rápido */}
-        <div className="w-full md:w-72">
-          <div className="relative">
-            <input 
-              type="text"
-              placeholder="Buscar por tema o científico..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-3 py-2 pl-9 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition"
-            />
-            <span className="absolute left-3 top-2.5 text-xs text-slate-500">🔍</span>
-            {searchQuery && (
-              <button 
-                onClick={() => setSearchQuery('')}
-                className="absolute right-2.5 top-2 text-xs text-slate-400 hover:text-white"
-              >
-                ✕
-              </button>
-            )}
-          </div>
+        <div className="masterclass-search-box">
+          <span style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', fontSize: '0.85rem', pointerEvents: 'none' }}>
+            🔍
+          </span>
+          <input 
+            type="text"
+            placeholder="Buscar por tema o científico..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="masterclass-search-input"
+          />
+          {searchQuery && (
+            <button 
+              onClick={() => setSearchQuery('')}
+              style={{
+                position: 'absolute',
+                right: '0.75rem',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'none',
+                border: 'none',
+                color: '#94a3b8',
+                cursor: 'pointer',
+                fontSize: '0.85rem',
+                padding: '2px'
+              }}
+            >
+              ✕
+            </button>
+          )}
         </div>
       </header>
 
       {/* FILTRO DE CATEGORÍAS */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setFilterCategory(cat)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
-              filterCategory === cat
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
-                : 'bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            {cat === 'all' ? '✨ Todas las Cápsulas' : cat}
-          </button>
-        ))}
+      <div className="masterclass-categories-bar">
+        {categories.map((cat) => {
+          const isActive = filterCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => setFilterCategory(cat)}
+              className={`masterclass-cat-btn ${isActive ? 'active' : ''}`}
+            >
+              {cat === 'all' ? '✨ Todas las Cápsulas' : cat}
+            </button>
+          );
+        })}
       </div>
 
       {/* ÁREA PRINCIPAL: REPRODUCTOR + PLAYLIST */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+      <div className="masterclass-main-grid">
         
-        {/* REPRODUCTOR EN VIVO (8 Columnas en Desktop) */}
-        <div className="lg:col-span-8 flex flex-col gap-4">
-          <div className="rounded-2xl overflow-hidden border border-cyan-500/30 bg-slate-950/95 shadow-2xl p-4 md:p-6 flex flex-col justify-between">
+        {/* REPRODUCTOR EN VIVO (Lado Izquierdo) */}
+        <div className="masterclass-player-card">
+          
+          {/* Topbar del reproductor */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', paddingBottom: '0.75rem', marginBottom: '0.75rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0, flex: 1 }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#38bdf8', boxShadow: '0 0 8px #38bdf8', flexShrink: 0 }}></span>
+              <span style={{ color: '#38bdf8', fontWeight: 800, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.5px', flexShrink: 0 }}>
+                {selectedVideo.badge}
+              </span>
+              <span style={{ color: '#64748b' }}>•</span>
+              <span style={{ color: '#f1f5f9', fontWeight: 600, fontSize: '0.88rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {selectedVideo.title}
+              </span>
+            </div>
             
-            {/* Topbar del reproductor */}
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 flex-wrap gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-cyan-400">
-                  {selectedVideo.badge}
-                </span>
-                <span className="text-xs text-slate-500">•</span>
-                <span className="text-xs text-slate-300 font-semibold truncate max-w-xs md:max-w-md">
-                  {selectedVideo.title}
-                </span>
-              </div>
-              
-              {/* Selector de velocidad */}
-              <div className="flex items-center gap-1 bg-white/5 rounded-lg p-1 border border-white/10 text-xs">
-                <span className="text-slate-400 px-1">Vel:</span>
-                {[1, 1.25, 1.5].map((speed) => (
-                  <button
-                    key={speed}
-                    onClick={() => handleSpeedChange(speed)}
-                    className={`px-1.5 py-0.5 rounded text-xs transition ${
-                      playbackSpeed === speed 
-                        ? 'bg-cyan-500 text-white font-bold' 
-                        : 'text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    {speed}x
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Video Player */}
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-white/5 flex items-center justify-center">
-              <video 
-                ref={videoRef}
-                controls 
-                preload="metadata" 
-                className="w-full h-full object-contain"
-                key={selectedVideo.videoUrl}
-              >
-                <source src={selectedVideo.videoUrl} type="video/mp4" />
-                Tu navegador no soporta la reproducción de video HTML5.
-              </video>
-            </div>
-
-            {/* Info inferior del video seleccionado */}
-            <div className="mt-4 pt-3 border-t border-white/10 flex flex-col gap-2">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <span>{selectedVideo.icon}</span>
-                  <span>{selectedVideo.title}</span>
-                </h3>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono">
-                  ⏱️ {selectedVideo.duration}
-                </span>
-              </div>
-
-              <p className="text-sm text-slate-300 leading-relaxed">
-                {selectedVideo.desc}
-              </p>
-
-              <div className="flex items-center justify-between flex-wrap gap-2 pt-2 text-xs text-slate-400 border-t border-white/5">
-                <span className="flex items-center gap-1.5">
-                  <span>🛡️</span> 
-                  <strong>Marco Científico / Ontológico:</strong> 
-                  <span className="text-cyan-300 font-medium">{selectedVideo.framework}</span>
-                </span>
-                <span className="text-emerald-400 font-medium flex items-center gap-1">
-                  <span>✓</span> Video Verificado en Servidor
-                </span>
-              </div>
-
-              {/* Acciones de Soporte: Documentos y Blueprint */}
-              <div className="flex items-center gap-2 flex-wrap pt-3 border-t border-white/10 mt-1">
-                {selectedVideo.docUrl && (
-                  <a 
-                    href={selectedVideo.docUrl} 
-                    download 
-                    className="px-3 py-1.5 rounded-lg bg-emerald-600/25 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
-                  >
-                    <span>📥</span> {selectedVideo.docLabel}
-                  </a>
-                )}
-                {selectedVideo.blueprintSlide && (
-                  <Link 
-                    to={`/recursos?tab=blueprint&slide=${selectedVideo.blueprintSlide}`}
-                    className="px-3 py-1.5 rounded-lg bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
-                  >
-                    <span>📐</span> Ver Lámina #{selectedVideo.blueprintSlide} en Blueprint
-                  </Link>
-                )}
-                <Link 
-                  to="/recursos"
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-medium flex items-center gap-1.5 transition ml-auto"
+            {/* Selector de velocidad */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(255, 255, 255, 0.05)', padding: '0.2rem 0.4rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <span style={{ color: '#94a3b8', fontSize: '0.75rem', padding: '0 0.2rem' }}>Vel:</span>
+              {[1, 1.25, 1.5].map((speed) => (
+                <button
+                  key={speed}
+                  onClick={() => handleSpeedChange(speed)}
+                  className={`masterclass-speed-btn ${playbackSpeed === speed ? 'active' : ''}`}
                 >
-                  <span>📚</span> Biblioteca Completa
-                </Link>
-              </div>
+                  {speed}x
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Video Player */}
+          <div className="masterclass-video-wrapper">
+            <video 
+              ref={videoRef}
+              controls 
+              preload="metadata" 
+              key={selectedVideo.videoUrl}
+            >
+              <source src={selectedVideo.videoUrl} type="video/mp4" />
+              Tu navegador no soporta la reproducción de video HTML5.
+            </video>
+          </div>
+
+          {/* Info inferior del video seleccionado */}
+          <div style={{ marginTop: '1rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>{selectedVideo.icon}</span>
+                <span>{selectedVideo.title}</span>
+              </h3>
+              <span style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#cbd5e1', fontFamily: 'monospace' }}>
+                ⏱️ {selectedVideo.duration}
+              </span>
             </div>
 
+            <p style={{ color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>
+              {selectedVideo.desc}
+            </p>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', paddingTop: '0.5rem', fontSize: '0.8rem', color: '#94a3b8', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <span>🛡️</span> 
+                <strong>Marco Científico / Ontológico:</strong> 
+                <span style={{ color: '#38bdf8', fontWeight: 600 }}>{selectedVideo.framework}</span>
+              </span>
+              <span style={{ color: '#34d399', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                <span>✓</span> Video Verificado en Servidor
+              </span>
+            </div>
+
+            {/* Acciones de Soporte: Documentos y Blueprint */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)', marginTop: '0.25rem' }}>
+              {selectedVideo.docUrl && (
+                <a 
+                  href={selectedVideo.docUrl} 
+                  download 
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: '8px',
+                    background: 'rgba(16, 185, 129, 0.15)',
+                    color: '#34d399',
+                    border: '1px solid rgba(16, 185, 129, 0.3)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  <span>📥</span> {selectedVideo.docLabel}
+                </a>
+              )}
+              {selectedVideo.blueprintSlide && (
+                <Link 
+                  to={`/recursos?tab=blueprint&slide=${selectedVideo.blueprintSlide}`}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: '8px',
+                    background: 'rgba(99, 102, 241, 0.15)',
+                    color: '#a5b4fc',
+                    border: '1px solid rgba(99, 102, 241, 0.3)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  <span>📐</span> Ver Lámina #{selectedVideo.blueprintSlide} en Blueprint
+                </Link>
+              )}
+              <Link 
+                to="/recursos"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.45rem 0.85rem',
+                  borderRadius: '8px',
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  color: '#cbd5e1',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  marginLeft: 'auto',
+                  transition: 'all 0.2s'
+                }}
+              >
+                <span>📚</span> Biblioteca Completa
+              </Link>
+            </div>
           </div>
+
         </div>
 
-        {/* PLAYLIST / LISTA LATERAL (4 Columnas en Desktop) */}
-        <div className="lg:col-span-4 flex flex-col gap-3">
-          <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+        {/* PLAYLIST / LISTA LATERAL (Lado Derecho) */}
+        <div className="masterclass-playlist-container">
+          <div style={{ padding: '0.75rem 1rem', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px', color: '#f1f5f9', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span>📋</span> Lista de Cápsulas ({filteredVideos.length})
             </span>
-            <span className="text-[11px] text-cyan-400 font-mono">
+            <span style={{ fontSize: '0.72rem', color: '#38bdf8', fontFamily: 'monospace' }}>
               Clic para reproducir
             </span>
           </div>
 
-          <div className="flex flex-col gap-2.5 max-h-[580px] overflow-y-auto pr-1 scrollbar-thin">
+          <div className="masterclass-playlist-scroll">
             {filteredVideos.map((video) => {
               const isCurrent = video.id === selectedVideo.id;
               return (
                 <div
                   key={video.id}
                   onClick={() => setSelectedVideo(video)}
-                  className={`p-3 rounded-xl border cursor-pointer transition-all flex flex-col gap-1.5 ${
-                    isCurrent
-                      ? 'bg-gradient-to-r from-cyan-950/70 to-slate-900 border-cyan-400/60 shadow-lg shadow-cyan-950/40 ring-1 ring-cyan-500/30'
-                      : 'bg-slate-900/60 hover:bg-slate-850 border-slate-800 hover:border-slate-700 text-slate-400'
-                  }`}
+                  className={`masterclass-playlist-item ${isCurrent ? 'active' : ''}`}
                 >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-bold text-white flex items-center gap-1.5 truncate">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       <span>{video.icon}</span>
-                      <span className="truncate">{video.title}</span>
+                      <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{video.title}</span>
                     </span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-black/40 text-slate-300 font-mono shrink-0">
+                    <span style={{ fontSize: '0.7rem', padding: '0.15rem 0.4rem', borderRadius: '4px', background: 'rgba(0,0,0,0.5)', color: '#cbd5e1', fontFamily: 'monospace', flexShrink: 0 }}>
                       {video.duration}
                     </span>
                   </div>
 
-                  <p className="text-[11px] text-slate-400 line-clamp-2 leading-snug">
+                  <p style={{ fontSize: '0.75rem', color: '#94a3b8', lineHeight: 1.35, margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {video.desc}
                   </p>
 
-                  <div className="flex items-center justify-between pt-1 border-t border-white/5 text-[10px]">
-                    <span className="text-slate-500 truncate max-w-[170px]">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.35rem', borderTop: '1px solid rgba(255, 255, 255, 0.05)', fontSize: '0.72rem' }}>
+                    <span style={{ color: '#64748b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '170px' }}>
                       {video.framework}
                     </span>
                     {isCurrent ? (
-                      <span className="text-cyan-400 font-bold flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                      <span style={{ color: '#38bdf8', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#38bdf8' }}></span>
                         Reproduciendo
                       </span>
                     ) : (
-                      <span className="text-slate-500 group-hover:text-slate-300">
+                      <span style={{ color: '#64748b' }}>
                         Ver cápsula ▶
                       </span>
                     )}
@@ -456,8 +524,8 @@ export default function MasterclassDistinciones() {
             })}
 
             {filteredVideos.length === 0 && (
-              <div className="p-6 text-center text-slate-500 bg-slate-900/40 rounded-xl border border-slate-800">
-                <span className="text-2xl block mb-2">🔍</span>
+              <div style={{ padding: '2rem 1rem', textAlign: 'center', color: '#64748b', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>🔍</span>
                 No se encontraron cápsulas para tu búsqueda.
               </div>
             )}
