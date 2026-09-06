@@ -316,76 +316,75 @@ export default function LaboratorioSintergico() {
 
       {/* HEADER DE CABECERA CIENTÍFICA & EJECUTIVA */}
       <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+        <div className="sintergia-header-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
           <button 
             onClick={() => navigate('/dashboard')}
             className="btn-secondary"
-            style={{ fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}
+            style={{ fontSize: '0.82rem', padding: '0.45rem 0.85rem', minHeight: '38px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
           >
             ← Volver al Dashboard
           </button>
           
-          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+          <div className="sintergia-header-actions" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
             <span style={{
               background: 'rgba(56, 189, 248, 0.15)',
               border: '1px solid #38bdf8',
               color: '#38bdf8',
-              fontSize: '0.75rem',
+              fontSize: '0.76rem',
               fontWeight: 800,
-              padding: '0.25rem 0.75rem',
-              borderRadius: '9999px'
+              padding: '0.35rem 0.75rem',
+              borderRadius: '9999px',
+              letterSpacing: '0.5px'
             }}>
               SINTERGIA XP: {sintergiaData.totalXp}
             </span>
             <button 
               onClick={toggleFocusMode}
               className="btn-secondary"
-              style={{ fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}
+              style={{ fontSize: '0.82rem', padding: '0.45rem 0.85rem', minHeight: '38px' }}
             >
               {isFocusMode ? 'Salir Modo Enfoque' : 'Modo Enfoque'}
             </button>
           </div>
         </div>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(139, 92, 246, 0.15)', border: '1px solid rgba(139, 92, 246, 0.4)', padding: '0.3rem 0.9rem', borderRadius: '9999px', marginBottom: '0.75rem' }}>
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-          <span style={{ fontSize: '0.78rem', color: '#c4b5fd', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(139, 92, 246, 0.15)', border: '1px solid rgba(139, 92, 246, 0.4)', padding: '0.35rem 0.9rem', borderRadius: '9999px', marginBottom: '0.75rem', maxWidth: '100%' }}>
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" style={{ flexShrink: 0 }}></span>
+          <span style={{ fontSize: '0.74rem', color: '#c4b5fd', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', wordBreak: 'break-word' }}>
             PSICOFISIOLOGÍA UNAM & INPEC • TEORÍA SINTÉRGICA
           </span>
         </div>
 
-        <h1 className="text-gold" style={{ fontSize: '2.5rem', margin: '0 0 0.5rem 0', fontWeight: 900 }}>
+        <h1 className="text-gold" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.5rem)', margin: '0 0 0.5rem 0', fontWeight: 900, lineHeight: 1.2 }}>
           Laboratorio Sintérgico & Coherencia Interhemisférica
         </h1>
-        <p className="text-muted" style={{ maxWidth: '850px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
+        <p className="text-muted" style={{ maxWidth: '850px', margin: '0 auto', fontSize: 'clamp(0.85rem, 2vw, 1.05rem)', lineHeight: '1.6' }}>
           Entrenamiento psicofisiológico de alta fidelidad basado en las investigaciones del <strong>Dr. Jacobo Grinberg-Zylberbaum</strong>. La excelencia operativa no es teoría pasiva: es la interacción congruente entre el <strong>Campo Neuronal</strong> del líder y la <strong>Lattice</strong>, calibrando la sintonía colectiva, el neuromarketing y la toma de decisiones sin distorsión reactiva.
         </p>
       </header>
 
       {/* PESTAÑAS DE NAVEGACIÓN DEL LABORATORIO */}
-      <nav style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+      <nav className="sintergia-tab-nav" style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
         {[
-          { id: 'calibrador', label: '⚡ Calibrador Biofeedback (Meditación Autoalusiva)', icon: '🧠' },
-          { id: 'dinamicas', label: '🎯 4 Dinámicas de Alto Rendimiento & Neuromarketing', icon: '🚀' },
-          { id: 'bitacora', label: '📋 Bitácora de Evidencias & Insignias', icon: '🛡️' },
-          { id: 'academico', label: '🔬 Fundamento Académico (Grinberg & UNAM)', icon: '📖' }
+          { id: 'calibrador', label: '⚡ Calibrador Biofeedback (Meditación Autoalusiva)', mobileLabel: '⚡ Calibrador EEG', icon: '🧠' },
+          { id: 'dinamicas', label: '🎯 4 Dinámicas de Alto Rendimiento', mobileLabel: '🎯 Dinámicas', icon: '🚀' },
+          { id: 'bitacora', label: '📋 Bitácora de Evidencias & Insignias', mobileLabel: '📋 Bitácora', icon: '🛡️' },
+          { id: 'academico', label: '🔬 Fundamento Académico Grinberg', mobileLabel: '🔬 Fundamento', icon: '📖' }
         ].map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
+            className="sintergia-tab-btn"
             style={{
-              padding: '0.65rem 1.25rem',
-              borderRadius: '12px',
               border: activeTab === tab.id ? '2px solid #38bdf8' : '1px solid rgba(255,255,255,0.1)',
               background: activeTab === tab.id ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255,255,255,0.03)',
               color: activeTab === tab.id ? '#ffffff' : '#94a3b8',
               fontWeight: activeTab === tab.id ? 800 : 500,
-              fontSize: '0.88rem',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
+              boxShadow: activeTab === tab.id ? '0 0 12px rgba(56, 189, 248, 0.3)' : 'none'
             }}
           >
-            {tab.label}
+            <span className="hidden sm:inline">{tab.label}</span>
+            <span className="sm:hidden">{tab.mobileLabel}</span>
           </button>
         ))}
       </nav>
@@ -394,55 +393,58 @@ export default function LaboratorioSintergico() {
       {/* PESTAÑA 1: CALIBRADOR BIOFEEDBACK (MEDITACIÓN AUTOALUSIVA) */}
       {/* ============================================================ */}
       {activeTab === 'calibrador' && (
-        <section className="glass-panel p-8 animate-fade-in" style={{ borderRadius: '20px', border: '1px solid rgba(56, 189, 248, 0.3)', background: 'linear-gradient(145deg, rgba(15,23,42,0.85) 0%, rgba(2,6,23,0.95) 100%)' }}>
+        <section className="glass-panel sintergia-card-pad animate-fade-in" style={{ borderRadius: '20px', border: '1px solid rgba(56, 189, 248, 0.3)', background: 'linear-gradient(145deg, rgba(15,23,42,0.85) 0%, rgba(2,6,23,0.95) 100%)' }}>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
-            <div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+          <div className="sintergia-duration-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.75rem' }}>
+            <div style={{ flex: 1, minWidth: 'min(100%, 280px)' }}>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
                 PROTOCOLO ELECTROFISIOLÓGICO • INPEC 1987
               </span>
-              <h2 style={{ fontSize: '1.8rem', margin: '0.3rem 0', color: '#f8fafc' }}>
+              <h2 style={{ fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)', margin: '0.3rem 0', color: '#f8fafc', fontWeight: 800 }}>
                 Entrenador de Sincronía Interhemisférica
               </h2>
-              <p className="text-muted" style={{ margin: 0, fontSize: '0.92rem', maxWidth: '650px' }}>
+              <p className="text-muted" style={{ margin: 0, fontSize: 'clamp(0.82rem, 1.8vw, 0.92rem)', maxWidth: '650px', lineHeight: 1.5 }}>
                 La <strong>Meditación Autoalusiva</strong> sintetiza los micropotenciales dendríticos de los 12 mil millones de neuronas en un patrón coherente, elevando la sintergia del cerebro para disolver el ruido antes de juntas de comité y decisiones críticas.
               </p>
             </div>
 
             {/* Selector de Duración */}
-            <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(255,255,255,0.05)', padding: '0.35rem', borderRadius: '10px' }}>
+            <div className="sintergia-duration-group" style={{ display: 'flex', gap: '0.4rem', background: 'rgba(255,255,255,0.05)', padding: '0.35rem', borderRadius: '12px' }}>
               {[
-                { sec: 120, label: '2 min (Reset Rápido)' },
-                { sec: 180, label: '3 min (Estándar)' },
-                { sec: 300, label: '5 min (Inmersión Alta Sintergia)' }
+                { sec: 120, label: '2 min (Reset Rápido)', shortLabel: '⚡ 2 min' },
+                { sec: 180, label: '3 min (Estándar)', shortLabel: '🧠 3 min' },
+                { sec: 300, label: '5 min (Inmersión Alta)', shortLabel: '🌌 5 min' }
               ].map(d => (
                 <button
                   key={d.sec}
                   disabled={isRunning}
                   onClick={() => handleSelectDuration(d.sec)}
+                  className="sintergia-duration-btn"
                   style={{
-                    padding: '0.4rem 0.75rem',
+                    padding: '0.45rem 0.75rem',
                     borderRadius: '8px',
-                    border: selectedDuration === d.sec ? '1px solid #ffb703' : 'none',
+                    border: selectedDuration === d.sec ? '1px solid #ffb703' : '1px solid transparent',
                     background: selectedDuration === d.sec ? 'rgba(255, 183, 3, 0.2)' : 'transparent',
                     color: selectedDuration === d.sec ? '#ffb703' : '#94a3b8',
                     fontSize: '0.78rem',
                     fontWeight: 700,
-                    cursor: isRunning ? 'not-allowed' : 'pointer'
+                    cursor: isRunning ? 'not-allowed' : 'pointer',
+                    transition: 'all 0.2s ease'
                   }}
                 >
-                  {d.label}
+                  <span className="hidden sm:inline">{d.label}</span>
+                  <span className="sm:hidden">{d.shortLabel}</span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* BARRA DE ESTIMULACIÓN NEUROACÚSTICA (SONIDO DE SINCRONÍA SINTÉRGICA) */}
-          <div style={{
+          <div className="sintergia-audio-bar" style={{
             background: 'rgba(15, 23, 42, 0.85)',
             border: isAudioPlaying && !audioMuted ? '1px solid rgba(56, 189, 248, 0.6)' : '1px solid rgba(56, 189, 248, 0.25)',
-            borderRadius: '14px',
-            padding: '0.9rem 1.25rem',
+            borderRadius: '16px',
+            padding: '1rem 1.25rem',
             marginBottom: '1.5rem',
             display: 'flex',
             flexWrap: 'wrap',
@@ -452,13 +454,13 @@ export default function LaboratorioSintergico() {
             boxShadow: isAudioPlaying && !audioMuted ? '0 0 20px rgba(56, 189, 248, 0.18)' : '0 4px 15px rgba(0, 0, 0, 0.2)',
             transition: 'all 0.3s ease'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
+            <div className="sintergia-audio-top" style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', flex: 1, minWidth: 'min(100%, 280px)' }}>
               <button
                 onClick={handleTogglePlayAudio}
                 title={isAudioPlaying ? "Pausar audio de sincronía" : "Reproducir sonido ahora (Prueba en vivo)"}
                 style={{
-                  width: '44px',
-                  height: '44px',
+                  width: '46px',
+                  height: '46px',
                   borderRadius: '50%',
                   background: isAudioPlaying && !audioMuted ? '#38bdf8' : 'rgba(56, 189, 248, 0.15)',
                   border: '2px solid #38bdf8',
@@ -475,14 +477,26 @@ export default function LaboratorioSintergico() {
               >
                 {isAudioPlaying && !audioMuted ? '⏸' : '▶'}
               </button>
-              <div>
+              <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#f8fafc' }}>
-                    Estimulación Neuroacústica Binaural • 432 Hz
+                    Estimulación Neuroacústica 8D • 432 Hz
+                  </span>
+                  <span style={{
+                    fontSize: '0.66rem',
+                    padding: '0.2rem 0.55rem',
+                    borderRadius: '9999px',
+                    background: 'rgba(168, 85, 247, 0.25)',
+                    color: '#d8b4fe',
+                    fontWeight: 800,
+                    border: '1px solid #c084fc',
+                    letterSpacing: '0.5px'
+                  }}>
+                    🎧 AUDIO 8D SINTÉRGICO
                   </span>
                   {isAudioPlaying && !audioMuted ? (
                     <span style={{
-                      fontSize: '0.68rem',
+                      fontSize: '0.66rem',
                       padding: '0.2rem 0.55rem',
                       borderRadius: '9999px',
                       background: 'rgba(16, 185, 129, 0.25)',
@@ -495,24 +509,24 @@ export default function LaboratorioSintergico() {
                     </span>
                   ) : (
                     <span style={{
-                      fontSize: '0.68rem',
+                      fontSize: '0.66rem',
                       padding: '0.15rem 0.5rem',
                       borderRadius: '9999px',
                       background: 'rgba(148, 163, 184, 0.15)',
                       color: '#94a3b8',
                       fontWeight: 600
                     }}>
-                      Haz clic en ▶ para escuchar
+                      Toca ▶ para escuchar
                     </span>
                   )}
                 </div>
-                <p style={{ margin: 0, fontSize: '0.75rem', color: '#94a3b8' }}>
-                  Pulsos binaurales áureos y cuencos tibetanos sincronizados con la Meditación Autoalusiva (recomendado con audífonos estéreo).
+                <p style={{ margin: '0.2rem 0 0', fontSize: '0.74rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                  Pulsos binaurales áureos, resonancia sub-grave craneal 108 Hz y cuencos tibetanos 3D (experiencia inmersiva única con audífonos estéreo).
                 </p>
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <div className="sintergia-audio-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
               {/* Selector de Preset */}
               <select
                 value={audioPreset}
@@ -520,71 +534,75 @@ export default function LaboratorioSintergico() {
                 style={{
                   background: 'rgba(2, 6, 23, 0.85)',
                   border: '1px solid rgba(56, 189, 248, 0.3)',
-                  borderRadius: '8px',
+                  borderRadius: '10px',
                   color: '#e2e8f0',
-                  padding: '0.45rem 0.75rem',
+                  padding: '0.5rem 0.75rem',
                   fontSize: '0.78rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  outline: 'none'
+                  outline: 'none',
+                  minHeight: '40px'
                 }}
               >
-                <option value="binaural">🧠 Sincronía Binaural Áurea (432 Hz / 12-7.5 Hz)</option>
-                <option value="cuencos">🔔 Cuencos Tibetanos & Campanas Zen</option>
-                <option value="respiracion">🌊 Respiración Coherente (0.1 Hz / Lattice)</option>
+                <option value="binaural">🧠 Sincronía Binaural Áurea (432 Hz / Sub 108 Hz)</option>
+                <option value="holofonico">🌌 Modo 8D Holofónico Lattice (Órbita 360° Audífonos)</option>
+                <option value="cuencos">🔔 Cuencos Tibetanos Estéreo 3D & Campana Zen</option>
+                <option value="respiracion">🌊 Respiración Coherente (0.1 Hz / Olas Lattice)</option>
               </select>
 
-              {/* Botón Silencio / Mute */}
-              <button
-                onClick={handleToggleMute}
-                title={audioMuted ? 'Activar Sonido' : 'Silenciar'}
-                style={{
-                  background: audioMuted ? 'rgba(239, 68, 68, 0.2)' : 'rgba(56, 189, 248, 0.15)',
-                  border: audioMuted ? '1px solid rgba(239, 68, 68, 0.4)' : '1px solid rgba(56, 189, 248, 0.3)',
-                  borderRadius: '8px',
-                  color: audioMuted ? '#f87171' : '#38bdf8',
-                  padding: '0.45rem 0.75rem',
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.35rem'
-                }}
-              >
-                {audioMuted ? '🔇 Mudo' : '🔊 Activo'}
-              </button>
-
-              {/* Slider de Volumen */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Vol:</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.05"
-                  value={audioMuted ? 0 : audioVolume}
-                  onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+              {/* Fila de controles secundarios (Silencio y Volumen) */}
+              <div className="sintergia-audio-subrow" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <button
+                  onClick={handleToggleMute}
+                  title={audioMuted ? 'Activar Sonido' : 'Silenciar'}
                   style={{
-                    width: '70px',
-                    accentColor: '#38bdf8',
-                    cursor: 'pointer'
+                    background: audioMuted ? 'rgba(239, 68, 68, 0.2)' : 'rgba(56, 189, 248, 0.15)',
+                    border: audioMuted ? '1px solid rgba(239, 68, 68, 0.4)' : '1px solid rgba(56, 189, 248, 0.3)',
+                    borderRadius: '8px',
+                    color: audioMuted ? '#f87171' : '#38bdf8',
+                    padding: '0.45rem 0.75rem',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    minHeight: '38px'
                   }}
-                  title={`Volumen: ${Math.round(audioVolume * 100)}%`}
-                />
+                >
+                  {audioMuted ? '🔇 Mudo' : '🔊 Activo'}
+                </button>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(0,0,0,0.3)', padding: '0.35rem 0.65rem', borderRadius: '8px' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Vol:</span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={audioMuted ? 0 : audioVolume}
+                    onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+                    style={{
+                      width: '75px',
+                      accentColor: '#38bdf8',
+                      cursor: 'pointer'
+                    }}
+                    title={`Volumen: ${Math.round(audioVolume * 100)}%`}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
           {/* MONITOR HUD INTERACTIVO DE ONDAS & COHERENCIA */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1.25rem', marginBottom: '2rem' }}>
             
             {/* Medidor de Coherencia */}
-            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.5rem', border: '1px solid rgba(56, 189, 248, 0.2)', textAlign: 'center' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
+            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(56, 189, 248, 0.2)', textAlign: 'center' }}>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
                 Coherencia Interhemisférica (EEG)
               </span>
-              <div style={{ fontSize: '3.5rem', fontWeight: 900, color: coherenciaScore > 85 ? '#34d399' : '#38bdf8', margin: '0.5rem 0' }}>
+              <div style={{ fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', fontWeight: 900, color: coherenciaScore > 85 ? '#34d399' : '#38bdf8', margin: '0.4rem 0' }}>
                 {isRunning ? coherenciaScore : (sesionFinalizada ? coherenciaScore : '--')}%
               </div>
               <div className="progress-bar-container" style={{ height: '8px', background: 'rgba(255,255,255,0.1)' }}>
@@ -603,11 +621,11 @@ export default function LaboratorioSintergico() {
             </div>
 
             {/* Medidor de Espectro de Ondas */}
-            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.5rem', border: '1px solid rgba(139, 92, 246, 0.2)', textAlign: 'center' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
+            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(139, 92, 246, 0.2)', textAlign: 'center' }}>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
                 Patrón de Banda Sintérgica
               </span>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#c4b5fd', margin: '1rem 0' }}>
+              <div style={{ fontSize: 'clamp(1.2rem, 3.5vw, 1.5rem)', fontWeight: 800, color: '#c4b5fd', margin: '0.75rem 0' }}>
                 {isRunning ? frecuenciaOnda : 'Reposo Cognitivo'}
               </div>
               <div style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: '1.4' }}>
@@ -616,11 +634,11 @@ export default function LaboratorioSintergico() {
             </div>
 
             {/* Cronómetro Central */}
-            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.5rem', border: '1px solid rgba(255, 183, 3, 0.2)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
+            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(255, 183, 3, 0.2)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
                 Tiempo de Inmersión Autoalusiva
               </span>
-              <div style={{ fontSize: '3rem', fontWeight: 900, color: '#ffb703', fontFamily: 'monospace', margin: '0.5rem 0' }}>
+              <div style={{ fontSize: 'clamp(2.2rem, 5.5vw, 3rem)', fontWeight: 900, color: '#ffb703', fontFamily: 'monospace', margin: '0.4rem 0' }}>
                 {formatearTiempo(timerSeconds)}
               </div>
               
@@ -629,7 +647,7 @@ export default function LaboratorioSintergico() {
                   <button
                     onClick={timerSeconds < selectedDuration ? handleResumeCalibration : handleStartCalibration}
                     className="btn-primary"
-                    style={{ width: '100%', maxWidth: '220px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 800 }}
+                    style={{ width: '100%', maxWidth: '220px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 800, minHeight: '44px' }}
                   >
                     {timerSeconds < selectedDuration ? '▶ Reanudar Calibración' : '▶ Iniciar Calibración'}
                   </button>
@@ -642,7 +660,8 @@ export default function LaboratorioSintergico() {
                         color: '#94a3b8',
                         fontSize: '0.75rem',
                         cursor: 'pointer',
-                        textDecoration: 'underline'
+                        textDecoration: 'underline',
+                        padding: '0.3rem'
                       }}
                     >
                       ↺ Reiniciar tiempo ({formatearTiempo(selectedDuration)})
@@ -655,7 +674,7 @@ export default function LaboratorioSintergico() {
                 <button
                   onClick={handlePauseCalibration}
                   className="btn-secondary"
-                  style={{ width: '100%', maxWidth: '200px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', color: '#f87171', borderColor: '#f87171' }}
+                  style={{ width: '100%', maxWidth: '200px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', color: '#f87171', borderColor: '#f87171', minHeight: '44px' }}
                 >
                   ⏸ Pausar Sesión
                 </button>
@@ -665,7 +684,7 @@ export default function LaboratorioSintergico() {
                 <button
                   onClick={reclamarRecompensaSesion}
                   className="btn-primary"
-                  style={{ width: '100%', maxWidth: '220px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 800, background: '#10b981', borderColor: '#10b981' }}
+                  style={{ width: '100%', maxWidth: '220px', padding: '0.65rem', borderRadius: '9999px', fontSize: '0.9rem', fontWeight: 800, background: '#10b981', borderColor: '#10b981', minHeight: '44px' }}
                 >
                   🏆 Validar & Reclamar +250 XP
                 </button>
@@ -694,10 +713,10 @@ export default function LaboratorioSintergico() {
       {/* PESTAÑA 2: 4 DINÁMICAS DE ALTO RENDIMIENTO & NEUROMARKETING */}
       {/* ============================================================ */}
       {activeTab === 'dinamicas' && (
-        <section className="animate-fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+        <section className="animate-fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.25rem' }}>
           
           {/* DINÁMICA 1: HIPERCAMPO EN COMITÉS */}
-          <article className="glass-panel p-6" style={{ borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <article className="glass-panel sintergia-card-pad" style={{ borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                 <span style={{ fontSize: '1.8rem' }}>🌐</span>
@@ -725,7 +744,7 @@ export default function LaboratorioSintergico() {
               <button 
                 onClick={() => { setDinamicaSeleccionada('Hipercampo en Comités'); setActiveTab('bitacora'); }}
                 className="btn-secondary" 
-                style={{ width: '100%', fontSize: '0.82rem' }}
+                style={{ width: '100%', fontSize: '0.82rem', minHeight: '44px' }}
               >
                 Registrar Evidencia de esta Dinámica (+300 XP)
               </button>
@@ -733,7 +752,7 @@ export default function LaboratorioSintergico() {
           </article>
 
           {/* DINÁMICA 2: NEUROMARKETING & FACTOR DE DIRECCIONALIDAD */}
-          <article className="glass-panel p-6" style={{ borderRadius: '16px', border: '1px solid rgba(255, 183, 3, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <article className="glass-panel sintergia-card-pad" style={{ borderRadius: '16px', border: '1px solid rgba(255, 183, 3, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                 <span style={{ fontSize: '1.8rem' }}>🎯</span>
@@ -761,7 +780,7 @@ export default function LaboratorioSintergico() {
               <button 
                 onClick={() => { setDinamicaSeleccionada('Factor de Direccionalidad en Neuromarketing'); setActiveTab('bitacora'); }}
                 className="btn-secondary" 
-                style={{ width: '100%', fontSize: '0.82rem' }}
+                style={{ width: '100%', fontSize: '0.82rem', minHeight: '44px' }}
               >
                 Registrar Evidencia de esta Dinámica (+300 XP)
               </button>
@@ -769,7 +788,7 @@ export default function LaboratorioSintergico() {
           </article>
 
           {/* DINÁMICA 3: POTENCIAL TRANSFERIDO EN NEGOCIACIONES */}
-          <article className="glass-panel p-6" style={{ borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <article className="glass-panel sintergia-card-pad" style={{ borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                 <span style={{ fontSize: '1.8rem' }}>⚡</span>
@@ -797,7 +816,7 @@ export default function LaboratorioSintergico() {
               <button 
                 onClick={() => { setDinamicaSeleccionada('Potencial Transferido en Negociaciones'); setActiveTab('bitacora'); }}
                 className="btn-secondary" 
-                style={{ width: '100%', fontSize: '0.82rem' }}
+                style={{ width: '100%', fontSize: '0.82rem', minHeight: '44px' }}
               >
                 Registrar Evidencia de esta Dinámica (+300 XP)
               </button>
@@ -805,7 +824,7 @@ export default function LaboratorioSintergico() {
           </article>
 
           {/* DINÁMICA 4: CONCIENCIA DE UNIDAD & CAUSA RADICAL */}
-          <article className="glass-panel p-6" style={{ borderRadius: '16px', border: '1px solid rgba(139, 92, 246, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <article className="glass-panel sintergia-card-pad" style={{ borderRadius: '16px', border: '1px solid rgba(139, 92, 246, 0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                 <span style={{ fontSize: '1.8rem' }}>👑</span>
@@ -833,7 +852,7 @@ export default function LaboratorioSintergico() {
               <button 
                 onClick={() => { setDinamicaSeleccionada('Conciencia de Unidad & Causa Radical'); setActiveTab('bitacora'); }}
                 className="btn-secondary" 
-                style={{ width: '100%', fontSize: '0.82rem' }}
+                style={{ width: '100%', fontSize: '0.82rem', minHeight: '44px' }}
               >
                 Registrar Evidencia de esta Dinámica (+300 XP)
               </button>
@@ -847,10 +866,10 @@ export default function LaboratorioSintergico() {
       {/* PESTAÑA 3: BITÁCORA DE EVIDENCIAS & RECOMPENSAS */}
       {/* ============================================================ */}
       {activeTab === 'bitacora' && (
-        <section className="animate-fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+        <section className="animate-fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
           
           {/* Formulario para registrar nueva evidencia */}
-          <div className="glass-panel p-6" style={{ borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
+          <div className="glass-panel sintergia-card-pad" style={{ borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
             <h3 style={{ margin: '0 0 1rem 0', color: '#38bdf8', fontSize: '1.3rem' }}>
               Subir Evidencia de Aplicación Real
             </h3>
@@ -909,7 +928,7 @@ export default function LaboratorioSintergico() {
               <button 
                 type="submit"
                 className="btn-primary"
-                style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', fontWeight: 800 }}
+                style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', fontWeight: 800, minHeight: '44px' }}
               >
                 💾 Guardar Evidencia y Acreditar +300 XP
               </button>
@@ -974,7 +993,7 @@ export default function LaboratorioSintergico() {
           </div>
 
           {/* Historial de Evidencias */}
-          <div className="glass-panel p-6" style={{ borderRadius: '16px' }}>
+          <div className="glass-panel sintergia-card-pad" style={{ borderRadius: '16px' }}>
             <h3 style={{ margin: '0 0 1rem 0', color: '#f8fafc', fontSize: '1.3rem' }}>
               Historial de Evidencias Acreditadas ({sintergiaData.evidenciasRegistradas.length})
             </h3>
@@ -1010,7 +1029,7 @@ export default function LaboratorioSintergico() {
       {/* PESTAÑA 4: FUNDAMENTO ACADÉMICO & TEORÍA SINTÉRGICA */}
       {/* ============================================================ */}
       {activeTab === 'academico' && (
-        <section className="glass-panel p-8 animate-fade-in" style={{ borderRadius: '20px' }}>
+        <section className="glass-panel sintergia-card-pad animate-fade-in" style={{ borderRadius: '20px' }}>
           
           <div style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1.5rem', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '0.75rem', color: '#a78bfa', fontWeight: 800, textTransform: 'uppercase' }}>
@@ -1049,7 +1068,7 @@ export default function LaboratorioSintergico() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '1.25rem', marginBottom: '2rem' }}>
             
             <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.25rem', borderRadius: '12px', borderLeft: '4px solid #38bdf8' }}>
               <h4 style={{ margin: '0 0 0.5rem', color: '#38bdf8' }}>1. La Lattice</h4>

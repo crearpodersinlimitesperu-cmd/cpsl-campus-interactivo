@@ -228,3 +228,89 @@
     padding: 2rem 1.5rem;
   }
 }
+
+/* ============================================================ */
+/* LABORATORIO SINTÉRGICO - RESPONSIVIDAD MÓVIL Y AUDIO 8D     */
+/* ============================================================ */
+.sintergia-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .sintergia-header-top {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+  .sintergia-header-actions {
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .sintergia-tab-nav {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+  .sintergia-tab-btn {
+    padding: 0.6rem 0.5rem !important;
+    font-size: 0.76rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-height: 44px !important;
+  }
+  .sintergia-audio-bar {
+    padding: 1rem 0.85rem !important;
+  }
+  .sintergia-audio-top {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+  .sintergia-audio-controls {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  .sintergia-audio-controls select {
+    width: 100% !important;
+    min-height: 42px !important;
+  }
+  .sintergia-audio-subrow {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+  .sintergia-duration-container {
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .sintergia-duration-group {
+    width: 100% !important;
+    display: flex !important;
+  }
+  .sintergia-duration-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 0.6rem 0.35rem !important;
+    font-size: 0.75rem !important;
+    min-height: 42px !important;
+  }
+  .sintergia-card-pad {
+    padding: 1.25rem 0.95rem !important;
+  }
+}
+
