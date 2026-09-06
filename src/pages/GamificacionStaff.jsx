@@ -568,7 +568,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                         gap: '6px'
                       }}
                     >
-                      <span>{sim.id}</span>
+                      <span>Caso {i + 1}</span>
                       {isDone && <span style={{ color: '#10b981' }}>✓</span>}
                     </button>
                   );
