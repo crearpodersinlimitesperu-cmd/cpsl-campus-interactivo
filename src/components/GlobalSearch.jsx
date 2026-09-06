@@ -297,59 +297,23 @@ export default function GlobalSearch() {
     navigate(item.path);
   };
 
-  return (
-    <>
-      {/* Botón flotante / disparador en barra para abrir el buscador */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="global-search-trigger"
-        aria-label="Abrir buscador global (Ctrl + K)"
-        title="Buscador Global (Ctrl + K)"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          background: 'rgba(15, 23, 42, 0.75)',
-          border: '1px solid rgba(255, 255, 255, 0.15)',
-          borderRadius: '10px',
-          padding: '0.45rem 0.85rem',
-          color: '#cbd5e1',
-          cursor: 'pointer',
-          backdropFilter: 'blur(8px)',
-          transition: 'all 0.2s',
-          fontSize: '0.85rem'
-        }}
-      >
-        <span style={{ fontSize: '1rem' }}>🔍</span>
-        <span style={{ display: 'none', md: 'inline' }} className="search-label">Buscar...</span>
-        <kbd style={{
-          background: 'rgba(255, 255, 255, 0.1)',
-          padding: '0.15rem 0.4rem',
-          borderRadius: '4px',
-          fontSize: '0.72rem',
-          color: '#94a3b8',
-          border: '1px solid rgba(255,255,255,0.1)'
-        }}>
-          Ctrl K
-        </kbd>
-      </button>
+  if (!isOpen) return null;
 
-      {/* Modal Palette */}
-      {isOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(3, 7, 18, 0.75)',
-            backdropFilter: 'blur(10px)',
-            zIndex: 10000,
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            padding: '4rem 1rem 1rem'
-          }}
-          onClick={() => setIsOpen(false)}
-        >
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(3, 7, 18, 0.75)',
+        backdropFilter: 'blur(10px)',
+        zIndex: 10000,
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        padding: '4rem 1rem 1rem'
+      }}
+      onClick={() => setIsOpen(false)}
+    >
           <div
             style={{
               width: '100%',
@@ -536,9 +500,7 @@ export default function GlobalSearch() {
               </div>
               <span style={{ color: '#f59e0b', fontWeight: '600' }}>Sistema Interrupción</span>
             </div>
-          </div>
         </div>
-      )}
-    </>
+      </div>
   );
 }
