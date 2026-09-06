@@ -511,34 +511,6 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
             Nivel {currentFisonomiaLevel}
           </span>
         </button>
-
-        <button
-          onClick={() => handleTabChange('trazabilidad')}
-          style={{
-            padding: '12px 20px',
-            borderRadius: '12px',
-            border: 'none',
-            background: activeTab === 'trazabilidad' ? 'linear-gradient(135deg, #10b981 0%, #047857 100%)' : 'rgba(255,255,255,0.04)',
-            color: activeTab === 'trazabilidad' ? '#000' : 'var(--text-muted)',
-            fontWeight: 800,
-            fontSize: '0.9rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            transition: 'all 0.2s ease'
-          }}
-        >
-          <span>🗃️ Trazabilidad de Auditoría</span>
-          <span style={{
-            background: activeTab === 'trazabilidad' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.1)',
-            padding: '2px 7px',
-            borderRadius: '10px',
-            fontSize: '0.75rem'
-          }}>
-            {auditLogs.length} logs
-          </span>
-        </button>
       </nav>
 
       {/* ============================================================== */}
@@ -1138,97 +1110,6 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
       {/* ============================================================== */}
       {/* PESTAÑA 4: TRAZABILIDAD Y AUDITORÍA (AUDITORÍA EN TIEMPO REAL)  */}
       {/* ============================================================== */}
-      {activeTab === 'trazabilidad' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          
-          <div className="glass-panel" style={{
-            padding: '1.8rem 2.2rem',
-            borderLeft: '4px solid #10b981',
-            background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, rgba(7, 13, 31, 0.95) 100%)',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '1rem'
-          }}>
-            <div>
-              <span style={{
-                background: 'rgba(16, 185, 129, 0.15)',
-                color: '#34d399',
-                padding: '3px 10px',
-                borderRadius: '8px',
-                fontSize: '0.75rem',
-                fontWeight: 800
-              }}>
-                RIGOR ONTOLÓGICO INMUTABLE
-              </span>
-              <h2 style={{ margin: '0.4rem 0 0.2rem', fontSize: '1.5rem' }}>
-                Trazabilidad y Auditoría en Tiempo Real
-              </h2>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: '#e2e8f0', fontStyle: 'italic' }}>
-                «El Sistema Interrupción no altera la evidencia. Todo cambio es registrable y auditable.»
-              </p>
-            </div>
-
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <button
-                onClick={handleCopyLog}
-                className="btn-secondary"
-                style={{ fontSize: '0.85rem', padding: '8px 16px', borderRadius: '9999px' }}
-              >
-                {copiedLog ? '✓ Copiado al Portapapeles' : '📋 Copiar Registro JSON'}
-              </button>
-            </div>
-          </div>
-
-          {/* Tabla de Eventos Cronológicos */}
-          <div className="glass-panel" style={{ padding: '1.5rem', overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.12)', textAlign: 'left', color: 'var(--text-muted)' }}>
-                  <th style={{ padding: '0.7rem 0.5rem' }}>Timestamp</th>
-                  <th style={{ padding: '0.7rem 0.5rem' }}>Colaborador</th>
-                  <th style={{ padding: '0.7rem 0.5rem' }}>Acción Registrada</th>
-                  <th style={{ padding: '0.7rem 0.5rem' }}>Resultado Ontológico</th>
-                  <th style={{ padding: '0.7rem 0.5rem', textAlign: 'center' }}>Rigor / Empatía</th>
-                  <th style={{ padding: '0.7rem 0.5rem', textAlign: 'right' }}>XP Delta</th>
-                </tr>
-              </thead>
-              <tbody>
-                {auditLogs.map((log) => (
-                  <tr key={log.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                    <td style={{ padding: '0.7rem 0.5rem', color: 'var(--text-muted)', fontFamily: 'monospace', fontSize: '0.8rem' }}>
-                      {log.timestamp}
-                    </td>
-                    <td style={{ padding: '0.7rem 0.5rem' }}>
-                      <span style={{ color: '#fff', fontWeight: 600 }}>{log.responsable}</span>
-                      <div style={{ fontSize: '0.75rem', color: '#10b981' }}>Liderazgo Adaptativo</div>
-                    </td>
-                    <td style={{ padding: '0.7rem 0.5rem', color: '#fde047', fontWeight: 500 }}>
-                      {log.accion}
-                    </td>
-                    <td style={{ padding: '0.7rem 0.5rem', color: '#e2e8f0' }}>
-                      {log.resultado}
-                    </td>
-                    <td style={{ padding: '0.7rem 0.5rem', textAlign: 'center', fontSize: '0.8rem' }}>
-                      <span style={{ color: '#ffb703' }}>{log.puntos_rigor || 0}</span> / <span style={{ color: '#10b981' }}>{log.puntos_empatia || 0}</span>
-                    </td>
-                    <td style={{ padding: '0.7rem 0.5rem', textAlign: 'right', fontWeight: 800 }}>
-                      <span style={{
-                        color: log.xpDelta > 0 ? '#34d399' : log.xpDelta < 0 ? '#f87171' : 'var(--text-muted)'
-                      }}>
-                        {log.xpDelta > 0 ? `+${log.xpDelta} XP` : log.xpDelta < 0 ? `${log.xpDelta} XP` : '—'}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-        </div>
-      )}
-
-    </div>
+      </div>
   );
 }
