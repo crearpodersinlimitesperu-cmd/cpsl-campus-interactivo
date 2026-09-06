@@ -166,7 +166,7 @@ export function AuthProvider({ children }) {
       ) : authError && !user ? (
         <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: '#0a1128', color: 'var(--color-error)', padding: '2rem', textAlign: 'center'}}>
           <h2>Error de Conexión con Google</h2>
-          <p style={{color: '#fff', marginBottom: '2rem', maxWidth: '500px'}}>{authError.message}</p>
+          <p style={{color: 'var(--text-main)', marginBottom: '2rem', maxWidth: '500px'}}>{authError.message}</p>
           <button className="btn-primary" onClick={() => { setAuthError(null); window.location.reload(); }}>Reintentar Conexión</button>
         </div>
       ) : (

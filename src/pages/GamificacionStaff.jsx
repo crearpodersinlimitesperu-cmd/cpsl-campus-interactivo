@@ -304,7 +304,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
   };
 
   return (
-    <div className="gamificacion-page" style={{ padding: '1.5rem', maxWidth: '1300px', margin: '0 auto', color: '#fff' }}>
+    <div className="gamificacion-page" style={{ padding: '1.5rem', maxWidth: '1300px', margin: '0 auto', color: 'var(--text-main)' }}>
       
       {/* Toast Notification */}
       {toastMessage && (
@@ -379,7 +379,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                 LIDERAZGO ADAPTATIVO & ALTO RENDIMIENTO
               </span>
             </div>
-            <h1 style={{ margin: '0 0 4px', fontSize: '1.8rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#fff' }}>
+            <h1 style={{ margin: '0 0 4px', fontSize: '1.8rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>
               Simulador Táctico & Centro de Decisión
             </h1>
             <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)' }}>
@@ -391,20 +391,20 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
         {/* Quick Stats Pill */}
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <div style={{
-            background: 'rgba(0,0,0,0.5)',
+            background: 'var(--bg-card)',
             border: '1px solid rgba(255, 183, 3, 0.25)',
             padding: '10px 18px',
             borderRadius: '14px',
             textAlign: 'center'
           }}>
             <div style={{ fontSize: '0.72rem', color: 'var(--crear-gold, #ffb703)', fontWeight: 800 }}>XP TOTAL</div>
-            <div style={{ fontSize: '1.35rem', fontWeight: 900, color: '#fff' }}>
+            <div style={{ fontSize: '1.35rem', fontWeight: 900, color: 'var(--text-main)' }}>
               {staffState.xp?.toLocaleString()} <span style={{ fontSize: '0.75rem', color: 'var(--crear-gold, #ffb703)' }}>XP</span>
             </div>
           </div>
 
           <div style={{
-            background: 'rgba(0,0,0,0.5)',
+            background: 'var(--bg-card)',
             border: '1px solid rgba(16, 185, 129, 0.35)',
             padding: '10px 18px',
             borderRadius: '14px',
@@ -535,7 +535,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                 }}>
                   SIMULADOR DE TOMA DE DECISIONES EN TIEMPO REAL
                 </span>
-                <h2 style={{ margin: '0.4rem 0 0', fontSize: '1.6rem', color: '#ffffff' }}>
+                <h2 style={{ margin: '0.4rem 0 0', fontSize: '1.6rem', color: 'var(--text-main)' }}>
                   El Reto del Día: Calibración Situacional
                 </h2>
                 <p style={{ margin: '0.2rem 0 0', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
@@ -578,7 +578,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
 
             {/* TABLERO DE SIMULACIÓN TÁCTICA: AVATAR REACTIVO + GLOBO DE DIÁLOGO */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(7, 13, 31, 0.98) 100%)',
+              background: 'var(--bg-card)',
               border: '1.5px solid rgba(255, 183, 3, 0.35)',
               borderRadius: '1.25rem',
               padding: '1.8rem',
@@ -615,7 +615,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                   </div>
 
                   <div style={{
-                    background: 'rgba(0, 0, 0, 0.45)',
+                    background: 'var(--bg-card)',
                     borderLeft: '4px solid var(--crear-gold, #ffb703)',
                     borderRadius: '0.75rem',
                     padding: '1.2rem 1.4rem',
@@ -624,7 +624,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                     <span style={{ fontSize: '0.72rem', color: '#94a3b8', display: 'block', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                       Situación en Terreno:
                     </span>
-                    <p style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0, lineHeight: '1.65', fontWeight: 500 }}>
+                    <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.65', fontWeight: 500 }}>
                       «{activeSim.scenario}»
                     </p>
                   </div>
@@ -658,7 +658,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                         ? (opt.isCorrect ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)') 
                         : 'rgba(255,255,255,0.02)',
                       textAlign: 'left',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.95rem',
                       lineHeight: '1.5',
                       cursor: answeredCorrect ? 'default' : 'pointer',
@@ -887,11 +887,11 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                   <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', color: '#10b981', fontWeight: 800, letterSpacing: '0.05em' }}>
                     ACREDITACIÓN OFICIAL STEALTH
                   </div>
-                  <h2 style={{ margin: '0.2rem 0', fontSize: '1.8rem', color: '#fff' }}>
+                  <h2 style={{ margin: '0.2rem 0', fontSize: '1.8rem', color: 'var(--text-main)' }}>
                     Nivel {currentFisonomiaLevel}: {getFisonomiaTitle(currentFisonomiaLevel)}
                   </h2>
                   <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                    Colaborador: <span style={{ color: '#fff', fontWeight: 600 }}>{user?.displayName || user?.email || 'Líder en Aprendizaje'}</span>
+                    Colaborador: <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>{user?.displayName || user?.email || 'Líder en Aprendizaje'}</span>
                   </div>
                 </div>
               </div>
@@ -899,7 +899,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
               {/* Contadores */}
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <div style={{
-                  background: 'rgba(0,0,0,0.5)',
+                  background: 'var(--bg-card)',
                   padding: '12px 20px',
                   borderRadius: '14px',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -912,7 +912,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                 </div>
 
                 <div style={{
-                  background: 'rgba(0,0,0,0.5)',
+                  background: 'var(--bg-card)',
                   padding: '12px 20px',
                   borderRadius: '14px',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -925,7 +925,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                 </div>
 
                 <div style={{
-                  background: 'rgba(0,0,0,0.5)',
+                  background: 'var(--bg-card)',
                   padding: '10px 18px',
                   borderRadius: '14px',
                   border: '1px solid rgba(16, 185, 129, 0.35)',
@@ -936,7 +936,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                   <div style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 800, textTransform: 'uppercase' }}>
                     Compliance Clearance
                   </div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 900, color: '#ffffff' }}>
+                  <div style={{ fontSize: '0.92rem', fontWeight: 900, color: 'var(--text-main)' }}>
                     ✓ Aprobado
                   </div>
                 </div>
@@ -977,7 +977,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
 
           {/* Competencias y Acreditaciones de Habilidades (Phase 1, Phase 2, The 90-Day Performance Cycle) */}
           <div className="glass-panel" style={{ padding: '1.8rem' }}>
-            <h3 style={{ fontSize: '1.3rem', margin: '0 0 0.4rem', color: '#fff' }}>
+            <h3 style={{ fontSize: '1.3rem', margin: '0 0 0.4rem', color: 'var(--text-main)' }}>
               Acreditaciones de Competencia Metodológica
             </h3>
             <p className="text-muted" style={{ fontSize: '0.88rem', margin: '0 0 1.4rem' }}>
@@ -1029,7 +1029,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
           <div className="glass-panel" style={{ padding: '1.8rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.4rem' }}>
               <div>
-                <h3 style={{ fontSize: '1.3rem', margin: 0, color: '#fff' }}>
+                <h3 style={{ fontSize: '1.3rem', margin: 0, color: 'var(--text-main)' }}>
                   Vitrina de Competencias & Medallas Oficiales
                 </h3>
                 <p className="text-muted" style={{ fontSize: '0.88rem', margin: 0 }}>

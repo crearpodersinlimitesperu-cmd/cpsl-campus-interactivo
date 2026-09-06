@@ -63,7 +63,7 @@ export default function Sidebar({ isOpen, onClose }) {
               <span>🔍</span>
               <span>Buscador Global</span>
             </span>
-            <kbd style={{ fontSize: '0.7rem', padding: '0.1rem 0.35rem', background: 'rgba(0,0,0,0.4)', borderRadius: '4px', color: '#94a3b8' }}>
+            <kbd style={{ fontSize: '0.7rem', padding: '0.1rem 0.35rem', background: 'var(--bg-card)', borderRadius: '4px', color: '#94a3b8' }}>
               Ctrl K
             </kbd>
           </button>

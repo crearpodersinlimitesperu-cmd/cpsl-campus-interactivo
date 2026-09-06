@@ -128,7 +128,7 @@ export default function AutoevaluacionCoach() {
                 value={respuestasSemanal[i] || ''}
                 onChange={(e) => handleInputChange(i, e.target.value)}
                 placeholder="Reflexiona aquí..." 
-                style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '4px' }} 
+                style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-main)', borderRadius: '4px' }} 
               />
             </div>
           ))}

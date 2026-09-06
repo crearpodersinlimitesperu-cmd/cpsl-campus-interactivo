@@ -124,7 +124,7 @@ export default function Dashboard() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'center' }}>
             <div>
-              <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.8rem', fontWeight: 900, color: '#ffffff' }}>
+              <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.8rem', fontWeight: 900, color: 'var(--text-main)' }}>
                 El Reto del Día: Toma de Decisiones en Tiempo Real
               </h3>
               <p className="text-muted" style={{ margin: '0 0 1.25rem', fontSize: '0.98rem', lineHeight: 1.5 }}>
@@ -237,7 +237,7 @@ export default function Dashboard() {
                 </span>
                 <span style={{ fontSize: '0.75rem', color: '#10b981', fontWeight: 800 }}>Promedio: 91%</span>
               </div>
-              <h3 style={{ margin: '0 0 1rem', fontSize: '1.3rem', fontWeight: 900, color: '#ffffff' }}>
+              <h3 style={{ margin: '0 0 1rem', fontSize: '1.3rem', fontWeight: 900, color: 'var(--text-main)' }}>
                 Radar de Desempeño Operativo
               </h3>
               
@@ -347,7 +347,7 @@ export default function Dashboard() {
             onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255, 183, 3, 0.25)'}
           >
             <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '0.5rem' }}>📖</span>
-            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Vende Sin Vender</h4>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: 'var(--text-main)' }}>Vende Sin Vender</h4>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
               Ecuación de Alex Hormozi, los Tres Cerebros, y el método Grand Slam para transformar obstáculos.
             </p>
@@ -361,7 +361,7 @@ export default function Dashboard() {
             onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(16, 185, 129, 0.25)'}
           >
             <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '0.5rem' }}>📜</span>
-            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Mentoría & Comunicación Empática</h4>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: 'var(--text-main)' }}>Mentoría & Comunicación Empática</h4>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
               Marco StoryBrand (SB7), aislamiento ético de objeciones y guiones de acompañamiento sin coerción.
             </p>
@@ -380,7 +380,7 @@ export default function Dashboard() {
                 VIDEO MASTERCLASS
               </span>
             </div>
-            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Masterclass: 5 Distinciones</h4>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: 'var(--text-main)' }}>Masterclass: 5 Distinciones</h4>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
               Video oficial y marco científico: Seguridad Psicológica (Edmondson), Voss, Rotter y Efecto Mandela.
             </p>
@@ -394,7 +394,7 @@ export default function Dashboard() {
             onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.25)'}
           >
             <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '0.5rem' }}>🎯</span>
-            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Retos Diarios de Autoentrenamiento</h4>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: 'var(--text-main)' }}>Retos Diarios de Autoentrenamiento</h4>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
               Ejercicios vivenciales de fisonomía, hábitos de disciplina y rigor personal sin jerarquías.
             </p>
@@ -413,7 +413,7 @@ export default function Dashboard() {
                 PSICOFISIOLOGÍA GRINBERG
               </span>
             </div>
-            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: '#ffffff' }}>Laboratorio Sintérgico</h4>
+            <h4 style={{ margin: '0 0 0.3rem', fontSize: '1.1rem', color: 'var(--text-main)' }}>Laboratorio Sintérgico</h4>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.85rem' }}>
               Calibrador de Coherencia EEG, Lattice, Hipercampo de comités y neuromarketing decisional con recompensas de XP.
             </p>

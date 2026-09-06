@@ -47,7 +47,7 @@ export default function VendeSinVender() {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', color: '#fff', padding: '1.5rem', paddingBottom: '6rem' }}>
+    <div style={{ minHeight: '100vh', color: 'var(--text-main)', padding: '1.5rem', paddingBottom: '6rem' }}>
       
       {/* HEADER DE NAVEGACIÓN Y MARCA OFICIAL */}
       <div style={{ maxWidth: '1200px', margin: '0 auto 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '1.2rem' }}>
@@ -68,7 +68,7 @@ export default function VendeSinVender() {
                 ALTO RENDIMIENTO EJECUTIVO
               </span>
             </div>
-            <h1 style={{ margin: '4px 0 0', fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+            <h1 style={{ margin: '4px 0 0', fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)' }}>
               Vende Sin Vender: El Arte de la Negociación y el Enrolamiento Estratégico
             </h1>
           </div>
@@ -88,7 +88,7 @@ export default function VendeSinVender() {
         <div className="glass-panel" style={{ padding: '1.2rem', position: 'sticky', top: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1rem', paddingBottom: '0.6rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
             <span style={{ fontSize: '1.2rem' }}>📖</span>
-            <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#fff' }}>
+            <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-main)' }}>
               Índice de la Obra
             </h3>
           </div>
@@ -148,7 +148,7 @@ export default function VendeSinVender() {
                 <span style={{ background: 'var(--crear-gold)', color: '#000', padding: '3px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 900 }}>
                   INTRODUCCIÓN OFICIAL
                 </span>
-                <h2 style={{ fontSize: '2.2rem', margin: '0.8rem 0 0.4rem', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2.2rem', margin: '0.8rem 0 0.4rem', fontWeight: 800, color: 'var(--text-main)' }}>
                   BIENVENIDA AL CONTEXTO: ¿POR QUÉ ESTE LIBRO SÍ LO VAS A TERMINAR?
                 </h2>
                 <p style={{ fontSize: '1.1rem', color: '#e5e7eb', lineHeight: '1.8', margin: '1rem 0 0' }}>
@@ -165,7 +165,7 @@ export default function VendeSinVender() {
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
                   <span style={{ fontSize: '1.2rem' }}>✨</span>
-                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff' }}>
+                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--text-main)' }}>
                     Infografía Narrativa: La Tríada del Enrolamiento Ético
                   </h4>
                 </div>
@@ -234,7 +234,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 1
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   EL DESPERTAR DEL GUÍA (No eres Luke, eres Yoda)
                 </h2>
               </div>
@@ -257,7 +257,7 @@ export default function VendeSinVender() {
 
               {/* GRÁFICA NARRATIVA 2: DUELO ARQUETÍPICO LUKE VS YODA */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
-                <h4 style={{ margin: '0 0 1rem', fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h4 style={{ margin: '0 0 1rem', fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span>🧭</span> Duelo Arquetípico: Posicionamiento StoryBrand (SB7)
                 </h4>
 
@@ -318,7 +318,7 @@ export default function VendeSinVender() {
                 </p>
 
                 {/* Tarjeta de Cita Copiable */}
-                <div style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ marginTop: '1.5rem', background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '0.95rem' }}>
                     «El participante no busca a otro héroe desorientado en la sala; busca desesperadamente un mentor empático con un mapa claro».
                   </div>
@@ -352,7 +352,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 2
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   ANATOMÍA DE LA MENTE HUMANA (Cómo amansar al Perro Guardián)
                 </h2>
               </div>
@@ -391,12 +391,12 @@ export default function VendeSinVender() {
               {/* GRÁFICA NARRATIVA 3: EL TEMPLO DE LA DECISIÓN Y SELECTOR DE ALARMA */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span>🧠</span> El Templo de la Decisión: 3 Cerebros en Acción
                   </h4>
 
                   {/* Interruptor Interactivo: Discurso Agresivo vs Fisonomía de Calma */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(0,0,0,0.4)', padding: '6px 12px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'var(--bg-card)', padding: '6px 12px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <span style={{ fontSize: '0.8rem', color: dogAlertMode ? 'var(--text-muted)' : '#34d399', fontWeight: !dogAlertMode ? 800 : 400 }}>
                       🐶 Fisonomía de Calma
                     </span>
@@ -511,7 +511,7 @@ export default function VendeSinVender() {
                   <li><strong>Dales seguridad:</strong> Hazles saber que respetas su libre albedrío y que su decisión de asistir o no es 100% libre. Al saber que no hay una soga en su cuello, el perro guardián se echa a dormir y el corazón (cerebro límbico) se abre para escuchar la propuesta.</li>
                 </ul>
 
-                <div style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ marginTop: '1.5rem', background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '0.95rem' }}>
                     «Al saber que no hay una soga en su cuello, el perro guardián se echa a dormir y el corazón se abre para escuchar la propuesta».
                   </div>
@@ -545,7 +545,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 3
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   LA ECUACIÓN DE VALOR EN PLASTILINA
                 </h2>
               </div>
@@ -584,7 +584,7 @@ export default function VendeSinVender() {
               {/* GRÁFICA NARRATIVA 4: BALANZA INTERACTIVA DE HORMOZI */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem' }}>
-                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span>⚖️</span> Balanza Matemática del Valor Percibido
                   </h4>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
@@ -593,7 +593,7 @@ export default function VendeSinVender() {
                 </div>
 
                 {/* Display Central del Valor */}
-                <div style={{ background: 'rgba(0,0,0,0.5)', padding: '1.2rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ background: 'var(--bg-card)', padding: '1.2rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', marginBottom: '1.5rem' }}>
                   <div style={{ fontFamily: 'monospace', color: '#fbbf24', fontSize: '1rem', marginBottom: '0.5rem' }}>
                     Valor = (Resultado [{valSueno}] × Certeza [{valCerteza}]) / (Retraso [{valTiempo}] × Esfuerzo [{valEsfuerzo}])
                   </div>
@@ -671,7 +671,7 @@ export default function VendeSinVender() {
                   </li>
                 </ul>
 
-                <div style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ marginTop: '1.5rem', background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '0.95rem' }}>
                     «No le pedimos más esfuerzo al líder; le damos un andamiaje estratégico que absorbe la fricción cotidiana».
                   </div>
@@ -705,7 +705,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 4
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   EL MAPA DE RUTA EN 3 PASOS
                 </h2>
               </div>
@@ -718,7 +718,7 @@ export default function VendeSinVender() {
 
               {/* GRÁFICA NARRATIVA 5: EL MAPA DE RUTA EN 3 PASOS Y TICKET VERDE */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
-                <h4 style={{ margin: '0 0 1.2rem', fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h4 style={{ margin: '0 0 1.2rem', fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span>🎯</span> El Puente Invisible de Conversión Ética
                 </h4>
 
@@ -755,7 +755,7 @@ export default function VendeSinVender() {
                 </div>
 
                 {/* Simulador Interactivo del Clearance de la Integridad */}
-                <div style={{ background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '1.2rem' }}>
+                <div style={{ background: 'var(--bg-card)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '1.2rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
                     <div>
                       <strong style={{ color: '#34d399', fontSize: '0.95rem' }}>
@@ -780,7 +780,7 @@ export default function VendeSinVender() {
                         <div style={{ fontSize: '0.75rem', color: '#34d399', fontWeight: 800, letterSpacing: '0.05em' }}>
                           SISTEMA INTERRUPCIÓN • ALTO RENDIMIENTO
                         </div>
-                        <h4 style={{ margin: '0.2rem 0', color: '#fff', fontSize: '1.2rem' }}>
+                        <h4 style={{ margin: '0.2rem 0', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                           CLEARANCE DE COMPROMISO: ACUERDO SELLADO
                         </h4>
                         <div style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
@@ -807,7 +807,7 @@ export default function VendeSinVender() {
                     <strong style={{ color: '#38bdf8', fontSize: '0.9rem', display: 'block', marginBottom: '4px' }}>
                       Paso 1 (Calibración del Objetivo):
                     </strong>
-                    <div style={{ fontStyle: 'italic', color: '#fff', fontSize: '0.95rem' }}>
+                    <div style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.95rem' }}>
                       «Si tuvieras la certeza absoluta de contar con la metodología y los datos auditados, ¿qué quiebre operativo o directivo resolverías en los siguientes 90 días?»
                     </div>
                   </div>
@@ -816,7 +816,7 @@ export default function VendeSinVender() {
                     <strong style={{ color: '#c084fc', fontSize: '0.9rem', display: 'block', marginBottom: '4px' }}>
                       Paso 2 (Andamiaje sin Fricción):
                     </strong>
-                    <div style={{ fontStyle: 'italic', color: '#fff', fontSize: '0.95rem' }}>
+                    <div style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.95rem' }}>
                       «Sostener una meta directiva compleja sin una arquitectura de soporte genera desgaste. Por eso integramos el Sistema Interrupción: telemetría en tiempo real y gobernanza limpia que eliminan las opiniones subjetivas.»
                     </div>
                   </div>
@@ -825,7 +825,7 @@ export default function VendeSinVender() {
                     <strong style={{ color: '#34d399', fontSize: '0.9rem', display: 'block', marginBottom: '4px' }}>
                       Paso 3 (El Clearance de la Integridad):
                     </strong>
-                    <div style={{ fontStyle: 'italic', color: '#fff', fontSize: '0.95rem' }}>
+                    <div style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.95rem' }}>
                       «Formalizar este acuerdo con fecha y métrica de éxito es la acción concreta que sella tu liderazgo. Activemos tu Clearance de Aprobación para que el despliegue comience formalmente hoy.»
                     </div>
                   </div>
@@ -852,7 +852,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 5
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   EL RESCATE DE CUENTAS CONGELADAS (Negociación Táctica)
                 </h2>
               </div>
@@ -868,7 +868,7 @@ export default function VendeSinVender() {
 
               {/* GRÁFICA NARRATIVA 6: PROTOCOLO OPERATIVO MILITAR Y AMOROSO */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
-                <h4 style={{ margin: '0 0 1.2rem', fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h4 style={{ margin: '0 0 1.2rem', fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span>🛡️</span> Protocolo de Reactivación & Negociación Táctica
                 </h4>
 
@@ -877,7 +877,7 @@ export default function VendeSinVender() {
                     <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#f87171', textTransform: 'uppercase', marginBottom: '4px' }}>
                       1. Auditoría de Acusaciones
                     </div>
-                    <strong style={{ color: '#fff', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
+                    <strong style={{ color: 'var(--text-main)', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
                       Nombrar el Elefante
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
@@ -889,7 +889,7 @@ export default function VendeSinVender() {
                     <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', marginBottom: '4px' }}>
                       2. Calibración y Deadline
                     </div>
-                    <strong style={{ color: '#fff', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
+                    <strong style={{ color: 'var(--text-main)', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
                       Preguntas Calibradas
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
@@ -901,7 +901,7 @@ export default function VendeSinVender() {
                     <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', marginBottom: '4px' }}>
                       3. Sostener la Integridad
                     </div>
-                    <strong style={{ color: '#fff', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
+                    <strong style={{ color: 'var(--text-main)', fontSize: '1rem', display: 'block', marginBottom: '6px' }}>
                       Cuidado de la Palabra
                     </strong>
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.6' }}>
@@ -916,7 +916,7 @@ export default function VendeSinVender() {
                 <h3 style={{ color: 'var(--crear-gold)', fontSize: '1.3rem', margin: '0 0 0.8rem' }}>
                   El Guión de Firmeza y Empatía Estratégica
                 </h3>
-                <div style={{ background: 'rgba(0,0,0,0.4)', borderLeft: '4px solid var(--crear-gold)', borderRadius: '10px', padding: '1.2rem', position: 'relative' }}>
+                <div style={{ background: 'var(--bg-card)', borderLeft: '4px solid var(--crear-gold)', borderRadius: '10px', padding: '1.2rem', position: 'relative' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '1rem', lineHeight: '1.7' }}>
                     «Entiendo perfectamente la fricción que sientes y que tu primer instinto sea postergar. Sin embargo, mi mayor compromiso profesional es ayudarte a honrar el objetivo de transformación que definiste. Los recursos y la metodología ya están dispuestos; definamos hoy el cronograma ejecutable para que no te quedes en la inercia.»
                   </div>
@@ -952,7 +952,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 6
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   LA BITÁCORA DEL LIDERAZGO ESTRATÉGICO (Causa vs. Espectador)
                 </h2>
               </div>
@@ -977,7 +977,7 @@ export default function VendeSinVender() {
               {/* GRÁFICA NARRATIVA 7: EL TABLERO CUÁNTICO ARENA VS CONTEXTO */}
               <div className="glass-panel" style={{ padding: '1.8rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem' }}>
-                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <h4 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span>⚡</span> El Tablero de Control de la Realidad
                   </h4>
 
@@ -1024,7 +1024,7 @@ export default function VendeSinVender() {
                     <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#f87171', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
                       ESTADO ONTOLÓGICO: MODO EFECTO / VÍCTIMA
                     </div>
-                    <h4 style={{ margin: '0 0 0.8rem', color: '#fff', fontSize: '1.2rem' }}>
+                    <h4 style={{ margin: '0 0 0.8rem', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                       «La Inercia Reactiva» — Quejas, Justificaciones y Suposiciones
                     </h4>
                     <p style={{ margin: 0, fontSize: '0.92rem', color: '#fca5a5', lineHeight: '1.7' }}>
@@ -1039,7 +1039,7 @@ export default function VendeSinVender() {
                     <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
                       ESTADO ONTOLÓGICO: MODO CAUSA / PROTAGONISTA
                     </div>
-                    <h4 style={{ margin: '0 0 0.8rem', color: '#fff', fontSize: '1.2rem' }}>
+                    <h4 style={{ margin: '0 0 0.8rem', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                       «El Contexto de Causa» — Hechos Duros y Datos Auditados en el Sistema
                     </h4>
                     <p style={{ margin: 0, fontSize: '0.92rem', color: '#a7f3d0', lineHeight: '1.7' }}>
@@ -1068,7 +1068,7 @@ export default function VendeSinVender() {
                   Cuando un líder une la precisión de la telemetría con la responsabilidad radical de sus declaraciones, genera un entorno de alta confianza y certidumbre.
                 </p>
 
-                <div style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ marginTop: '1.5rem', background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ fontStyle: 'italic', color: '#fde047', fontSize: '0.95rem' }}>
                     «Cuando un líder une la precisión de los datos con la responsabilidad radical de su Ser, transforma la incertidumbre en resultados predecibles».
                   </div>
@@ -1103,7 +1103,7 @@ export default function VendeSinVender() {
                 <span style={{ color: '#f472b6', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   CAPÍTULO 7 • SISTEMA INTERRUPCIÓN PROTOCOLO MAESTRO
                 </span>
-                <h2 style={{ fontSize: '2.2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2.2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   CONSTRUIR DESDE LA NADA: LA VISIÓN COLECTIVA
                 </h2>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', margin: 0, lineHeight: 1.6 }}>
@@ -1113,7 +1113,7 @@ export default function VendeSinVender() {
 
               {/* CITA DESTACADA */}
               <div className="glass-panel" style={{ padding: '1.5rem', borderLeft: '4px solid #ec4899', background: 'rgba(236,72,153,0.08)' }}>
-                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff', fontStyle: 'italic', marginBottom: '0.5rem' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-main)', fontStyle: 'italic', marginBottom: '0.5rem' }}>
                   «Construir no está mal… pero está jodido si vienes de creerte libre siendo quien crees que eres.»
                 </div>
                 <div style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
@@ -1123,7 +1123,7 @@ export default function VendeSinVender() {
 
               {/* 6 FRASES ANCLA */}
               <div className="glass-panel" style={{ padding: '1.5rem' }}>
-                <h3 style={{ fontSize: '1.2rem', margin: '0 0 1rem', color: '#fff' }}>
+                <h3 style={{ fontSize: '1.2rem', margin: '0 0 1rem', color: 'var(--text-main)' }}>
                   ⚓ Las 6 Frases Ancla del Entrenador Cuántico
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
@@ -1147,7 +1147,7 @@ export default function VendeSinVender() {
                       }}
                     >
                       <div style={{ fontSize: '0.75rem', color: '#f472b6', textTransform: 'uppercase', fontWeight: 800 }}>{f.d}</div>
-                      <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fff', fontStyle: 'italic', margin: '0.3rem 0' }}>«{f.t}»</div>
+                      <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', fontStyle: 'italic', margin: '0.3rem 0' }}>«{f.t}»</div>
                       <span style={{ fontSize: '0.75rem', color: copiedQuote === `anchor_${i}` ? '#10b981' : 'var(--text-muted)' }}>
                         {copiedQuote === `anchor_${i}` ? '✓ Copiado' : '📋 Clic para copiar'}
                       </span>
@@ -1165,7 +1165,7 @@ export default function VendeSinVender() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #ec4899' }}>
                     <div style={{ color: '#f472b6', fontWeight: 800, fontSize: '0.85rem' }}>PASO 1: APERTURA</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Romper el contexto viejo</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>Romper el contexto viejo</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       La nada como tabla rasa. Si montas una visión desde quien crees que eres, nace limitada por tu pasado.
                     </p>
@@ -1173,7 +1173,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #38bdf8' }}>
                     <div style={{ color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>PASO 2: INCERTIDUMBRE</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Certeza en lo desconocido</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>Certeza en lo desconocido</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       En el «no sé que no sé» desaparece el miedo y la expectativa. Estás en la vanguardia: no hay mapa inerte, hay creación activa.
                     </p>
@@ -1181,7 +1181,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #fbbf24' }}>
                     <div style={{ color: '#fbbf24', fontWeight: 800, fontSize: '0.85rem' }}>PASO 3: VISIÓN COLECTIVA</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>De lo individual a la causa común</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>De lo individual a la causa común</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       Trascender el ego individual: construir objetivos organizacionales que unifiquen el propósito de todos los involucrados.
                     </p>
@@ -1189,7 +1189,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #10b981' }}>
                     <div style={{ color: '#10b981', fontWeight: 800, fontSize: '0.85rem' }}>PASO 4: UBUNTU & SISTEMAS COMPLEJOS</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>«Yo soy porque nosotros somos»</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>«Yo soy porque nosotros somos»</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       Equipos de alto desempeño integrados por interdependencia. La solidez del conjunto sostiene la transformación.
                     </p>
@@ -1197,7 +1197,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #a78bfa' }}>
                     <div style={{ color: '#a78bfa', fontWeight: 800, fontSize: '0.85rem' }}>PASO 5: DISCIPLINA OPERATIVA</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Práctica constante (James Clear)</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>Práctica constante (James Clear)</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       La repetición sistemática forja hábitos organizacionales inquebrantables. En la operación se viene a ejecutar resultados inmutables, no a teorizar.
                     </p>
@@ -1205,7 +1205,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #f87171' }}>
                     <div style={{ color: '#f87171', fontWeight: 800, fontSize: '0.85rem' }}>PASO 6: ALINEACIÓN</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>Elegir protagonistas, no espectadores</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>Elegir protagonistas, no espectadores</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       «No hay jugadores pasivos». El estándar de rigor requiere profesionales 100% involucrados con los objetivos estratégicos.
                     </p>
@@ -1213,7 +1213,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid #34d399' }}>
                     <div style={{ color: '#34d399', fontWeight: 800, fontSize: '0.85rem' }}>PASO 7: CONSTRUCCIÓN</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>¿Quiénes elegimos ser como organización?</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>¿Quiénes elegimos ser como organización?</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       Compromiso en acción: «Bienvenidos al ecosistema de alto impacto donde se materializa [Tu Visión]».
                     </p>
@@ -1221,7 +1221,7 @@ export default function VendeSinVender() {
 
                   <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1.2rem', borderRadius: '12px', borderLeft: '3px solid var(--crear-gold)' }}>
                     <div style={{ color: 'var(--crear-gold)', fontWeight: 800, fontSize: '0.85rem' }}>PASO 8: CIERRE</div>
-                    <div style={{ color: '#fff', fontWeight: 700, margin: '0.3rem 0' }}>¿Para qué lideras?</div>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 700, margin: '0.3rem 0' }}>¿Para qué lideras?</div>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
                       La plataforma de visión aterriza con métricas claras y entregables definidos. La alineación prepara el terreno para la ejecución de alto rendimiento.
                     </p>
@@ -1233,7 +1233,7 @@ export default function VendeSinVender() {
                   <div style={{ color: '#f472b6', fontWeight: 800, fontSize: '0.85rem', marginBottom: '0.4rem' }}>
                     🎙️ GUION DE DIRECCIÓN OPERATIVA
                   </div>
-                  <div style={{ color: '#fff', fontStyle: 'italic', fontSize: '1rem', lineHeight: 1.6 }}>
+                  <div style={{ color: 'var(--text-main)', fontStyle: 'italic', fontSize: '1rem', lineHeight: 1.6 }}>
                     «Mi nombre es [tu nombre]. Asumo la dirección estratégica de este proceso. A partir de ahora, lo que queda es alinear los acuerdos formales con la ejecución impecable.»
                   </div>
                 </div>
@@ -1259,7 +1259,7 @@ export default function VendeSinVender() {
                 <span style={{ color: 'var(--crear-gold)', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase' }}>
                   EPÍLOGO
                 </span>
-                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: '#fff' }}>
+                <h2 style={{ fontSize: '2rem', margin: '0.3rem 0', fontWeight: 800, color: 'var(--text-main)' }}>
                   EL MANIFIESTO DEL LIDERAZGO DE ALTO RENDIMIENTO
                 </h2>
               </div>
@@ -1270,7 +1270,7 @@ export default function VendeSinVender() {
                 <span style={{ background: '#38bdf8', color: '#000', padding: '4px 16px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 900, letterSpacing: '0.05em' }}>
                   SISTEMA INTERRUPCIÓN
                 </span>
-                <h3 style={{ fontSize: '1.8rem', margin: '1rem 0 0.5rem', fontWeight: 800, color: '#fff' }}>
+                <h3 style={{ fontSize: '1.8rem', margin: '1rem 0 0.5rem', fontWeight: 800, color: 'var(--text-main)' }}>
                   MANIFIESTO DEL LÍDER DE ALTO RENDIMIENTO
                 </h3>
                 <p style={{ maxWidth: '780px', margin: '0 auto', fontSize: '1.15rem', color: '#bae6fd', lineHeight: '1.8', fontStyle: 'italic' }}>
@@ -1278,19 +1278,19 @@ export default function VendeSinVender() {
                 </p>
 
                 <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                  <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ background: 'var(--bg-card)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#34d399', fontWeight: 800 }}>🧠 CÓRTEX CALMO</div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Cero Amenaza Biológica</div>
                   </div>
-                  <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ background: 'var(--bg-card)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#fbbf24', fontWeight: 800 }}>⚖️ VALOR HORMOZI</div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Certeza Insuperable</div>
                   </div>
-                  <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ background: 'var(--bg-card)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#38bdf8', fontWeight: 800 }}>🗺️ 3 PASOS</div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Acuerdos en Firme</div>
                   </div>
-                  <div style={{ background: 'rgba(0,0,0,0.5)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ background: 'var(--bg-card)', padding: '12px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ color: '#c084fc', fontWeight: 800 }}>⚡ AGENCIA RADICAL</div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>100% Responsabilidad</div>
                   </div>

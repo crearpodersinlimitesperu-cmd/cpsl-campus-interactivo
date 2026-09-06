@@ -297,7 +297,7 @@ export default function LaboratorioSintergico() {
           top: '20px',
           right: '20px',
           background: feedbackToast.tipo === 'success' ? '#065f46' : '#1e1b4b',
-          color: '#ffffff',
+          color: 'var(--text-main)',
           padding: '0.85rem 1.4rem',
           borderRadius: '12px',
           border: '1px solid #10b981',
@@ -598,7 +598,7 @@ export default function LaboratorioSintergico() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1.25rem', marginBottom: '2rem' }}>
             
             {/* Medidor de Coherencia */}
-            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(56, 189, 248, 0.2)', textAlign: 'center' }}>
+            <div style={{ background: 'var(--bg-card)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(56, 189, 248, 0.2)', textAlign: 'center' }}>
               <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
                 Coherencia Interhemisférica (EEG)
               </span>
@@ -621,7 +621,7 @@ export default function LaboratorioSintergico() {
             </div>
 
             {/* Medidor de Espectro de Ondas */}
-            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(139, 92, 246, 0.2)', textAlign: 'center' }}>
+            <div style={{ background: 'var(--bg-card)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(139, 92, 246, 0.2)', textAlign: 'center' }}>
               <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
                 Patrón de Banda Sintérgica
               </span>
@@ -634,7 +634,7 @@ export default function LaboratorioSintergico() {
             </div>
 
             {/* Cronómetro Central */}
-            <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(255, 183, 3, 0.2)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ background: 'var(--bg-card)', borderRadius: '16px', padding: '1.25rem', border: '1px solid rgba(255, 183, 3, 0.2)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
                 Tiempo de Inmersión Autoalusiva
               </span>
@@ -724,7 +724,7 @@ export default function LaboratorioSintergico() {
                   DINÁMICA 1 • COMITÉS
                 </span>
               </div>
-              <h3 style={{ margin: '0 0 0.5rem', color: '#ffffff', fontSize: '1.2rem' }}>
+              <h3 style={{ margin: '0 0 0.5rem', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                 Sintonización de Hipercampo en Comités
               </h3>
               <p style={{ fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
@@ -760,7 +760,7 @@ export default function LaboratorioSintergico() {
                   DINÁMICA 2 • NEUROMARKETING
                 </span>
               </div>
-              <h3 style={{ margin: '0 0 0.5rem', color: '#ffffff', fontSize: '1.2rem' }}>
+              <h3 style={{ margin: '0 0 0.5rem', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                 El Factor de Direccionalidad en Propuestas de Valor
               </h3>
               <p style={{ fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
@@ -796,7 +796,7 @@ export default function LaboratorioSintergico() {
                   DINÁMICA 3 • NEGOCIACIÓN TÁCTICA
                 </span>
               </div>
-              <h3 style={{ margin: '0 0 0.5rem', color: '#ffffff', fontSize: '1.2rem' }}>
+              <h3 style={{ margin: '0 0 0.5rem', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                 Potencial Transferido en Negociaciones de Tensión
               </h3>
               <p style={{ fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
@@ -832,7 +832,7 @@ export default function LaboratorioSintergico() {
                   DINÁMICA 4 • LIDERAZGO
                 </span>
               </div>
-              <h3 style={{ margin: '0 0 0.5rem', color: '#ffffff', fontSize: '1.2rem' }}>
+              <h3 style={{ margin: '0 0 0.5rem', color: 'var(--text-main)', fontSize: '1.2rem' }}>
                 Conciencia de Unidad & Operación en Causa Radical
               </h3>
               <p style={{ fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
@@ -888,10 +888,10 @@ export default function LaboratorioSintergico() {
                   style={{
                     width: '100%',
                     padding: '0.6rem 0.8rem',
-                    background: 'rgba(0,0,0,0.5)',
+                    background: 'var(--bg-card)',
                     border: '1px solid rgba(255,255,255,0.15)',
                     borderRadius: '8px',
-                    color: '#ffffff',
+                    color: 'var(--text-main)',
                     fontSize: '0.85rem'
                   }}
                 >
@@ -915,10 +915,10 @@ export default function LaboratorioSintergico() {
                   style={{
                     width: '100%',
                     padding: '0.75rem',
-                    background: 'rgba(0,0,0,0.5)',
+                    background: 'var(--bg-card)',
                     border: '1px solid rgba(255,255,255,0.15)',
                     borderRadius: '8px',
-                    color: '#ffffff',
+                    color: 'var(--text-main)',
                     fontSize: '0.85rem',
                     resize: 'vertical'
                   }}
@@ -1035,7 +1035,7 @@ export default function LaboratorioSintergico() {
             <span style={{ fontSize: '0.75rem', color: '#a78bfa', fontWeight: 800, textTransform: 'uppercase' }}>
               DOCUMENTO OFICIAL DE INVESTIGACIÓN PSICOFISIOLÓGICA
             </span>
-            <h2 style={{ fontSize: '1.8rem', color: '#ffffff', margin: '0.3rem 0' }}>
+            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', margin: '0.3rem 0' }}>
               Teoría Sintérgica del Dr. Jacobo Grinberg-Zylberbaum (UNAM, INPEC)
             </h2>
             <p className="text-muted" style={{ margin: 0, fontSize: '0.92rem' }}>

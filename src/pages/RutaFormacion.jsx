@@ -401,7 +401,7 @@ export default function RutaFormacion() {
             <span>Orientación: Construir desde la Nada</span>
             <span style={{
               background: '#ec4899',
-              color: '#fff',
+              color: 'var(--text-main)',
               padding: '2px 8px',
               borderRadius: '10px',
               fontSize: '0.75rem',
@@ -435,7 +435,7 @@ export default function RutaFormacion() {
             <span>Ruta Académica de Coaching & Transformación</span>
             <span style={{
               background: 'rgba(255,255,255,0.1)',
-              color: '#fff',
+              color: 'var(--text-main)',
               padding: '2px 8px',
               borderRadius: '10px',
               fontSize: '0.75rem'
@@ -490,7 +490,7 @@ export default function RutaFormacion() {
                   <div style={{fontSize: '0.85rem', textTransform: 'uppercase', color: 'var(--crear-gold)', fontWeight: 800, letterSpacing: '0.05em'}}>
                     Nivel de Maestría en Comunicación y Retos
                   </div>
-                  <h2 style={{margin: '0.1rem 0', fontSize: '1.6rem', color: '#fff'}}>
+                  <h2 style={{margin: '0.1rem 0', fontSize: '1.6rem', color: 'var(--text-main)'}}>
                     Nivel {currentLevel}: {currentMaestria.rol}
                   </h2>
                   <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>
@@ -502,7 +502,7 @@ export default function RutaFormacion() {
               {/* Contadores XP, Racha y Enfoque */}
               <div style={{display: 'flex', gap: '1.2rem', flexWrap: 'wrap'}}>
                 <div style={{
-                  background: 'rgba(0,0,0,0.4)',
+                  background: 'var(--bg-card)',
                   padding: '10px 18px',
                   borderRadius: '14px',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -515,7 +515,7 @@ export default function RutaFormacion() {
                 </div>
 
                 <div style={{
-                  background: 'rgba(0,0,0,0.4)',
+                  background: 'var(--bg-card)',
                   padding: '10px 18px',
                   borderRadius: '14px',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -529,7 +529,7 @@ export default function RutaFormacion() {
 
                 {/* Enfoque de Práctica Activo */}
                 <div style={{
-                  background: 'rgba(0,0,0,0.4)',
+                  background: 'var(--bg-card)',
                   padding: '10px 14px',
                   borderRadius: '14px',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -547,7 +547,7 @@ export default function RutaFormacion() {
                     style={{
                       background: 'rgba(255,255,255,0.08)',
                       border: '1px solid rgba(255,255,255,0.15)',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       borderRadius: '8px',
                       padding: '4px 8px',
                       fontSize: '0.85rem',
@@ -611,7 +611,7 @@ export default function RutaFormacion() {
                     Marco Teórico: Alex Hormozi ($100M Offers)
                   </span>
                 </div>
-                <h3 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: '#fff'}}>
+                <h3 style={{fontSize: '1.6rem', margin: '0.2rem 0', color: 'var(--text-main)'}}>
                   Simulador de la Ecuación de Valor
                 </h3>
                 <p style={{fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, maxWidth: '720px'}}>
@@ -651,7 +651,7 @@ export default function RutaFormacion() {
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: '1.5rem',
               alignItems: 'center',
-              background: 'rgba(0,0,0,0.4)',
+              background: 'var(--bg-card)',
               padding: '1.5rem',
               borderRadius: '14px',
               border: '1px solid rgba(255,255,255,0.06)',
@@ -661,7 +661,7 @@ export default function RutaFormacion() {
                 <div style={{fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--crear-gold)', fontWeight: 800, marginBottom: '6px'}}>
                   Fórmula Matemática
                 </div>
-                <div style={{fontFamily: 'monospace', fontSize: '1rem', color: '#fde047', background: 'rgba(0,0,0,0.5)', padding: '0.8rem', borderRadius: '8px'}}>
+                <div style={{fontFamily: 'monospace', fontSize: '1rem', color: '#fde047', background: 'var(--bg-card)', padding: '0.8rem', borderRadius: '8px'}}>
                   Valor = (Resultado [{valResultado}] × Probabilidad [{valProbabilidad}]) / (Retraso [{valTiempo}] × Esfuerzo [{valEsfuerzo}])
                 </div>
               </div>
@@ -695,7 +695,7 @@ export default function RutaFormacion() {
               <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #10b981'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
                   <strong style={{color: '#34d399', fontSize: '0.88rem'}}>🍲 1. Resultado Anhelado</strong>
-                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valResultado}/10</span>
+                  <span style={{color: 'var(--text-main)', fontWeight: 'bold'}}>{valResultado}/10</span>
                 </div>
                 <input 
                   type="range" 
@@ -714,7 +714,7 @@ export default function RutaFormacion() {
               <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #38bdf8'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
                   <strong style={{color: '#38bdf8', fontSize: '0.88rem'}}>🌉 2. Probabilidad de Logro</strong>
-                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valProbabilidad}/10</span>
+                  <span style={{color: 'var(--text-main)', fontWeight: 'bold'}}>{valProbabilidad}/10</span>
                 </div>
                 <input 
                   type="range" 
@@ -733,7 +733,7 @@ export default function RutaFormacion() {
               <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #f59e0b'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
                   <strong style={{color: '#fbbf24', fontSize: '0.88rem'}}>🍎 3. Retraso Temporal</strong>
-                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valTiempo}/10</span>
+                  <span style={{color: 'var(--text-main)', fontWeight: 'bold'}}>{valTiempo}/10</span>
                 </div>
                 <input 
                   type="range" 
@@ -752,7 +752,7 @@ export default function RutaFormacion() {
               <div className="glass-panel" style={{padding: '1rem', borderLeft: '3px solid #ec4899'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem'}}>
                   <strong style={{color: '#f472b6', fontSize: '0.88rem'}}>💊 4. Esfuerzo & Sacrificio</strong>
-                  <span style={{color: '#fff', fontWeight: 'bold'}}>{valEsfuerzo}/10</span>
+                  <span style={{color: 'var(--text-main)', fontWeight: 'bold'}}>{valEsfuerzo}/10</span>
                 </div>
                 <input 
                   type="range" 
@@ -779,7 +779,7 @@ export default function RutaFormacion() {
               color: 'var(--text-muted)',
               lineHeight: '1.6'
             }}>
-              <strong style={{color: '#fff'}}>Diagnóstico de la Conversación:</strong>{' '}
+              <strong style={{color: 'var(--text-main)'}}>Diagnóstico de la Conversación:</strong>{' '}
               {valEsfuerzo >= 7 || valTiempo >= 7 ? (
                 <span style={{color: '#fca5a5'}}>
                   El denominador está sobrecargado. El Perro Guardián levantará objeciones inmediatas como «no tengo tiempo» o «no tengo dinero». Desfragmenta el proceso en hábitos de 5 minutos y entrega una plantilla prediseñada para acelerar su primer resultado en 48 horas.
@@ -850,7 +850,7 @@ export default function RutaFormacion() {
 
             {/* Escenario del Caso Activo */}
             <div style={{
-              background: 'rgba(0,0,0,0.5)',
+              background: 'var(--bg-card)',
               borderLeft: '4px solid var(--crear-gold)',
               padding: '1.2rem',
               borderRadius: '8px',
@@ -859,7 +859,7 @@ export default function RutaFormacion() {
               <div style={{fontSize: '0.8rem', color: 'var(--crear-gold)', fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.3rem'}}>
                 {activeSim.category} • {activeSim.title}
               </div>
-              <p style={{fontSize: '1.05rem', color: '#fff', margin: 0, lineHeight: '1.7'}}>
+              <p style={{fontSize: '1.05rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7'}}>
                 {activeSim.scenario}
               </p>
             </div>
@@ -883,7 +883,7 @@ export default function RutaFormacion() {
                         ? (opt.isCorrect ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)') 
                         : 'rgba(255,255,255,0.02)',
                       textAlign: 'left',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.95rem',
                       lineHeight: '1.5',
                       cursor: simResult?.isCorrect ? 'default' : 'pointer',
@@ -1198,7 +1198,7 @@ export default function RutaFormacion() {
                             🎯 {modulo.rolObjetivo}
                           </span>
                         </div>
-                        <h4 style={{fontSize: '1.3rem', margin: '0.2rem 0 0.4rem', color: '#fff'}}>
+                        <h4 style={{fontSize: '1.3rem', margin: '0.2rem 0 0.4rem', color: 'var(--text-main)'}}>
                           {modulo.titulo}
                         </h4>
                         <p className="text-muted" style={{fontSize: '0.92rem', margin: 0, maxWidth: '750px'}}>
@@ -1254,7 +1254,7 @@ export default function RutaFormacion() {
                             }}
                           >
                             <div>
-                              <div style={{fontSize: '0.85rem', fontWeight: 600, color: '#fff', marginBottom: '2px'}}>
+                              <div style={{fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '2px'}}>
                                 {leccion.title}
                               </div>
                               <div style={{fontSize: '0.75rem', color: 'var(--text-muted)'}}>
@@ -1329,7 +1329,7 @@ export default function RutaFormacion() {
                     ALTO IMPACTO ONTOLÓGICO
                   </span>
                 </div>
-                <h2 style={{fontSize: '2.2rem', margin: '0 0 0.5rem', fontWeight: 800, color: '#fff'}}>
+                <h2 style={{fontSize: '2.2rem', margin: '0 0 0.5rem', fontWeight: 800, color: 'var(--text-main)'}}>
                   Esqueleto de la Orientación: “Construir desde la Nada”
                 </h2>
                 <p style={{fontSize: '1.05rem', color: 'var(--text-muted)', margin: 0, maxWidth: '850px', lineHeight: 1.6}}>
@@ -1367,14 +1367,14 @@ export default function RutaFormacion() {
             <div style={{
               marginTop: '1.8rem',
               padding: '1.2rem 1.6rem',
-              background: 'rgba(0,0,0,0.5)',
+              background: 'var(--bg-card)',
               borderLeft: '4px solid #ec4899',
               borderRadius: '10px'
             }}>
               <div style={{fontSize: '0.82rem', textTransform: 'uppercase', color: '#f472b6', fontWeight: 800, letterSpacing: '0.05em', marginBottom: '0.3rem'}}>
                 Frase Clave de Apertura
               </div>
-              <div style={{fontSize: '1.2rem', color: '#fff', fontStyle: 'italic', fontWeight: 600}}>
+              <div style={{fontSize: '1.2rem', color: 'var(--text-main)', fontStyle: 'italic', fontWeight: 600}}>
                 «Construir no está mal… pero está jodido si vienes de creerte libre siendo quien crees que eres.»
               </div>
               <div style={{fontSize: '0.88rem', color: 'var(--text-muted)', marginTop: '0.4rem'}}>
@@ -1525,7 +1525,7 @@ export default function RutaFormacion() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         fontSize: '1.8rem',
-                        color: '#fff'
+                        color: 'var(--text-main)'
                       }}>
                         {currentPaso.icono}
                       </div>
@@ -2137,7 +2137,7 @@ export default function RutaFormacion() {
                         }}>
                           {ep.method}
                         </span>
-                        <code style={{color: '#fff', fontSize: '0.9rem'}}>{ep.endpoint}</code>
+                        <code style={{color: 'var(--text-main)', fontSize: '0.9rem'}}>{ep.endpoint}</code>
                       </div>
                       <p style={{fontSize: '0.85rem', color: 'var(--text-muted)', margin: '0 0 0.5rem'}}>
                         {ep.description}

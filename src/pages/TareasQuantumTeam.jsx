@@ -125,7 +125,7 @@ export default function TareasQuantumTeam() {
       {vistaActiva === 'tareas' && (
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <div style={{ display: 'flex', gap: '8px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '8px', overflowX: 'auto' }}>
+            <div style={{ display: 'flex', gap: '8px', background: 'var(--bg-card)', padding: '4px', borderRadius: '8px', overflowX: 'auto' }}>
               {[
                 { id: 'activas', label: 'Activas', icon: '🟢', count: tareasClasificadas.activas.length },
                 { id: 'vencidas', label: 'Vencidas', icon: '⚠️', count: tareasClasificadas.vencidas.length },
@@ -156,7 +156,7 @@ export default function TareasQuantumTeam() {
                 return (
                   <div key={tarea.id} className="glass-panel" style={{ padding: '1.5rem', borderLeft: `4px solid ${deadlineInfo.color}` }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                      <h3 style={{ margin: 0, fontSize: '1.2rem', color: '#fff' }}>{tarea.titulo}</h3>
+                      <h3 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--text-main)' }}>{tarea.titulo}</h3>
                       <span style={{ background: deadlineInfo.bgColor, color: deadlineInfo.color, padding: '4px 8px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600 }}>
                         {deadlineInfo.icon} {deadlineInfo.label}
                       </span>

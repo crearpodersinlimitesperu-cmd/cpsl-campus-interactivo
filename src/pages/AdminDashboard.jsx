@@ -364,7 +364,7 @@ export default function AdminDashboard() {
                 padding: '7px 12px',
                 borderRadius: '8px',
                 border: '1px solid rgba(255, 183, 3, 0.3)',
-                background: 'rgba(0,0,0,0.4)',
+                background: 'var(--bg-card)',
                 color: 'var(--text-main)',
                 fontSize: '0.82rem',
                 fontWeight: 600,
@@ -415,7 +415,7 @@ export default function AdminDashboard() {
                       {u.photoURL ? (
                         <img src={u.photoURL} alt="avatar" style={{ width: '42px', height: '42px', borderRadius: '50%', border: '2px solid var(--crear-gold)' }} />
                       ) : (
-                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'linear-gradient(135deg, #0284c7, #0369a1)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
+                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'linear-gradient(135deg, #0284c7, #0369a1)', color: 'var(--text-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
                           {(u.displayName || u.email || 'U')[0].toUpperCase()}
                         </div>
                       )}
@@ -577,7 +577,7 @@ export default function AdminDashboard() {
               {selectedUser.photoURL ? (
                 <img src={selectedUser.photoURL} alt="avatar" style={{ width: '64px', height: '64px', borderRadius: '50%', border: '3px solid var(--crear-gold)' }} />
               ) : (
-                <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'linear-gradient(135deg, #0284c7, #0369a1)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'linear-gradient(135deg, #0284c7, #0369a1)', color: 'var(--text-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold' }}>
                   {(selectedUser.displayName || selectedUser.email || 'U')[0].toUpperCase()}
                 </div>
               )}
@@ -611,7 +611,7 @@ export default function AdminDashboard() {
                 style={{ 
                   background: 'linear-gradient(135deg, #0284c7, #0284c7)', 
                   borderColor: '#0284c7', 
-                  color: '#ffffff',
+                  color: 'var(--text-main)',
                   display: 'flex', 
                   gap: '8px', 
                   alignItems: 'center', 
@@ -1039,7 +1039,7 @@ export default function AdminDashboard() {
                       style={{ 
                         background: 'linear-gradient(135deg, #22c55e, #16a34a)', 
                         borderColor: '#22c55e', 
-                        color: '#fff',
+                        color: 'var(--text-main)',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px',

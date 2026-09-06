@@ -678,7 +678,7 @@ Estratega: "Perfecto. Agendemos la sesión técnica para calibrar el caso de neg
                     borderRadius: '8px',
                     background: 'rgba(15, 23, 42, 0.8)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.9rem'
                   }}
                 />
@@ -698,7 +698,7 @@ Estratega: "Perfecto. Agendemos la sesión técnica para calibrar el caso de neg
                     borderRadius: '8px',
                     background: 'rgba(15, 23, 42, 0.8)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.9rem'
                   }}
                 />
@@ -718,7 +718,7 @@ Estratega: "Perfecto. Agendemos la sesión técnica para calibrar el caso de neg
                     borderRadius: '8px',
                     background: 'rgba(15, 23, 42, 0.8)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     fontSize: '0.9rem'
                   }}
                 />

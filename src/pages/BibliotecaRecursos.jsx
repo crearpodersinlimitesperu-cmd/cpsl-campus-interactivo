@@ -824,14 +824,14 @@ export default function BibliotecaRecursos() {
           }}
         >
           <div style={{ position: 'absolute', top: '20px', right: '30px', display: 'flex', gap: '1rem', zIndex: 10 }}>
-            <span style={{ color: '#ffffff', fontSize: '0.9rem', alignSelf: 'center' }}>
+            <span style={{ color: 'var(--text-main)', fontSize: '0.9rem', alignSelf: 'center' }}>
               Lámina {currentSlide.num} / 20 (Presiona ESC para salir)
             </span>
             <button 
               onClick={() => setIsFullscreen(false)}
               style={{
                 background: 'rgba(255,255,255,0.2)',
-                color: '#ffffff',
+                color: 'var(--text-main)',
                 border: 'none',
                 borderRadius: '50%',
                 width: '40px',

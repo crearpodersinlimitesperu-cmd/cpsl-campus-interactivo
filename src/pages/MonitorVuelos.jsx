@@ -135,7 +135,7 @@ export default function MonitorVuelos() {
       </header>
 
       <div className="glass-panel" style={{ padding: '1rem', marginBottom: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', gap: '8px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '8px' }}>
+        <div style={{ display: 'flex', gap: '8px', background: 'var(--bg-card)', padding: '4px', borderRadius: '8px' }}>
           {[
             { id: 'activos', label: '🟢 Activos / Próximos' },
             { id: 'pasados', label: '📁 Pasados' },
@@ -156,7 +156,7 @@ export default function MonitorVuelos() {
             <select
               value={sedeFiltro}
               onChange={(e) => setSedeFiltro(e.target.value)}
-              style={{ padding: '8px 12px', borderRadius: '6px', background: 'rgba(0,0,0,0.5)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}
+              style={{ padding: '8px 12px', borderRadius: '6px', background: 'var(--bg-card)', color: 'var(--text-main)', border: '1px solid rgba(255,255,255,0.1)' }}
             >
               {SEDES_OPCIONES.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
             </select>
@@ -167,7 +167,7 @@ export default function MonitorVuelos() {
               placeholder="Buscar vuelo..."
               value={busqueda}
               onChange={e => setBusqueda(e.target.value)}
-              style={{ width: '100%', padding: '8px 12px 8px 32px', borderRadius: '6px', background: 'rgba(0,0,0,0.5)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}
+              style={{ width: '100%', padding: '8px 12px 8px 32px', borderRadius: '6px', background: 'var(--bg-card)', color: 'var(--text-main)', border: '1px solid rgba(255,255,255,0.1)' }}
             />
             <span style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: 0.5 }}>🔍</span>
           </div>
@@ -187,7 +187,7 @@ export default function MonitorVuelos() {
               <div key={vuelo.id} className="glass-panel" style={{ padding: 0, overflow: 'hidden', borderLeft: `4px solid ${colorEstado}` }}>
                 <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <h3 style={{ margin: 0, fontSize: '1.2rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       ✈️ {vuelo.numeroVuelo}
                       {vuelo.verificado ? (
                         <span style={{ background: 'rgba(34,197,94,0.15)', color: '#22c55e', padding: '2px 6px', borderRadius: '4px', fontSize: '0.65rem' }}>✅ Verificado</span>
@@ -234,7 +234,7 @@ export default function MonitorVuelos() {
                       <button className="btn-secondary" style={{ padding: '8px', fontSize: '0.8rem', display: 'flex', justifyContent: 'center', gap: '6px' }} onClick={() => window.open(`https://www.flightradar24.com/${vuelo.callsign}`, '_blank')}>
                         <span>🔍</span> Radar
                       </button>
-                      <button className="btn-primary" style={{ padding: '8px', fontSize: '0.8rem', display: 'flex', justifyContent: 'center', gap: '6px', background: '#22c55e', color: '#fff', border: 'none' }} onClick={() => window.open(`https://wa.me/${vuelo.whatsappChofer.replace('+','')}`, '_blank')}>
+                      <button className="btn-primary" style={{ padding: '8px', fontSize: '0.8rem', display: 'flex', justifyContent: 'center', gap: '6px', background: '#22c55e', color: 'var(--text-main)', border: 'none' }} onClick={() => window.open(`https://wa.me/${vuelo.whatsappChofer.replace('+','')}`, '_blank')}>
                         <span>💬</span> Chofer
                       </button>
                     </div>

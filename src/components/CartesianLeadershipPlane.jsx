@@ -68,7 +68,7 @@ export default function CartesianLeadershipPlane({
           <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--crear-gold, #ffb703)', letterSpacing: '1px', textTransform: 'uppercase' }}>
             METROLOGÍA DE DESEMPEÑO
           </span>
-          <h4 style={{ margin: '2px 0 0', fontSize: compact ? '1rem' : '1.15rem', color: '#ffffff', fontWeight: 800 }}>
+          <h4 style={{ margin: '2px 0 0', fontSize: compact ? '1rem' : '1.15rem', color: 'var(--text-main)', fontWeight: 800 }}>
             Plano Cartesiano de Liderazgo
           </h4>
         </div>
@@ -193,7 +193,7 @@ export default function CartesianLeadershipPlane({
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
             <div style={{ background: 'rgba(255,255,255,0.03)', padding: '0.5rem 0.75rem', borderRadius: '0.5rem', borderLeft: '3px solid #ffb703' }}>
               <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>EJE Y: RIGOR OPERATIVO</span>
-              <div style={{ fontSize: '1.15rem', fontWeight: 900, color: '#ffffff' }}>
+              <div style={{ fontSize: '1.15rem', fontWeight: 900, color: 'var(--text-main)' }}>
                 {rigorScore} <span style={{ fontSize: '0.75rem', color: '#10b981' }}>/ 100</span>
               </div>
               <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Sostener acuerdos sin complicidad ni drama</span>
@@ -201,7 +201,7 @@ export default function CartesianLeadershipPlane({
 
             <div style={{ background: 'rgba(255,255,255,0.03)', padding: '0.5rem 0.75rem', borderRadius: '0.5rem', borderLeft: '3px solid #10b981' }}>
               <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>EJE X: EMPATÍA & ESCUCHA</span>
-              <div style={{ fontSize: '1.15rem', fontWeight: 900, color: '#ffffff' }}>
+              <div style={{ fontSize: '1.15rem', fontWeight: 900, color: 'var(--text-main)' }}>
                 {empathyScore} <span style={{ fontSize: '0.75rem', color: '#10b981' }}>/ 100</span>
               </div>
               <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Respeto a la libertad y comunicación ética</span>

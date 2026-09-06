@@ -199,7 +199,7 @@ export default function ProgramaEntrenamiento() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '1.5rem' }}>
                   {s.dias.map(d => (
                     <div key={d.dia} style={{ display: 'flex', gap: '1rem', background: 'rgba(0,0,0,0.2)', padding: '0.8rem 1rem', borderRadius: '8px', alignItems: 'center' }}>
-                      <div style={{ background: 'var(--crear-blue)', color: '#fff', fontWeight: 'bold', padding: '4px 8px', borderRadius: '4px', minWidth: '60px', textAlign: 'center', fontSize: '0.85rem' }}>Día {d.dia}</div>
+                      <div style={{ background: 'var(--crear-blue)', color: 'var(--text-main)', fontWeight: 'bold', padding: '4px 8px', borderRadius: '4px', minWidth: '60px', textAlign: 'center', fontSize: '0.85rem' }}>Día {d.dia}</div>
                       <div className="text-muted" style={{ fontSize: '0.95rem' }}>{d.reto}</div>
                     </div>
                   ))}

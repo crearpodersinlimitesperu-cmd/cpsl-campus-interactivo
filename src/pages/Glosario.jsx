@@ -335,7 +335,7 @@ export default function Glosario() {
                 borderRadius: '12px',
                 background: 'rgba(15, 23, 42, 0.85)',
                 border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#fff',
+                color: 'var(--text-main)',
                 fontSize: '1rem',
                 boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3)',
                 outline: 'none'

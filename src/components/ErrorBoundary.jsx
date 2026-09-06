@@ -17,7 +17,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: '2rem', textAlign: 'center', color: '#fff', background: '#0a0a0a', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-main)', background: '#0a0a0a', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <h2 className="text-gold" style={{ fontSize: '2rem', marginBottom: '1rem' }}>Algo salió mal</h2>
           <p style={{ marginBottom: '2rem', opacity: 0.8 }}>La plataforma ha encontrado un error inesperado.</p>
           <button 

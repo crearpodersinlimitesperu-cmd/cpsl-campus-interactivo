@@ -353,7 +353,7 @@ export default function GlobalSearch() {
                   background: 'transparent',
                   border: 'none',
                   outline: 'none',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   fontSize: '1.05rem',
                   fontFamily: 'inherit'
                 }}
