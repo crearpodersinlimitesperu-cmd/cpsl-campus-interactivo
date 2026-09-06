@@ -445,7 +445,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
             transition: 'all 0.2s ease'
           }}
         >
-          <span>⚡ El Crisol del Día (Simulador)</span>
+          <span>⚡ El Reto del Día (Simulador)</span>
           <span style={{
             background: activeTab === 'simulador' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.1)',
             padding: '2px 8px',
@@ -536,7 +536,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
                   SIMULADOR DE TOMA DE DECISIONES EN TIEMPO REAL
                 </span>
                 <h2 style={{ margin: '0.4rem 0 0', fontSize: '1.6rem', color: '#ffffff' }}>
-                  El Crisol del Día: Calibración Situacional
+                  El Reto del Día: Calibración Situacional
                 </h2>
                 <p style={{ margin: '0.2rem 0 0', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
                   Aprende el comportamiento del cerebro humano (Neuromarketing Ético) y la responsabilidad incondicional (Agencia Radical) sin sesgos de complacencia ni violencia.
