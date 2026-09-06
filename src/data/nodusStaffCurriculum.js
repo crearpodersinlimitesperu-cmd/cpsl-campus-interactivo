@@ -82,7 +82,7 @@ export const nodusStaffRoleCertifications = [
   },
   {
     role: 'Nivel 2: Arquitectura de la Ecuación de Valor (Phase 2: Core Breakthrough)',
-    minFisonomia: 3,
+    minFisonomia: 2,
     requiredBadge: 'arquitecto_valor',
     badgeName: 'Arquitecto de Valor',
     moduleName: 'La Ecuación de Valor y Ofertas Irresistibles',
@@ -90,7 +90,7 @@ export const nodusStaffRoleCertifications = [
   },
   {
     role: 'Nivel 3: Calibración de Estado & Contenedor Ético (State Calibration)',
-    minFisonomia: 5,
+    minFisonomia: 3,
     requiredBadge: 'sombra_impecable',
     badgeName: 'Sombra Impecable',
     moduleName: 'El Plan Maestro de Enrolamiento en 3 Pasos',
@@ -98,7 +98,7 @@ export const nodusStaffRoleCertifications = [
   },
   {
     role: 'Nivel 4: Liderazgo Adaptativo & Agencia Radical (The 90-Day Performance Cycle)',
-    minFisonomia: 7,
+    minFisonomia: 4,
     requiredBadge: 'guardian_rigor',
     badgeName: 'Guardián de la Integridad',
     moduleName: 'Responsabilidad Radical y Kit de Acción',
