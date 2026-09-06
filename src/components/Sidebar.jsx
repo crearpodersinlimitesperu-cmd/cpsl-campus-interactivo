@@ -95,7 +95,7 @@ export default function Sidebar({ isOpen, onClose }) {
               onClick={onClose}
               style={{ color: 'var(--crear-gold, #ffb703)' }}
             >
-              ⚡ El Crisol del Día (Simulador)
+              ⚡ El Reto del Día (Simulador)
             </NavLink>
           </li>
           <li>

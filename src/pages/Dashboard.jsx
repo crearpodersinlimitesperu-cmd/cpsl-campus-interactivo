@@ -100,7 +100,7 @@ export default function Dashboard() {
       </header>
 
       {/* SECCIÓN 1: CENTRO DE COMANDO & ACCIÓN PRINCIPAL "ENTRAR AL CRISOL DEL DÍA" */}
-      <section aria-label="El Crisol del Día" style={{ marginBottom: '2rem' }}>
+      <section aria-label="El Reto del Día" style={{ marginBottom: '2rem' }}>
         <article className="glass-panel hero-banner-crisol" style={{
           padding: '2rem',
           border: '1.5px solid rgba(255, 183, 3, 0.5)',
@@ -125,7 +125,7 @@ export default function Dashboard() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'center' }}>
             <div>
               <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.8rem', fontWeight: 900, color: '#ffffff' }}>
-                El Crisol del Día: Toma de Decisiones en Tiempo Real
+                El Reto del Día: Toma de Decisiones en Tiempo Real
               </h3>
               <p className="text-muted" style={{ margin: '0 0 1.25rem', fontSize: '0.98rem', lineHeight: 1.5 }}>
                 Enfrenta escenarios con <strong>Avatar Reactivo</strong> en tiempo real. Calibra objeciones de clientes y desviaciones de integridad sosteniendo el contenedor ético sin caer en el autoritarismo punitivo ni en la complacencia cómplice.

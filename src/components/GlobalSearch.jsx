@@ -75,7 +75,7 @@ export default function GlobalSearch() {
       {
         id: 'p-simulador',
         title: 'Simulador de Alta Dirección & Toma de Decisiones',
-        desc: 'El Crisol del Día: resolución de dilemas éticos y de gobernanza corporativa.',
+        desc: 'El Reto del Día: resolución de dilemas éticos y de gobernanza corporativa.',
         category: 'Herramientas & Simuladores',
         icon: '⚡',
         path: '/gamificacion?tab=simulador'
