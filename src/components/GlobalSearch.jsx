@@ -185,6 +185,66 @@ export default function GlobalSearch() {
         category: 'Módulos & Lecciones',
         icon: '🏆',
         path: '/modulo/modulo4'
+      },
+
+      // Videoteca & Masterclasses
+      {
+        id: 'p-masterclass',
+        title: 'Videoteca de Distinciones (12 Cápsulas NotebookLM)',
+        desc: 'Colección de video-lecciones: Agencia Radical, Seguridad Psicológica, Quiebres, Efecto Mandela, Sintergia y Acuerdos.',
+        category: 'Videoteca & Masterclass',
+        icon: '🎬',
+        path: '/masterclass'
+      },
+
+      // Blueprint & Documentación Canónica
+      {
+        id: 'p-recursos',
+        title: 'Biblioteca de Recursos & Blueprint Generativo (20 Láminas)',
+        desc: 'Visor interactivo de 20 diapositivas Blueprint OS y centro de descarga de manuales y playbooks canónicos.',
+        category: 'Documentación & Blueprint',
+        icon: '📚',
+        path: '/recursos?tab=blueprint'
+      },
+      {
+        id: 'doc-blueprint-pptx',
+        title: 'The Generative OS Blueprint (Presentación 20 Láminas PPTX)',
+        desc: 'Descarga de la presentación ejecutiva completa (28.2 MB) con matrices de decisión y protocolos.',
+        category: 'Documentación & Blueprint',
+        icon: '📐',
+        path: '/recursos?tab=blueprint'
+      },
+      {
+        id: 'doc-playbook-accion',
+        title: 'Playbook: De la Inercia a la Acción Generativa (PDF)',
+        desc: 'Manual exhaustivo de 10 cápsulas prácticas, fórmulas directivas, worksheets y storyboards.',
+        category: 'Documentación & Blueprint',
+        icon: '🚀',
+        path: '/recursos?tab=documentos'
+      },
+      {
+        id: 'doc-amy-edmondson',
+        title: 'Manual Completo: Seguridad Psicológica (Dra. Amy Edmondson - Harvard)',
+        desc: 'Estudio de 10 páginas sobre las 4 zonas de rendimiento, honestidad radical y comités sin miedo.',
+        category: 'Documentación & Blueprint',
+        icon: '🛡️',
+        path: '/recursos?tab=documentos'
+      },
+      {
+        id: 'doc-rotter-epicteto',
+        title: 'Documento Completo: Julian Rotter & Epicteto (Agencia Radical)',
+        desc: 'Tratado de 17 páginas: Locus de control interno vs externo y la dicotomía del control en la dirección.',
+        category: 'Documentación & Blueprint',
+        icon: '🏛️',
+        path: '/recursos?tab=documentos'
+      },
+      {
+        id: 'doc-elizabeth-loftus',
+        title: 'Manual: Dra. Elizabeth Loftus - Memoria Reconstructiva & Mandela Corporativo',
+        desc: 'Por qué la memoria humana altera acuerdos pasados y cómo blindar decisiones con compromisos inmutables.',
+        category: 'Documentación & Blueprint',
+        icon: '🧠',
+        path: '/recursos?tab=documentos'
       }
     ];
 

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 const VIDEOS_CATALOG = [
   {
@@ -10,7 +11,10 @@ const VIDEOS_CATALOG = [
     badge: 'Fundacional',
     icon: '⚡',
     duration: '1:35',
-    desc: 'Cómo interrumpir la transparencia cotidiana del piloto automático y transformar la queja pasiva en diseño de nuevas acciones.'
+    desc: 'Cómo interrumpir la transparencia cotidiana del piloto automático y transformar la queja pasiva en diseño de nuevas acciones.',
+    docUrl: '/docs/playbook_de_la_inercia_a_la_accion_generativa.pdf',
+    docLabel: 'Playbook Inercia a la Acción (PDF)',
+    blueprintSlide: 3
   },
   {
     id: 'de-la-inercia-a-la-accion',
@@ -21,7 +25,10 @@ const VIDEOS_CATALOG = [
     badge: 'Estratégico',
     icon: '🚀',
     duration: '1:45',
-    desc: 'Superación de la parálisis por análisis y construcción de compromiso autónomo en equipos de alto rendimiento.'
+    desc: 'Superación de la parálisis por análisis y construcción de compromiso autónomo en equipos de alto rendimiento.',
+    docUrl: '/docs/playbook_de_la_inercia_a_la_accion_generativa.pdf',
+    docLabel: 'Playbook Inercia a la Acción (PDF)',
+    blueprintSlide: 5
   },
   {
     id: 'seguridad-psicologica',
@@ -32,7 +39,10 @@ const VIDEOS_CATALOG = [
     badge: 'Harvard Framework',
     icon: '🛡️',
     duration: '1:15',
-    desc: 'El terreno firme donde nadie es castigado por admitir un error, desafiar el status quo o proponer ideas disruptivas.'
+    desc: 'El terreno firme donde nadie es castigado por admitir un error, desafiar el status quo o proponer ideas disruptivas.',
+    docUrl: '/docs/seguridad_psicologica_amy_edmondson.pdf',
+    docLabel: 'Manual Dra. Amy Edmondson (PDF)',
+    blueprintSlide: 11
   },
   {
     id: 'agencia-radical',
@@ -43,7 +53,10 @@ const VIDEOS_CATALOG = [
     badge: 'Pilar Central',
     icon: '🏛️',
     duration: '1:35',
-    desc: 'Asumirse como origen generativo de las circunstancias y desmantelar el victimismo en la dirección corporativa.'
+    desc: 'Asumirse como origen generativo de las circunstancias y desmantelar el victimismo en la dirección corporativa.',
+    docUrl: '/docs/agencia_radical_julian_rotter_epicteto.pdf',
+    docLabel: 'Tratado Rotter & Epicteto (PDF)',
+    blueprintSlide: 7
   },
   {
     id: 'efecto-mandela-corporativo',
@@ -54,7 +67,10 @@ const VIDEOS_CATALOG = [
     badge: 'Rigor Inmutable',
     icon: '🧠',
     duration: '1:40',
-    desc: 'Por qué el cerebro altera recuerdos de reuniones y cómo los acuerdos escritos inmutables eliminan la niebla subjetiva.'
+    desc: 'Por qué el cerebro altera recuerdos de reuniones y cómo los acuerdos escritos inmutables eliminan la niebla subjetiva.',
+    docUrl: '/docs/elizabeth_loftus_memoria_reconstructiva_efecto_mandela.docx',
+    docLabel: 'Manual Dra. Elizabeth Loftus (DOCX)',
+    blueprintSlide: 9
   },
   {
     id: 'decision-y-amigdala',
@@ -65,7 +81,10 @@ const VIDEOS_CATALOG = [
     badge: 'Neurobiología',
     icon: '🔬',
     duration: '1:40',
-    desc: 'Mecanismos para desactivar la alarma amigdalina del Sistema 1 ante ataques, objeciones y estrés agudo en juntas.'
+    desc: 'Mecanismos para desactivar la alarma amigdalina del Sistema 1 ante ataques, objeciones y estrés agudo en juntas.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'The Generative OS Blueprint (PPTX)',
+    blueprintSlide: 14
   },
   {
     id: 'calibracion-de-estado',
@@ -76,7 +95,10 @@ const VIDEOS_CATALOG = [
     badge: 'Stanford Protocol',
     icon: '🧘',
     duration: '1:18',
-    desc: 'Protocolo de modulación del ritmo cardíaco y cortisol para entrar en calma ejecutiva antes de negociar.'
+    desc: 'Protocolo de modulación del ritmo cardíaco y cortisol para entrar en calma ejecutiva antes de negociar.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'The Generative OS Blueprint (PPTX)',
+    blueprintSlide: 15
   },
   {
     id: 'anatomia-de-un-acuerdo',
@@ -87,7 +109,10 @@ const VIDEOS_CATALOG = [
     badge: 'Protocolo Maestro',
     icon: '📜',
     duration: '1:10',
-    desc: 'Los 4 elementos no negociables de una petición impecable: Responsable, Métrica, Tiempo y Estándar de Satisfacción.'
+    desc: 'Los 4 elementos no negociables de una petición impecable: Responsable, Métrica, Tiempo y Estándar de Satisfacción.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'Ciclo de Promesas (Blueprint)',
+    blueprintSlide: 15
   },
   {
     id: 'la-arquitectura-del-valor',
@@ -98,7 +123,10 @@ const VIDEOS_CATALOG = [
     badge: 'Alta Certeza',
     icon: '⚖️',
     duration: '1:45',
-    desc: 'Multiplicar la certeza percibida y reducir la fricción operativa del cliente sin caer en la trampa de abaratar precios.'
+    desc: 'Multiplicar la certeza percibida y reducir la fricción operativa del cliente sin caer en la trampa de abaratar precios.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'La Ecuación del Valor (Blueprint)',
+    blueprintSlide: 18
   },
   {
     id: 'escucha-generosa-y-ontologia',
@@ -109,7 +137,10 @@ const VIDEOS_CATALOG = [
     badge: 'Maestría Relacional',
     icon: '👂',
     duration: '1:12',
-    desc: 'Escuchar la inquietud de fondo sin dar consejos prematuros ni reaccionar desde el ego.'
+    desc: 'Escuchar la inquietud de fondo sin dar consejos prematuros ni reaccionar desde el ego.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'The Generative OS Blueprint (PPTX)',
+    blueprintSlide: 19
   },
   {
     id: 'enfoque-sintergico',
@@ -120,7 +151,10 @@ const VIDEOS_CATALOG = [
     badge: 'Ciencia de Vanguardia',
     icon: '🌌',
     duration: '1:42',
-    desc: 'Sincronización interhemisférica para disolver el ruido mental del ego y operar sobre las causas primarias del sistema.'
+    desc: 'Sincronización interhemisférica para disolver el ruido mental del ego y operar sobre las causas primarias del sistema.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'The Generative OS Blueprint (PPTX)',
+    blueprintSlide: 19
   },
   {
     id: 'videoplayback-induccion',
@@ -131,7 +165,10 @@ const VIDEOS_CATALOG = [
     badge: 'Inducción',
     icon: '🎬',
     duration: '6:30',
-    desc: 'Exploración integral de la confianza, seguridad psicológica y alineación de valores para la transformación directiva.'
+    desc: 'Exploración integral de la confianza, seguridad psicológica y alineación de valores para la transformación directiva.',
+    docUrl: '/docs/the_generative_os_blueprint.pptx',
+    docLabel: 'The Generative OS Blueprint (PPTX)',
+    blueprintSlide: 1
   }
 ];
 
@@ -194,6 +231,20 @@ export default function MasterclassDistinciones() {
           <p className="text-slate-400 text-sm md:text-base mt-1">
             Fundamentos ontológicos, neurobiológicos y decisionales para directores y líderes de alto rendimiento.
           </p>
+          <div className="flex items-center gap-2 flex-wrap mt-2">
+            <Link 
+              to="/recursos?tab=blueprint" 
+              className="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
+            >
+              <span>📐</span> Visor Blueprint (20 Láminas)
+            </Link>
+            <Link 
+              to="/recursos?tab=documentos" 
+              className="px-3 py-1 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border border-blue-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
+            >
+              <span>📄</span> Manuales Canónicos (PDF & DOCX)
+            </Link>
+          </div>
         </div>
 
         {/* Buscador Rápido */}
@@ -314,6 +365,33 @@ export default function MasterclassDistinciones() {
                 <span className="text-emerald-400 font-medium flex items-center gap-1">
                   <span>✓</span> Video Verificado en Servidor
                 </span>
+              </div>
+
+              {/* Acciones de Soporte: Documentos y Blueprint */}
+              <div className="flex items-center gap-2 flex-wrap pt-3 border-t border-white/10 mt-1">
+                {selectedVideo.docUrl && (
+                  <a 
+                    href={selectedVideo.docUrl} 
+                    download 
+                    className="px-3 py-1.5 rounded-lg bg-emerald-600/25 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
+                  >
+                    <span>📥</span> {selectedVideo.docLabel}
+                  </a>
+                )}
+                {selectedVideo.blueprintSlide && (
+                  <Link 
+                    to={`/recursos?tab=blueprint&slide=${selectedVideo.blueprintSlide}`}
+                    className="px-3 py-1.5 rounded-lg bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1.5 transition"
+                  >
+                    <span>📐</span> Ver Lámina #{selectedVideo.blueprintSlide} en Blueprint
+                  </Link>
+                )}
+                <Link 
+                  to="/recursos"
+                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-medium flex items-center gap-1.5 transition ml-auto"
+                >
+                  <span>📚</span> Biblioteca Completa
+                </Link>
               </div>
             </div>
 

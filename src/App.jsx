@@ -26,6 +26,7 @@ import NotFound from './pages/NotFound'
 import Glosario from './pages/Glosario'
 import MasterclassDistinciones from './pages/MasterclassDistinciones'
 import LaboratorioSintergico from './pages/LaboratorioSintergico'
+import BibliotecaRecursos from './pages/BibliotecaRecursos'
 import AdminRoute from './components/AdminRoute'
 import { useAuth } from './context/AuthContext'
 import { useUI } from './context/UIContext'
@@ -206,6 +207,9 @@ function App() {
           <Route path="/evaluaciones" element={<ProtectedRoute><Evaluaciones /></ProtectedRoute>} />
           <Route path="/masterclass" element={<ProtectedRoute><MasterclassDistinciones /></ProtectedRoute>} />
           <Route path="/masterclass-distinciones" element={<ProtectedRoute><MasterclassDistinciones /></ProtectedRoute>} />
+          <Route path="/recursos" element={<ProtectedRoute><BibliotecaRecursos /></ProtectedRoute>} />
+          <Route path="/blueprint" element={<ProtectedRoute><BibliotecaRecursos /></ProtectedRoute>} />
+          <Route path="/documentos" element={<ProtectedRoute><BibliotecaRecursos /></ProtectedRoute>} />
           <Route path="/gamificacion" element={<ProtectedRoute><GamificacionStaff /></ProtectedRoute>} />
           <Route path="/crisol" element={<ProtectedRoute><GamificacionStaff defaultTab="simulador" /></ProtectedRoute>} />
           <Route path="/simulador" element={<ProtectedRoute><GamificacionStaff defaultTab="simulador" /></ProtectedRoute>} />
