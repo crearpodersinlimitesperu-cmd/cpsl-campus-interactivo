@@ -1,5 +1,5 @@
 import { db } from '../lib/firebase';
-import { doc, getDoc, setDoc, updateDoc, collection, getDocs, increment, arrayUnion, query, orderBy } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, collection, getDocs, increment, arrayUnion, query, orderBy, addDoc, where, serverTimestamp } from 'firebase/firestore';
 import { getTotalLessonsCount, getTotalEvaluationsCount } from '../data/curriculum';
 
 export const initializeUser = async (user) => {
@@ -297,5 +297,211 @@ export const getUserSessions = async (uid) => {
   } catch (error) {
     console.error("Error obteniendo el historial de sesiones:", error);
     return [];
+  }
+};
+
+// =====================================
+// PERFIL DE USUARIO — ROLES Y PERMISOS
+// =====================================
+
+export const getUserProfile = async (uid) => {
+  try {
+    const userRef = doc(db, 'users', uid);
+    const snap = await getDoc(userRef);
+    if (snap.exists()) {
+      const data = snap.data();
+      return {
+        role: data.role || 'estudiante',
+        sede: data.sede || null,
+        isSuperAdmin: data.isSuperAdmin || false,
+        displayName: data.displayName,
+        email: data.email,
+        photoURL: data.photoURL,
+      };
+    }
+  } catch (e) {
+    console.warn('Error obteniendo perfil de usuario:', e);
+  }
+  return { role: 'estudiante', sede: null, isSuperAdmin: false };
+};
+
+export const updateUserRole = async (uid, role, sede = null) => {
+  try {
+    const userRef = doc(db, 'users', uid);
+    await updateDoc(userRef, { role, sede: sede || null });
+    return true;
+  } catch (e) {
+    console.error('Error actualizando rol:', e);
+    return false;
+  }
+};
+
+
+// =====================================
+// SISTEMA DE TAREAS CON ASIGNACIÓN
+// =====================================
+
+export const getTareasAsignadas = async (uid) => {
+  try {
+    const { where } = await import('firebase/firestore');
+    const q = query(
+      collection(db, 'tasks'),
+      where('asignadoA', '==', uid),
+      orderBy('creadoAt', 'desc')
+    );
+    const snap = await getDocs(q);
+    const tareas = [];
+    snap.forEach(d => tareas.push({ id: d.id, ...d.data() }));
+    return tareas;
+  } catch (e) {
+    console.error('Error obteniendo tareas:', e);
+    return [];
+  }
+};
+
+export const getTareasAsignador = async (uid) => {
+  try {
+    const { where } = await import('firebase/firestore');
+    const q = query(
+      collection(db, 'tasks'),
+      where('asignadoPorUid', '==', uid),
+      orderBy('creadoAt', 'desc')
+    );
+    const snap = await getDocs(q);
+    const tareas = [];
+    snap.forEach(d => tareas.push({ id: d.id, ...d.data() }));
+    return tareas;
+  } catch (e) {
+    console.error('Error obteniendo tareas asignadas por mí:', e);
+    return [];
+  }
+};
+
+
+// =====================================
+// MONITOR DE VUELOS
+// =====================================
+
+export const getVuelos = async () => {
+  try {
+    const q = query(collection(db, 'vuelos'), orderBy('fechaVuelo', 'desc'));
+    const snap = await getDocs(q);
+    const vuelos = [];
+    snap.forEach(d => vuelos.push({ id: d.id, ...d.data() }));
+    return vuelos;
+  } catch (e) {
+    console.error('Error obteniendo vuelos:', e);
+    return [];
+  }
+};
+
+export const crearVuelo = async (vueloData) => {
+  try {
+    const { addDoc } = await import('firebase/firestore');
+    const vuelosCol = collection(db, 'vuelos');
+    const ref = await addDoc(vuelosCol, {
+      ...vueloData,
+      verificado: false,
+      creadoAt: new Date().toISOString(),
+    });
+    return ref.id;
+  } catch (e) {
+    console.error('Error creando vuelo:', e);
+    return null;
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MÓDULO DE TAREAS ASIGNADAS
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Crea una nueva tarea asignada en Firestore.
+ * @param {Object} data - { titulo, descripcion, asignadoAEmail, asignadoPorUid, asignadoPorEmail, asignadoPorNombre, deadline, prioridad }
+ * @returns {string} ID del documento creado
+ */
+export const crearTarea = async (data) => {
+  try {
+    const ref = await addDoc(collection(db, 'tareas'), {
+      titulo: data.titulo || '',
+      descripcion: data.descripcion || '',
+      asignadoAEmail: (data.asignadoAEmail || '').toLowerCase().trim(),
+      asignadoPorUid: data.asignadoPorUid || '',
+      asignadoPorEmail: data.asignadoPorEmail || '',
+      asignadoPorNombre: data.asignadoPorNombre || '',
+      deadline: data.deadline || null,
+      prioridad: data.prioridad || 'media',
+      estado: 'pendiente',
+      progreso: 0,
+      comentarios: [],
+      creadoEn: serverTimestamp(),
+      actualizadoEn: serverTimestamp(),
+    });
+    return ref.id;
+  } catch (error) {
+    console.error('Error creando tarea en Firestore:', error);
+    throw error;
+  }
+};
+
+/**
+ * Obtiene las tareas donde el usuario es el asignado o el asignador.
+ * @param {string} userEmail - Email del usuario autenticado
+ * @param {string} userUid - UID del usuario autenticado
+ * @returns {{ asignadas: Array, asignadas_por_mi: Array }}
+ */
+export const obtenerTareasUsuario = async (userEmail, userUid) => {
+  const result = { asignadas: [], asignadas_por_mi: [] };
+  try {
+    const emailLower = (userEmail || '').toLowerCase().trim();
+
+    // Tareas donde yo soy el asignado
+    const q1 = query(
+      collection(db, 'tareas'),
+      where('asignadoAEmail', '==', emailLower)
+    );
+    const snap1 = await getDocs(q1);
+    snap1.forEach(docSnap => result.asignadas.push({ id: docSnap.id, ...docSnap.data() }));
+
+    // Tareas que yo asigné
+    const q2 = query(
+      collection(db, 'tareas'),
+      where('asignadoPorUid', '==', userUid)
+    );
+    const snap2 = await getDocs(q2);
+    snap2.forEach(docSnap => result.asignadas_por_mi.push({ id: docSnap.id, ...docSnap.data() }));
+  } catch (error) {
+    console.warn('Error obteniendo tareas de Firestore:', error);
+  }
+  return result;
+};
+
+/**
+ * Actualiza el progreso y estado de una tarea existente.
+ * @param {string} taskId - ID del documento en Firestore
+ * @param {number} progreso - Valor de 0 a 100
+ * @param {string} estado - 'pendiente' | 'en_progreso' | 'completada'
+ * @param {string} [comentario] - Texto opcional del asignado
+ */
+export const actualizarProgresoTarea = async (taskId, progreso, estado, comentario = '') => {
+  try {
+    const ref = doc(db, 'tareas', taskId);
+    const updateData = {
+      progreso: Math.min(100, Math.max(0, Number(progreso))),
+      estado,
+      actualizadoEn: serverTimestamp(),
+    };
+    if (comentario && comentario.trim()) {
+      updateData.comentarios = arrayUnion({
+        texto: comentario.trim(),
+        timestamp: new Date().toISOString(),
+        estado,
+        progreso,
+      });
+    }
+    await updateDoc(ref, updateData);
+  } catch (error) {
+    console.error('Error actualizando progreso de tarea:', error);
+    throw error;
   }
 };

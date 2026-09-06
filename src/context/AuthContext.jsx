@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../lib/firebase';
 import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { googleProvider } from '../lib/firebase';
-import { initializeUser, startSession } from '../services/db';
+import { initializeUser, startSession, getUserProfile } from '../services/db';
+import { SUPER_ADMIN_EMAILS } from '../config/permissions';
 
 const AuthContext = createContext({});
 
@@ -13,6 +14,9 @@ export function AuthProvider({ children }) {
   const [authError, setAuthError] = useState(null);
 
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false);
+  const [role, setRole] = useState('estudiante');
+  const [sede, setSede] = useState(null);
 
   useEffect(() => {
     const mockStr = localStorage.getItem('cpsl_mock_user');
@@ -21,6 +25,9 @@ export function AuthProvider({ children }) {
         const mock = JSON.parse(mockStr);
         setUser(mock);
         setIsAdmin(true);
+        setIsSuperAdmin(true);
+        setRole(mock.role || 'superadmin');
+        setSede(mock.sede || null);
         setSessionId('mock-session-dev');
         setLoading(false);
         return;
@@ -36,12 +43,12 @@ export function AuthProvider({ children }) {
       if (!currentUser) {
         setUser(null);
         setSessionId(null);
+        setIsSuperAdmin(false);
+        setRole('estudiante');
+        setSede(null);
         setLoading(false);
         return;
       }
-
-      // CUALQUIER USUARIO AUTENTICADO CON GOOGLE TIENE ACCESO INMEDIATO Y PLENO
-      setUser(currentUser);
 
       try {
         // Obtenemos el token para verificar roles (Custom Claims)
@@ -52,11 +59,11 @@ export function AuthProvider({ children }) {
         } catch (tokenErr) {
           console.warn("Aviso verificando custom claims:", tokenErr);
         }
-        
+
         // Mantenemos el fallback por email temporalmente mientras se configuran los custom claims
         const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'jose.sanchez@crearpsl.net';
         const isEmailAdmin = currentUser.email === adminEmail;
-        
+
         setIsAdmin(hasAdminClaim || isEmailAdmin);
 
         // Inicialización en Firestore resiliente (no bloqueante si Firestore rechaza permisos o está offline)
@@ -65,6 +72,36 @@ export function AuthProvider({ children }) {
         } catch (initErr) {
           console.warn("Aviso en initializeUser:", initErr);
         }
+
+        // Leer perfil completo desde Firestore para obtener role, sede e isSuperAdmin
+        let profile = { role: 'estudiante', sede: null, isSuperAdmin: false };
+        try {
+          profile = await getUserProfile(currentUser.uid);
+        } catch (profileErr) {
+          console.warn("Aviso obteniendo perfil de usuario:", profileErr);
+        }
+
+        // isSuperAdmin: true si está en la lista de emails privilegiados O si Firestore lo dice
+        const superAdminByEmail = SUPER_ADMIN_EMAILS.includes(currentUser.email);
+        const resolvedIsSuperAdmin = superAdminByEmail || profile.isSuperAdmin;
+        const resolvedRole = resolvedIsSuperAdmin ? 'superadmin' : (profile.role || 'estudiante');
+
+        setRole(resolvedRole);
+        setSede(profile.sede || null);
+        setIsSuperAdmin(resolvedIsSuperAdmin);
+
+        // Construir enrichedUser combinando Firebase Auth con datos de Firestore
+        const enrichedUser = {
+          ...currentUser,
+          role: resolvedRole,
+          sede: profile.sede || null,
+          isSuperAdmin: resolvedIsSuperAdmin,
+          displayName: profile.displayName || currentUser.displayName,
+          photoURL: profile.photoURL || currentUser.photoURL,
+        };
+
+        // CUALQUIER USUARIO AUTENTICADO CON GOOGLE TIENE ACCESO INMEDIATO Y PLENO
+        setUser(enrichedUser);
 
         try {
           const sid = await startSession(currentUser.uid);
@@ -75,6 +112,8 @@ export function AuthProvider({ children }) {
         }
       } catch (error) {
         console.warn("Aviso no fatal durante la preparación de sesión:", error);
+        // Si falla todo, al menos dejamos al usuario autenticado sin enriquecer
+        setUser(currentUser);
       } finally {
         setLoading(false);
       }
@@ -90,7 +129,7 @@ export function AuthProvider({ children }) {
         alert('⚠️ ATENCIÓN: El botón de Google está conectado, pero necesita tus credenciales de Firebase en el archivo .env.local para funcionar.\n\nPor favor revisa el chat para ver los pasos de cómo crear tu cuenta gratuita de Firebase.');
         return;
       }
-      
+
       await signInWithPopup(auth, googleProvider);
     } catch (error) {
       console.error("Error signing in with Google", error);
@@ -105,7 +144,18 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, sessionId, loginWithGoogle, logout, loading, isAdmin, authError }}>
+    <AuthContext.Provider value={{
+      user,
+      sessionId,
+      loginWithGoogle,
+      logout,
+      loading,
+      isAdmin,
+      authError,
+      isSuperAdmin,
+      role,
+      sede,
+    }}>
       {loading ? (
         <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: '#0a1128', color: '#ffb703'}}>
           <div style={{width: '50px', height: '50px', border: '5px solid rgba(255,183,3,0.3)', borderTop: '5px solid #ffb703', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '1rem'}}></div>
