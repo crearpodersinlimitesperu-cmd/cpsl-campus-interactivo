@@ -1292,10 +1292,35 @@ export const moduloAprendiz = [
     subtitle: 'Cómo crear valor irresistible reduciendo el esfuerzo y sacrificio a cero',
     summary: 'Alex Hormozi descubrió que el valor percibido es como una fracción matemática.',
     content: `
-      <div class="alert-info" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;">
-        <h4 style="margin: 0 0 0.5rem 0; color: #fbbf24;">La Ecuación Científica de Valor</h4>
-        <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 1.05rem; color: #fde047; text-align: center; margin: 0.8rem 0;">
-          Valor = (Resultado Anhelado [El Sueño] × Probabilidad Percibida de Logro) / (Retraso Temporal [Espera] × Esfuerzo y Sacrificio)
+      <div class="alert-info" style="background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; text-align: center;">
+        <h4 style="margin: 0 0 1rem 0; color: #fbbf24; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">La Ecuación de Valor</h4>
+        
+        <div style="display: inline-flex; flex-direction: column; align-items: center; width: 100%; max-width: 440px; margin: 0 auto;">
+          
+          <!-- Numerador: Lo que suma valor -->
+          <div style="background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.05)); border: 1px solid rgba(16,185,129,0.4); padding: 12px 15px; border-radius: 12px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 12px rgba(16,185,129,0.1);">
+            <span style="color: #34d399; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">⬆️ Maximiza esto</span>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+              <span style="color: #fff; font-weight: 700; font-size: 1.05rem;">🎯 Resultado Soñado</span>
+              <span style="color: #10b981; font-weight: 900; font-size: 1.2rem;">×</span>
+              <span style="color: #fff; font-weight: 700; font-size: 1.05rem;">✅ Certeza de Logro</span>
+            </div>
+          </div>
+
+          <!-- Barra divisoria -->
+          <div style="width: 100%; height: 4px; background: linear-gradient(90deg, transparent, rgba(251,191,36,0.6), transparent); margin: 14px 0; border-radius: 4px; position: relative;">
+            <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #1e1e1e; padding: 0 10px; color: #fbbf24; font-weight: 900; font-size: 1.1rem;">÷</div>
+          </div>
+
+          <!-- Denominador: Lo que resta valor -->
+          <div style="background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.05)); border: 1px solid rgba(239,68,68,0.4); padding: 12px 15px; border-radius: 12px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 12px rgba(239,68,68,0.1);">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+              <span style="color: #fff; font-weight: 700; font-size: 1.05rem;">⏳ Retraso / Espera</span>
+              <span style="color: #ef4444; font-weight: 900; font-size: 1.2rem;">×</span>
+              <span style="color: #fff; font-weight: 700; font-size: 1.05rem;">🧗 Esfuerzo / Sacrificio</span>
+            </div>
+            <span style="color: #f87171; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">⬇️ Reduce esto a cero</span>
+          </div>
         </div>
       </div>
 
