@@ -862,7 +862,7 @@ export default function GamificacionStaff({ defaultTab = 'aprendiz' }) {
 
             <div 
               style={{ lineHeight: 1.7, fontSize: '0.95rem', color: '#e2e8f0' }}
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedAprendizLesson.contentHtml) }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize((selectedAprendizLesson.content || selectedAprendizLesson.contentHtml)) }}
             />
 
             <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'flex-end' }}>
