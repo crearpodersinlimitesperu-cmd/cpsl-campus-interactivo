@@ -23,6 +23,7 @@ import GamificacionStaff from './pages/GamificacionStaff'
 import BrandscriptGuionesMJ from './pages/BrandscriptGuionesMJ'
 import VendeSinVender from './pages/VendeSinVender'
 import MonitorVuelos from './pages/MonitorVuelos'
+import MonitorImos from './pages/MonitorImos'
 import NotFound from './pages/NotFound'
 import Glosario from './pages/Glosario'
 import MasterclassDistinciones from './pages/MasterclassDistinciones'
@@ -221,6 +222,7 @@ function App() {
           <Route path="/vende-sin-vender" element={<ProtectedRoute><VendeSinVender /></ProtectedRoute>} />
           <Route path="/causa" element={<ProtectedRoute><VendeSinVender /></ProtectedRoute>} />
           <Route path="/monitor-vuelos" element={<AdminRoute><MonitorVuelos /></AdminRoute>} />
+          <Route path="/monitor-imos" element={<AdminRoute><MonitorImos /></AdminRoute>} />
           <Route path="/retos" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
           <Route path="/retos-aprendizaje" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
           <Route path="/tareas-qt" element={<ProtectedRoute><TareasQuantumTeam /></ProtectedRoute>} />
