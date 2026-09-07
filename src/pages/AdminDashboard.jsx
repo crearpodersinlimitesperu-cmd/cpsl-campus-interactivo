@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+﻿import { useEffect, useState, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { getAllUsers, getUserSessions } from '../services/db';
 import { generarDiagnosticoAlumno } from '../services/ai';
@@ -258,9 +258,6 @@ export default function AdminDashboard() {
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <button className="btn-secondary" onClick={() => window.location.href = '/monitor-vuelos'}>
             ✈️ Monitor de Vuelos
-          </button>
-          <button className="btn-secondary" style={{ borderColor: 'var(--crear-gold)', color: 'var(--crear-gold)' }} onClick={() => window.location.href = '/monitor-imos'}>
-            🦅 Monitor de IMOs
           </button>
           <button className="btn-secondary" onClick={() => alert('Próximamente: Portafolio PMO')}>
             📈 Portafolio PMO
