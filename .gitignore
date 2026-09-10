@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Environment variables — NEVER commit real credentials
+.env
+.env.local
+.env.*.local
+.env.*
+ACCESOS.md
+*credentials*
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
