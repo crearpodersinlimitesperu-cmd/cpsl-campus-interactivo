@@ -1,3 +1,7 @@
+---
+render_with_liquid: false
+---
+
 # 📋 AUDITORÍA INTEGRAL DE CÓDIGO FUENTE — CAMPUS INTERACTIVO INTERRUPTION
 **Fecha de Corte:** `2026-08-17 18:23:22`  
 **Estado:** ✅ Remediaciones de Fase 0 Aplicadas y Build Exitoso  
@@ -12822,4 +12826,3 @@ export default defineConfig({
 ```
 
 ---
-

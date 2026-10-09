@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import {
+  browserLocalPersistence,
+  browserSessionPersistence,
+  getAuth,
+  GoogleAuthProvider,
+  indexedDBLocalPersistence,
+  initializeAuth,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -12,6 +19,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+let auth;
+try {
+  auth = initializeAuth(app, {
+    persistence: [
+      browserLocalPersistence,
+      browserSessionPersistence,
+      indexedDBLocalPersistence,
+    ],
+  });
+} catch (error) {
+  if (error?.code !== "auth/already-initialized") {
+    throw error;
+  }
+  auth = getAuth(app);
+}
+
+export { auth };
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
