@@ -1,6 +1,4 @@
----
-render_with_liquid: false
----
+{% raw %}
 
 # 📋 AUDITORÍA INTEGRAL DE CÓDIGO FUENTE — CAMPUS INTERACTIVO INTERRUPTION
 **Fecha de Corte:** `2026-08-17 18:23:22`  
@@ -12826,3 +12824,4 @@ export default defineConfig({
 ```
 
 ---
+{% endraw %}
