@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../lib/firebase';
-import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { signInWithPopup, signOut, onAuthStateChanged, getAuth } from 'firebase/auth';
 import { googleProvider } from '../lib/firebase';
 import { initializeUser, startSession, getUserProfile } from '../services/db';
 import { SUPER_ADMIN_EMAILS } from '../config/permissions';
@@ -124,13 +124,11 @@ export function AuthProvider({ children }) {
   const loginWithGoogle = async () => {
     try {
       setAuthError(null);
-      // Verificar si las credenciales son las de prueba
-      if (import.meta.env.VITE_FIREBASE_API_KEY === 'YOUR_API_KEY_HERE') {
-        alert('⚠️ ATENCIÓN: El botón de Google está conectado, pero necesita tus credenciales de Firebase en el archivo .env.local para funcionar.\n\nPor favor revisa el chat para ver los pasos de cómo crear tu cuenta gratuita de Firebase.');
-        return;
+      const activeAuth = auth || getAuth();
+      if (!activeAuth) {
+        throw new Error("El servicio de autenticación no está inicializado.");
       }
-
-      await signInWithPopup(auth, googleProvider);
+      await signInWithPopup(activeAuth, googleProvider);
     } catch (error) {
       console.error("Error signing in with Google", error);
       if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
