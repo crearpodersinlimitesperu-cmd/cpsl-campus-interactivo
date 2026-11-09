@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   indexedDBLocalPersistence,
   initializeAuth,
+  browserPopupRedirectResolver,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -33,6 +34,7 @@ try {
       browserLocalPersistence,
       browserSessionPersistence,
     ],
+    popupRedirectResolver: browserPopupRedirectResolver,
   });
 } catch (error) {
   auth = getAuth(app);
@@ -42,7 +44,7 @@ if (!auth) {
   auth = getAuth(app);
 }
 
-export { auth };
+export { auth, browserPopupRedirectResolver };
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });

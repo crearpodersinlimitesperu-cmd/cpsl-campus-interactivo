@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../lib/firebase';
+import { auth, googleProvider, browserPopupRedirectResolver } from '../lib/firebase';
 import { signInWithPopup, signOut, onAuthStateChanged, getAuth } from 'firebase/auth';
-import { googleProvider } from '../lib/firebase';
 import { initializeUser, startSession, getUserProfile } from '../services/db';
 import { SUPER_ADMIN_EMAILS } from '../config/permissions';
 
@@ -128,7 +127,7 @@ export function AuthProvider({ children }) {
       if (!activeAuth) {
         throw new Error("El servicio de autenticación no está inicializado.");
       }
-      await signInWithPopup(activeAuth, googleProvider);
+      await signInWithPopup(activeAuth, googleProvider, browserPopupRedirectResolver);
     } catch (error) {
       console.error("Error signing in with Google", error);
       if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
