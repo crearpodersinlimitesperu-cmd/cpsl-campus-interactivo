@@ -4,7 +4,6 @@ import {
   browserSessionPersistence,
   getAuth,
   GoogleAuthProvider,
-  indexedDBLocalPersistence,
   initializeAuth,
   browserPopupRedirectResolver,
 } from "firebase/auth";
@@ -28,9 +27,10 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 let auth;
 try {
+  // Se usa browserLocalPersistence (localStorage) para evitar el bug de navegadores/Firebase 12.17 donde
+  // la pestaña pierde visibilidad durante el popup OAuth y gatilla "Database is closing/hidden" en IndexedDB
   auth = initializeAuth(app, {
     persistence: [
-      indexedDBLocalPersistence,
       browserLocalPersistence,
       browserSessionPersistence,
     ],

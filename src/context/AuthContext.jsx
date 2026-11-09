@@ -127,7 +127,18 @@ export function AuthProvider({ children }) {
       if (!activeAuth) {
         throw new Error("El servicio de autenticación no está inicializado.");
       }
-      await signInWithPopup(activeAuth, googleProvider, browserPopupRedirectResolver);
+      try {
+        await signInWithPopup(activeAuth, googleProvider, browserPopupRedirectResolver);
+      } catch (popupErr) {
+        // En caso de que el navegador haya cerrado IndexedDB por cambio de visibilidad de pestaña:
+        const msg = String(popupErr?.message || '');
+        if (msg.includes('closing/hidden') || msg.includes('closing') || popupErr?.code === 'auth/internal-error') {
+          console.warn("Detectado conflicto en almacenamiento del navegador, reintentando de inmediato...", popupErr);
+          await signInWithPopup(activeAuth, googleProvider, browserPopupRedirectResolver);
+          return;
+        }
+        throw popupErr;
+      }
     } catch (error) {
       console.error("Error signing in with Google", error);
       if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
