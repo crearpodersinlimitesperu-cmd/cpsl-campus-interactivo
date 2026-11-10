@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth, googleProvider, browserPopupRedirectResolver } from '../lib/firebase';
-import { signInWithPopup, signOut, onAuthStateChanged, getAuth } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged, getAuth, setPersistence, browserSessionPersistence } from 'firebase/auth';
 import { initializeUser, startSession, getUserProfile } from '../services/db';
 import { SUPER_ADMIN_EMAILS } from '../config/permissions';
 
@@ -132,10 +132,18 @@ export function AuthProvider({ children }) {
       } catch (popupErr) {
         // En caso de que el navegador haya cerrado IndexedDB por cambio de visibilidad de pestaña:
         const msg = String(popupErr?.message || '');
-        if (msg.includes('closing/hidden') || msg.includes('closing') || popupErr?.code === 'auth/internal-error') {
-          console.warn("Detectado conflicto en almacenamiento del navegador, reintentando de inmediato...", popupErr);
-          await signInWithPopup(activeAuth, googleProvider, browserPopupRedirectResolver);
-          return;
+        if (msg.includes('closing') || msg.includes('hidden') || popupErr?.code === 'auth/internal-error') {
+          console.warn("Detectado conflicto en almacenamiento IndexedDB del navegador, aplicando resiliencia...", popupErr);
+          try {
+            await setPersistence(activeAuth, browserSessionPersistence);
+            await new Promise(r => setTimeout(r, 600));
+            await signInWithPopup(activeAuth, googleProvider);
+            return;
+          } catch (retryErr) {
+            console.warn("Reintentando con redirección oficial...", retryErr);
+            await signInWithRedirect(activeAuth, googleProvider);
+            return;
+          }
         }
         throw popupErr;
       }
