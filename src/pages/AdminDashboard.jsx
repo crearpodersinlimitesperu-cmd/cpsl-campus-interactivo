@@ -256,15 +256,6 @@ export default function AdminDashboard() {
         </div>
 
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <button className="btn-secondary" onClick={() => window.location.href = '/monitor-vuelos'}>
-            ✈️ Monitor de Vuelos
-          </button>
-          <button className="btn-secondary" onClick={() => alert('Próximamente: Portafolio PMO')}>
-            📈 Portafolio PMO
-          </button>
-          <button className="btn-secondary" onClick={() => alert('Próximamente: OKRs Cascade')}>
-            🎯 OKRs (Cascade)
-          </button>
           <div className="glass-panel" style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
             <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>{users.length} Líderes Registrados</span>
